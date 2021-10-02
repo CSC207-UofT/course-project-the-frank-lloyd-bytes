@@ -1,6 +1,30 @@
-## Replace this README.md!
+# T-card app
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+###Features:
+1. This app allows user to have a virtual T-card in their phone and have a 
+record of their profile(name, date of birth, student id, UTORid and ...).
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+
+2. This app gives user access to facilities in the campus, such as 
+teaching building, lab rooms, library, gym and so on. 
+
+
+3. This app has a payment system similar to Apple Pay. By simply tapping
+users can make a payment in the bookstore, cafe or any store authorised 
+by UofT. Users can provide their banking information or deposit directly into the app. 
+
+###Some potential classes:
+
+-User : contains a user's personal profile(name, age, year of study, UTORid and so on).
+
+-PaymentProfile: contains a user's information for payment(deposit amount, credit card)
+
+-Payer :complete a payment
+
+-Access: contain the access a user have and can add/delete access.
+
+-Some store classes: used to test Payer
+
+-Some facility classes: used to test Access
+###Some potential interface:
+-

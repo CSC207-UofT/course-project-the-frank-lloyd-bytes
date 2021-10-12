@@ -1,0 +1,15 @@
+Class name: Student
+Parent class: User
+Subclasses: None
+
+Responsibilities:
+* Create unique security identifier matched to Utorid.
+* Store Student information (Program,Level,Clubs,Groups)
+* Match student ID to Student Wallet
+* Store unique identifier extensions that match Student affiliations and permissions.
+
+
+Collaborators:
+*User Database
+*Wallet
+*Merchant

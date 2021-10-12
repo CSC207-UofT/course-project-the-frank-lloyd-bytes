@@ -1,0 +1,16 @@
+Class name: Faculty
+Parent class: User
+Subclasses: None
+
+Responsibilities:
+* Create unique security identifier matched to Faculty and Utorid.
+* Store individual's Department information, position.
+* Match faculty ID to Department services
+* Store unique identifier extensions that match Department affiliations and permissions.
+
+
+Collaborators:
+*User Database
+*Wallet
+*Merchant
+** Entities? Department permissions

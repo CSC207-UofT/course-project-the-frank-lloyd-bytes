@@ -1,0 +1,16 @@
+Class name: Menu
+Parent class: None
+Subclasses: TBD
+
+Responsibilities:
+* Provide the Login service
+* Register Facility, Merchant or User.
+* Provide Logout
+
+
+Collaborators:
+* User Class
+* Wallet Class
+* Merchant Class
+* Facility Class
+* GUI?

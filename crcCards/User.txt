@@ -1,0 +1,15 @@
+Class name: User (Abstract)
+Parent class: None
+Subclasses: Student, Faculty, Merchant
+
+Responsibilities:
+* Create unique security identifier matched to User info.
+* Store User info.
+* Store unique identifier extensions that match user criteria.
+
+
+Collaborators:
+*User Database
+*Child Classes
+
+

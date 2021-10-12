@@ -1,0 +1,20 @@
+Class name: Criteria
+Parent class:
+Subclasses: None
+
+Responsibilities:
+* Stores groups of access and interfaces permissions.
+* creates groups/rooms/clubs/discounts
+* grants access permissions/removes acess permissions
+
+Methods:
+-create 'structures' ie group/club/room/discount group/etc
+-add permissions
+-delete permissions
+
+
+Collaborators:
+*User
+*Faculty
+*Merchant
+* Discount class or interface?

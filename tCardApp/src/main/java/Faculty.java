@@ -6,7 +6,12 @@ import java.util.ArrayList;
  * TODO Attributes and Representational Invarients
  */
 public class Faculty extends User{
-    public Faculty(ArrayList information) {
-        super(information);
+    public Faculty(String password, String status, ArrayList<String> accesses) {
+        super(null, password, status, accesses);
+    }
+
+    @Override
+    public String profileDisplay() {
+        // TODO: finish writing method
     }
 }

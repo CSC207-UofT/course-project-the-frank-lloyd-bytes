@@ -1,4 +1,4 @@
-Class name: Menu
+Class name: Menu(Abstract)
 Parent class: None
 Subclasses: TBD
 

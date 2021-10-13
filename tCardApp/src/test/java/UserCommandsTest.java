@@ -5,4 +5,14 @@
  */
 
 public class UserCommandsTest {
+//    TODO createStudentTest to assert information creates an
+//     instance of Student class.
+
+//    TODO createWalletTest assert creation of correctly formed
+//    instance of Wallet
+
+//    TODO getWalletBalanceTest asserts correct return of properly formated
+//    wallet balance
+
+//    TODO
 }

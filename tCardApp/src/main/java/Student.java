@@ -1,3 +1,5 @@
+package java;
+
 import java.util.ArrayList;
 
 /**
@@ -10,12 +12,20 @@ import java.util.ArrayList;
  */
 
 public class Student extends User{
-    public Student(String utorID, String password, String status, ArrayList<String> accesses) {
-        super(utorID, password, status, accesses);
+    public Student(String utorID, String password, String status, String identity) {
+        super(utorID, password, status, identity);
     }
 
+    /**
+     *   The first item in accesses should be the program of the student.
+     */
     @Override
     public String profileDisplay() {
-        // TODO: finish writing method
+        return "User Name: " + this.profile.get(1) + "\n" + "Status: " + this.profile.get(2) + "\n"
+                + "Program: " + this.accesses.get(0) + "\n" + "Qualification: " + this.accesses;
+    }
+    @Override
+    public ArrayList<String> getProfile(){
+        return this.profile;
     }
 }

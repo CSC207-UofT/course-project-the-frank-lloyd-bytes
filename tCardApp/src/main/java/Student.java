@@ -10,7 +10,12 @@ import java.util.ArrayList;
  */
 
 public class Student extends User{
-    public Student(ArrayList information) {
-        super(information);
+    public Student(String utorID, String password, String status, ArrayList<String> accesses) {
+        super(utorID, password, status, accesses);
+    }
+
+    @Override
+    public String profileDisplay() {
+        // TODO: finish writing method
     }
 }

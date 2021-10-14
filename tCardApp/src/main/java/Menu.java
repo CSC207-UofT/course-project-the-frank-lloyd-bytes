@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 /**
  * This class will temporarily get user data from terminal interface,
- * and from Userdata. However, it will employ interfaces in future for this functionality.
+ * and from Userdata. MEANING THIS IS BOTH PRESENTATION AND CONTROLLER LEVEL COMBINED>
+ * However, it will employ separate interfaces in future for this functionality.
  * NOTE, ALL VARIABLES ARE TEMPORARY FOR NOW! WE WILL DETERMINE TYPE OR CLASS USAGE
  * AFTER FLOW IS DETERMINED:)
  */
@@ -23,7 +24,9 @@ public class Menu {
 //       TODO  2. If saved run method with populated menu options for saved state.
 //
     }
-//  TODO   newUserMenu method
+//  TODO   newUserMenu method will need to employ either a form or multiple prompts
+//    in order to retrieve user data ( Example for student prompt form
+//    Tcard #, Name, email, and other personal info.)
     public void newUserMenu(ArrayList newUser) {
 
     }

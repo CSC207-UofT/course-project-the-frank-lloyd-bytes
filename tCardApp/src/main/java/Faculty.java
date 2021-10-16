@@ -5,13 +5,11 @@ import java.util.ArrayList;
 /**
  * Implements Faculty class which is a child of User class
  *
- * TODO Attributes and Representational Invarients
  */
 public class Faculty extends User{
-    public Faculty(String ID, String password, String status, String identity) {
-        super(ID, password, status, identity);
+    public Faculty(ArrayList<String> info) {
+        super(info);
     }
-
     /**
      *   The first item in accesses should be the department of the faculty.
      */
@@ -24,5 +22,10 @@ public class Faculty extends User{
     @Override
     public ArrayList<String> getProfile(){
         return this.profile;
+    }
+
+    @Override
+    public String getId() {
+        return this.profile.get(1);
     }
 }

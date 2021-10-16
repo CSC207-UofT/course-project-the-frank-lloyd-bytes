@@ -1,0 +1,2 @@
+// Each line represent a user. Information stored in the following order: 0.Legal name 1.Utorid  2.Password 3. Status(student or faculty) 4.Student number 5.Email 6.Program(s)/Department 7.Level
+JerryHuang jerry9981 password! student 100234234 jerry.huang@mail.utoronto.ca Math 3

@@ -12,18 +12,31 @@ public abstract class User {
 
     protected ArrayList<String> profile = new ArrayList<>();
     protected ArrayList<String> accesses = new ArrayList<>();
-    final int UTOR_ID = 0;
-    final int PASSWORD = 1;
-    final int STATUS = 2;
-    final int Identity = 3;
+    final int LEAGLName = 0;
+    final int UTOR_ID = 1;
+    final int PASSWORD = 2;
+    final int STATUS = 3;
+    final int IDNumber = 4;
+    final int Email = 5;
+    final int BelongTo = 6;
 
-    public User(String utorID, String password, String status, String identity) {
-        this.profile.set(UTOR_ID, utorID);
-        this.profile.set(PASSWORD, password);
-        this.profile.set(STATUS, status);
-        this.profile.set(Identity, identity);
-        this.accesses.set(0, identity);
+    public User(ArrayList<String> info) {
+        this.profile.set(LEAGLName, info.get(LEAGLName));
+        this.profile.set(UTOR_ID, info.get(UTOR_ID));
+        this.profile.set(PASSWORD,info.get(PASSWORD));
+        this.profile.set(STATUS, info.get(STATUS));
+        this.profile.set(IDNumber, info.get(IDNumber));
+        this.profile.set(Email, info.get(Email));
+        this.profile.set(BelongTo, info.get(BelongTo));
+        this.accesses.set(0,info.get(BelongTo));
     }
+
+    /**
+     * Get the id of this user.
+     * @return a the user's id.
+     */
+    public  abstract String getId();
+
 
     /**
      * This method is for showing profile.
@@ -38,7 +51,6 @@ public abstract class User {
      */
     public abstract ArrayList<String> getProfile();
 
-//    TODO create an accessible invariant with profile data that can be accessed polymorphically
-//    so that it can be saved and loaded regardless of child class.
+
 
 }

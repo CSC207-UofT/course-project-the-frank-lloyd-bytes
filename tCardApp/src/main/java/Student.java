@@ -6,14 +6,13 @@ import java.util.ArrayList;
  * Class student is a child class of User, it initializes an instance of
  * student user class, stores student data and profile, T card, unique ID
  *
- * TODO Attributes and Representational Invariants
  *
  *
  */
 
 public class Student extends User{
-    public Student(String utorID, String password, String status, String identity) {
-        super(utorID, password, status, identity);
+    public Student(ArrayList<String> info) {
+        super(info);
     }
 
     /**
@@ -27,5 +26,10 @@ public class Student extends User{
     @Override
     public ArrayList<String> getProfile(){
         return this.profile;
+    }
+
+    @Override
+    public String getId(){
+        return this.profile.get(1);
     }
 }

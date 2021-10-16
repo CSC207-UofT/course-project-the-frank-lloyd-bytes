@@ -1,4 +1,4 @@
-package java;
+package login;
 
 public interface InputBoundary {
         UserCommands.LoginResult logIn(String username, String password);

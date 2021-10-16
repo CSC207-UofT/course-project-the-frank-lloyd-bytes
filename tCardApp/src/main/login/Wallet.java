@@ -1,4 +1,4 @@
-// This class will hold financial information linked to unique userID
+package login;// This class will hold financial information linked to unique userID
 // It will allow methods to 1. Load funds 2. Check Balance 3. Deduct Funds 4. Provide Transaction History
 // It might be better to make this a 'Card class' with limited basic functionality, then extend the financial abilities.
 // But for the time being we can make it simple.

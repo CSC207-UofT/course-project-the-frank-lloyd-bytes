@@ -1,4 +1,4 @@
-package java;
+package login;
 
 import java.util.ArrayList;
 
@@ -20,8 +20,11 @@ public class Student extends User{
      */
     @Override
     public String profileDisplay() {
-        return "User Name: " + this.profile.get(1) + "\n" + "Status: " + this.profile.get(2) + "\n"
-                + "Program: " + this.accesses.get(0) + "\n" + "Qualification: " + this.accesses;
+        return "First Name: " + this.profile.get(LEAGLNameF)+ "\n" +  "Last Name: " + this.profile.get(LEAGLNameL) +
+                "\n"+ "UserId:" + this.profile.get(UTOR_ID) + "\n" + "Status: " + this.profile.get(STATUS) + "\n" +
+                "Student ID: " + this.profile.get(IDNumber) + "\n" + "Email: " + this.profile.get(Email) + "\n" +
+                "Year of Study: " + this.profile.get(YearsInUOFT) + "\n"+ "Program: " + this.profile.get(BelongTo) +
+                "\n" + "Criteria: " + this.accesses;
     }
     @Override
     public ArrayList<String> getProfile(){
@@ -30,6 +33,6 @@ public class Student extends User{
 
     @Override
     public String getId(){
-        return this.profile.get(1);
+        return this.profile.get(2);
     }
 }

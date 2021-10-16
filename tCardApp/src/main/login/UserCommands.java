@@ -1,5 +1,4 @@
-package java;
-
+package login;
 
 public class UserCommands implements InputBoundary {
     private final UserList users;

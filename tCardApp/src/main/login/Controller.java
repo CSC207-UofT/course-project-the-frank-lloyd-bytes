@@ -1,4 +1,4 @@
-package java;
+package login;
 
 public class Controller {
 
@@ -36,7 +36,7 @@ public class Controller {
                 System.out.println(inputBoundary.getProfile(userId));
                 break;
             case FAILURE:
-                System.out.println("Failed to login!");
+                System.out.println("Incorrect Password! Failed to login!");
                 break;
 
         }

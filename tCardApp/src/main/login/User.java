@@ -1,4 +1,4 @@
-package java;
+package login;
 
 import java.util.ArrayList;
 
@@ -12,23 +12,27 @@ public abstract class User {
 
     protected ArrayList<String> profile = new ArrayList<>();
     protected ArrayList<String> accesses = new ArrayList<>();
-    final int LEAGLName = 0;
-    final int UTOR_ID = 1;
-    final int PASSWORD = 2;
-    final int STATUS = 3;
-    final int IDNumber = 4;
-    final int Email = 5;
-    final int BelongTo = 6;
+    final int LEAGLNameF = 0;
+    final int LEAGLNameL = 1;
+    final int UTOR_ID = 2;
+    final int PASSWORD = 3;
+    final int STATUS = 4;
+    final int IDNumber = 5;
+    final int Email = 6;
+    final int YearsInUOFT = 7;
+    final int BelongTo = 8;
 
     public User(ArrayList<String> info) {
-        this.profile.set(LEAGLName, info.get(LEAGLName));
-        this.profile.set(UTOR_ID, info.get(UTOR_ID));
-        this.profile.set(PASSWORD,info.get(PASSWORD));
-        this.profile.set(STATUS, info.get(STATUS));
-        this.profile.set(IDNumber, info.get(IDNumber));
-        this.profile.set(Email, info.get(Email));
-        this.profile.set(BelongTo, info.get(BelongTo));
-        this.accesses.set(0,info.get(BelongTo));
+        this.profile.add(info.get(LEAGLNameF));
+        this.profile.add(info.get(LEAGLNameL));
+        this.profile.add(info.get(UTOR_ID));
+        this.profile.add(info.get(PASSWORD));
+        this.profile.add(info.get(STATUS));
+        this.profile.add(info.get(IDNumber));
+        this.profile.add(info.get(Email));
+        this.profile.add(info.get(YearsInUOFT));
+        this.profile.add(info.get(BelongTo));
+        this.accesses.add(info.get(BelongTo));
     }
 
     /**

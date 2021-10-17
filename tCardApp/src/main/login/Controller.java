@@ -3,25 +3,24 @@ package login;
 public class Controller {
 
     /**
-     * The input boundary for the login use case.
+     * The input boundary for the Usercommands.
      */
     private final  InputBoundary inputBoundary;
 
     /**
-     * A new LoginController for the use case defined by the LoginInputBoundary.
+     * Create a controller with inputBoundary.
      *
-     * @param inputBoundary the input boundary for the login use case
+     * @param inputBoundary the input boundary for Usercommands
      */
     public Controller(InputBoundary inputBoundary) {
         this.inputBoundary = inputBoundary;
     }
 
     /**
-     * Run the login use case where username is attempting to log into their
-     * account with a password attempt.
+     * Run the Usercommands to log in the account with a userId and a password.
      *
-     * @param userId the username
-     * @param password the password attempt
+     * @param userId to find a match account
+     * @param password to try to log in to that account
      */
     public void runLogin(String userId, String password) {
         UserCommands.LoginResult result = inputBoundary.logIn(userId, password);

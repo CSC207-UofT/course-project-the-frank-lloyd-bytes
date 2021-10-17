@@ -6,7 +6,7 @@ Subclasses: none
 Level:
 
 Responsibilities:
-- Outputs the login results
+* Outputs the login results
 
 Collaborators:
-UserCommands
+* UserCommands

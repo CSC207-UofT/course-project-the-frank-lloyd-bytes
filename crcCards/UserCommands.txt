@@ -1,12 +1,16 @@
-TODO finish this CRC card
-
 Class name: UserCommands
 Parent class: InputBoundary
 Subclasses: none
-Level: controller
+Level: use case
 
 Responsibilities:
+* Implement how login function
+* Get user's profile
+* Other commands in the future
+
 
 Collaborators:
-
+* User
+* UserList
+* Controller
 

@@ -14,5 +14,4 @@ public class Menu {
         String password = scanner.nextLine();
         controller.runLogin(username, password);
     }
-
 }

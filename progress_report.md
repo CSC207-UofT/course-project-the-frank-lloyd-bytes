@@ -68,7 +68,7 @@ task interface with clearer work assignments to prevent double coding issues.
 Ming: Write classes and interfaces for the code, understand more about what is good design and how to implement.
 Yanbin: Try to learn more about GUI and android development. Have a clearer understanding of desgin patterns and desgin principle and apply these to our program. 
 Kristal: Improve the design of the app by revising the specifications and better defining the relationship of the classes with each other (+ adding more user case classes). Help with the coding.
-Jesse:
+Jesse: I will be working on entities and unit tests and to improve the design according to clean architecture.
 
 
 

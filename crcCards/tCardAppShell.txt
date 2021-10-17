@@ -1,12 +1,16 @@
-TODO finish this CRC card
-
 Class name: tCardAppShell
 Parent class: none
 Subclasses: none
-Level: top
+Level: top/driver/runner
 
 Responsibilities:
+* Sets up everything for the program to run
+* The main runner of this program
 
 Collaborators:
+*Menu
+*UserList
+*UserCommands
+*Controller
 
 

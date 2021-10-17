@@ -3,7 +3,7 @@ TODO finish this CRC card
 Class name: Menu
 Parent class: none
 Subclasses: TBD
-Level:
+Level: Basic Command Line Interface
 
 Responsibilities:
 * Provide the Login service

@@ -42,8 +42,8 @@ How does a barcode work?
 How would it work when we add more merchants and facilities
 
 **What Has Worked Well For Our Design:**
-The Use Case classes connect our controllers, so modifying the code in one controller won’t affect the other one.
-The controllers display the information stored in the entity classes for the user?
+Successfully implemented the User class and it's subclasses. Constructed a basic program structrue that follows the Clean Architecture. The Use Case classes connect our controllers, so modifying the code in one controller won’t affect the other one.
+The controllers display the information stored in the entity classes for the user.
 Our communication and teamwork within the team
 
 **What Each Group Member Has Been Working On (and future plans):**
@@ -59,7 +59,7 @@ Jesse: Wrote the test cases for the skeleton code.
 Jonah:
 Peter:
 Ming: Write classes and interfaces for the code, understand more about what is good design and how to implement.
-Yanbin:
+Yanbin: Try to learn more about GUI and android development. Have a clearer understanding of desgin patterns and desgin principle and apply these to our program. 
 Kristal: Improve the design of the app by revising the specifications and better defining the relationship of the classes with each other (+ adding more user case classes). Help with the coding.
 Jesse:
 

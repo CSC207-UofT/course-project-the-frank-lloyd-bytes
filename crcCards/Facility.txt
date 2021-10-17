@@ -1,0 +1,14 @@
+Class name: Facility
+Parent class: none
+Subclasses: none
+Level: use case
+
+Responsibilities:
+* Holds facility info (name, address, description, hours, list of criteria for access)
+* Grant/deny access to facility
+
+Collaborators:
+* TCard
+* Criteria
+
+

@@ -1,12 +1,14 @@
+TODO finish this CRC card
+
 Class name: Menu
-Parent class: None
+Parent class: none
 Subclasses: TBD
+Level:
 
 Responsibilities:
 * Provide the Login service
 * Register Facility, Merchant or User.
 * Provide Logout
-
 
 Collaborators:
 * User Class

@@ -1,15 +1,13 @@
 Class name: User (Abstract)
-Parent class: None
-Subclasses: Student, Faculty, Merchant
+Parent class: none
+Subclasses: Student, Faculty
+Level: entity
 
 Responsibilities:
-* Create unique security identifier matched to User info.
-* Store User info.
-* Store unique identifier extensions that match user criteria.
-
+* Holds user info (legal name, UTORid, password, status: student/faculty, U of T email, ID number)
 
 Collaborators:
-*User Database
-*Child Classes
+* Student
+* Faculty
 
 

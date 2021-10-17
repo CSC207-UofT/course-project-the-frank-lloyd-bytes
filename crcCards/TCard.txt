@@ -1,0 +1,15 @@
+Class name: TCard
+Parent class: none
+Subclasses: none
+Level: use case
+
+Responsibilities:
+* Holds bar code
+* Scan card
+* Provides access to info and wallet of the associated user
+
+Collaborators:
+* Wallet
+* User
+
+

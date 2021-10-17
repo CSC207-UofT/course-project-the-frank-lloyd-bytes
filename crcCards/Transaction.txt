@@ -1,0 +1,10 @@
+Class name: Transaction
+Parent class: none
+Subclasses: none
+Level: entity
+
+Responsibilities:
+* Holds information for a financial transaction (amount, type: deposit/withdrawal, date)
+
+Collaborators:
+* none

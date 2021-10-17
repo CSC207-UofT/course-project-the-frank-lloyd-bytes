@@ -40,6 +40,8 @@ How would we make a transaction? How would the code know when to start the purch
 Would it be cleaner to get rid of the Admins and just register faculties and merchants by the code reading CSV forms they’ll fill in?
 How does a barcode work?
 How would it work when we add more merchants and facilities
+Communication has been good, but still needs improvement. We double coded/designed a few things which 
+a better workflow system could have prevented, so an open question is how do we do this?
 
 **What Has Worked Well For Our Design:**
 Successfully implemented the User class and it's subclasses. Constructed a basic program structrue that follows the Clean Architecture. The Use Case classes connect our controllers, so modifying the code in one controller won’t affect the other one.
@@ -48,16 +50,21 @@ Our communication and teamwork within the team
 
 **What Each Group Member Has Been Working On (and future plans):**
 So far…
-Jonah: Wrote the Specifications and the CRC Model
-Peter: Questioned the CRC Model and specifications for improvement. Wrote the skeleton code.
+Jonah: Wrote the Specifications and the CRC Model. Maintained project flow. 
+Peter: Questioned the CRC Model and specifications for improvement. Wrote the skeleton code and first structure layers 
+    implementation in clean code design. Moved project forward and helped organize group. 
+    Created Kanban card system in git Project(didn't use this phase0).
 Ming: Helped with writing the specifications and the CRC Model. Wrote the walkthrough and the report.
-Yanbin: Helped with writing the specifications and the CRC Model. Wrote the skeleton code.
+Yanbin: Helped with writing the specifications and the CRC Model. Wrote the skeleton code. Also corrected layer
+    design issues. 
 Kristal: Questioned the CRC Model and specifications for improvement. Wrote the walkthrough and the report.
-Jesse: Wrote the test cases for the skeleton code.
+Jesse: Wrote the test cases for the skeleton code. Took a leadership role in organizing group. 
 
 **Future plans…**
 Jonah:
-Peter:
+Peter: With an eye towards expandability, keep the structure clean and agile. Look for structural inefficiency in code 
+and workflow. Help coding classes and try to get our testing up to a Test Driven model with Jesse. Create a project 
+task interface with clearer work assignments to prevent double coding issues. 
 Ming: Write classes and interfaces for the code, understand more about what is good design and how to implement.
 Yanbin: Try to learn more about GUI and android development. Have a clearer understanding of desgin patterns and desgin principle and apply these to our program. 
 Kristal: Improve the design of the app by revising the specifications and better defining the relationship of the classes with each other (+ adding more user case classes). Help with the coding.

@@ -1,7 +1,7 @@
 Class name: Facility
 Parent class: none
 Subclasses: none
-Level: use case
+Level: Entity
 
 Responsibilities:
 * Holds facility info (name, address, description, hours, list of criteria for access)

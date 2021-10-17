@@ -1,0 +1,21 @@
+Class name: Database
+Parent class: none
+Subclasses: none
+Level: top
+
+Responsibilities:
+* Holds data for all users of the app
+* Add user to database
+* Holds data for all merchants registered with the app
+* Add merchant to database
+* Holds data for all facilities for all merchants registered with the app
+* Add facility to database
+
+Collaborators:
+* User
+* Student
+* Faculty
+* Merchant
+* Facility
+
+

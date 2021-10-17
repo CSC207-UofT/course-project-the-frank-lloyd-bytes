@@ -1,0 +1,12 @@
+TODO finish this CRC card
+
+Class name: UserCommands
+Parent class: InputBoundary
+Subclasses: none
+Level: controller
+
+Responsibilities:
+
+Collaborators:
+
+

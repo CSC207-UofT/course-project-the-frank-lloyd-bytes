@@ -1,0 +1,12 @@
+Class name: Discount
+Parent class: none
+Subclasses: none
+Level: entity
+
+Responsibilities:
+* Holds information for a discount (amount (%), list of criteria for access to the discount)
+
+Collaborators:
+* Criteria
+
+

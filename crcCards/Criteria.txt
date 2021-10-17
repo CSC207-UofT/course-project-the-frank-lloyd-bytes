@@ -1,20 +1,12 @@
 Class name: Criteria
-Parent class:
-Subclasses: None
+Parent class: none
+Subclasses: none
+Level: use case
 
 Responsibilities:
-* Stores groups of access and interfaces permissions.
-* creates groups/rooms/clubs/discounts
-* grants access permissions/removes acess permissions
-
-Methods:
--create 'structures' ie group/club/room/discount group/etc
--add permissions
--delete permissions
-
+* Holds a list of criteria
+* Evaluate whether a given user satisfies the criteria
+* Add criteria
 
 Collaborators:
-*User
-*Faculty
-*Merchant
-* Discount class or interface?
+* User

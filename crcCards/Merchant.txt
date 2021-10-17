@@ -1,17 +1,15 @@
 Class name: Merchant
-Parent class: User (Abstract)
-Subclasses:
+Parent class: none
+Subclasses: none
+Level: use case
 
 Responsibilities:
-* Creates a merchant account
-* Stores Merchant Info
-* Creates discounts, promotions to students or select student groups.
-* Creates student reports of interaction.
-*** Allows online purchase or reload of product?
-
+* Holds merchant info (name, address, description, hours, list of discounts)
+* Make sale
+* Add discount to list of discounts
+* Apply discount
 
 Collaborators:
-*User Database
-*Criteria
-*Wallet
-
+* TCard
+* Discount
+* Criteria

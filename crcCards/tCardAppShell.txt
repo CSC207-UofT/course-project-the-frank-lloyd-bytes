@@ -1,0 +1,12 @@
+TODO finish this CRC card
+
+Class name: tCardAppShell
+Parent class: none
+Subclasses: none
+Level: top
+
+Responsibilities:
+
+Collaborators:
+
+

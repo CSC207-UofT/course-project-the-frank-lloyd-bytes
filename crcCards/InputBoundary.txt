@@ -1,0 +1,10 @@
+TODO finish this CRC card
+
+Class name: InputBoundary (interface)
+Parent class: none
+Subclasses: none
+Level:
+
+Responsibilities:
+
+Collaborators:

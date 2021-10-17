@@ -1,0 +1,16 @@
+Class name: Wallet
+Parent class: none
+Subclasses: none
+Level: entity
+
+Responsibilities:
+* Holds financial info of TCard (account balance, transaction history)
+* Add funds to account
+* Add transaction to transaction history
+* Make payment
+
+Collaborators:
+* Transaction
+* Merchant
+
+

@@ -1,10 +1,9 @@
-TODO finish this CRC card
-
 Class name: InputBoundary (interface)
 Parent class: none
-Subclasses: none
-Level:
+Subclasses: Usercommands
+Level: input boundary
 
 Responsibilities:
-
+* helps transport the input and output between Usercommands and Controller
 Collaborators:
+* Controller

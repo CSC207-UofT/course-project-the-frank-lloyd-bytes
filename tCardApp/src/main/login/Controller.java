@@ -30,8 +30,6 @@ public class Controller {
                 System.out.println("The user does not exist!");
                 break;
             case SUCCESS:
-                // Should we be printing? How might you refactor this program
-                // to fit the Clean Architecture?
                 System.out.println("Success!");
                 System.out.println(inputBoundary.getProfile(userId));
                 break;

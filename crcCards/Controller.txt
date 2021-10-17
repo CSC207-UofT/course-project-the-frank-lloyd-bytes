@@ -1,11 +1,12 @@
-TODO finish this CRC card
 
 Class name: Controller
 Parent class: none
 Subclasses: none
-Level:
+Level: controller
 
 Responsibilities:
+* Takes input from Menu
+* Collaborate with UserCommands to login
 * Outputs the login results
 
 Collaborators:

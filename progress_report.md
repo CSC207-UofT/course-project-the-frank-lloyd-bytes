@@ -61,7 +61,7 @@ Kristal: Questioned the CRC Model and specifications for improvement. Wrote the 
 Jesse: Wrote the test cases for the skeleton code. Took a leadership role in organizing group. 
 
 **Future plans…**
-Jonah:
+Jonah: Do more coding in the next phases to gain experience and have a deeper understanding of design pattern.
 Peter: With an eye towards expandability, keep the structure clean and agile. Look for structural inefficiency in code 
 and workflow. Help coding classes and try to get our testing up to a Test Driven model with Jesse. Create a project 
 task interface with clearer work assignments to prevent double coding issues. 

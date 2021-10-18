@@ -39,6 +39,19 @@ public class UserList {
         Faculty sample2 = new Faculty (user2);
         this.userList.put(sample1.getId(), sample1);
         this.userList.put(sample2.getId(), sample2);
+        
+        ArrayList<String> user3 = new ArrayList<>();
+        user3.add("Sherlock");
+        user3.add("Holmes");
+        user3.add("private_investigator");
+        user3.add("wheresthecrime");
+        user3.add("student");
+        user3.add("1003757936");
+        user3.add("sherlock.holmes@mail.utoronto.ca");
+        user3.add("3");
+        user3.add("Criminology");
+        Student sample3 = new Student(user3);
+        this.userList.put(sample3.getId(), sample3);
     }
 
     /**

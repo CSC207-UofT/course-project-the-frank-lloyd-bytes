@@ -1,0 +1,4 @@
+include ':app'
+include ':myapplication'
+include ':app'
+include ':myapplication'

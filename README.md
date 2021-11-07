@@ -3,7 +3,7 @@
 Consider the following description of a software system that facilitates a virtual TCard to be used by students and
 faculty at the University of Toronto.
 
-### First menu:
+### First menu
 When you open the app, you are given three options to choose from in the first menu:
 - Sign-in
 - Register business

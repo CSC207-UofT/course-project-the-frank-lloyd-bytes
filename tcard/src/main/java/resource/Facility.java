@@ -1,5 +1,7 @@
 package resource;
 
+import java.util.ArrayList;
+
 public class Facility {
     private String name;
     private String address;
@@ -7,14 +9,14 @@ public class Facility {
     private String hours;
     private String criteria;
 
-    public Facility(String[] facilityInfo) {
+    public Facility(ArrayList<String> facilityInfo) {
         // assuming facilityInfo has the following ordering of elements:
         // {name, address, description, hours, criteria}
-        this.name = facilityInfo[0];
-        this.address = facilityInfo[1];
-        this.description = facilityInfo[2];
-        this.hours = facilityInfo[3];
-        this.criteria = facilityInfo[4];
+        this.name = facilityInfo.get(0);
+        this.address = facilityInfo.get(1);
+        this.description = facilityInfo.get(2);
+        this.hours = facilityInfo.get(3);
+        this.criteria = facilityInfo.get(4);
     }
 
     public String getName() {

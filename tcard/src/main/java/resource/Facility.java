@@ -1,4 +1,4 @@
-package java.resource;
+package resource;
 
 public class Facility {
     private String name;

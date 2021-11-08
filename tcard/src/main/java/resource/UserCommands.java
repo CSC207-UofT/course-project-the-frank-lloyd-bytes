@@ -1,4 +1,4 @@
-package java.resource;
+package resource;
 
 public class UserCommands implements InputBoundary {
     private final UserList users;

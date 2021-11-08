@@ -1,4 +1,4 @@
-package resource;
+package java.resource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,43 +15,45 @@ public class UserList {
 
     public UserList(){
         ArrayList<String> user1 = new ArrayList<>();
-        user1.add("Jerry");
-        user1.add("Huang");
-        user1.add("jerry9981");
-        user1.add("password!");
-        user1.add("student");
-        user1.add("1020062006");
-        user1.add("jerry.huang@mail.utoronto.ca");
-        user1.add("3");
-        user1.add("Math");
+        user1.add("Jerry"); // First name
+        user1.add("Huang"); // Last name
+        user1.add("jerry9981"); // UTORid
+        user1.add("password!"); // password
+        user1.add("student"); // status
+        user1.add("1020062006"); // student number
+        user1.add("jerry.huang@mail.utoronto.ca"); // email
+        user1.add("CS"); // program
+        user1.add("undergrad"); // level
+        user1.add("2"); // year
         Student sample1 = new Student(user1);
 
         ArrayList<String> user2 = new ArrayList<>();
-        user2.add("Willy");
-        user2.add("Wonka");
-        user2.add("Char2005");
-        user2.add("Chocolate!");
-        user2.add("Faculty");
-        user2.add("1020052005");
-        user2.add("willy.wonka@mail.utoronto.ca");
-        user2.add("4");
-        user2.add("Department of Chocolate Industry");
+        user2.add("Willy"); // First name
+        user2.add("Wonka"); // Last name
+        user2.add("Char2005"); // UTORid
+        user2.add("Chocolate!"); // password
+        user2.add("faculty"); // status
+        user2.add("1020052005"); // personnel number
+        user2.add("willy.wonka@mail.utoronto.ca"); // email
+        user2.add("MAT"); // department
+        user2.add("professor"); // position
         Faculty sample2 = new Faculty (user2);
-        this.userList.put(sample1.getId(), sample1);
-        this.userList.put(sample2.getId(), sample2);
+        this.userList.put(sample1.getIDNumber(), sample1);
+        this.userList.put(sample2.getIDNumber(), sample2);
 
         ArrayList<String> user3 = new ArrayList<>();
-        user3.add("Sherlock");
-        user3.add("Holmes");
-        user3.add("private_investigator");
-        user3.add("wheresthecrime");
-        user3.add("student");
-        user3.add("1003757936");
-        user3.add("sherlock.holmes@mail.utoronto.ca");
-        user3.add("3");
-        user3.add("Criminology");
+        user3.add("Sherlock"); // First name
+        user3.add("Holmes"); // Last name
+        user3.add("private_investigator"); // UTORid
+        user3.add("wheresthecrime"); // password
+        user3.add("student"); // status
+        user3.add("1003757936"); // student number
+        user3.add("sherlock.holmes@mail.utoronto.ca"); // email
+        user3.add("PHY"); // program
+        user3.add("grad"); // level
+        user3.add("1"); // year
         Student sample3 = new Student(user3);
-        this.userList.put(sample3.getId(), sample3);
+        this.userList.put(sample3.getIDNumber(), sample3);
     }
 
     /**
@@ -61,13 +63,13 @@ public class UserList {
      */
     public UserList(ArrayList<ArrayList<String>> profilesInfo){
         for (ArrayList<String> i : profilesInfo){
-            if (Objects.equals(i.get(3), "student")){
+            if (Objects.equals(i.get(4), "student")){
                 Student user = new Student(i);
-                this.userList.put(user.getId(), user);
+                this.userList.put(user.getIDNumber(), user);
             }
-            else if (Objects.equals(i.get(3), "faculty")){
+            else if (Objects.equals(i.get(4), "faculty")){
                 Faculty faculty = new Faculty(i);
-                this.userList.put(faculty.getId(), faculty);
+                this.userList.put(faculty.getIDNumber(), faculty);
             }
         }
 
@@ -76,7 +78,7 @@ public class UserList {
 
 
     public boolean checkPassword (String password, User selectedUser){
-        return Objects.equals(selectedUser.profile.get(selectedUser.PASSWORD), password);
+        return Objects.equals(selectedUser.getPassword(), password);
     }
 
     public User getUser(String iD){

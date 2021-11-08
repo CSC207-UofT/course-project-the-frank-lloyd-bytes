@@ -1,4 +1,5 @@
-package resource;
+package java.resource;
+
 import java.util.ArrayList;
 
 /**
@@ -6,28 +7,31 @@ import java.util.ArrayList;
  *
  */
 public class Faculty extends User{
-    public Faculty(ArrayList<String> info) {
-        super(info);
+    private String department;
+    private String position;
+
+    public Faculty(ArrayList<String> facultyInfo) {
+        // assuming studentInfo has the following ordering of elements:
+        // {legalNameF, legalNameL, utorID, password, status, idNumber, email, department, position}
+        super((ArrayList<String>)facultyInfo.subList(0, 7));
+
+        this.department = facultyInfo.get(7);
+        this.position = facultyInfo.get(8);
     }
-    /**
-     *   The first item in accesses should be the department of the faculty.
-     */
-    @Override
-    public String profileDisplay() {
-        return "First Name: " + this.profile.get(LEAGLNameF)+ "\n" +  "Last Name: " + this.profile.get(LEAGLNameL) +
-                "\n"+ "UserId:" + this.profile.get(UTOR_ID) + "\n" + "Status: " + this.profile.get(STATUS) + "\n" +
-                "Faculty ID: " + this.profile.get(IDNumber) + "\n" + "Email: " + this.profile.get(Email) + "\n" +
-                "Years In UOFT: " + this.profile.get(YearsInUOFT) + "\n"+ "Department: " + this.profile.get(BelongTo) +
-                "\n" + "Criteria: " + this.accesses;
+
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public String getPosition() {
+        return this.position;
     }
 
     @Override
-    public ArrayList<String> getProfile(){
-        return this.profile;
-    }
-
-    @Override
-    public String getId() {
-        return this.profile.get(2);
+    public String displayProfile() {
+        return "First Name: " + this.getFirstName() + "\nLast Name: " + this.getLastName() +
+                "\nUTORid:" + this.getUtorID() + "\nStatus: " + this.getStatus() + "\nPersonnel number: " +
+                this.getIDNumber() + "\nEmail: " + this.getEmail() + "\nDepartment: " + this.getDepartment() +
+                "\nPosition: " + this.getPosition();
     }
 }

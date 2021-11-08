@@ -1,4 +1,4 @@
-package resource;
+package java.resource;
 
 import java.util.ArrayList;
 
@@ -9,52 +9,54 @@ import java.util.ArrayList;
 
 
 public abstract class User {
+    private String legalNameF;
+    private String legalNameL;
+    private String utorID;
+    private String password;
+    private String status;
+    private String idNumber;
+    private String email;
 
-    protected ArrayList<String> profile = new ArrayList<>();
-    protected ArrayList<String> accesses = new ArrayList<>();
-    final int LEAGLNameF = 0;
-    final int LEAGLNameL = 1;
-    final int UTOR_ID = 2;
-    final int PASSWORD = 3;
-    final int STATUS = 4;
-    final int IDNumber = 5;
-    final int Email = 6;
-    final int YearsInUOFT = 7;
-    final int BelongTo = 8;
-
-    public User(ArrayList<String> info) {
-        this.profile.add(info.get(LEAGLNameF));
-        this.profile.add(info.get(LEAGLNameL));
-        this.profile.add(info.get(UTOR_ID));
-        this.profile.add(info.get(PASSWORD));
-        this.profile.add(info.get(STATUS));
-        this.profile.add(info.get(IDNumber));
-        this.profile.add(info.get(Email));
-        this.profile.add(info.get(YearsInUOFT));
-        this.profile.add(info.get(BelongTo));
-        this.accesses.add(info.get(BelongTo));
+    public User(ArrayList<String> basicUserInfo) {
+        // assuming basicUserInfo has the following ordering of elements:
+        // {legalNameF, legalNameL, utorID, password, status, idNumber, email}
+        this.legalNameF = basicUserInfo.get(0);
+        this.legalNameL = basicUserInfo.get(1);
+        this.utorID = basicUserInfo.get(2);
+        this.password = basicUserInfo.get(3);
+        this.status = basicUserInfo.get(4);
+        this.idNumber = basicUserInfo.get(5);
+        this.email = basicUserInfo.get(6);
     }
 
-    /**
-     * Get the id of this user.
-     * @return a the user's id.
-     */
-    public  abstract String getId();
+    public String getFirstName() {
+        return this.legalNameF;
+    }
 
+    public String getLastName() {
+        return this.legalNameL;
+    }
+
+    public String getUtorID() {
+        return this.utorID;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getIDNumber() { return this.idNumber; }
+
+    public String getEmail() { return this.email; }
 
     /**
      * This method is for showing profile.
      * @return a string that display the profile in a preferred format.
      */
-    public abstract String profileDisplay();
-
-
-    /**
-     * This method is for getting profile information. (we may use this to change our data file)
-     * @return a list of string that display profile information in a line
-     */
-    public abstract ArrayList<String> getProfile();
-
-
+    public abstract String displayProfile();
 
 }

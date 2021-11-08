@@ -1,4 +1,4 @@
-package resource;
+package java.resource;
 
 import java.util.ArrayList;
 
@@ -9,30 +9,38 @@ import java.util.ArrayList;
  *
  *
  */
-
 public class Student extends User{
-    public Student(ArrayList<String> info) {
-        super(info);
+    private String program;
+    private String level;
+    private String year;
+
+    public Student(ArrayList<String> studentInfo) {
+        // assuming studentInfo has the following ordering of elements:
+        // {legalNameF, legalNameL, utorID, password, status, idNumber, email, program, level, year}
+        super((ArrayList<String>)studentInfo.subList(0, 7));
+
+        this.program = studentInfo.get(7);
+        this.level = studentInfo.get(8);
+        this.year = studentInfo.get(9);
     }
 
-    /**
-     *   The first item in accesses should be the program of the student.
-     */
-    @Override
-    public String profileDisplay() {
-        return "First Name: " + this.profile.get(LEAGLNameF)+ "\n" +  "Last Name: " + this.profile.get(LEAGLNameL) +
-                "\n"+ "UserId:" + this.profile.get(UTOR_ID) + "\n" + "Status: " + this.profile.get(STATUS) + "\n" +
-                "Student ID: " + this.profile.get(IDNumber) + "\n" + "Email: " + this.profile.get(Email) + "\n" +
-                "Year of Study: " + this.profile.get(YearsInUOFT) + "\n"+ "Program: " + this.profile.get(BelongTo) +
-                "\n" + "Criteria: " + this.accesses;
+    public String getProgram() {
+        return this.program;
     }
-    @Override
-    public ArrayList<String> getProfile(){
-        return this.profile;
+
+    public String getLevel() {
+        return this.level;
+    }
+
+    public String getYear() {
+        return this.year;
     }
 
     @Override
-    public String getId(){
-        return this.profile.get(2);
+    public String displayProfile() {
+        return "First Name: " + this.getFirstName() + "\nLast Name: " + this.getLastName() +
+                "\nUTORid:" + this.getUtorID() + "\nStatus: " + this.getStatus() + "\nStudent number: " +
+                this.getIDNumber() + "\nEmail: " + this.getEmail() + "\nProgram of Study: " + this.getProgram() +
+                "\nLevel: " + this.getLevel() + "\nYear of Study: " + this.getYear();
     }
 }

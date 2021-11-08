@@ -2,7 +2,6 @@ package resource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 /**
  * This class create a list of User Class as a virtual database.
@@ -63,11 +62,11 @@ public class UserList {
      */
     public UserList(ArrayList<ArrayList<String>> profilesInfo){
         for (ArrayList<String> i : profilesInfo){
-            if (Objects.equals(i.get(4), "student")){
+            if (i.get(4).equals("student")){ //(Objects.equals(i.get(4), "student"))
                 Student user = new Student(i);
                 this.userList.put(user.getIDNumber(), user);
             }
-            else if (Objects.equals(i.get(4), "faculty")){
+            else if (i.get(4).equals("faculty")){
                 Faculty faculty = new Faculty(i);
                 this.userList.put(faculty.getIDNumber(), faculty);
             }
@@ -78,7 +77,7 @@ public class UserList {
 
 
     public boolean checkPassword (String password, User selectedUser){
-        return Objects.equals(selectedUser.getPassword(), password);
+        return selectedUser.getPassword().equals(password);
     }
 
     public User getUser(String iD){

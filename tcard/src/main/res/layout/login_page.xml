@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:id="@+id/openingPage"
+                                                   android:background="@color/white">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="-273dp"
+            tools:layout_editor_absoluteX="0dp" android:translationY="10">
+        <Switch
+                android:text="Light Mode"
+                android:layout_width="130dp"
+                android:layout_height="40" android:id="@+id/moodSwitcher" android:translationX="150"
+                android:translationY="0" android:textColor="#032F67"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:translationY="60">
+            <TextView
+                    android:text="My Virtual TCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2" android:translationX="45"
+                    android:translationY="0" android:textSize="40sp" android:textColor="#032F67"
+                    android:textStyle="bold"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp" tools:srcCompat="@drawable/utoronto_coa_svg"
+                    android:id="@+id/imageView3" android:translationY="20"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:translationY="50" android:id="@+id/linearLayout">
+                <TextView
+                        android:text="User Name"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView10" android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:translationX="40"
+                        app:drawableTint="#00E91E63" android:background="@color/white" android:textStyle="normal|bold"
+                        android:textColor="#032F67"/>
+                <EditText
+                        android:layout_width="132dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/userNameInput" android:layout_weight="1"
+                        android:textColor="#818181" android:translationX="-40" android:hint="enter utorID"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:translationY="60">
+                <TextView
+                        android:text="Password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView9" android:layout_weight="1"
+                        android:translationX="40" android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="normal|bold" android:textSize="18sp" android:textColor="#032F67"/>
+                <EditText
+                        android:layout_width="133dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/passwordInput" android:layout_weight="1" android:translationX="-40"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:hint="enter password"/>
+            </LinearLayout>
+            <Button
+                    android:text="Login"
+                    android:layout_width="100dp"
+                    android:layout_height="50" android:id="@+id/login" android:translationX="160"
+                    android:translationY="70" app:iconTint="#FFFFFF" app:backgroundTint="#032F67"/>
+            <Button
+                    android:text="New User"
+                    android:layout_width="100"
+                    android:layout_height="60" android:id="@+id/register" android:translationX="160"
+                    android:translationY="70" app:backgroundTint="#022F66"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

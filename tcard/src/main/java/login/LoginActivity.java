@@ -11,27 +11,26 @@ import dataBase.DBHelper;
 
 public class LoginActivity extends AppCompatActivity{
     EditText username, password;
-    Button signup, signin;
+    Button register, login;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
-        signup = (Button) findViewById(R.id.btnsignup);
-        signin = (Button) findViewById(R.id.btnsignin);
+        username = (EditText) findViewById(R.id.userNameInput);
+        password = (EditText) findViewById(R.id.passwordInput);
+        login = (Button) findViewById(R.id.login);
+        register = (Button) findViewById(R.id.register);
         DB = new DBHelper(this);
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
             }
         });
-        signin.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();

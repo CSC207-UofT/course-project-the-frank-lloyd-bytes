@@ -1,11 +1,14 @@
-package resource;
+package controllers;
+
+import usecases.InputBoundary;
+import usecases.UserCommands;
 
 public class Controller {
 
     /**
      * The input boundary for the Usercommands.
      */
-    private final  InputBoundary inputBoundary;
+    private final InputBoundary inputBoundary;
 
     /**
      * Create a controller with inputBoundary.

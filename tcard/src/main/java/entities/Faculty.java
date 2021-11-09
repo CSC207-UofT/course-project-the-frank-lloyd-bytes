@@ -1,11 +1,12 @@
-package resource;
+package entities;
+
 import java.util.ArrayList;
 
 /**
  * Implements Faculty class which is a child of User class
  *
  */
-public class Faculty extends User{
+public class Faculty extends User {
     public Faculty(ArrayList<String> info) {
         super(info);
     }

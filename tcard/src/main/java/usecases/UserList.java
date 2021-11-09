@@ -1,4 +1,8 @@
-package resource;
+package usecases;
+
+import entities.Faculty;
+import entities.Student;
+import entities.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

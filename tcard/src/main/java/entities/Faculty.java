@@ -35,4 +35,9 @@ public class Faculty extends User{
     public String getId() {
         return this.profile.get(2);
     }
+
+    @Override
+    public String getPassword() {
+        return this.profile.get(PASSWORD);
+    }
 }

@@ -80,7 +80,7 @@ public class UserList {
 
 
     public boolean checkPassword (String password, User selectedUser){
-        return Objects.equals(selectedUser.profile.get(selectedUser.PASSWORD), password);
+        return Objects.equals(selectedUser.getPassword(), password);
     }
 
     public User getUser(String iD){

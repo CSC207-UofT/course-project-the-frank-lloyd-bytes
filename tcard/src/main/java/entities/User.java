@@ -33,9 +33,15 @@ public abstract class User {
 
     /**
      * Get the id of this user.
-     * @return a the user's id.
+     * @return the user's id.
      */
     public  abstract String getId();
+
+    /**
+     * Get the id of this user.
+     * @return the user's password.
+     */
+    public  abstract String getPassword();
 
 
     /**

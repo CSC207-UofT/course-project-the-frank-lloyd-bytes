@@ -12,7 +12,8 @@ public class DBHelper extends SQLiteOpenHelper{
             super(context, "Login.db", null, 1);
         }
 
-        @Override
+
+    @Override
         public void onCreate(SQLiteDatabase MyDB) {
             MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
         }
@@ -50,4 +51,24 @@ public class DBHelper extends SQLiteOpenHelper{
             else
                 return false;
         }
+        //TODO update setpassword to access current cell in table and modify value password
+        public static void setpassword(String password) {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            String title = "MyNewTitle";
+            ContentValues values = new ContentValues();
+            values.put(FeedEntry.COLUMN_NAME_TITLE, title);
+x
+
+            String selection = FeedEntry.COLUMN_NAME_TITLE + " LIKE ?";
+            String[] selectionArgs = { "MyOldTitle" };
+
+            int count = db.update(
+                    FeedReaderDbHelper.FeedEntry.TABLE_NAME,
+                    values,
+                    selection,
+                    selectionArgs);
+
+        }
+
 }

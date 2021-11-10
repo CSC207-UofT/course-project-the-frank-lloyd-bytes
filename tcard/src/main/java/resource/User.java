@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * This is an abstract class that is a base for all user classes
- *
+ * TODO reduce long variable list (code smells)
  */
 
 
@@ -54,6 +54,13 @@ public abstract class User {
      * @return a list of string that display profile information in a line
      */
     public abstract ArrayList<String> getProfile();
+
+
+    /**This method updates password of User. (This method is called through a userManager which allows this to pass
+     * into database gateway (Dbhelper). TODO change this eventually
+     * @return a string password that updates through controller.
+     */
+    public abstract String setPassword(String password);
 
 
 

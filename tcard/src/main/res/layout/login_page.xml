@@ -14,8 +14,8 @@
         <Switch
                 android:text="Light Mode"
                 android:layout_width="130dp"
-                android:layout_height="40" android:id="@+id/moodSwitcher" android:translationX="150"
-                android:translationY="0" android:textColor="#032F67"/>
+                android:layout_height="40" android:id="@+id/moodSwitcher" android:translationX="0"
+                android:translationY="0" android:textColor="#032F67" android:layout_gravity="center"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -71,13 +71,15 @@
             <Button
                     android:text="Login"
                     android:layout_width="100dp"
-                    android:layout_height="50" android:id="@+id/login" android:translationX="160"
-                    android:translationY="70" app:iconTint="#FFFFFF" app:backgroundTint="#032F67"/>
+                    android:layout_height="50" android:id="@+id/login" android:translationX="0"
+                    android:translationY="70" app:iconTint="#FFFFFF" app:backgroundTint="#032F67"
+                    android:layout_gravity="center"/>
             <Button
                     android:text="New User"
                     android:layout_width="100"
-                    android:layout_height="60" android:id="@+id/register" android:translationX="160"
-                    android:translationY="70" app:backgroundTint="#022F66"/>
+                    android:layout_height="60" android:id="@+id/register" android:translationX="0"
+                    android:translationY="70" app:backgroundTint="#022F66" android:layout_gravity="center"
+            />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

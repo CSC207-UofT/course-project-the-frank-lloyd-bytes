@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="login">
+          package="acitivies">
 
 <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:theme="@style/Theme.MyApplication">
 
     <activity
-            android:name=".LoginActivity"
+            android:name="acitivies.LoginActivity"
             android:label="@string/app_name"
             android:exported="true">
         <intent-filter>
@@ -19,7 +19,7 @@
 
     </activity>
     <activity
-            android:name=".RegisterActivity"
+            android:name="acitivies.RegisterActivity"
             android:label="@string/app_name"
             android:exported="true"/>
 

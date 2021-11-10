@@ -11,24 +11,28 @@ import java.util.ArrayList;
 public abstract class User {
 
     protected ArrayList<String> profile = new ArrayList<>();
-    final int LEGAL_FIRST_NAME = 0;
-    final int LEGAL_LAST_NAME = 1;
+    protected ArrayList<String> accesses = new ArrayList<>();
+    final int LEAGLNameF = 0;
+    final int LEAGLNameL = 1;
     final int UTOR_ID = 2;
     final int PASSWORD = 3;
     final int STATUS = 4;
-    final int ID_NUMBER = 5;
-    final int EMAIL = 6;
-    final int BELONGS_TO = 7;
+    final int IDNumber = 5;
+    final int Email = 6;
+    final int YearsInUOFT = 7;
+    final int BelongTo = 8;
 
     public User(ArrayList<String> info) {
-        this.profile.add(info.get(LEGAL_FIRST_NAME));
-        this.profile.add(info.get(LEGAL_LAST_NAME));
+        this.profile.add(info.get(LEAGLNameF));
+        this.profile.add(info.get(LEAGLNameL));
         this.profile.add(info.get(UTOR_ID));
         this.profile.add(info.get(PASSWORD));
         this.profile.add(info.get(STATUS));
-        this.profile.add(info.get(ID_NUMBER));
-        this.profile.add(info.get(EMAIL));
-        this.profile.add(info.get(BELONGS_TO));
+        this.profile.add(info.get(IDNumber));
+        this.profile.add(info.get(Email));
+        this.profile.add(info.get(YearsInUOFT));
+        this.profile.add(info.get(BelongTo));
+        this.accesses.add(info.get(BelongTo));
     }
 
     /**

@@ -10,9 +10,18 @@ import java.util.ArrayList;
  *
  */
 
-public class Student extends User {
+public class Student extends User{
+    public final int STUDENT_PROGRAM = 8;
+    public final int STUDENT_LEVEL = 9;
+    public final int STUDENT_YEAR = 10;
+
     public Student(ArrayList<String> info) {
-        super(info);
+        // assuming studentInfo has the following ordering of elements:
+        // {legalNameF, legalNameL, utorID, password, status, idNumber, email, program, level, year}
+        super((ArrayList<String>)info.subList(0, 8));
+        this.profile.add(info.get(STUDENT_PROGRAM));
+        this.profile.add(info.get(STUDENT_LEVEL));
+        this.profile.add(info.get(STUDENT_YEAR));
     }
 
     /**
@@ -20,11 +29,13 @@ public class Student extends User {
      */
     @Override
     public String profileDisplay() {
-        return "First Name: " + this.profile.get(LEAGLNameF)+ "\n" +  "Last Name: " + this.profile.get(LEAGLNameL) +
-                "\n"+ "UserId:" + this.profile.get(UTOR_ID) + "\n" + "Status: " + this.profile.get(STATUS) + "\n" +
-                "Student ID: " + this.profile.get(IDNumber) + "\n" + "Email: " + this.profile.get(Email) + "\n" +
-                "Year of Study: " + this.profile.get(YearsInUOFT) + "\n"+ "Program: " + this.profile.get(BelongTo) +
-                "\n" + "Criteria: " + this.accesses;
+        return "First Name: " + this.profile.get(LEGAL_FIRST_NAME)+ "\n" +  "Last Name: " +
+                this.profile.get(LEGAL_LAST_NAME) + "\n"+ "UserId:" + this.profile.get(UTOR_ID) +
+                "\n" + "Status: " + this.profile.get(STATUS) + "\n" + "Student ID: " +
+                this.profile.get(ID_NUMBER) + "\n" + "Email: " + this.profile.get(EMAIL) + "\n" +
+                "Program of Study: " + this.profile.get(STUDENT_PROGRAM) + "\n" + "Student Level: " +
+                this.profile.get(STUDENT_LEVEL) + "\n" + "Year of Study: " + this.profile.get(STUDENT_YEAR) +
+                "\n"+ "Criteria: " + this.profile.get(BELONGS_TO);
     }
     @Override
     public ArrayList<String> getProfile(){
@@ -33,6 +44,6 @@ public class Student extends User {
 
     @Override
     public String getId(){
-        return this.profile.get(2);
+        return this.profile.get(ID_NUMBER);
     }
 }

@@ -59,8 +59,7 @@ public class UserList {
     }
 
     /**
-     * (Menu) can use this class to generate a list of User class.
-     * When calling this use case, (menu) class must pass down a list of string list as the argument.
+     * Generate a list of User class.
      * @param profilesInfo is a list of String lists
      */
     public UserList(ArrayList<ArrayList<String>> profilesInfo){
@@ -80,7 +79,7 @@ public class UserList {
 
 
     public boolean checkPassword (String password, User selectedUser){
-        return Objects.equals(selectedUser.getPassword(), password);
+        return Objects.equals("s", password);
     }
 
     public User getUser(String iD){

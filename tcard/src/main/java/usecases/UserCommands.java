@@ -1,4 +1,6 @@
-package resource;
+package usecases;
+
+import entities.User;
 
 public class UserCommands implements InputBoundary {
     private final UserList users;

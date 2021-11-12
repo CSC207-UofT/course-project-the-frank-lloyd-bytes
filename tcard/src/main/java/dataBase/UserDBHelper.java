@@ -4,11 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
   A User Database Helper class that set up, add, edit, delete the database.
@@ -16,7 +14,7 @@ import java.util.Arrays;
 public class UserDBHelper extends SQLiteOpenHelper{
         public ArrayList<String> infolist = new ArrayList<String>();
         public static final String DB_NAME = "User.db";
-        public static final String TABLE_NAME = "User";
+        public static final String TABLE_NAME = "users";
 
     /**
      * Create a UserDBHelper
@@ -34,6 +32,18 @@ public class UserDBHelper extends SQLiteOpenHelper{
             this.infolist.add("yearsinUOFT");
             this.infolist.add("belongto");
         }
+        public void initializeDB(){
+            FileReader reader = new FileReader();
+            try {
+                ArrayList<String[]> buildList = reader.reader();
+                for (String[] i : buildList) {
+                    this.insertData(i);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+        }
 
     /**
      * Create a table when the database is created for the first time
@@ -41,8 +51,8 @@ public class UserDBHelper extends SQLiteOpenHelper{
      */
         @Override
         public void onCreate(SQLiteDatabase MyDB) {
-            MyDB.execSQL("create Table users(utorid TEXT primary key, password TEXT, legalnameF TEXT, " +
-                    "legalnameL TEXT , status TEXT, idNumber INTEGER, email TEXT, yearsinUOFT INTEGER, belongto TEXT)");
+            MyDB.execSQL("create Table TABLE_NAME(utorid TEXT primary key, password TEXT, legalnameF TEXT, " +
+                    "legalnameL TEXT , status TEXT, idNumber TEXT, email TEXT, yearsinUOFT TEXT, belongto TEXT)");
         }
 
     /**
@@ -62,10 +72,10 @@ public class UserDBHelper extends SQLiteOpenHelper{
      * @param userinfo
      * @return true if the insertion success, false if not.
      */
-    public Boolean insertData(String[] userinfo){
+        public Boolean insertData(String[] userinfo){
             SQLiteDatabase MyDB = this.getWritableDatabase();
             ContentValues contentValues= new ContentValues();
-            for (int i=0; i < userinfo.length; i++){
+            for (int i=0; i <= userinfo.length; i++){
                     String word = this.infolist.get(i);
                     contentValues.put(word, userinfo[i]);
             }
@@ -75,7 +85,22 @@ public class UserDBHelper extends SQLiteOpenHelper{
                 return true;
         }
 
-        public Boolean checkusername(String username) {
+        public Boolean insertData(String utroid, String password){
+            SQLiteDatabase MyDB = this.getWritableDatabase();
+            ContentValues contentValues= new ContentValues();
+            contentValues.put("utorid",utroid);
+            contentValues.put("password",password);
+            for (int i=2; i < this.infolist.size(); i++){
+                String word = this.infolist.get(i);
+                contentValues.put(word, "null");
+            }
+            long result = MyDB.insert(TABLE_NAME, null, contentValues);
+            if(result==-1) return false;
+            else
+                return true;
+        }
+
+        public Boolean checkutorid(String username) {
             SQLiteDatabase MyDB = this.getWritableDatabase();
             Cursor cursor = MyDB.rawQuery("Select * from users where utorid = ?", new String[]{username});
             if (cursor.getCount() > 0)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="User" uuid="a0e41c53-4f64-47fb-b878-5b44b397d295">
+    <data-source source="LOCAL" name="User [2]" uuid="66847e83-349e-4264-bdfa-4077084398e5">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\yyds3\Documents\AndroidStudio\DeviceExplorer\emulator-5554\data\data\com.example.myapplication\databases\User.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/data/data/com.example.myapplication/databases/User.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

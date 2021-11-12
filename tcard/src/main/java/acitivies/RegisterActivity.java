@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import dataBase.DBHelper;
+import dataBase.UserDBHelper;
 
 public class RegisterActivity extends AppCompatActivity{
         EditText username, password, repassword;
         Button btnsignup, btnsignin;
-        DBHelper DB;
+        UserDBHelper DB;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity{
             repassword = (EditText) findViewById(R.id.repassword);
             btnsignup = (Button) findViewById(R.id.btnsignup1);
             btnsignin = (Button) findViewById(R.id.btnsignin1);
-            DB = new DBHelper(this);
+            DB = new UserDBHelper(this);
 
             btnsignup.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -35,9 +35,9 @@ public class RegisterActivity extends AppCompatActivity{
                         Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                     else{
                         if(pass.equals(repass)){
-                            Boolean checkuser = DB.checkusername(user);
+                            Boolean checkuser = DB.checkutorid(user);
                             if(checkuser==false){
-                                Boolean insert = DB.insertData(user, pass);
+                                Boolean insert = DB.insertData(user,pass);
                                 if(insert==true){
                                     Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

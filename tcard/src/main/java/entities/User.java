@@ -24,7 +24,6 @@ public abstract class User {
         this.profile.add(info.get(LEGAL_FIRST_NAME));
         this.profile.add(info.get(LEGAL_LAST_NAME));
         this.profile.add(info.get(UTOR_ID));
-        this.profile.add(info.get(PASSWORD));
         this.profile.add(info.get(STATUS));
         this.profile.add(info.get(ID_NUMBER));
         this.profile.add(info.get(EMAIL));

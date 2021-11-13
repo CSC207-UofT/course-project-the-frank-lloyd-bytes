@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import dataBase.DBHelper;
+import dataBase.UserDBHelper;
 
 public class RegisterActivity extends AppCompatActivity{
         EditText username, password, repassword;
         Button btnsignup, btnsignin;
-        DBHelper DB;
+        UserDBHelper DB;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity{
             repassword = (EditText) findViewById(R.id.repassword);
             btnsignup = (Button) findViewById(R.id.btnsignup1);
             btnsignin = (Button) findViewById(R.id.btnsignin1);
-            DB = new DBHelper(this);
+            DB = new UserDBHelper(this);
 
             btnsignup.setOnClickListener(new View.OnClickListener() {
                 @Override

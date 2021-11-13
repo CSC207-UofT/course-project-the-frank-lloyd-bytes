@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import dataBase.DBHelper;
+import dataBase.UserDBHelper;
 
 public class LoginActivity extends AppCompatActivity{
     EditText username, password;
     Button signup, signin;
-    DBHelper DB;
+    UserDBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity{
         password = (EditText) findViewById(R.id.password);
         signup = (Button) findViewById(R.id.btnsignup);
         signin = (Button) findViewById(R.id.btnsignin);
-        DB = new DBHelper(this);
+        DB = new UserDBHelper(this);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

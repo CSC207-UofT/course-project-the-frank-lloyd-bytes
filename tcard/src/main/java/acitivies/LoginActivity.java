@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity{
                     Toast.makeText(LoginActivity.this, "Please enter your username and password", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    Boolean checkuserpass = DB.checkutroidpassword(user, pass);
                     if (checkuserpass) {
                         Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                     }

@@ -5,81 +5,128 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:id="@+id/openingPage"
+                                                   tools:context="login.LoginActivity"
                                                    android:background="@color/white">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" tools:layout_editor_absoluteY="-273dp"
-            tools:layout_editor_absoluteX="0dp" android:translationY="10">
+            android:layout_height="match_parent"
+            android:paddingTop="20dp">
         <Switch
-                android:text="Light Mode"
+                android:text="View Mode"
                 android:layout_width="130dp"
-                android:layout_height="40" android:id="@+id/moodSwitcher" android:translationX="0"
-                android:translationY="0" android:textColor="#032F67" android:layout_gravity="center"/>
+                android:layout_height="40dp"
+                android:id="@+id/moodSwitcher"
+                android:textColor="@color/UofTblue"
+                android:layout_gravity="center"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:translationY="60">
+                android:layout_height="match_parent"
+                android:paddingTop="50dp">
             <TextView
                     android:text="My Virtual TCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display2" android:translationX="45"
-                    android:translationY="0" android:textSize="40sp" android:textColor="#032F67"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:layout_gravity= "center"
+                    android:textSize="40sp"
+                    android:textColor="@color/UofTblue"
                     android:textStyle="bold"/>
             <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp" tools:srcCompat="@drawable/utoronto_coa_svg"
-                    android:id="@+id/imageView3" android:translationY="20"/>
+                    android:layout_height="160dp"
+                    tools:srcCompat="@drawable/utoronto_coa_svg"
+                    android:id="@+id/imageView3"
+                    android:paddingTop="20dp"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:translationY="50" android:id="@+id/linearLayout">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="50dp"
+                    android:paddingLeft ="50dp"
+                    android:paddingTop="80dp"
+                    android:id="@+id/linearLayout1">
                 <TextView
                         android:text="User Name"
-                        android:layout_width="82dp"
-                        android:layout_height="wrap_content" android:id="@+id/textView10" android:layout_weight="1"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:translationX="40"
-                        app:drawableTint="#00E91E63" android:background="@color/white" android:textStyle="normal|bold"
-                        android:textColor="#032F67"/>
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/textView10"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/text_box_type_1"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
                 <EditText
-                        android:layout_width="132dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="120dp"
+                        android:layout_gravity="center"
+                        android:paddingLeft="15dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/text_box_type_2"
                         android:inputType="textPersonName"
-                        android:ems="10"
-                        android:id="@+id/userNameInput" android:layout_weight="1"
-                        android:textColor="#818181" android:translationX="-40" android:hint="enter utorID"/>
+                        android:id="@+id/userNameInput"
+                        android:layout_weight="1"
+                        android:textColor="#818181"
+                        android:hint="enter utorID"/>
             </LinearLayout>
+
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:translationY="60">
+                    android:paddingRight="50dp"
+                    android:paddingLeft ="50dp"
+                    android:paddingTop="10dp"
+                    android:layout_height="wrap_content"
+
+                    android:id="@+id/linearLayout">
                 <TextView
                         android:text="Password"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView9" android:layout_weight="1"
-                        android:translationX="40" android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="normal|bold" android:textSize="18sp" android:textColor="#032F67"/>
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:id="@+id/textView9"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/text_box_type_1"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
                 <EditText
-                        android:layout_width="133dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="120dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:paddingLeft="15dp"
+                        android:background="@drawable/text_box_type_2"
                         android:inputType="textPassword"
-                        android:ems="10"
-                        android:id="@+id/passwordInput" android:layout_weight="1" android:translationX="-40"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:hint="enter password"/>
+                        android:id="@+id/passwordInput"
+                        android:layout_weight="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:hint="enter password"/>
             </LinearLayout>
             <Button
                     android:text="Login"
                     android:layout_width="100dp"
-                    android:layout_height="50" android:id="@+id/login" android:translationX="0"
-                    android:translationY="70" app:iconTint="#FFFFFF" app:backgroundTint="#032F67"
-                    android:layout_gravity="center"/>
+                    android:layout_height="40dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/login"
+                    android:background="@drawable/text_box_type_3"
+                    android:layout_gravity="center"
+                    app:backgroundTint="null"/>
             <Button
-                    android:text="New User"
-                    android:layout_width="100"
-                    android:layout_height="60" android:id="@+id/register" android:translationX="0"
-                    android:translationY="70" app:backgroundTint="#022F66" android:layout_gravity="center"
-            />
+                    android:text="New user? Register now"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/register"
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    app:backgroundTint="@color/white"
+                    android:shadowColor="null"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/UofTblue" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

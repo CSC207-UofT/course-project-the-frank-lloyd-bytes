@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< Original
+        <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="login">
 
@@ -26,3 +27,15 @@
 </application>
 </manifest>
 
+
+        =======
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<application>
+    <activity android:name="login.DashBoardActivity"
+              android:label="@string/title_activity_dash_board"
+              android:theme="@style/Theme.MyApplication.NoActionBar">
+    </activity>
+</application>
+</manifest>
+        >>>>>>> Added

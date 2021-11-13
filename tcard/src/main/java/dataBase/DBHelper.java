@@ -4,7 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper{
         public static final String DBNAME = "Login.db";
@@ -22,11 +25,21 @@ public class DBHelper extends SQLiteOpenHelper{
             MyDB.execSQL("drop Table if exists users");
         }
 
-        public Boolean insertData(String username, String password){
+        public Boolean insertData(String username, String password, String firstName, String lastName, String email,
+                                  ArrayList department, String status, int tCardNumber, int year){
             SQLiteDatabase MyDB = this.getWritableDatabase();
             ContentValues contentValues= new ContentValues();
             contentValues.put("username", username);
             contentValues.put("password", password);
+            contentValues.put("legalFirstName", firstName);
+            contentValues.put("legalLastName", lastName);
+            contentValues.put("email", email);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                contentValues.put("department(s)", String.join(" + ", department));
+            }
+            contentValues.put("status", status);
+            contentValues.put("tCard No", tCardNumber);
+            contentValues.put("year", year);
             long result = MyDB.insert("users", null, contentValues);
             if(result==-1) return false;
             else

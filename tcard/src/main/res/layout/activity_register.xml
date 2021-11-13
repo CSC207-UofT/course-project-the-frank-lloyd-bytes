@@ -5,45 +5,192 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                tools:context=".RegisterActivity">
+                tools:context=".RegisterActivity" android:background="@color/white">
 
-    <EditText
-            android:id="@+id/username1"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="User Name"
-            android:layout_marginTop="50dp"/>
-
-    <EditText
-            android:id="@+id/password1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/username1"/>
-
-    <EditText
-            android:id="@+id/repassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Retype Password"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/password1"/>
-
-    <Button
-            android:id="@+id/btnsignup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/repassword"/>
-
-    <Button
-            android:id="@+id/btnsignin1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Existing user! Go to Sign in page"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/btnsignup1"/>
+            android:layout_height="match_parent">
+        <com.google.android.material.chip.Chip
+                android:layout_width="match_parent"
+                android:layout_height="7dp" android:id="@+id/chip7"/>
+        <TextView
+                android:text=" User Registration Form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" android:textColor="@color/white"
+                android:background="#032F67" android:fontFamily="sans-serif" android:ellipsize="none"/>
+        <com.google.android.material.chip.Chip
+                android:layout_width="match_parent"
+                android:layout_height="26dp" android:id="@+id/chip5"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text=" User Name"
+                    android:layout_width="164dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView11" android:layout_weight="1"
+                    android:textColor="@color/black" android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            <EditText
+                    android:layout_width="302dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextTextPersonName5" android:layout_weight="1" android:hint="enter utorID"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="93dp">
+            <TextView
+                    android:text=" Password"
+                    android:layout_width="254dp"
+                    android:layout_height="43dp" android:id="@+id/textView8" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
+                    android:translationY="10dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPassword4" android:hint="enter new password"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPassword5" android:hint="re-enter password"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+            <TextView
+                    android:text=" Legal Names"
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView17" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
+                    android:translationY="10dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPersonName6" android:hint="enter first name"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPersonName7" android:hint="enter last name"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+            <TextView
+                    android:text=" Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+            <RadioButton
+                    android:text="Faculty"
+                    android:layout_width="272dp"
+                    android:layout_height="37dp" android:id="@+id/facultyStatus" android:translationX="127dp"/>
+            <RadioButton
+                    android:text="Student"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content" android:id="@+id/studentStatus" android:translationX="127dp"/>
+        </RadioGroup>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text=" Email"
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView12" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/editTextTextEmailAddress" android:layout_weight="1"
+                    android:hint="enter uoft email"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="41dp">
+            <TextView
+                    android:text=" TCard Number"
+                    android:layout_width="79dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView14" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editTextNumber" android:layout_weight="1" android:hint="enter TCard number"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            <TextView
+                    android:text=" Department"
+                    android:layout_width="255dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView13" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
+                    android:translationY="6dp"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/spinner" android:layout_weight="1"
+                    android:translationY="6dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text=" Year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView18" android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="176dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/editTextNumber2" android:layout_weight="1"
+                    android:hint="enter your year (e.g. 2)"/>
+        </LinearLayout>
+        <Button
+                android:id="@+id/btnsignup1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:layout_marginTop="25dp"
+                app:backgroundTint="#052F69" android:layout_gravity="center"/>
+        <Button
+                android:id="@+id/btnsignin1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:layout_marginTop="15dp"
+                app:backgroundTint="#062F6B" android:layout_gravity="center"/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -17,9 +17,9 @@ public class RegisterActivity extends AppCompatActivity{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_register);
 
-            username = (EditText) findViewById(R.id.username1);
-            password = (EditText) findViewById(R.id.password1);
-            repassword = (EditText) findViewById(R.id.repassword);
+            username = (EditText) findViewById(R.id.editTextTextPersonName5);
+            password = (EditText) findViewById(R.id.editTextTextPassword4);
+            repassword = (EditText) findViewById(R.id.editTextTextPassword5);
             btnsignup = (Button) findViewById(R.id.btnsignup1);
             btnsignin = (Button) findViewById(R.id.btnsignin1);
             DB = new UserDBHelper(this);
@@ -36,9 +36,9 @@ public class RegisterActivity extends AppCompatActivity{
                     else{
                         if(pass.equals(repass)){
                             Boolean checkuser = DB.checkutorid(user);
-                            if(!checkuser){
+                            if(checkuser==false){
                                 Boolean insert = DB.insertData(user, pass);
-                                if(insert){
+                                if(insert==true){
                                     Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                     startActivity(intent);

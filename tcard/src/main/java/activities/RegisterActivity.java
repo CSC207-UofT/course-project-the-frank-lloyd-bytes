@@ -1,6 +1,5 @@
-package acitivies;
+package activities;
 import android.widget.*;
-import android.content.DialogInterface;
 import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
@@ -53,11 +52,12 @@ public class RegisterActivity extends AppCompatActivity{
                                 departmentList.add(i);
                                 //sort department list
                                 Collections.sort(departmentList);
-                            }
+                                }
                             else{
-                                //when checkbox is unselected remove department from list
-                                departmentList.remove(i);
-                            }
+                                int j;
+                                j = departmentList.indexOf(i);
+                                departmentList.remove(j);
+                                }
                         });
                 builder.setPositiveButton("Submit", (dialogInterface, i) -> {
                     // initialize string builder
@@ -71,10 +71,8 @@ public class RegisterActivity extends AppCompatActivity{
                     department.setText(stringBuilder.toString());
 
                 });
-                // i heard that this crashes a lot
-                builder.setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss());
                 builder.setNeutralButton("Clear All", (dialogInterface, i) -> {
-                    for(int j=0; j<selectedDepartment.length; j++){
+                    for (int j = 0; j < selectedDepartment.length; j++) {
                         selectedDepartment[j] = false;
                         departmentList.clear();
                         department.setText("");
@@ -112,6 +110,8 @@ public class RegisterActivity extends AppCompatActivity{
                                     lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(), year.getText().toString());
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent2);
                             }else{
                                 Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                             }
@@ -125,8 +125,8 @@ public class RegisterActivity extends AppCompatActivity{
                 } });
             // i don't get why there's an error here
             btnsignin.setOnClickListener(view -> {
-                Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             });
         }
     public void onRadioButtonClicked(View view) {

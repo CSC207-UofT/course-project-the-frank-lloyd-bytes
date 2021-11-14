@@ -1,5 +1,3 @@
-package usecases;
-
 import entities.Faculty;
 import entities.Student;
 import entities.User;
@@ -11,13 +9,13 @@ import java.util.Objects;
 /**
  * This class create a list of User Class as a virtual database.
  */
-public class UserList {
+public class UserTest {
     protected HashMap<String, User> userList = new HashMap<>();
 
 
 
 
-    public UserList(){
+    public UserTest(){
         ArrayList<String> user1 = new ArrayList<>();
         user1.add("Jerry");
         user1.add("Huang");

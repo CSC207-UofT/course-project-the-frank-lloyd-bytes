@@ -17,7 +17,7 @@ public class UserCommands implements InputBoundary {
 
     public String getProfile(String userId){
         User user = users.getUser(userId);
-        return user.profileDisplay();
+        return user.displayProfile();
     }
 
     /**

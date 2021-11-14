@@ -4,46 +4,266 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="10dp"
-                tools:context=".RegisterActivity">
+                android:padding="15dp"
+                tools:context="acitivies.RegisterActivity"
+                android:background="@color/white">
 
-    <EditText
-            android:id="@+id/username1"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="User Name"
-            android:layout_marginTop="50dp"/>
+            android:layout_height="match_parent">
+        <TextView
+                android:text=" User Registration Form"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:id="@+id/textView4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" android:textColor="@color/white"
+                android:background="@drawable/text_box_type_3"
+                android:fontFamily="sans-serif" android:ellipsize="none"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp">
+            <TextView
+                    android:text=" User Name"
+                    android:layout_width="164dp"
+                    android:id="@+id/textView11"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            <EditText
+                    android:layout_width="302dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/registrationUserName"
+                    android:layout_weight="1"
+                    android:hint="enter utorID"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+            <TextView
+                    android:text=" Password"
+                    android:layout_width="244dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/textView8"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-    <EditText
-            android:id="@+id/password1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/username1"/>
 
-    <EditText
-            android:id="@+id/repassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Retype Password"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/password1"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:id="@+id/registerPassword1"
+                        android:hint="enter password"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:id="@+id/registerPassword2"
+                        android:hint="re-enter password"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+            <TextView
+                    android:text=" Legal Names"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/textView17"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black"
+            />
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/registerLegalFirstName"
+                        android:hint="enter first name"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/registerLegalLastName"
+                        android:hint="enter last name"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RadioGroup
+                android:layout_width="match_parent"
+                android:id="@+id/status"
+                android:layout_height="100dp">
 
-    <Button
-            android:id="@+id/btnsignup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/repassword"/>
-
-    <Button
-            android:id="@+id/btnsignin1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Existing user! Go to Sign in page"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/btnsignup1"/>
+            <TextView
+                    android:text=" Status"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="50dp"
+                    android:id="@+id/textView5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black"/>
+            <RadioButton
+                    android:text="Faculty"
+                    android:layout_width="255dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="-50dp"
+                    android:onClick="onRadioButtonClicked"
+                    android:id="@+id/facultyStatus"
+            />
+            <RadioButton
+                    android:text="Student"
+                    android:layout_width="255dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="130dp"
+                    android:id="@+id/studentStatus"
+                    android:onClick="onRadioButtonClicked"
+            />
+        </RadioGroup>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text=" Email"
+                    android:layout_width="93dp"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView12"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/registerEmail"
+                    android:layout_weight="1"
+                    android:hint="enter uoft email"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="41dp">
+            <TextView
+                    android:text=" TCard #"
+                    android:layout_width="94dp"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView14"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/registerTcardNumber"
+                    android:layout_weight="1"
+                    android:hint="enter TCard number"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            <TextView
+                    android:text=" Department"
+                    android:layout_width="70dp"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView13"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/registerDepartment"
+                    android:textSize="18dp"
+                    android:hint="select department"
+                    android:drawablePadding="16dp"
+                    android:drawableEnd="@android:drawable/arrow_down_float"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_weight="1"
+                    android:drawableRight="@android:drawable/arrow_down_float"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text=" Year"
+                    android:layout_width="55dp"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="30dp"
+                    android:id="@+id/textView18"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+            <EditText
+                    android:layout_width="176dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/registerYear"
+                    android:layout_weight="1"
+                    android:hint="enter your year (e.g. 2)"/>
+        </LinearLayout>
+        <Button
+                android:id="@+id/btnsignup1"
+                android:layout_width="150dp"
+                android:textSize="16dp"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/text_box_type_3"
+                app:backgroundTint="@color/UofTblue"
+                android:layout_gravity="center"/>
+        <Button
+                android:id="@+id/btnsignin1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Go back to login"
+                android:layout_marginTop="5dp"
+                app:backgroundTint="@color/white"
+                android:textColor="@color/UofTblue"
+                android:textAllCaps="false"
+                android:shadowColor="@null"
+                android:layout_gravity="center"/>
+    </LinearLayout>
 
 </RelativeLayout>

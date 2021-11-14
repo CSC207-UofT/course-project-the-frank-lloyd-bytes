@@ -29,7 +29,7 @@
                 android:paddingTop="15dp">
             <TextView
                     android:text=" User Name"
-                    android:layout_width="164dp"
+                    android:layout_width="180dp"
                     android:id="@+id/textView11"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -41,7 +41,6 @@
                     android:layout_width="302dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:ems="10"
                     android:id="@+id/registrationUserName"
                     android:layout_weight="1"
                     android:hint="enter utorID"/>
@@ -209,7 +208,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
             />
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/registerDepartment"
                     android:textSize="18dp"

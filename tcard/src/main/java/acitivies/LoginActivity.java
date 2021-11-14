@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity{
                 Boolean checkuserpass = DB.checkutroidpassword(user, pass);
                 if (checkuserpass) {
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(getApplicationContext(), DashBoardActivity.class);
+                    startActivity(intent2);
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();

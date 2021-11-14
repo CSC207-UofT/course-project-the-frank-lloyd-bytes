@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 import android.content.Context;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

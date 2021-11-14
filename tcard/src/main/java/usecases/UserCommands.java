@@ -2,42 +2,28 @@ package usecases;
 
 import entities.User;
 
-public class UserCommands implements InputBoundary {
-    private final UserList users;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-    public UserCommands(UserList users) {
-        this.users = users;
+public class UserCommands implements Serializable {
+    private User user;
+
+    public UserCommands(ArrayList<String> userList) {
+        User user = this.createUser(userList);
+        this.user = user;
     }
 
-    public enum LoginResult {
-        SUCCESS,
-        FAILURE,
-        NOTEXIST
+    public String showProfile(){
+        return this.user.displayProfile();
     }
 
-    public String getProfile(String userId){
-        User user = users.getUser(userId);
-        return user.displayProfile();
+    public User createUser(ArrayList<String> userList){
+
     }
 
-    /**
-     * Login using the provided id and password
-     * @param userId is the ID we want to check
-     * @param password is the password entered
-     * @return the result of this login.
-     */
-    public LoginResult logIn(String userId, String password){
-        if (this.users.userList.containsKey(userId)){
-            User user = users.getUser(userId);
-            if (users.checkPassword(password, user)){
-                return LoginResult.SUCCESS;
-            }
-            else {
-                return LoginResult.FAILURE;
-            }
-        }
-        else{
-            return LoginResult.NOTEXIST;
+    public void changePassword(String oldpassword, String newpassword){
+        if (this.user.checkPassword(oldpassword)){
+            this.user.changePassword(newpassword);
         }
     }
 }

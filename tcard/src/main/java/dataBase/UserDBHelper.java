@@ -79,6 +79,8 @@ public class UserDBHelper extends SQLiteOpenHelper {
         return MyDB.rawQuery("Select * from " + TABLE_NAME + " where UTROID = ? ", new String[]{utroid});
     }
 
+
+
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
                               String department, String status, String tCardNumber, String year) {
         SQLiteDatabase MyDB = this.getWritableDatabase();

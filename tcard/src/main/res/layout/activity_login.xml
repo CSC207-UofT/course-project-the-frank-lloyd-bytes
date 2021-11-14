@@ -5,7 +5,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:id="@+id/openingPage"
-                                                   tools:context="acitivies.LoginActivity"
+                                                   tools:context="activities.LoginActivity"
                                                    android:background="@color/white">
     <LinearLayout
             android:orientation="vertical"

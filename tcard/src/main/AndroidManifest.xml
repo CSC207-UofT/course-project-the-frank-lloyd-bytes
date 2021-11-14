@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="acitivies">
+          package="activities">
 
 <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:theme="@style/Theme.MyApplication">
 
     <activity
-            android:name=".LoginActivity"
+            android:name="activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
         <intent-filter>
@@ -18,17 +18,17 @@
 
     </activity>
     <activity
-            android:name=".RegisterActivity"
+            android:name="activities.RegisterActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
 
-    <activity android:name=".DashBoardActivity"
+    <activity android:name="activities.DashBoardActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
 
-    <activity android:name=".ProfileActivity"
+    <activity android:name="activities.ProfileActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>

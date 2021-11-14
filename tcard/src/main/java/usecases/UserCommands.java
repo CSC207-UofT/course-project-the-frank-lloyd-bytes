@@ -17,9 +17,9 @@ public class UserCommands implements Serializable {
 
     public String showProfile(){
         if (this.user.getProfile().get(user.STATUS).equals("student")) {
-            return ((Student) this.user).displayProfile();
+            return this.user.displayProfile();
         }
-        return ((Faculty) this.user).displayProfile();
+        return this.user.displayProfile();
 
     }
 

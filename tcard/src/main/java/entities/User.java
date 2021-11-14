@@ -50,6 +50,10 @@ public abstract class User {
      */
     public abstract ArrayList<String> getProfile();
 
+    public void changePassword(String password){
+        this.profile.add(3, password);
+    }
+
 
 
 }

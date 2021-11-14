@@ -118,4 +118,15 @@ public class UserDBHelper extends SQLiteOpenHelper{
             else
                 return false;
         }
+    public Boolean changepassword(String utroid, String password) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from users where utorid = ? and password = ?",
+                new String[] {utroid,password});
+        for (int i=2; i < this.infolist.size(); i++){
+            String word = this.infolist.get(i);
+        }
+        long result = MyDB.insert(TABLE_NAME, null, contentValues);
+        if(result==-1) return false;
+        else
+            return true;
 }

@@ -75,7 +75,7 @@ public class Facility implements CheckCriteria{
 
             String[] programConditions = getConditionsArray(criteria[0]);
             // programConditions = {"CS", "MAT"}
-            String[] levelConditions = getConditionsArray(criteria[1]);
+            String[] yearConditions = getConditionsArray(criteria[1]);
             // levelConditions = {"undergrad"}
 
             boolean programConditionsSatisfied = Arrays.asList(programConditions).contains(user.
@@ -84,15 +84,15 @@ public class Facility implements CheckCriteria{
                 programConditionsSatisfied = true;
             }
 
-            boolean levelConditionsSatisfied = Arrays.asList(levelConditions).contains(user.getProfile().
-                    get(((Student) user).STUDENT_LEVEL));
-            if (Arrays.asList(levelConditions).contains("any")) {
-                levelConditionsSatisfied = true;
+            boolean yearConditionsSatisfied = Arrays.asList(yearConditions).contains(user.getProfile().
+                    get(((Student) user).STUDENT_YEAR));
+            if (Arrays.asList(yearConditions).contains("any")) {
+                yearConditionsSatisfied = true;
             }
 
             // Check if the student satisfies ANY of the required programs in the criteria AND ANY of the required
             // levels in the criteria
-            return (programConditionsSatisfied & levelConditionsSatisfied);
+            return (programConditionsSatisfied & yearConditionsSatisfied);
 
         } else { // if the user is not a student, then the user is a faculty member
             criteria = criteria[1].split(",");
@@ -100,7 +100,7 @@ public class Facility implements CheckCriteria{
 
             String[] departmentConditions = getConditionsArray(criteria[0]);
             // departmentConditions = {"CS"}
-            String[] positionConditions = getConditionsArray(criteria[1]);
+            String[] yearConditions = getConditionsArray(criteria[1]);
             // positionConditions = {"postdoc", "professor"}
 
             boolean departmentConditionsSatisfied = Arrays.asList(departmentConditions).contains(user.
@@ -109,15 +109,15 @@ public class Facility implements CheckCriteria{
                 departmentConditionsSatisfied = true;
             }
 
-            boolean positionConditionsSatisfied = Arrays.asList(positionConditions).contains(user.
-                    getProfile().get(((Faculty) user).FACULTY_POSITION));
-            if (Arrays.asList(positionConditions).contains("any")) {
-                positionConditionsSatisfied = true;
+            boolean yearConditionsSatisfied = Arrays.asList(yearConditions).contains(user.
+                    getProfile().get(((Faculty) user).FACULTY_YEAR));
+            if (Arrays.asList(yearConditions).contains("any")) {
+                yearConditionsSatisfied = true;
             }
 
             // Check if the faculty satisfies ANY of the required programs in the criteria AND ANY of the required
             // levels in the criteria
-            return (departmentConditionsSatisfied & positionConditionsSatisfied);
+            return (departmentConditionsSatisfied & yearConditionsSatisfied);
         }
     }
 

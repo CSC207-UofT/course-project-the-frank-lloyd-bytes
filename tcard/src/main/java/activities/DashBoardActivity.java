@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 import android.database.Cursor;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import controllers.Controller;
+import controllers.UserManager;
+
+import java.util.ArrayList;
 
 public class DashBoardActivity extends AppCompatActivity{
     TabLayout tabLayout;
@@ -18,7 +20,7 @@ public class DashBoardActivity extends AppCompatActivity{
     EditText username;
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
-    Controller controller;
+    UserManager myManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -28,6 +30,7 @@ public class DashBoardActivity extends AppCompatActivity{
         viewPager = findViewById(R.id.view_pager);
         bottomMenu = findViewById(R.id.bottom_menu);
         username = findViewById(R.id.userNameInput);
+        myManager = (UserManager) getIntent().getSerializableExtra("manager");
 
         bottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -50,10 +53,11 @@ public class DashBoardActivity extends AppCompatActivity{
 
         FragmentManager fm = getSupportFragmentManager();
         Bundle bundle = new Bundle();
-        bundle.putString("fName", "Doga");
-        bundle.putString("lName", "Doga");
-        bundle.putString("uID", "Doga");
-        bundle.putString("no", "Doga");
+        ArrayList<String> info = myManager.getinfo();
+        bundle.putString("fName", info.get(2));
+        bundle.putString("lName", info.get(3));
+        bundle.putString("uID", info.get(0));
+        bundle.putString("no", info.get(5));
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);
         viewPager.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("TCard"));

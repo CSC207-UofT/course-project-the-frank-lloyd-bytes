@@ -11,8 +11,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import controllers.UserManager;
-import dataBase.UserDBHelper;
-
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity{
@@ -20,10 +18,10 @@ public class ProfileActivity extends AppCompatActivity{
     TextInputEditText number, email, status, department;
     Button changePassword, backToDashboard;
     UserManager myManager;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
+        myManager = (UserManager) getIntent().getSerializableExtra("manager");
         names = findViewById(R.id.legalNames);
         number= findViewById(R.id.profileNumber);
         email = findViewById(R.id.profileEmail);
@@ -37,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity{
 
         backToDashboard.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+            intent.putExtra("manager", myManager);
             startActivity(intent);
         });
     }

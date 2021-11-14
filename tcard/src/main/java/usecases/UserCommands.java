@@ -15,12 +15,15 @@ public class UserCommands implements Serializable {
         this.user = user;
     }
 
-    public String showProfile(){
-        if (this.user.getProfile().get(user.STATUS).equals("student")) {
-            return this.user.displayProfile();
-        }
-        return this.user.displayProfile();
+    //return a string rep of usercommand
 
+    /**
+     * Get the string representation of UserCommand
+     * @return a string representation of UserCommand
+     */
+    @Override
+    public String toString(){
+        return this.user.displayProfile();
     }
 
     public User createUser(ArrayList<String> userInfo) {

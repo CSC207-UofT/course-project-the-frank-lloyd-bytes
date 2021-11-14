@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import controllers.UserManager;
 import dataBase.UserDBHelper;
-import usecases.UserCommands;
+
+import java.util.ArrayList;
+
 
 public class LoginActivity extends AppCompatActivity{
     EditText username, password;
@@ -37,7 +40,10 @@ public class LoginActivity extends AppCompatActivity{
                 Boolean checkuserpass = DB.checkutroidpassword(user, pass);
                 if (checkuserpass) {
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                    ArrayList<String> userInfo = DB.getInfo(user);
+                    UserManager myManager = new UserManager(userInfo);
                     Intent intent2 = new Intent(getApplicationContext(), DashBoardActivity.class);
+                    intent2.putExtra("manager", myManager);
                     startActivity(intent2);
                 }
                 else{

@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;

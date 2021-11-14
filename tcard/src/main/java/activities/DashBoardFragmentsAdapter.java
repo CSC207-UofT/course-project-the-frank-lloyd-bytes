@@ -28,9 +28,10 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
                 return tCardFragment;
         }
     }
+    @NonNull
+
     @Override
     public int getItemCount(){
         return 2;
     }
-
 }

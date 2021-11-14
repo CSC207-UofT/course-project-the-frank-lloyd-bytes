@@ -38,20 +38,19 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 else{
                     if(newpass.equals(repass)){
                         Boolean checkuser = DB.checkutorid(user); // Check if user exists in DB.
-                        if(checkuser==false){// maybe delete
-                            Boolean insert = DB.changepassword(user,newpass);// add new user
-                            if(insert==true){
-                                Toast.makeText(UpdatePasswordActivity.this, "Password successfully updated", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(UpdatePasswordActivity.this, "Password update failed", Toast.LENGTH_SHORT).show();
-                            }
-                    }else{
-                        Toast.makeText(UpdatePasswordActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        if(!checkuser){// maybe delete
+                            {Toast.makeText(UpdatePasswordActivity.this, "Account does not exist.", Toast.LENGTH_SHORT).show();}
+                            Toast.makeText(UpdatePasswordActivity.this, "Password update failed.", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            DB.changepassword(user,newpass);
+                            Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
+                        }
+                        if (!newpass.equals(repass)){
+                        Toast.makeText(UpdatePasswordActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
                     }
                 } }
-        };
+        }
     });
 }
 

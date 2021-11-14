@@ -1,4 +1,4 @@
-package resource;
+package usecases;
 
 public interface InputBoundary {
     UserCommands.LoginResult logIn(String username, String password);

@@ -1,4 +1,6 @@
-package resource;
+package usecases;
+
+import entities.User;
 
 public class UserCommands implements InputBoundary {
     private final UserList users;
@@ -15,7 +17,7 @@ public class UserCommands implements InputBoundary {
 
     public String getProfile(String userId){
         User user = users.getUser(userId);
-        return user.profileDisplay();
+        return user.displayProfile();
     }
 
     /**

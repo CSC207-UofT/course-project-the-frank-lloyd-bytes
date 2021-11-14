@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;

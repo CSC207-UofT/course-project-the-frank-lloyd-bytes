@@ -83,11 +83,6 @@ public class RegisterActivity extends AppCompatActivity{
                 builder.show();
             });
 
-            public void onRadioButtonClicked(View view){
-                int radiobuttonid = status.getCheckedRadioButtonId();
-                checkedButton = findViewById(radiobuttonid);
-            }
-
 
             btnsignup.setOnClickListener(view -> {
                 String user = username.getText().toString();
@@ -134,5 +129,10 @@ public class RegisterActivity extends AppCompatActivity{
                 startActivity(intent2);
             });
         }
+
+    public void onRadioButtonClicked(View view){
+        int radiobuttonid = status.getCheckedRadioButtonId();
+        checkedButton = findViewById(radiobuttonid);
+    }
 }
 

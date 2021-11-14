@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                    tools:context="login.DashBoardActivity"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingHorizontal="40dp"
+            android:layout_height="450dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/tab_layout"
+                    android:layout_height="wrap_content">
+            </com.google.android.material.tabs.TabLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                    android:layout_width="match_parent"
+                    android:id="@+id/view_pager"
+                    android:layout_height="match_parent">
+            </androidx.viewpager2.widget.ViewPager2>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bottom_menu"
+            android:background="@drawable/text_box_type_3"
+            android:layout_margin="20dp"
+            android:elevation="2dp"
+            app:itemTextColor="@color/white"
+            app:itemRippleColor="@color/transparent"
+            android:layout_height="60dp"
+            app:menu="@menu/bottom_menu"
+            app:itemIconSize="40dp"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@color/white"
+
+    >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

@@ -36,6 +36,7 @@ public class DashBoardActivity extends AppCompatActivity{
             switch (item.getItemId()){
                 case R.id.profileActivity:
                     Intent intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent1.putExtra("manager", myManager);
                     startActivity(intent1);
                     break;
                 case R.id.facilityActivity:

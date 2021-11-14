@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import dataBase.UserDBHelper;
 
-import java.text.BreakIterator;
-
 public class UpdatePasswordActivity extends AppCompatActivity {
     EditText currpassword, repassword, newpassword;
     Button btchangepassword, btcancel;
@@ -53,8 +51,8 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                         Toast.makeText(UpdatePasswordActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
                 } }
-        });
-    }
+        };
+    });
 }
 
 }

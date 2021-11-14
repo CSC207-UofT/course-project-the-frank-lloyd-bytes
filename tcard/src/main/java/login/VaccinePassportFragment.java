@@ -11,4 +11,4 @@ public class VaccinePassportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.vpassport_tab_fragment, container, false);
         return root;
-}
+}}

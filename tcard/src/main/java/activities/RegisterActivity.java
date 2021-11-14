@@ -1,6 +1,5 @@
-package acitivies;
+package activities;
 import android.widget.*;
-import android.content.DialogInterface;
 import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;

@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import dataBase.UserDBHelper;
+import usecases.UserCommands;
 
 public class LoginActivity extends AppCompatActivity{
     EditText username, password;

@@ -1,11 +1,10 @@
-package acitivies;
+package activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import dataBase.UserDBHelper;
 
 public class DashBoardActivity extends AppCompatActivity{
     TabLayout tabLayout;

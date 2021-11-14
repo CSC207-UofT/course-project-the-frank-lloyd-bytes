@@ -1,4 +1,4 @@
-package acitivies;
+package activities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,12 +1,12 @@
 package acitivies;
 
-import android.widget.Button;
-import android.widget.EditText;
+import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 public class FacilityActivity extends AppCompatActivity {
-    Button fac_info, expand, req_acc;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.facility_page);
+    }
 
 }

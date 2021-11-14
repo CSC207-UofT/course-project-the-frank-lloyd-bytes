@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public abstract class User {
     private ArrayList<String> profile = new ArrayList<>();
     private String password;
-    public final int FIRST_NAME = 0;
-    public final int LAST_NAME = 1;
-    public final int UTOR_ID = 2;
+    public final int UTOR_ID = 0;
+    public final int FIRST_NAME = 1;
+    public final int LAST_NAME = 2;
     public final int STATUS = 3;
     public final int ID_NUMBER = 4;
     public final int EMAIL = 5;
@@ -25,14 +25,13 @@ public abstract class User {
      *                 department, position}
      */
     public User(ArrayList<String> userInfo) {
-        this.profile.add(userInfo.get(0)); // first name
-        this.profile.add(userInfo.get(1)); // last name
-        this.profile.add(userInfo.get(2)); // UTORid
+        this.profile.add(userInfo.get(0)); // UTORid
+        this.profile.add(userInfo.get(2)); // first name
+        this.profile.add(userInfo.get(3)); // last name
         this.profile.add(userInfo.get(4)); // status
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
-
-        this.password = userInfo.get(3); // password
+        this.password = userInfo.get(1); // password
     }
 
     /**

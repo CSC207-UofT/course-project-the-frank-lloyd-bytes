@@ -38,9 +38,4 @@ public class Student extends User {
         return baseUserProfile + "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM) + "\n" + "Student Level: " +
                 this.getProfile().get(STUDENT_LEVEL) + "\n" + "Year of Study: " + this.getProfile().get(STUDENT_YEAR);
     }
-
-    @Override
-    public String getPassword() {
-        return this.profile.get(PASSWORD);
-    }
 }

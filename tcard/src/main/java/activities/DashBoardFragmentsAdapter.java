@@ -1,33 +1,49 @@
 package activities;
-import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.Lifecycle;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class DashBoardFragmentsAdapter extends FragmentPagerAdapter {
-    private Context context;
-    int totalTabs;
 
-    public DashBoardFragmentsAdapter(FragmentManager fragmanager, Context context, int totalTabs){
-        super (fragmanager);
-        this.context = context;
-        this.totalTabs = totalTabs;
+public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
+    /**
+     * We are using an adapter as a bridge between the ViewPager2 and the Fragments in it
+     * This adapter makes it possible for the fragments to be viewed in the dashboard (through the ViewPager2)
+     * It also takes in bundle arguments so that the fragments can get data from the DashBoardActivity
+     */
+    Bundle bundle;
+    Fragment tCardFragment;
+    Fragment qrCodeFragment;
+    public DashBoardFragmentsAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle,
+                                     Bundle bundle){
+        super(fragmentManager,lifecycle);
+        this.bundle=bundle;
     }
+    @NonNull
     @Override
-    public int getCount(){
-        return totalTabs;
-    }
-    public Fragment getItem(int position){
+    /**
+     * Here we are assigning each tab/page in the ViewPager2 a Fragment by calling the fragments
+     */
+    public Fragment createFragment(int position){
         switch (position){
-            case 0:
-                TCardFragment tCardFragment =  new TCardFragment();
-                return tCardFragment;
             case 1:
-                VaccinePassportFragment vaccinePassportFragment =  new VaccinePassportFragment();
-                return vaccinePassportFragment;
+                qrCodeFragment = new QRCodeFragment();
+                qrCodeFragment.setArguments(bundle);
+                return qrCodeFragment;
             default:
-                return null;
+                tCardFragment = new TCardFragment();
+                tCardFragment.setArguments(bundle);
+                return tCardFragment;
         }
     }
-
+    @NonNull
+    /**
+     * We are overriding the method to input that we have two Fragments displayed in the ViewPager2
+     */
+    @Override
+    public int getItemCount(){
+        return 2;
+    }
 }

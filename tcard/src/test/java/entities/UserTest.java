@@ -69,6 +69,7 @@ public class UserTest {
         Assert.assertEquals(expectedProfile, sampleUser.getProfile());
     }
 
+
     @Test
     public void testGetId() {
         Assert.assertEquals("mackeyjonah", sampleUser.getId());

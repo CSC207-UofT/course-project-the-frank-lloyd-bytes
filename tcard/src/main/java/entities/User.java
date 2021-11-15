@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  */
 public abstract class User implements Serializable {
-    private ArrayList<String> profile = new ArrayList<>();
+    protected ArrayList<String> profile = new ArrayList<>();
     private String password;
     private String utorid;
     //Indexes for profile

@@ -1,53 +1,68 @@
 package usecases;
 
-import androidx.annotation.NonNull;
-import entities.User;
 import entities.Student;
+import entities.User;
 import entities.Faculty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UserCommands implements Serializable {
-    private final User user;
+    private final User USER;
 
-    public UserCommands(ArrayList<String> userInfo) {
-        this.user = this.createUser(userInfo);
+    /**
+     * instantiate usercommands from the userList given, create a new user in UserCommands with the given user info
+     * @param userList is a list of information for a certain user
+     */
+    public UserCommands(ArrayList<String> userList) {
+        this.USER = this.createUser(userList);
     }
 
     /**
-     * Get the string representation of UserCommand
-     * @return a string representation of UserCommand
+     * shows the profile of the user in this UserCommands
+     * @return a string of the user's information
      */
-    @NonNull
-    @Override
-    public String toString(){
-        return this.user.displayProfile();
+    public String showProfile(){
+        return this.USER.displayProfile();
     }
 
-    private User createUser(ArrayList<String> userInfo) {
+    /**
+     * create a new user given the information passed in. if user is student, create new student, else create new
+     * faculty member
+     * @param userInfo an array list of the information of the user
+     * @return a User object
+     */
+    public User createUser(ArrayList<String> userInfo) {
         if (userInfo.get(4).equals("student")) {
             return new Student(userInfo);
-        } // else, userInfo.get(4) = "faculty"
+        }
         return new Faculty(userInfo);
     }
 
     /**
-     * A getter method to get user's profile as an arraylist.
-     * @return the UserCommands user
+     * get the information of the user in an arraylist format
+     * @return an array list of the user in this UserCommands
      */
-    public User getUser() {
-        return this.user;
+    public ArrayList<String> getinfo(){
+        return this.USER.getUserInfo();
     }
 
     /**
-     * Change the current password of the user to newPassword if oldPassword matches the current password.
-     * @param oldPassword  a string containing the potential current password of the user
-     * @param newPassword  a string containing the desired new password
+     * changes the password for this user in this UserCommands
+     * @param oldpassword the old password of the user
+     * @param newpassword the new password of the user that they want to change to
      */
-    public void changePassword(String oldPassword, String newPassword){
-        if (this.user.checkPassword(oldPassword)){
-            this.user.changePassword(newPassword);
+    public void changePassword(String oldpassword, String newpassword){
+        if (this.USER.checkPassword(oldpassword)){
+            this.USER.changePassword(newpassword);
         }
+    }
+
+    /**
+     * get the user of this UserCommands
+     * @return an User object
+     */
+    public User getUser(){
+        return this.USER;
     }
 }

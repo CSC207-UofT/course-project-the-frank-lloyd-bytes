@@ -1,4 +1,6 @@
 package activities;
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.widget.*;
 import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class RegisterActivity extends AppCompatActivity{
+    /**
+     * The registration form for new users
+     * Once they succesfully register they'll go back to the Login page to sign in
+     */
         EditText username, password, repassword, firstname, lastname, email, tcardNumber, year;
         Button btnsignup, btnsignin;
         RadioGroup status;
@@ -41,10 +47,15 @@ public class RegisterActivity extends AppCompatActivity{
             selectedDepartment = new boolean[departmentArray.length];
             DB = new UserDBHelper(this);
 
+            /**
+             * Here we create a multi-select dropdown for the
+             * user to select the departments/programs they're in
+             */
             department.setOnClickListener(view -> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                 builder.setTitle("Select Department");
                 builder.setCancelable(false);
+                // records which boxes are checked
                 builder.setMultiChoiceItems(departmentArray, selectedDepartment,
                         (dialogInterface, i, b) -> {
                             if(b){
@@ -52,14 +63,15 @@ public class RegisterActivity extends AppCompatActivity{
                                 departmentList.add(i);
                                 //sort department list
                                 Collections.sort(departmentList);
-                            }
+                                }
                             else{
-                                //when checkbox is unselected remove department from list
-                                departmentList.remove(i);
-                            }
+                                //if the checkbox is unchecked then remove the department from the list
+                                int j;
+                                j = departmentList.indexOf(i);
+                                departmentList.remove(j);
+                                }
                         });
                 builder.setPositiveButton("Submit", (dialogInterface, i) -> {
-                    // initialize string builder
                     StringBuilder stringBuilder = new StringBuilder();
                     for (int j=0; j<departmentList.size(); j++){
                         stringBuilder.append(departmentArray[departmentList.get(j)]);
@@ -70,10 +82,9 @@ public class RegisterActivity extends AppCompatActivity{
                     department.setText(stringBuilder.toString());
 
                 });
-                // i heard that this crashes a lot
-                builder.setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss());
                 builder.setNeutralButton("Clear All", (dialogInterface, i) -> {
-                    for(int j=0; j<selectedDepartment.length; j++){
+                    //cleans all the selected boxes so the user can start with an empty department section
+                    for (int j = 0; j < selectedDepartment.length; j++) {
                         selectedDepartment[j] = false;
                         departmentList.clear();
                         department.setText("");
@@ -82,7 +93,9 @@ public class RegisterActivity extends AppCompatActivity{
                 builder.show();
             });
 
-
+            /**
+             * Here we are putting the input information to the database to create a new user object
+             */
 
             btnsignup.setOnClickListener(view -> {
                 String user = username.getText().toString();
@@ -94,23 +107,31 @@ public class RegisterActivity extends AppCompatActivity{
                 String userStatus = checkedButton.getText().toString();
                 String depart = department.getText().toString();
 
+                // checking if there are any empty fields
                 if(user.equals("")||pass.equals("")||repass.equals("")||firstName.equals("")||lastName.equals("")
                         ||mail.equals("")||depart.equals("")||userStatus.equals("")
                         ||TextUtils.isEmpty(tcardNumber.getText().toString().trim())
-                        ||TextUtils.isEmpty(year.getText().toString().trim()))
-                    Toast.makeText(RegisterActivity.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                        ||TextUtils.isEmpty(year.getText().toString().trim())){
+                    Toast.makeText(RegisterActivity.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();}
                 else{
                     int tNumber = tcardNumber.length();
                     int yearUofT = Integer.parseInt(year.getText().toString().trim());
                     String[] tokens = mail.split("@", 2);
+                    //checking if the input information is valid
                     if(pass.equals(repass) && tokens[1].equals("mail.utoronto.ca")
                             && tNumber==10 && (yearUofT!=0)) {
                         Boolean checkUser = DB.checkutorid(user);
+                        // creating a new user if one with the same userid doesn't already exist
+                        // (if they do exist, they should just sign in)
                         if(!checkUser){
                             Boolean insert = DB.insertData(user, pass, firstName,
-                                    lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(), year.getText().toString());
+                                    lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(),
+                                    year.getText().toString(), "");
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                // back to login page to sign in
+                                Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent2);
                             }else{
                                 Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                             }
@@ -122,12 +143,16 @@ public class RegisterActivity extends AppCompatActivity{
                         Toast.makeText(RegisterActivity.this, "Re-check the entered information", Toast.LENGTH_SHORT).show();
                     }
                 } });
-            // i don't get why there's an error here
+            // back to login page
             btnsignin.setOnClickListener(view -> {
-                Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             });
         }
+    /**
+     * Here we are checking which radio button is selected
+     * This gives us the status (student or faculty) the user selected when signing up
+     */
     public void onRadioButtonClicked(View view) {
         int radiobuttonid = status.getCheckedRadioButtonId();
         checkedButton = findViewById(radiobuttonid);

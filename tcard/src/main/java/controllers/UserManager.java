@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.User;
 import usecases.UserCommands;
 
 import java.io.Serializable;
@@ -15,4 +16,7 @@ public class UserManager implements Serializable {
         return this.myUserCommands.getinfo();
     }
 
+    public User getUser(){
+        return myUserCommands.getUser();
+    }
 }

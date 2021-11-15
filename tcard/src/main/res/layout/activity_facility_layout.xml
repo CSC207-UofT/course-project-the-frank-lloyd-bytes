@@ -42,14 +42,14 @@
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView15"/>
+                            android:id="@+id/facilityHours"/>
                     <TextView
                             android:text="Address"
                             android:layout_width="match_parent"
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView6" android:layout_weight="1"/>
+                            android:id="@+id/facilityAddress" android:layout_weight="1"/>
                 </LinearLayout>
                 <Button
                         android:text="Check Facility Access"

@@ -12,18 +12,18 @@ public class FacultyTest {
 
     @Before
     public void setUp() {
-        ArrayList<String> sampleUserInfo = new ArrayList<>();
-        sampleUserInfo.add("mackeyjonah"); // utorid
-        sampleUserInfo.add("password!"); // password
-        sampleUserInfo.add("Jonah"); // first name
-        sampleUserInfo.add("Mackey"); // last name
-        sampleUserInfo.add("faculty"); // status
-        sampleUserInfo.add("1234567890"); // ID number
-        sampleUserInfo.add("jonah.mackey@mail.utoronto.ca"); // email
-        sampleUserInfo.add("2"); // year
-        sampleUserInfo.add("Math"); // program
+        ArrayList<String> sampleFacultyInfo = new ArrayList<>();
+        sampleFacultyInfo.add("mackeyjonah"); // utorid
+        sampleFacultyInfo.add("password!"); // password
+        sampleFacultyInfo.add("Jonah"); // first name
+        sampleFacultyInfo.add("Mackey"); // last name
+        sampleFacultyInfo.add("faculty"); // status
+        sampleFacultyInfo.add("1234567890"); // ID number
+        sampleFacultyInfo.add("jonah.mackey@mail.utoronto.ca"); // email
+        sampleFacultyInfo.add("2"); // year
+        sampleFacultyInfo.add("Math"); // department
 
-        sampleFaculty = new Faculty(sampleUserInfo);
+        sampleFaculty = new Faculty(sampleFacultyInfo);
     }
 
     @Test

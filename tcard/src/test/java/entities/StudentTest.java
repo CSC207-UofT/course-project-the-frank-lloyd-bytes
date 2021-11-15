@@ -12,18 +12,18 @@ public class StudentTest {
 
     @Before
     public void setUp() {
-        ArrayList<String> sampleUserInfo = new ArrayList<>();
-        sampleUserInfo.add("mackeyjonah"); // utorid
-        sampleUserInfo.add("password!"); // password
-        sampleUserInfo.add("Jonah"); // first name
-        sampleUserInfo.add("Mackey"); // last name
-        sampleUserInfo.add("student"); // status
-        sampleUserInfo.add("1234567890"); // ID number
-        sampleUserInfo.add("jonah.mackey@mail.utoronto.ca"); // email
-        sampleUserInfo.add("4"); // year
-        sampleUserInfo.add("Math"); // program
+        ArrayList<String> sampleStudentInfo = new ArrayList<>();
+        sampleStudentInfo.add("mackeyjonah"); // utorid
+        sampleStudentInfo.add("password!"); // password
+        sampleStudentInfo.add("Jonah"); // first name
+        sampleStudentInfo.add("Mackey"); // last name
+        sampleStudentInfo.add("student"); // status
+        sampleStudentInfo.add("1234567890"); // ID number
+        sampleStudentInfo.add("jonah.mackey@mail.utoronto.ca"); // email
+        sampleStudentInfo.add("4"); // year
+        sampleStudentInfo.add("Math"); // program
 
-        sampleStudent = new Student(sampleUserInfo);
+        sampleStudent = new Student(sampleStudentInfo);
     }
 
     @Test

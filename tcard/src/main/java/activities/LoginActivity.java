@@ -13,6 +13,11 @@ import java.util.ArrayList;
 
 
 public class LoginActivity extends AppCompatActivity{
+    /**
+     * This is the first page the User will see
+     * If user logs in succesfully they'll be directed to the Dashboard,
+     * or they can go to the registration form page to sign up
+     */
     EditText username, password;
     Button register, login;
     UserDBHelper DB;
@@ -26,11 +31,16 @@ public class LoginActivity extends AppCompatActivity{
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);
 
-
+        // Clicking to the register button takes the user to the registration page
         register.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(intent);
         });
+
+        /**
+         * Clicking the login button will send the user to the dashboard page if the username exists
+         * in the database and if the password matches the username
+         */
         login.setOnClickListener(view -> {
             String user = username.getText().toString();
             String pass = password.getText().toString();

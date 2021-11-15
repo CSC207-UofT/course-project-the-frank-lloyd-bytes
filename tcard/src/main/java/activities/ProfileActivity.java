@@ -15,14 +15,19 @@ import java.net.URI;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity{
+    /**
+     * This page displays the user's information
+     * allows user to change password (profile picture update feature is coming in Phase 2)
+     */
     TextView names, utorID;
     ImageView profilePic;
     TextInputEditText number, email, status, department, year;
-    Button changePassword, uploadPic, backToDashboard;
+    Button changePassword, backToDashboard;
     UserManager myManager;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
+        // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
 
         profilePic = findViewById(R.id.profilePic);
@@ -32,10 +37,11 @@ public class ProfileActivity extends AppCompatActivity{
         status = findViewById(R.id.profileStatus);
         department = findViewById(R.id.profileDepartment);
         changePassword = findViewById(R.id.profileChangePassword);
-        uploadPic = findViewById(R.id.profileUploadPic);
         backToDashboard = findViewById(R.id.profileGoBack);
         year = findViewById(R.id.profileYear);
         utorID = findViewById(R.id.profileUtorID);
+
+        // putting in USER Object information in
         ArrayList<String> info = myManager.getinfo();
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
@@ -47,20 +53,14 @@ public class ProfileActivity extends AppCompatActivity{
         department.setText(info.get(8));
         year.setText(info.get(7));
 
-
-        //** uploadPic.setOnClickListener(view -> {
-         //   Intent intent1 = new Intent();
-         //   intent1.setAction(Intent.ACTION_GET_CONTENT);
-         //   intent1.setType("image/*");
-          //  startActivity(intent1);
-          //      });
-
+        // the button sends us back to dashboard
         backToDashboard.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
             intent.putExtra("manager", myManager);
             startActivity(intent);
         });
 
+        // the button sends us to the password update page
         changePassword.setOnClickListener(view -> {
             Intent intent2 = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
             intent2.putExtra("manager", myManager);
@@ -68,12 +68,4 @@ public class ProfileActivity extends AppCompatActivity{
         });
     }
 
-    //@Override
-    //protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-    //    super.onActivityResult(requestCode, resultCode, data);
-    //    if(data.getData() != null){
-    //        Uri profileUri = data.getData();
-    //        profilePic.setImageURI(profileUri);
-    //    }
-    //}
 }

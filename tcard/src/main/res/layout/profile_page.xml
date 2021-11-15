@@ -165,27 +165,24 @@
             <Button
                     android:text="Change Password"
                     android:layout_width="170dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_box_type_3"
                     android:id="@+id/profileChangePassword"/>
             <Button
-                    android:text="Change Picture"
-                    android:layout_width="170dp"
+                    app:icon="@drawable/ic_home"
+                    android:layout_width="60dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="18dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/text_box_type_3"
-                    android:id="@+id/profileUploadPic"/>
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/circle"
+                    android:id="@+id/profileGoBack"/>
+
         </LinearLayout>
-        <Button
-                app:icon="@drawable/ic_home"
-                android:layout_width="60dp"
-                android:layout_gravity="center"
-                android:paddingLeft="18dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/circle"
-                android:id="@+id/profileGoBack"/>
     </LinearLayout>
 </RelativeLayout>

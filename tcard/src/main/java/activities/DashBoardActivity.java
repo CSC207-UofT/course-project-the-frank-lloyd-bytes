@@ -16,6 +16,11 @@ import controllers.UserManager;
 import java.util.ArrayList;
 
 public class DashBoardActivity extends AppCompatActivity{
+    /**
+     * This is the Dashboard of the app
+     * Has a bottom navigation menu to direct to other pages + logs out the user
+     * Has a tab layout which displays a TCard image (Fragment) and QRCode (Fragment)
+     */
     TabLayout tabLayout;
     ViewPager2 viewPager;
     EditText username;
@@ -33,6 +38,10 @@ public class DashBoardActivity extends AppCompatActivity{
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
 
+        /**
+         * This is the bottom navigation menu
+         * each case represents the icon clicked and which page clicking on the icon should direct the user to
+         */
         bottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.profileActivity:
@@ -54,6 +63,7 @@ public class DashBoardActivity extends AppCompatActivity{
         });
 
         FragmentManager fm = getSupportFragmentManager();
+
         Bundle bundle = new Bundle();
         ArrayList<String> info = myManager.getinfo();
         bundle.putString("fName", info.get(2));
@@ -65,12 +75,18 @@ public class DashBoardActivity extends AppCompatActivity{
         criteria.add(info.get(7));
         criteria.add(info.get(8));
         bundle.putString("allInfo", criteria.toString());
+
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);
         viewPager.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("TCard"));
         tabLayout.addTab(tabLayout.newTab().setText("QR Code"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+        /**
+         * We are changing the view between different tabs (fragments)
+         * one tab will show the TCard while the other shows a QR code
+         * the method below helps us navigate between the tabs so we can go back and forth between them
+         */
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

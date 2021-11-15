@@ -33,11 +33,16 @@ Selecting "New user? Register" navigates to a menu with the following fields tha
 Once this information is entered, the user can now login and use the app with the user information they just registered.
 
 ### GUI:
-The main menu GUI displays TCard information of the user in the centre of the screen:
+The main menu GUI displays TCard information and QR Code of the user in the centre of the screen:
+TCARD:
 - UTORid
 - Legal name
 - ID number
 - Photo ID (if one has been provided)
+QR CODE:
+- Status
+- Year
+- Department
 
 At the bottom of the screen, there is a bar displaying the following options:
 - Account Menu
@@ -68,14 +73,12 @@ If the user's status is faculty, the information that is displayed is:
 
 Within the account menu, there are options:
 - "change password"
-- “upload picture”
 
 Selecting the “change password” option allows users to change their password. Users are first prompted to enter their 
 current password, then they are navigated to a screen with two fields (if the password they entered is correct):
 "new password" and "confirm new password". Typing in your desired new password in both of these fields changes the user's
 password.
 
-Selecting the “upload picture” option allows users to upload an image to be used as their photo ID in the app.
 
 ### GUI - Facilities menu:
 Selecting the “Facilities” option navigates to a menu that displays a list of all the major U of T facilities (e.g.

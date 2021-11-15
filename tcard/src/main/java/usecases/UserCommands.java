@@ -36,4 +36,8 @@ public class UserCommands implements Serializable {
             this.USER.changePassword(newpassword);
         }
     }
+
+    public User getUser(){
+        return this.USER;
+    }
 }

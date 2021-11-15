@@ -1,5 +1,6 @@
 package entities;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.ArrayList;
 
@@ -43,6 +44,17 @@ public class Facility implements CheckCriteria{
                 this.facilityInfo.get(FACILITY_CRITERIA);
     }
 
+    public ArrayList<String> getFacilityInfo(){
+        ArrayList<String> facilityInfo = new ArrayList<>();
+        facilityInfo.add(this.facilityInfo.get(FACILITY_NAME));
+        facilityInfo.add(this.facilityInfo.get(FACILITY_ADDRESS));
+        facilityInfo.add(this.facilityInfo.get(FACILITY_DESCRIPTION));
+        facilityInfo.add(this.facilityInfo.get(FACILITY_HOURS));
+        facilityInfo.add(this.facilityInfo.get(FACILITY_CRITERIA));
+
+        return facilityInfo;
+    }
+
     /**
      * This is a helper method used to convert a string of conditions for a criteria field to a list of strings
      * containing the same conditions.
@@ -56,7 +68,7 @@ public class Facility implements CheckCriteria{
     }
 
     /**
-     * This is a method for checking if a given user may access this facility. A given user may enter thefacility if their
+     * This is a method for checking if a given user may access this facility. A given user may enter the facility if their
      * information agrees with the criteria of the facility.
      * @param user a User object
      * @return a boolean indicating if the given user has access to the facility.

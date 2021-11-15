@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class DashBoardActivity extends AppCompatActivity{
@@ -36,10 +37,12 @@ public class DashBoardActivity extends AppCompatActivity{
             switch (item.getItemId()){
                 case R.id.profileActivity:
                     Intent intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                    intent1.putExtra("manager", myManager);
                     startActivity(intent1);
                     break;
                 case R.id.facilityActivity:
                     Intent intent2 = new Intent(getApplicationContext(), FacilityActivity.class);
+                    intent2.putExtra("manager", myManager);
                     startActivity(intent2);
                     break;
                 case R.id.loginActivity:

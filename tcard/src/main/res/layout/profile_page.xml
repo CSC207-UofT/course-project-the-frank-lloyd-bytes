@@ -22,15 +22,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/imageView4"
-
-                        android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/ic_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/profilePic"
+                        android:layout_weight="1"/>
                 <LinearLayout
                         android:orientation="vertical"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent">
                     <TextView
                             android:text="Text View"
@@ -170,7 +170,7 @@
                     android:background="@drawable/text_box_type_3"
                     android:id="@+id/profileChangePassword"/>
             <Button
-                    android:text="Upload Picture"
+                    android:text="Change Picture"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

@@ -1,4 +1,6 @@
 package activities;
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.widget.*;
 import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatActivity;
@@ -107,7 +109,8 @@ public class RegisterActivity extends AppCompatActivity{
                         Boolean checkUser = DB.checkutorid(user);
                         if(!checkUser){
                             Boolean insert = DB.insertData(user, pass, firstName,
-                                    lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(), year.getText().toString());
+                                    lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(),
+                                    year.getText().toString(), "");
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);

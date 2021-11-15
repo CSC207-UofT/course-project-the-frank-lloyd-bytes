@@ -14,5 +14,4 @@ public class UserManager implements Serializable {
     public ArrayList<String> getinfo(){
         return this.myUserCommands.getinfo();
     }
-
 }

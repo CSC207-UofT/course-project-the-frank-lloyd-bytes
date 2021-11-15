@@ -28,10 +28,6 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <Button
-                    android:text="UCHECK"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/button2"/>
             <LinearLayout
                     android:orientation="vertical"
                     android:background="@drawable/round_box"

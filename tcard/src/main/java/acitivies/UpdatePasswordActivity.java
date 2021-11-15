@@ -8,11 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import dataBase.UserDBHelper;
+import entities.User;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
     EditText currpassword, repassword, newpassword;
     Button btchangepassword, btcancel;
     UserDBHelper DB;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,6 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         repassword = (EditText) findViewById(R.id.repassword);
         btchangepassword = (Button) findViewById(R.id.btchangepassword);
         btcancel = (Button) findViewById(R.id.btcancel);
-        DB = new UserDBHelper(this);
 
         btchangepassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,13 +37,10 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                     Toast.makeText(UpdatePasswordActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     if(newpass.equals(repass)){
-                        Boolean checkuser = DB.checkutorid(user); // Check if user exists in DB.
-                        if(!checkuser){
-                            Toast.makeText(UpdatePasswordActivity.this, "Password update failed.", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            DB.changepassword(user,newpass);
-                            Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
+                        Boolean checkuser = User;
+                        if(checkuser){
+                            user.changePassword(newpass);
+                            Toast.makeText(UpdatePasswordActivity.this, "Password Updated.", Toast.LENGTH_SHORT).show();
                         }
                         if (!newpass.equals(repass)){
                         Toast.makeText(UpdatePasswordActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();

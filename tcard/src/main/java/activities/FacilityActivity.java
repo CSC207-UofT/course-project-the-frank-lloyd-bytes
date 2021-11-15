@@ -22,7 +22,12 @@ public class FacilityActivity extends AppCompatActivity {
     FacilityAdapter adapter;
     UserManager userManager;
 
-
+    /**
+     * starting the activity for the facility's page, programming the buttons on the screen as well as the adapter that
+     * sets up the texts
+     *
+     * @param savedInstanceState for any information that was saved previously
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

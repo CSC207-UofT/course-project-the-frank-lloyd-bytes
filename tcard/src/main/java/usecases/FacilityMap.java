@@ -9,6 +9,11 @@ import java.util.Objects;
 public class FacilityMap {
     private final HashMap<String, Facility> facilityMap = new HashMap<>();
 
+    /**
+     * create a Hashmap of the facility list from the array so we can get the facility from the key which is the
+     * name of the facility
+     * @param facilityList passed in to create a hashmap of the same information
+     */
     public FacilityMap(ArrayList<ArrayList<String>> facilityList){
         for (ArrayList<String> strings : facilityList) {
             Facility facility = new Facility(strings);
@@ -16,20 +21,13 @@ public class FacilityMap {
         }
     }
 
+    /**
+     * get the facility from the facility map
+     * @param name the name of the facility so it could be found in the hashmap
+     * @return a facility object
+     */
     public Facility getFacility(String name){
         return facilityMap.get(name);
-    }
-
-    public String getFacilityName(String name){
-        return Objects.requireNonNull(facilityMap.get(name)).getFacilityInfo().get(0);
-    }
-
-    public String getFacilityAddress(String name){
-        return Objects.requireNonNull(facilityMap.get(name)).getFacilityInfo().get(1);
-    }
-
-    public String getFacilityHours(String name){
-        return Objects.requireNonNull(facilityMap.get(name)).getFacilityInfo().get(3);
     }
 
 }

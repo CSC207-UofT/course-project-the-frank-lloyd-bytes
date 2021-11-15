@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilityManager;
 import controllers.UserManager;
-import entities.Facility;
-import usecases.FacilityMap;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,12 +22,14 @@ public class FacilityActivity extends AppCompatActivity {
     FacilityAdapter adapter;
     UserManager userManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_main);
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
         facilityName = findViewById(R.id.facilityName);
+
         try {
             facilityManager = new FacilityManager();
         } catch (IOException e) {
@@ -38,7 +38,12 @@ public class FacilityActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.listOfFaculties);
-        adapter = new FacilityAdapter(this);
+
+        try {
+            adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 

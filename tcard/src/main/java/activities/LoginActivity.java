@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity{
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);
 
+
         register.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(intent);

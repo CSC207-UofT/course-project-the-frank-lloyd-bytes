@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class DashBoardActivity extends AppCompatActivity{
@@ -41,9 +40,8 @@ public class DashBoardActivity extends AppCompatActivity{
                     startActivity(intent1);
                     break;
                 case R.id.facilityActivity:
-                    Intent intent2 = new Intent(getApplicationContext(), FacilityActivity.class);
-                    intent2.putExtra("manager", myManager);
-                    startActivity(intent2);
+                    Intent intent = new Intent(getApplicationContext(), FacilityActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.loginActivity:
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
@@ -61,10 +59,11 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
+        bundle.putString("allInfo", info.toString());
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);
         viewPager.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("TCard"));
-        tabLayout.addTab(tabLayout.newTab().setText("Vaccine Passport"));
+        tabLayout.addTab(tabLayout.newTab().setText("QR Code"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

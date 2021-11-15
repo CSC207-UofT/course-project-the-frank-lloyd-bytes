@@ -38,7 +38,8 @@ See the specification in the repository.
 
 ## Design Patterns
 - We tried to implement the template design pattern for User, Student and Faculty but it didn’t seem useful. We used this pattern because we thought there would be a big difference between the behaviors of Student and Faculty. But for the part we implemented, there is no huge difference. But because it didn’t hurt our current design and for the future extension of User, this design pattern may be helpful , we are keeping it. 
-- We also tried to use the adapter design pattern for the facility and it’s GUI regarding the recycler view and the viewpager2 for fragments. However (for recycler view adaptor), we did not have time to finish debugging the facility part of the app and thus it still crashes when we run the app. We will resolve any errors starting phase 2 and hopefully correctly implement this design pattern.
+- We also tried to use the adapter design pattern for the facility and it’s GUI regarding the recycler view and the viewpager2 for fragments. We used FragmentAdapter to connect fragments to viewpager, and to resize the cards (facility cards) to fit into the recyclerview.  However (for recycler view adaptor), we did not have time to finish debugging the facility part of the app and thus it still crashes when we run the app. We will resolve any errors starting phase 2 and hopefully correctly implement this design pattern. 
+
 
 ## Use of GitHub Features
 - We definitely used pull requests, merges, and the token cards from Github to get each other’s codes and be organized. In order to see what each member did before it is merged to the main, everyone can open a pull request for other members to check over. If there are no problems, it can be merged to the main so that everyone can get the newest version of the code. We also used branches alot since some people were working together on the same functions which would make it easier for them to only pull each other’s changes.

@@ -33,7 +33,7 @@ public class Faculty extends User implements Serializable {
     public String displayProfile() {
         return "First Name: " + this.getProfile().get(FIRST_NAME)+ "\n" +  "Last Name: " +
                 this.getProfile().get(LAST_NAME) + "\n"+ "UTORid: " + this.getId() +
-                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "ID number: " +
+                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "Personnel Number: " +
                 this.getProfile().get(ID_NUMBER) + "\n" + "Email: " + this.getProfile().get(EMAIL) + "\n" +
                 "Department: " + this.getProfile().get(FACULTY_DEPARTMENT) + "\n" + "Years at U of T: " +
                 this.getProfile().get(FACULTY_YEAR);

@@ -29,7 +29,7 @@ public class StudentTest {
     @Test
     public void testDisplayProfile() {
         String expectedProfileString = "First Name: Jonah\nLast Name: Mackey\nUTORid: mackeyjonah\nStatus: student\n" +
-                "ID number: 1234567890\nEmail: jonah.mackey@mail.utoronto.ca\nProgram of Study: Math\nYear of Study: 4";
+                "Student Number: 1234567890\nEmail: jonah.mackey@mail.utoronto.ca\nProgram of Study: Math\nYear of Study: 4";
         Assert.assertEquals(expectedProfileString, sampleStudent.displayProfile());
     }
 

@@ -34,7 +34,7 @@ public class Student extends User implements Serializable {
     public String displayProfile() {
         return "First Name: " + this.getProfile().get(FIRST_NAME)+ "\n" +  "Last Name: " +
                 this.getProfile().get(LAST_NAME) + "\n"+ "UTORid: " + this.getId() +
-                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "ID number: " +
+                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "Student Number: " +
                 this.getProfile().get(ID_NUMBER) + "\n" + "Email: " + this.getProfile().get(EMAIL) + "\n" +
                 "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM) + "\n" + "Year of Study: " +
                 this.getProfile().get(STUDENT_YEAR);

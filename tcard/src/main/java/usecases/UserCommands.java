@@ -44,7 +44,7 @@ public class UserCommands implements Serializable {
      * @return an array list of the user in this UserCommands
      */
     public ArrayList<String> getinfo(){
-        return this.USER.getProfile();
+        return this.USER.getUserInfo();
     }
 
     /**

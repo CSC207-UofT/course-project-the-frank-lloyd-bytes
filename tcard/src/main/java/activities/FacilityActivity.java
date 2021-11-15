@@ -43,7 +43,7 @@ public class FacilityActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.listOfFaculties);
         if (facilityManager!=null){
         try {
-            adapter = new FacilityAdapter(this, facilityManager.getFacilitiesInfoArray());
+            adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
         } catch (IOException e) {
             e.printStackTrace();
         }

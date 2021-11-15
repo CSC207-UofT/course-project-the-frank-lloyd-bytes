@@ -38,6 +38,8 @@
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
 
+
+
 </application>
 </manifest>
 

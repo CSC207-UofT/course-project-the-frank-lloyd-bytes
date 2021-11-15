@@ -22,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+
         names = findViewById(R.id.legalNames);
         number= findViewById(R.id.profileNumber);
         email = findViewById(R.id.profileEmail);
@@ -30,7 +31,15 @@ public class ProfileActivity extends AppCompatActivity{
         changePassword = findViewById(R.id.profileChangePassword);
         backToDashboard = findViewById(R.id.profileGoBack);
         utorID = findViewById(R.id.profileUtorID);
-
+        ArrayList<String> info = myManager.getinfo();
+        String legalFirstName = info.get(2);
+        String legalLastName = info.get(3);
+        names.setText(legalFirstName+" "+legalLastName);
+        utorID.setText(info.get(0));
+        number.setText(info.get(5));
+        email.setText(info.get(6));
+        status.setText(info.get(4));
+        department.setText(info.get(6));
 
 
         backToDashboard.setOnClickListener(view -> {

@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="acitivies.TCardFragment"
+                tools:context="activities.TCardFragment"
                 android:background="@drawable/gradient_1">
     <LinearLayout
             android:orientation="vertical"

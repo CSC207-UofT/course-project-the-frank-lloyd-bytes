@@ -59,10 +59,11 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
+        bundle.putString("allInfo", info.toString());
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);
         viewPager.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("TCard"));
-        tabLayout.addTab(tabLayout.newTab().setText("Vaccine Passport"));
+        tabLayout.addTab(tabLayout.newTab().setText("QR Code"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

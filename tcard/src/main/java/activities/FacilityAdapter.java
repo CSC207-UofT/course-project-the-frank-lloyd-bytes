@@ -5,12 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            text1 = (TextView) itemView.findViewById(R.id.text1);
+
+        }
+    }
+
     LayoutInflater inflater;
 
     public FacilityAdapter(Context context) {
@@ -34,9 +44,5 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         return 10;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
-    }
+
 }

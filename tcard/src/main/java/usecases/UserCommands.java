@@ -1,43 +1,39 @@
 package usecases;
 
+import entities.Student;
 import entities.User;
+import entities.Faculty;
 
-public class UserCommands implements InputBoundary {
-    private final UserList users;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-    public UserCommands(UserList users) {
-        this.users = users;
+public class UserCommands implements Serializable {
+    private final User USER;
+
+    public UserCommands(ArrayList<String> userList) {
+        this.USER = this.createUser(userList);
     }
 
-    public enum LoginResult {
-        SUCCESS,
-        FAILURE,
-        NOTEXIST
+    public String showProfile(){
+        return this.USER.displayProfile();
     }
 
-    public String getProfile(String userId){
-        User user = users.getUser(userId);
-        return user.profileDisplay();
-    }
-
-    /**
-     * Login using the provided id and password
-     * @param userId is the ID we want to check
-     * @param password is the password entered
-     * @return the result of this login.
-     */
-    public LoginResult logIn(String userId, String password){
-        if (this.users.userList.containsKey(userId)){
-            User user = users.getUser(userId);
-            if (users.checkPassword(password, user)){
-                return LoginResult.SUCCESS;
-            }
-            else {
-                return LoginResult.FAILURE;
-            }
+    public User createUser(ArrayList<String> userInfo) {
+        if (userInfo.get(4).equals("student")) {
+            Student studentUser = new Student(userInfo);
+            return studentUser;
         }
-        else{
-            return LoginResult.NOTEXIST;
+        Faculty facultyUser = new Faculty(userInfo);
+        return facultyUser;
+    }
+
+    public ArrayList<String> getinfo(){
+        return this.USER.getProfile();
+    }
+
+    public void changePassword(String oldpassword, String newpassword){
+        if (this.USER.checkPassword(oldpassword)){
+            this.USER.changePassword(newpassword);
         }
     }
 }

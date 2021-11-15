@@ -1,38 +1,39 @@
 package entities;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Implements Faculty class which is a child of User class
+ * Class Faculty is a child class of User, it initializes an instance of a faculty user class. Stores student
+ * user information.
  *
  */
-public class Faculty extends User{
-    final int FACULTY_DEPARTMENT = 8;
-    final int FACULTY_POSITION = 9;
+public class Faculty extends User implements Serializable {
+    //extra indexes for faculty's profile
+    public final int FACULTY_DEPARTMENT = 6;
+    public final int FACULTY_YEAR = 7;
 
-    public Faculty(ArrayList<String> info) {
-        super((ArrayList<String>)info.subList(0, 8));
-        this.profile.add(info.get(FACULTY_DEPARTMENT));
-        this.profile.add(info.get(FACULTY_POSITION));
-    }
     /**
-     *   The first item in accesses should be the department of the faculty.
+     * This is a constructor for the Faculty class. This method writes student information from a list of strings
+     * to a Faculty object.
+     * @param userInfo a list of strings containing information for a faculty member. This parameter is assumed
+     *                 to have the following ordering:
+     *                 {UTORid, password, first name, last name, status, ID number, email, Department, year in UofT}
+     */
+    public Faculty(ArrayList<String> userInfo) {
+        super(userInfo);
+        this.getProfile().add(userInfo.get(7));
+        this.getProfile().add(userInfo.get(8));
+    }
+
+    /**
+     * This method is for displaying a faculty members profile information.
+     * @return a string that displays the faculty members profile.
      */
     @Override
-    public String profileDisplay() {
-        return "First Name: " + this.profile.get(LEGAL_FIRST_NAME)+ "\n" +  "Last Name: " + this.profile.get(LEGAL_LAST_NAME) +
-                "\n"+ "UserId:" + this.profile.get(UTOR_ID) + "\n" + "Status: " + this.profile.get(STATUS) + "\n" +
-                "Faculty ID: " + this.profile.get(ID_NUMBER) + "\n" + "Email: " + this.profile.get(EMAIL) + "\n" +
-                "Faculty Department: " + this.profile.get(FACULTY_DEPARTMENT) + "\n" + "Faculty Position: " +
-                this.profile.get(FACULTY_POSITION) + "\n" + "Criteria: " + this.profile.get(BELONGS_TO);
+    public String displayProfile() {
+        String baseUserProfile = super.displayProfile();
+        return baseUserProfile + "Department: " + this.getProfile().get(FACULTY_DEPARTMENT) + "\n" + "Years in UofT: " +
+                this.getProfile().get(FACULTY_YEAR);
     }
 
-    @Override
-    public ArrayList<String> getProfile(){
-        return this.profile;
-    }
-
-    @Override
-    public String getId() {
-        return this.profile.get(2);
-    }
 }

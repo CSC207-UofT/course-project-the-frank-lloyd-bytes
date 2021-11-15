@@ -11,6 +11,6 @@ Responsibilities:
 
 Collaborators:
 * User
-* UserList
+* UserTest
 * Controller
 

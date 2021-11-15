@@ -1,49 +1,39 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Class student is a child class of User, it initializes an instance of
- * student user class, stores student data and profile, T card, unique ID
- *
- *
+ * Class Student is a child class of User, it initializes an instance of a student user class. Stores student
+ * user information.
  *
  */
+public class Student extends User implements Serializable {
+    //extra indexes for student's profile
+    public final int STUDENT_PROGRAM = 5;
+    public final int STUDENT_YEAR = 6;
 
-public class Student extends User{
-    public final int STUDENT_PROGRAM = 8;
-    public final int STUDENT_LEVEL = 9;
-    public final int STUDENT_YEAR = 10;
-
-    public Student(ArrayList<String> info) {
-        // assuming studentInfo has the following ordering of elements:
-        // {legalNameF, legalNameL, utorID, password, status, idNumber, email, program, level, year}
-        super((ArrayList<String>)info.subList(0, 8));
-        this.profile.add(info.get(STUDENT_PROGRAM));
-        this.profile.add(info.get(STUDENT_LEVEL));
-        this.profile.add(info.get(STUDENT_YEAR));
+    /**
+     * This is a constructor for the Student class. This method writes student information from a list of strings
+     * to a Student object.
+     * @param userInfo a list of strings containing information for a student. This parameter is assumed
+     *                      to have the following ordering:
+     *                      {UTORid, password, first name, last name, status, ID number, email, program, year}
+     */
+    public Student(ArrayList<String> userInfo) {
+        super(userInfo);
+        this.getProfile().add(userInfo.get(7)); // program
+        this.getProfile().add(userInfo.get(8)); // year
     }
 
     /**
-     *   The first item in accesses should be the program of the student.
+     * This method is for displaying a students profile information.
+     * @return a string that displays the student profile.
      */
     @Override
-    public String profileDisplay() {
-        return "First Name: " + this.profile.get(LEGAL_FIRST_NAME)+ "\n" +  "Last Name: " +
-                this.profile.get(LEGAL_LAST_NAME) + "\n"+ "UserId:" + this.profile.get(UTOR_ID) +
-                "\n" + "Status: " + this.profile.get(STATUS) + "\n" + "Student ID: " +
-                this.profile.get(ID_NUMBER) + "\n" + "Email: " + this.profile.get(EMAIL) + "\n" +
-                "Program of Study: " + this.profile.get(STUDENT_PROGRAM) + "\n" + "Student Level: " +
-                this.profile.get(STUDENT_LEVEL) + "\n" + "Year of Study: " + this.profile.get(STUDENT_YEAR) +
-                "\n"+ "Criteria: " + this.profile.get(BELONGS_TO);
-    }
-    @Override
-    public ArrayList<String> getProfile(){
-        return this.profile;
-    }
-
-    @Override
-    public String getId(){
-        return this.profile.get(ID_NUMBER);
+    public String displayProfile() {
+        String baseUserProfile = super.displayProfile();
+        return baseUserProfile + "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM)
+                + "\n" + "Year of Study: " + this.getProfile().get(STUDENT_YEAR);
     }
 }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                tools:context=".DashBoardActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:text="VIRTUAL TCARD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:paddingTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="35dp"
+            android:textColor="@color/UofTblue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/textView"
+            android:paddingTop="20dp"
+            android:paddingHorizontal="40dp"
+            android:layout_height="450dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:text="UCHECK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/button2"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:background="@drawable/round_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <com.google.android.material.tabs.TabLayout
+                        android:background="@color/transparent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/tab_layout"
+                        android:layout_height="wrap_content">
+                </com.google.android.material.tabs.TabLayout>
+                <androidx.viewpager2.widget.ViewPager2
+                        android:layout_width="match_parent"
+                        android:id="@+id/view_pager"
+                        android:layout_height="match_parent">
+                </androidx.viewpager2.widget.ViewPager2>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bottom_menu"
+            android:background="@drawable/text_box_type_3"
+            android:elevation="2dp"
+            app:itemTextColor="@color/white"
+            app:itemRippleColor="@color/transparent"
+            android:layout_height="60dp"
+            app:menu="@menu/bottom_menu"
+            app:itemIconSize="40dp"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@color/white"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>

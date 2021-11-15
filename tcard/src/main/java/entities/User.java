@@ -1,37 +1,38 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * This is an abstract class that is a base for all user classes. Stores basic user information.
  *
  */
-public abstract class User {
-    private ArrayList<String> profile = new ArrayList<>();
+public abstract class User implements Serializable {
+    protected ArrayList<String> profile = new ArrayList<>();
     private String password;
-    public final int UTOR_ID = 0;
-    public final int FIRST_NAME = 1;
-    public final int LAST_NAME = 2;
-    public final int STATUS = 3;
-    public final int ID_NUMBER = 4;
-    public final int EMAIL = 5;
+    private String utorid;
+    //Indexes for profile
+    public final int FIRST_NAME = 0;
+    public final int LAST_NAME = 1;
+    public final int STATUS = 2;
+    public final int ID_NUMBER = 3;
+    public final int EMAIL = 4;
 
     /**
      * This is a constructor for the User class. This method writes basic user information from a list of strings to a
      * User object.
      * @param userInfo a list of strings containing information for a user. This parameter is assumed
      *                 to have the following ordering:
-     *                 {first name, last name, UTORid, password, status, ID number, email, program, level, year,
-     *                 department, position}
+     *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to}
      */
     public User(ArrayList<String> userInfo) {
-        this.profile.add(userInfo.get(0)); // UTORid
+        this.utorid = userInfo.get(0); // UTORid
+        this.password = userInfo.get(1); // password
         this.profile.add(userInfo.get(2)); // first name
         this.profile.add(userInfo.get(3)); // last name
         this.profile.add(userInfo.get(4)); // status
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
-        this.password = userInfo.get(1); // password
     }
 
     /**
@@ -51,25 +52,38 @@ public abstract class User {
         this.password = newPassword;
     }
 
+
     /**
      * This method is for displaying a users basic profile information.
      * @return a string that displays the profile in a preferred format.
      */
-    public String displayProfile() {
-        return "First Name: " + this.profile.get(FIRST_NAME)+ "\n" +  "Last Name: " +
-                this.profile.get(LAST_NAME) + "\n"+ "UTORid: " + this.profile.get(UTOR_ID) +
-                "\n" + "Status: " + this.profile.get(STATUS) + "\n" + "ID number: " +
-                this.profile.get(ID_NUMBER) + "\n" + "Email: " + this.profile.get(EMAIL);
+    public abstract String displayProfile();
+
+    /**
+     * A getter method to get all the users profile information (including utorid and password) as an arraylist.
+     * @return all the users profile information (including utorid and password)
+     */
+    public ArrayList<String> getUserInfo() {
+        ArrayList<String> profilelist = new ArrayList<>();
+        profilelist.add(this.utorid);
+        profilelist.add(this.password);
+        profilelist.addAll(this.profile);
+        return profilelist;
     }
 
     /**
-     * This method is for getting profile information. (we may use this to change our data file).
-     * @return a list of strings containing information of this user.
+     * A getter method to get user's profile as an arraylist.
+     * @return the user's profile
      */
-    public ArrayList<String> getProfile() {
-        return this.profile;
-    }
+    public ArrayList<String> getProfile() { return this.profile; }
 
+    /**
+     * A getter method to get user's utroid
+     * @return the user's utroid
+     */
+    public String getId(){
+        return this.utorid;
+    }
 
 
 }

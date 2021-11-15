@@ -59,7 +59,11 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
-        bundle.putString("allInfo", info.toString());
+        ArrayList criteria = new ArrayList();
+        criteria.add(info.get(4));
+        criteria.add(info.get(7));
+        criteria.add(info.get(8));
+        bundle.putString("allInfo", criteria.toString());
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);
         viewPager.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("TCard"));

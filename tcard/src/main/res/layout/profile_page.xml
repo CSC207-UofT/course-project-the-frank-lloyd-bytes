@@ -5,7 +5,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="15dp"
-                tools:context="acitivies.ProfileActivity"
+                tools:context="activities.ProfileActivity"
                 android:background="@color/white">
 
     <LinearLayout
@@ -16,21 +16,21 @@
                 android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:padding="15dp"
-                        android:background="@color/UofTblue">>
+                        android:background="@drawable/text_box_type_3">>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/imageView4"
-
-                        android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+                        android:src="@drawable/ic_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/profilePic"
+                        android:layout_weight="1"/>
                 <LinearLayout
                         android:orientation="vertical"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent">
                     <TextView
                             android:text="Text View"
@@ -137,21 +137,55 @@
                     android:background="@color/transparent"
                     android:text="Department"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_box"
+                android:hint="Year"
+        >
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profileYear"
+                    android:background="@color/transparent"
+                    android:enabled="false"
+                    android:textColor="@color/black"
+                    android:text="Year"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:layout_height="wrap_content">
+            <Button
+                    android:text="Change Password"
+                    android:layout_width="170dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_box_type_3"
+                    android:id="@+id/profileChangePassword"/>
+            <Button
+                    android:text="Change Picture"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/text_box_type_3"
+                    android:id="@+id/profileUploadPic"/>
+        </LinearLayout>
         <Button
-                android:text="Change Password"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/text_box_type_3"
-                android:id="@+id/profileChangePassword"/>
-        <Button
-                android:text="Go Back"
-                android:layout_width="170dp"
+                app:icon="@drawable/ic_home"
+                android:layout_width="60dp"
+                android:layout_gravity="center"
+                android:paddingLeft="18dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/text_box_type_3"
+                android:background="@drawable/circle"
                 android:id="@+id/profileGoBack"/>
     </LinearLayout>
 </RelativeLayout>

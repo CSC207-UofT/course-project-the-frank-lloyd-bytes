@@ -13,7 +13,8 @@ import java.util.ArrayList;
 public class UserDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "User.db";
     public static final String TABLE_NAME = "users";
-    public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS", "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO"};
+    public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS",
+            "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO"};
 
 
     /**
@@ -34,7 +35,9 @@ public class UserDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key,PASSWORD TEXT,LEGAL_NAME_F TEXT," +
-                "LEGAL_NAME_L TEXT ,STATUS TEXT,ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
+                "LEGAL_NAME_L TEXT ,STATUS TEXT," +
+                "ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
+
     }
 
     /**
@@ -106,7 +109,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @return ture if the insert success, false if not
      */
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
-                              String department, String status, String tCardNumber, String year) {
+                              String department, String status, String tCardNumber, String year, String photo) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_LIST[0], username);

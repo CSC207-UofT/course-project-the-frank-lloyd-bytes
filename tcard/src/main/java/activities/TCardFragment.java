@@ -10,7 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 public class TCardFragment extends Fragment{
-
+    /**
+     * This is one of the fragments that's displayed in the Dashboard through ViewPager2
+     * A TCard is displayed (appearance similar to the physical TCard, the profile pic will come in Phase 2)
+     * We get the information displayed from the USER Object
+     * (User -->UserCommands-->UserManager-->Dashboard(myManager-->Bundle)-->FragmentAdapter(bundle)-->Fragment)
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.tcard_tab_fragment, container, false);

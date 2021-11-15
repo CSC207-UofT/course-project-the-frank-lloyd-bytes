@@ -11,6 +11,11 @@ import controllers.UserManager;
 import dataBase.UserDBHelper;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
+    /**
+     * This page is called by the ProfileActivity to change the password of the user
+     * If the password change operator is succesfull than the password will be changed in the database
+     * so the next time the user signs in, they have to type the new password
+     */
     EditText currpassword, repassword, newpassword;
     Button btcancel;
     UserManager myManager;
@@ -34,13 +39,19 @@ public class UpdatePasswordActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+    /**
+     * This checks whether the update password button was clicked
+     * If it was clicked it checks whether the inputted data is valid and if it is valid
+     * then the password is changed in the database to the new one
+     */
     public void update(View view){
         String oldpass = currpassword.getText().toString().trim();
         String newpass = newpassword.getText().toString().trim();
         String repass = repassword.getText().toString().trim();
-        if(oldpass.equals("")||newpass.equals("")||repass.equals(""))
+        // checks if there are any empty input text boxes
+        if(oldpass.equals("")||newpass.equals("")||repass.equals("")){
             Toast.makeText(UpdatePasswordActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-        else{
+        } else{
             if(newpass.equals(oldpass)){
                 Toast.makeText(UpdatePasswordActivity.this, "It's same as the current password.", Toast.LENGTH_SHORT).show();
             } else if(!newpass.equals(repass)){

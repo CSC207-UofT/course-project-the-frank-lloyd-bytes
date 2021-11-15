@@ -60,6 +60,12 @@ public class ProfileActivity extends AppCompatActivity{
             intent.putExtra("manager", myManager);
             startActivity(intent);
         });
+
+        changePassword.setOnClickListener(view -> {
+            Intent intent2 = new Intent(getApplicationContext(), UpdatePasswordActivity.class);
+            intent2.putExtra("manager", myManager);
+            startActivity(intent2);
+        });
     }
 
     //@Override

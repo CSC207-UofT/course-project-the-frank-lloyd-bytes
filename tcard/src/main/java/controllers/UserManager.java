@@ -14,4 +14,7 @@ public class UserManager implements Serializable {
     public ArrayList<String> getinfo(){
         return this.myUserCommands.getinfo();
     }
+    public void changePassword(String oldpassword, String newpassword){
+        this.myUserCommands.changePassword(oldpassword,newpassword);
+        }
 }

@@ -20,16 +20,12 @@ public class FileReader {
         ArrayList<String[]> buildList = new ArrayList<String[]>();
         String line = "";
         String splitBy = ",";
-        try {
-            BufferedReader br = new BufferedReader(new java.io.FileReader(FILE_ADDRESS));
-            while ((line = br.readLine()) != null)
-            {
-                String[] user = line.split(splitBy);
-                buildList.add(user);
-                return buildList;
-            }
-        } catch (IOException e) {
-            throw e;
+        BufferedReader br = new BufferedReader(new java.io.FileReader(FILE_ADDRESS));
+        if ((line = br.readLine()) != null)
+        {
+            String[] user = line.split(splitBy);
+            buildList.add(user);
+            return buildList;
         }
         return buildList;
     }

@@ -7,13 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
+
 /*
   A User Database Helper class that set up, add, edit, delete the database.
  */
 public class UserDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "User.db";
     public static final String TABLE_NAME = "users";
-    public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS", "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO"};
+    public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS",
+            "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO"};
 
 
     /**
@@ -34,7 +36,9 @@ public class UserDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key,PASSWORD TEXT,LEGAL_NAME_F TEXT," +
-                "LEGAL_NAME_L TEXT ,STATUS TEXT,ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
+                "LEGAL_NAME_L TEXT ,STATUS TEXT," +
+                "ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
+
     }
 
     /**
@@ -106,7 +110,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @return ture if the insert success, false if not
      */
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
-                              String department, String status, String tCardNumber, String year) {
+                              String department, String status, String tCardNumber, String year, String photo) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_LIST[0], username);
@@ -121,4 +125,22 @@ public class UserDBHelper extends SQLiteOpenHelper {
         long result = MyDB.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
+
+    /**
+     * update the password for the user in the database
+     * @param data is the user's info
+     * @return true if the update work, false if not
+     */
+    public Boolean updataPassword(ArrayList<String> data){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        for (int i=0; i<data.size();i++){
+            contentValues.put(COL_LIST[i], data.get(i));
+        }
+        long result = MyDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        return result != -1;
+
+    }
+
 }
+

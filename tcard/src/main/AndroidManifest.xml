@@ -37,6 +37,12 @@
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
+    <activity android:name="activities.UpdatePasswordActivity"
+              android:label="@string/title_activity_dash_board"
+              android:theme="@style/Theme.MyApplication.NoActionBar">
+    </activity>
+
+
 
 </application>
 </manifest>

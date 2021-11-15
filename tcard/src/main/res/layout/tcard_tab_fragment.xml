@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="acitivies.TCardFragment"
+                tools:context="activities.TCardFragment"
                 android:background="@drawable/gradient_1">
     <LinearLayout
             android:orientation="vertical"
@@ -27,16 +27,19 @@
                     android:layout_width="156dp"
                     android:layout_height="match_parent">
                 <ImageView
-                        android:layout_width="160dp"
-                        android:layout_height="162dp" tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/imageView5"
-                        tools:layout_editor_absoluteY="213dp" tools:layout_editor_absoluteX="26dp"/>
+                        android:src="@drawable/ic_profile"
+                        android:layout_width="151dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="-80dp"
+                        android:id="@+id/profilePic"
+                        android:layout_weight="1"/>
                 <TextView
                         android:text="TextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="-80dp"
                         android:id="@+id/tUtorID"
-                        android:paddingTop="5dp"
                         android:layout_gravity="center"/>
             </LinearLayout>
             <LinearLayout

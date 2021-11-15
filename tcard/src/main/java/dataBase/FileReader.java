@@ -9,7 +9,7 @@ import java.util.Arrays;
   A reader class that read the csv file.
  */
 public class FileReader {
-    protected static final String  FILE_ADDRESS = "tcard\\FacilitiesInfo.csv";
+    protected static final String  FILE_ADDRESS = "tcard/FacilitiesInfo.csv";
 
 
     /**
@@ -25,8 +25,9 @@ public class FileReader {
         {
             ArrayList<String> data = new ArrayList<>(Arrays.asList(line.split(splitBy)));
             buildList.add(data);
-            return buildList;
         }
         return buildList;
     }
+
+
 }

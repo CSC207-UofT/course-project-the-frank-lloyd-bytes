@@ -11,8 +11,7 @@ import controllers.FacilityManager;
 import controllers.UserManager;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class FacilityActivity extends AppCompatActivity {
     Button requestAccess;
@@ -29,23 +28,24 @@ public class FacilityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_facility_main);
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
         facilityName = findViewById(R.id.facilityName);
-
+        requestAccess = findViewById(R.id.checkFacilityAccess);
         try {
             facilityManager = new FacilityManager();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
         recyclerView = findViewById(R.id.listOfFaculties);
-
+        if (facilityManager!=null){
         try {
-            adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
+            adapter = new FacilityAdapter(this, facilityManager.getFacilitiesInfoArray());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
         requestAccess.setOnClickListener(view -> {
             String name = facilityName.getText().toString();

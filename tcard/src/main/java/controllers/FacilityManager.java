@@ -11,13 +11,15 @@ import dataBase.FileReader;
 
 public class FacilityManager implements Serializable {
     private final FacilityMap myFacilityMap;
-    FileReader myFileReader = new FileReader();
-    ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
 
-    public ArrayList<ArrayList<String>> getFacilitiesInfoArray(){
-        return facilitiesInfo;
+
+    public ArrayList<ArrayList<String>> getFacilitiesInfoArray() throws IOException {
+        FileReader myFileReader = new FileReader();
+        return myFileReader.reader();
     }
     public FacilityManager() throws IOException {
+        FileReader myFileReader = new FileReader();
+        ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
         myFacilityMap = new FacilityMap(facilitiesInfo);
     }
 

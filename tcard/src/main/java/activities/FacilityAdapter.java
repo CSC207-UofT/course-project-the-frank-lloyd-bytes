@@ -28,8 +28,11 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     LayoutInflater inflater;
     FacilityManager facilityManager = new FacilityManager();
     private ArrayList<ArrayList<String>> facilityInfo;
-    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap) throws IOException {
+    public Context context;
+    public FacilityAdapter(Context context, ArrayList<ArrayList<String>> facilityMap) throws IOException {
+        this.context = context;
         facilityInfo = facilityMap;
+        inflater = LayoutInflater.from(context);
     }
 
     @NonNull
@@ -39,11 +42,20 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = facilityManager.getFacilitiesInfoArray().get(position).get(0);
-        String address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
-        String hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
+        String name = null;
+        String address = null;
+        String hours = null;
+        try {
+            name = facilityManager.getFacilitiesInfoArray().get(position).get(0);
+            address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
+            hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         holder.facilityName.setText(name);
         holder.facilityHours.setText(hours);

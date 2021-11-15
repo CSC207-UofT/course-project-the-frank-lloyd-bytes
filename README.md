@@ -4,21 +4,28 @@ Consider the following description of a software system that facilitates a virtu
 faculty at the University of Toronto.
 
 ### First menu:
-When you open the app, you are given three options to choose from in the first menu:
-- Sign-in
-- Register business
-- Register facility
+When you open the app, you are given the option "LOGIN" as a user after inputting information to the fields "User Name" 
+and "Password". There is also an option "New user? Register" where you can register an account in the app.
 
-Users (i.e. people who use a TCard) access the app by selecting “sign-in”.
+###Log in:
+You can select the “LOGIN” option after entering information to the fields "User Name" and "Password". If the UTORid and 
+password the user enters is not registered (i.e. is not in the user database), an error message comes up saying 
+“incorrect UTORid and/or password” and they cannot access the app. If the UTORid and password the user enters is 
+registered, they are navigated to the main menu of the app.
 
-###Sign-in:
-Selecting the “sign-in” option prompts the user to enter a UTORid and password. If the UTORid and password the user
-enters is not registered (i.e. is not in the user database), an error message comes up saying “incorrect UTORid and/or
-password” and they cannot access the app. If the UTORid and password the user enters is registered, they are navigated
-to the main menu of the app.
+### Register User
+Selecting "New user? Register" navigates to a menu with the following fields that users can enter information into:
+- User Name
+- Password
+- Legal Names: first name, last name
+- Status: Faculty or Student
+- email
+- TCard #
+- Department
+- Year
 
 ###GUI:
-The main menu is a GUI that displays the following TCard information of the user in the centre of the screen:
+The main menu GUI displays TCard information of the user in the centre of the screen:
 - UTORid
 - Legal name
 - ID number
@@ -31,53 +38,60 @@ At the bottom of the screen, there is a bar displaying the following menu option
 ###GUI - Account menu:
 Selecting the “Account” option navigates to a menu that displays the user's information. If the user's status is student,
 the information that is displayed is:
-- Legal name
+- First name
+- Last name
+- UTORid
+- Status: student
+- Student number
 - U of T email
-- Program
-- Level: undergraduate, graduate
+- Program of study
+- Level (undergraduate or graduate)
+- Year of study
 
 If the user's status is faculty, the information that is displayed is:
-- Legal name
+- First name
+- Last name
+- UTORid
+- Status: faculty
+- Personell number
 - U of T email
 - Department
-- Position
+- Position (professor, assistant professor, etc)
+
+Within the account menu, there is a "change password option". Selecting this option allows users to change their 
+password. Users are first prompted to enter their current password, then they are navigated to a screen with two fields:
+"new password" and "confirm new password". Typing in your desired new password in both of these fields changes the users
+password.
+
+###TCard:
+Every user is associated with a unique TCard, which holds a unique bar code and ID number for the user.
+Users can also use their TCard to gain access to certain U of T facilities by scanning the barcode on their TCard.
+All facilities have a list of criteria that determine which users may be granted access after scanning their TCard.
 
 ###GUI - Facilities menu:
 Selecting the “Facilities” option navigates to a menu that displays a list of all the major U of T facilities (e.g.
-major U of T buildings, but not rooms within the buildings). For each facility, the following information is displayed:
+major U of T buildings). For each facility, the following information is displayed:
 - Name
 - Address
 - Description
 - Hours
 
-###TCard:
-Every user is associated with a unique TCard, which holds a unique bar code and ID number for the user. Every TCard has
-a wallet, which deals with all the financial information and transactions of the user's TCard (as described above in
-the “GUI - Wallet Menu” section).
+For each facility, there is a "check access" option. Selecting this option checks to see if you have TCard
+access to this facility, based on the criteria for entry that the facility has listed. If you satisfy the facilities 
+criteria, a message will be displayed saying "You have TCard access to <facility name>!". Otherwise, a message is 
+displayed saying "You do not have TCard access to <facility name>."
 
-Users can use their TCard to make purchases at TCard-compatible merchants by scanning the barcode on their TCard. All
-merchants have a list of discounts offered by their business. Each discount has a list of criteria that decide who the
-discount applies to. If a user is making a purchase at a merchant, any applicable discounts will automatically be
-applied.
+###UCheck
+We need to be able to identify whether a user has done Ucheck (or fully vaccinated or has an exemption) or not. If the 
+user is fully vaccinated and has done their Ucheck, the background color of the main menu GUI should be green, and red 
+otherwise.
 
-Users can also use their TCard to gain access to certain U of T facilities by scanning the barcode on their TCard.
-All facilities have a list of criteria that determine which users may be granted access after scanning their TCard.
-If a user scans their card and satisfies the facilities criteria, they will be granted access and the entrance will
-open. If the user does not satisfy the criteria, the entrance will remain locked.
+Users should be able to upload their vaccination receipt or other documents to their profile.
+
+Users should be able to complete Uchek through the app every day.
+
+The Ucheck status of the user renews every day(or every 24 hours). Once the Ucheck expires, the app will notify the user to renew their Ucheck status.
+
+On the main menu GUI, users can swipe left or right to change to different GUIs to show their Ucheck result or vaccination receipt.(There will be two GUIs, one for Ucheck and one for the vaccine. And any modification of the Ucheck or vaccine can be done through their GUIs).
 
 
-After this information is entered, the merchant will be visible to users in the “Merchants” menu of the app.
-
-###Register facility
-Administrators can register U of T facilities on the app (so that the business and its information will be visible to
-users of the app) by selecting the “Register facility” option in first menu of the app. Selecting this prompts the
-administrator to enter an administrator username and password. If the username or password they entered is invalid, an
-error message is displayed saying "incorrect username and/or password". If the username and password they entered is
-valid, they prompted to input the following information on the merchant:
-- Name
-- Address
-- Description
-- Hours
-- Criteria for access to the facility
-
-After this information is entered, the facility will be visible to users in the “Facility” menu of the app.

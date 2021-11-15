@@ -10,20 +10,20 @@ import java.util.ArrayList;
  */
 public class Student extends User implements Serializable {
     //extra indexes for student's profile
-    public final int STUDENT_PROGRAM = 5;
-    public final int STUDENT_YEAR = 6;
+    public final int STUDENT_YEAR = 5;
+    public final int STUDENT_PROGRAM = 6;
 
     /**
      * This is a constructor for the Student class. This method writes student information from a list of strings
      * to a Student object.
      * @param userInfo a list of strings containing information for a student. This parameter is assumed
      *                      to have the following ordering:
-     *                      {UTORid, password, first name, last name, status, ID number, email, program, year}
+     *                      {UTORid, password, first name, last name, status, ID number, email, year, program}
      */
     public Student(ArrayList<String> userInfo) {
         super(userInfo);
-        this.profile.add(userInfo.get(7)); // year
-        this.profile.add(userInfo.get(8)); // program
+        this.getProfile().add(userInfo.get(7)); // year
+        this.getProfile().add(userInfo.get(8)); // program
     }
 
     /**
@@ -32,8 +32,11 @@ public class Student extends User implements Serializable {
      */
     @Override
     public String displayProfile() {
-        String baseUserProfile = super.displayProfile();
-        return baseUserProfile + "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM)
-                + "\n" + "Year of Study: " + this.getProfile().get(STUDENT_YEAR);
+        return "First Name: " + this.getProfile().get(FIRST_NAME)+ "\n" +  "Last Name: " +
+                this.getProfile().get(LAST_NAME) + "\n"+ "UTORid: " + this.getId() +
+                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "ID number: " +
+                this.getProfile().get(ID_NUMBER) + "\n" + "Email: " + this.getProfile().get(EMAIL) + "\n" +
+                "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM) + "\n" + "Year of Study: " +
+                this.getProfile().get(STUDENT_YEAR);
     }
 }

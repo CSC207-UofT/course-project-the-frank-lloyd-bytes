@@ -59,7 +59,10 @@ public class UpdatePasswordActivity extends AppCompatActivity {
             }
             else {
                 myManager.changePassword(oldpass, newpass);
-                Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
+                if(DB.updataPassword(myManager.getinfo())){
+                    Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         }
     }

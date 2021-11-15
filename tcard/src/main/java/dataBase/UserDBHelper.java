@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
+
 /*
   A User Database Helper class that set up, add, edit, delete the database.
  */
@@ -124,4 +125,22 @@ public class UserDBHelper extends SQLiteOpenHelper {
         long result = MyDB.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
+
+    /**
+     * update the password for the user in the database
+     * @param data is the user's info
+     * @return true if the update work, false if not
+     */
+    public Boolean updataPassword(ArrayList<String> data){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        for (int i=0; i<data.size();i++){
+            contentValues.put(COL_LIST[i], data.get(i));
+        }
+        long result = MyDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        return result != -1;
+
+    }
+
 }
+

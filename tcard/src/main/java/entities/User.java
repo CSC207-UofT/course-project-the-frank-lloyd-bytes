@@ -23,8 +23,7 @@ public abstract class User implements Serializable {
      * User object.
      * @param userInfo a list of strings containing information for a user. This parameter is assumed
      *                 to have the following ordering:
-     *                 {first name, last name, UTORid, password, status, ID number, email, program, level, year,
-     *                 department, position}
+     *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to}
      */
     public User(ArrayList<String> userInfo) {
         this.utorid = userInfo.get(0); // UTORid
@@ -58,24 +57,25 @@ public abstract class User implements Serializable {
      * This method is for displaying a users basic profile information.
      * @return a string that displays the profile in a preferred format.
      */
-    public String displayProfile() {
-        return "First Name: " + this.profile.get(FIRST_NAME)+ "\n" +  "Last Name: " +
-                this.profile.get(LAST_NAME) + "\n"+ "UTORid: " + this.utorid +
-                "\n" + "Status: " + this.profile.get(STATUS) + "\n" + "ID number: " +
-                this.profile.get(ID_NUMBER) + "\n" + "Email: " + this.profile.get(EMAIL);
-    }
+    public abstract String displayProfile();
 
     /**
-     * A getter method to get user's profile as an arraylist.
-     * @return the user's profile
+     * A getter method to get all the users profile information (including utorid and password) as an arraylist.
+     * @return all the users profile information (including utorid and password)
      */
-    public ArrayList<String> getProfile() {
+    public ArrayList<String> getUserInfo() {
         ArrayList<String> profilelist = new ArrayList<>();
         profilelist.add(this.utorid);
         profilelist.add(this.password);
         profilelist.addAll(this.profile);
         return profilelist;
     }
+
+    /**
+     * A getter method to get user's profile as an arraylist.
+     * @return the user's profile
+     */
+    public ArrayList<String> getProfile() { return this.profile; }
 
     /**
      * A getter method to get user's utroid

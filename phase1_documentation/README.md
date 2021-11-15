@@ -25,7 +25,7 @@ See the specification in the repository.
 - It is very easy to find things in this package structure. Similar classes and interfaces this way are packaged together and they are named intuitively enough to know which package they belong to.
 
 ## Clean Architecture
-- Please see our UML diagram at the following image address:tcard.png.
+- Please see our UML diagram tcard.png in the phase1_documentation folder.
 - We believe that we followed clean architecture very well. To follow the order of the layers, when we had to call something from the entities, for example from the controllers, we had to pass them through the use-cases to follow the right order. When we get the information from the database for the facility, we start with the FacilityManager. It is a controller and it calls the FacilityMap class in the use cases, which then calls the Facility entity class to create the Facility object that can be put into the map. It is then passed back to FacilityManager, and then back to the GUI for the facility’s page to display. Because of this, the dependency rule is mostly consistently followed, as much as we could, when the GUI is being interacted with, and when the entities are being called and changed.
 - There is one part in our facilities activities where we directly call a method in the facility class. Since we are still debugging this page, we did not change it yet to comply with clean architecture. We will change this for the future.
 

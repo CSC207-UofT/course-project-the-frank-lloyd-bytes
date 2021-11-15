@@ -34,11 +34,13 @@ Once this information is entered, the user can now login and use the app with th
 
 ### GUI:
 The main menu GUI displays TCard information and QR Code of the user in the centre of the screen:
+
 TCARD:
 - UTORid
 - Legal name
 - ID number
 - Photo ID (if one has been provided)
+
 QR CODE:
 - Status
 - Year

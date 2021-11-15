@@ -22,8 +22,8 @@ public class Student extends User implements Serializable {
      */
     public Student(ArrayList<String> userInfo) {
         super(userInfo);
-        this.getProfile().add(userInfo.get(7)); // program
-        this.getProfile().add(userInfo.get(8)); // year
+        this.profile.add(userInfo.get(7)); // year
+        this.profile.add(userInfo.get(8)); // program
     }
 
     /**

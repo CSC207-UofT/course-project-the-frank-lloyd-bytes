@@ -19,8 +19,7 @@ public class QRCodeFragment extends Fragment {
         qrImage = view.findViewById(R.id.qrPlaceHolder);
         Bundle bundle = getArguments();
         String input = bundle.getString("allInfo");
-
-        QRGEncoder qrgEncoder = new QRGEncoder(input, QRGContents.Type.TEXT, 150);
+        QRGEncoder qrgEncoder = new QRGEncoder(input, QRGContents.Type.TEXT, 200);
         Bitmap bitmap = qrgEncoder.getBitmap();
         qrImage.setImageBitmap(bitmap);
 

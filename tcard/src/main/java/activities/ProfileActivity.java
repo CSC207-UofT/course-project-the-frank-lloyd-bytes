@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity{
     TextView names, utorID;
-    TextInputEditText number, email, status, department;
+    TextInputEditText number, email, status, department, year;
     Button changePassword, backToDashboard;
     UserManager myManager;
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity{
         department = findViewById(R.id.profileDepartment);
         changePassword = findViewById(R.id.profileChangePassword);
         backToDashboard = findViewById(R.id.profileGoBack);
+        year = findViewById(R.id.profileYear);
         utorID = findViewById(R.id.profileUtorID);
         ArrayList<String> info = myManager.getinfo();
         String legalFirstName = info.get(2);
@@ -39,7 +40,8 @@ public class ProfileActivity extends AppCompatActivity{
         number.setText(info.get(5));
         email.setText(info.get(6));
         status.setText(info.get(4));
-        department.setText(info.get(6));
+        department.setText(info.get(8));
+        year.setText(info.get(7));
 
 
         backToDashboard.setOnClickListener(view -> {

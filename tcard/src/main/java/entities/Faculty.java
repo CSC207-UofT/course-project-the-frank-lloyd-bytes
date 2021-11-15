@@ -21,8 +21,8 @@ public class Faculty extends User implements Serializable {
      */
     public Faculty(ArrayList<String> userInfo) {
         super(userInfo);
-        this.getProfile().add(userInfo.get(7));
-        this.getProfile().add(userInfo.get(8));
+        this.profile.add(userInfo.get(7));
+        this.profile.add(userInfo.get(8));
     }
 
     /**

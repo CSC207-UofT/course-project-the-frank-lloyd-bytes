@@ -1,6 +1,5 @@
 package controllers;
 
-import entities.User;
 import usecases.FacilityMap;
 
 import java.io.IOException;

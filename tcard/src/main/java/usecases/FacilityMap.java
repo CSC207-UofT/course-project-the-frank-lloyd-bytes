@@ -4,7 +4,6 @@ import entities.Facility;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class FacilityMap {
     private final HashMap<String, Facility> facilityMap = new HashMap<>();

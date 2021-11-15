@@ -35,7 +35,7 @@ See the specification in the repository.
 - The design is extendable. For example, You can add more user types as you want: merchant, staff or guest. And they can implement their own behaviour as we are using the template design pattern in the project.
 
 ## Design Patterns
-- We tried to implement the template design pattern for User, Student and Faculty but it didn’t seem useful. We used this pattern because we thought there would be a big difference between the behaviors of Student and Faculty. But for the part we implemented, there is no huge difference. But because it didn’t hurt our current design and for the future extension of User, this design pattern may be helpful , we are keeping it.
+- We tried to implement the template design pattern for User, Student and Faculty but it didn’t seem useful. We used this pattern because we thought there would be a big difference between the behaviors of Student and Faculty. But for the part we implemented, there is no huge difference. But because it didn’t hurt our current design and for the future extension of User(for example, faculty and student both go to school, but faculty is to teach and student is to learn), this design pattern may be helpful , we are keeping it.
 - We also tried to use the adapter design pattern for the facility and it’s GUI regarding the recycler view. However, we did not have time to finish debugging the facility part of the app and thus it still crashes when we run the app. We will resolve any errors starting phase 2 and hopefully correctly implement this design pattern.
 
 ## Use of GitHub Features

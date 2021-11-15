@@ -63,20 +63,13 @@ public class Facility implements CheckCriteria{
      */
     @Override
     public boolean evaluate(User user) {
-        // Example:
-        // facility.getCriteria() = "program=(CS/MAT),level=(undergrad):department=(CS),position=(postdoc/professor)";
-
         String[] criteria = this.facilityInfo.get(FACILITY_CRITERIA).split(":");
-        // criteria = {"program=(CS/MAT),level=(undergrad)", "department=(CS),position=(postdoc/professor)"}
 
         if (user.getProfile().get(user.STATUS).equals("student")) {
             criteria = criteria[0].split(",");
-            // criteria = {"program=(CS/MAT)", "level=(undergrad)"}
 
             String[] programConditions = getConditionsArray(criteria[0]);
-            // programConditions = {"CS", "MAT"}
             String[] yearConditions = getConditionsArray(criteria[1]);
-            // levelConditions = {"undergrad"}
 
             boolean programConditionsSatisfied = Arrays.asList(programConditions).contains(user.
                     getProfile().get(((Student) user).STUDENT_PROGRAM));
@@ -96,12 +89,9 @@ public class Facility implements CheckCriteria{
 
         } else { // if the user is not a student, then the user is a faculty member
             criteria = criteria[1].split(",");
-            // criteria = {"department=(CS)", "position=(postdoc/professor)"}
 
             String[] departmentConditions = getConditionsArray(criteria[0]);
-            // departmentConditions = {"CS"}
             String[] yearConditions = getConditionsArray(criteria[1]);
-            // positionConditions = {"postdoc", "professor"}
 
             boolean departmentConditionsSatisfied = Arrays.asList(departmentConditions).contains(user.
                     getProfile().get(((Faculty) user).FACULTY_DEPARTMENT));

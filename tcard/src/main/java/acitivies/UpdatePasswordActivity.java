@@ -17,7 +17,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_updatepassword); // XML front-end.
+        setContentView(R.layout.activity_updatepassword);
 
         currpassword = (EditText) findViewById(R.id.currpassword);
         newpassword = (EditText) findViewById(R.id.newpassword);
@@ -32,14 +32,12 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 String oldpass = currpassword.getText().toString().trim();
                 String newpass = newpassword.getText().toString().trim();
                 String repass = repassword.getText().toString().trim();
-                String user = username.getText().toString(); // Not sure if I need to access username field?
                 if(oldpass.equals("")||newpass.equals("")||repass.equals(""))
                     Toast.makeText(UpdatePasswordActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     if(newpass.equals(repass)){
                         Boolean checkuser = DB.checkutorid(user); // Check if user exists in DB.
-                        if(!checkuser){// maybe delete
-                            {Toast.makeText(UpdatePasswordActivity.this, "Account does not exist.", Toast.LENGTH_SHORT).show();}
+                        if(!checkuser){
                             Toast.makeText(UpdatePasswordActivity.this, "Password update failed.", Toast.LENGTH_SHORT).show();
                         }
                         else{

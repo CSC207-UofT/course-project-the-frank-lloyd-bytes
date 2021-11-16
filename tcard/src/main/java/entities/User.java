@@ -1,7 +1,6 @@
 package entities;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,8 +13,8 @@ public abstract class User implements Serializable {
     private String password;
     private String utorid;
     public boolean UCHECK;
-    public Date time;
-
+    public Date uCheckTime;
+    public Date bannedPeriod;
     //Indexes for profile
     public final int FIRST_NAME = 0;
     public final int LAST_NAME = 1;
@@ -39,7 +38,6 @@ public abstract class User implements Serializable {
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
         this.UCHECK = false;
-        this.time = new Date();
     }
 
     /**
@@ -92,11 +90,31 @@ public abstract class User implements Serializable {
         return this.utorid;
     }
 
+
+    public void setuCheckTime() {
+        this.UCHECK = true;
+        this.uCheckTime = new Date();
+    }
+
+    public boolean isUCHECK() {
+        return UCHECK;
+    }
+
     public boolean ucheckValid(){
         final long HOUR = 3600*1000; // in milli-seconds.
-        Date newDate = new Date(this.time.getTime() + 24 * HOUR);
-        return (newDate.getTime() - this.time.getTime()) < (24 * HOUR);
+        Date newDate = new Date(this.uCheckTime.getTime() + 24 * HOUR);
+        return (newDate.getTime() - this.uCheckTime.getTime()) < (24 * HOUR);
+    }
+
+    public void setBannedPeriod(){
+        final long HOUR = 3600*1000; // in milli-seconds.
+        this.bannedPeriod = new Date(this.uCheckTime.getTime() + 14 * 24 * HOUR);
+    }
+
+    public boolean checkBannedPeriodValid(){
+        final long HOUR = 3600*1000; // in milli-seconds.
+        Date newDate = new Date();
+        return (newDate.compareTo(this.bannedPeriod) < (14 * 24 * HOUR));
     }
 
 
-}

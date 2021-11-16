@@ -1,7 +1,9 @@
 package entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * This is an abstract class that is a base for all user classes. Stores basic user information.
@@ -11,6 +13,9 @@ public abstract class User implements Serializable {
     protected ArrayList<String> profile = new ArrayList<>();
     private String password;
     private String utorid;
+    public boolean UCHECK;
+    public Date time;
+
     //Indexes for profile
     public final int FIRST_NAME = 0;
     public final int LAST_NAME = 1;
@@ -33,6 +38,8 @@ public abstract class User implements Serializable {
         this.profile.add(userInfo.get(4)); // status
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
+        this.UCHECK = false;
+        this.time = new Date();
     }
 
     /**
@@ -83,6 +90,12 @@ public abstract class User implements Serializable {
      */
     public String getId(){
         return this.utorid;
+    }
+
+    public boolean ucheckValid(){
+        final long HOUR = 3600*1000; // in milli-seconds.
+        Date newDate = new Date(this.time.getTime() + 24 * HOUR);
+        return (newDate.getTime() - this.time.getTime()) < (24 * HOUR);
     }
 
 

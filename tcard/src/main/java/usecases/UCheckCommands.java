@@ -17,7 +17,7 @@ public class UCheckCommands implements Serializable {
         this.UCHECK = this.createUCheck();
     }
     /**
-     *
+     * Initializes UCheck Entity on creation of User.
      */
     public UCheck createUCheck(){
         return new UCheck(this.USERCOMMANDS.getId());
@@ -32,9 +32,16 @@ public class UCheckCommands implements Serializable {
         }
     }
 
+    /**
+     * @param status User is banned due to COVID restrictions.
+     */
     public void setUCheckBanned(boolean status){
         this.UCHECK.setBannedPeriod();
     }
+
+    /**
+     * @return Date is current time of User's UCheck.
+     */
     public Date getUCheckTime(){
         return this.UCHECK.getuCheckTime();
     }

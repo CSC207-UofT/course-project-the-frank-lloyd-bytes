@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class UserCommands implements Serializable {
     private final User USER;
+    private UCheckCommands UCHECKCOMMANDS;
 
     /**
      * instantiate usercommands from the userList given, create a new user in UserCommands with the given user info
@@ -34,8 +35,10 @@ public class UserCommands implements Serializable {
      */
     public User createUser(ArrayList<String> userInfo) {
         if (userInfo.get(4).equals("student")) {
+            UCHECKCOMMANDS = new UCheckCommands(userInfo.get(5));
             return new Student(userInfo);
         }
+        UCHECKCOMMANDS = new UCheckCommands(userInfo.get(5));
         return new Faculty(userInfo);
     }
 
@@ -65,6 +68,10 @@ public class UserCommands implements Serializable {
     public User getUser(){
         return this.USER;
     }
+
+    /**
+     * @return String ID of User utorid.
+     */
     public String getId(){
         return this.USER.getId();
     }

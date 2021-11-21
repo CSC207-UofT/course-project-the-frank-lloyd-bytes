@@ -26,6 +26,9 @@ public class UCheckManager implements Serializable {
     public Date getUCheckTime(){
         return this.UCheckCommands.getUCheckTime();
     }
+    public void setUCheckBanned(boolean status) {
+        this.UCheckCommands.setUCheckBanned(status);
+    }
 }
 
 

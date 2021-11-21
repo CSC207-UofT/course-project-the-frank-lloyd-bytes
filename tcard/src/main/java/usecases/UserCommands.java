@@ -65,4 +65,7 @@ public class UserCommands implements Serializable {
     public User getUser(){
         return this.USER;
     }
+    public String getId(){
+        return this.USER.getId();
+    }
 }

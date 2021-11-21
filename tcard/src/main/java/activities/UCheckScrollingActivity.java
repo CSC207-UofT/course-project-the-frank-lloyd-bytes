@@ -22,7 +22,7 @@ private ActivityScrollingBinding binding;
 
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-        CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
+       CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
 
         FloatingActionButton fab = binding.fab;

@@ -9,14 +9,16 @@ import java.util.Date;
 public class UCheck implements Serializable {
 
     public boolean UCHECK;
-    public Date uCheckTime;
-    public Date bannedPeriod;
+    public Date uCheckTime; // Time of start.
+    public Date bannedPeriod; // Possible ban period.
+    public String utorid;
 
     /**
-     * @param user User to be checked.
+     * UCheck Initialization.
      */
-    public UCheck(User user){
+    public UCheck(String utorid){
         this.UCHECK = false;
+        this.utorid= utorid;
     }
     /**
      * Initiates timer
@@ -24,6 +26,9 @@ public class UCheck implements Serializable {
     public void setuCheckTime() {
         this.UCHECK = true;
         this.uCheckTime = new Date();
+    }
+    public Date getuCheckTime(){
+        return this.uCheckTime;
     }
 
     /**

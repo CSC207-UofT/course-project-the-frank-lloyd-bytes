@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity{
         ArrayList<Integer> departmentList = new ArrayList<>();
         String[] departmentArray = {"CompSci", "Math", "History", "NeuroSci", "CogSci", "Music"};
         UserDBHelper DB;
-        UCheckDBHelper UCDB
+        UCheckDBHelper UCDB;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

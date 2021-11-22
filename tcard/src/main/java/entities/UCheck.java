@@ -24,7 +24,7 @@ public class UCheck implements Serializable {
     /**
      * Initiates timer
      */
-    public void setuCheckTime() {
+    public void setUCheckTime() {
         this.UCHECK = true;
         this.uCheckTime = new Date();
         this.bannedPeriod = new Date(System.currentTimeMillis() - 24*3600*1000);
@@ -33,14 +33,14 @@ public class UCheck implements Serializable {
     /**
      * @return current time of UCheck status.
      */
-    public Date getuCheckTime(){
+    public Date getUCheckTime(){
         return this.uCheckTime;
     }
 
     /**
      * @return String representation of User's attatched utorid ID.
      */
-    public String getUtorId() {
+    public String getUTorId() {
         return utorid;
     }
     /**

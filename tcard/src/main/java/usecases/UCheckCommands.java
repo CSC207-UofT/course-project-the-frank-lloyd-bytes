@@ -24,7 +24,7 @@ public class UCheckCommands implements Serializable {
      */
     public void setUCheck(boolean status) {
         if (status){
-           this.UCHECK.setuCheckTime();
+           this.UCHECK.setUCheckTime();
         }
     }
 
@@ -41,6 +41,6 @@ public class UCheckCommands implements Serializable {
      * @return Date is current time of User's UCheck for UI display.
      */
     public Date getUCheckTime(){
-        return this.UCHECK.getuCheckTime();
+        return this.UCHECK.getUCheckTime();
     }
 }

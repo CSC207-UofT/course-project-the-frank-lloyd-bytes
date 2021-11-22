@@ -7,21 +7,22 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
+import activities.databinding.ActivityUcheckScrollingBinding;
 
 public class UCheckScrollingActivity extends AppCompatActivity {
 
-private ActivityScrollingBinding binding;
+private ActivityUcheckScrollingBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     binding = ActivityScrollingBinding.inflate(getLayoutInflater());
+     binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
 
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
-       CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
+        CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
 
         FloatingActionButton fab = binding.fab;

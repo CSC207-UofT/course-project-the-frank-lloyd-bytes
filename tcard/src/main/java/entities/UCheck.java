@@ -8,10 +8,10 @@ import java.util.Date;
  */
 public class UCheck implements Serializable {
 
-    public boolean UCHECK;
-    public Date uCheckTime; // Time of start.
-    public Date bannedPeriod; // Possible ban period.
-    public String utorid;
+    private boolean UCHECK;
+    private Date uCheckTime; // Time of start.
+    private Date bannedPeriod; // Possible ban period.
+    private String utorid;
 
     /**
      * UCheck Initialization.

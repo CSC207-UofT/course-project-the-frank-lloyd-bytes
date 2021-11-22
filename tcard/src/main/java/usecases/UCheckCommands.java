@@ -10,17 +10,13 @@ import java.util.Date;
 
 public class UCheckCommands implements Serializable {
 
-    private UserCommands USERCOMMANDS; // not sure how to pass this into here
+    private final String USER; // not sure how to pass this into here
     private UCheck UCHECK;
 
     public UCheckCommands(String utorid) {
-        this.UCHECK = this.createUCheck();
-    }
-    /**
-     * Initializes UCheck Entity on creation of User.
-     */
-    public UCheck createUCheck(){
-        return new UCheck(this.USERCOMMANDS.getId());
+        this.USER = utorid;
+        this.UCHECK = new UCheck(this.USER);
+
     }
 
     /**

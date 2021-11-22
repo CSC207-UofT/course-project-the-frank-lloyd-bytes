@@ -17,7 +17,6 @@ public class UserCommands implements Serializable {
      */
     public UserCommands(ArrayList<String> userList) {
         this.USER = this.createUser(userList);
-
     }
 
     /**
@@ -36,11 +35,9 @@ public class UserCommands implements Serializable {
      */
     public User createUser(ArrayList<String> userInfo) {
         if (userInfo.get(4).equals("student")) {
-
             this.UCHECKCOMMANDS = new UCheckCommands(this.USER.getId());//get utorid and send into UCheckCommands
             return new Student(userInfo);
         }
-
         this.UCHECKCOMMANDS = new UCheckCommands(this.USER.getId());
         return new Faculty(userInfo);
     }

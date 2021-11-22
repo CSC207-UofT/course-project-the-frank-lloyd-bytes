@@ -32,11 +32,13 @@ public class UCheckCommands implements Serializable {
      * @param status User is banned due to COVID restrictions.
      */
     public void setUCheckBanned(boolean status){
+        if (status){
         this.UCHECK.setBannedPeriod();
+        }
     }
 
     /**
-     * @return Date is current time of User's UCheck.
+     * @return Date is current time of User's UCheck for UI display.
      */
     public Date getUCheckTime(){
         return this.UCHECK.getuCheckTime();

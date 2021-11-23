@@ -29,7 +29,7 @@ public class UCheckCommands implements Serializable {
     }
 
     /**
-     * @param status User is banned due to COVID restrictions.
+     * @param status User is banned due to COVID restrictions. TODO implement use case first then pass here.
      */
     public void setUCheckBanned(boolean status){
         if (status){

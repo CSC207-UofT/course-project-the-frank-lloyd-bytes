@@ -2,7 +2,9 @@ package usecases;
 
 import entities.UCheck;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class UCheckCommands implements Serializable {
 
@@ -27,5 +29,16 @@ public class UCheckCommands implements Serializable {
      */
     public Date getUCheckTime(){
         return this.UCHECK.getUCheckTime();
+    }
+    public boolean ucheckResponses(ArrayList<String> responses){
+        if (Objects.equals(responses.get(0), "yes")){
+             for (int i = 1; i < 8; i++)
+                 if(Objects.equals(responses.get(i), "no")){
+                return true;
+                else:
+                     return false;
+            }
+        }
+        return false;
     }
 }

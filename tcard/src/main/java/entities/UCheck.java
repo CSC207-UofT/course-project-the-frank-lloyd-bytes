@@ -27,14 +27,12 @@ public class UCheck implements Serializable {
         this.ucheck = true;
         this.uchecktime = new Date();
     }
-
     /**
      * @return current time of UCheck status.
      */
     public Date getUCheckTime(){
         return this.uchecktime;
     }
-
     /**
      * @return String representation of User's attached utorid ID.
      */
@@ -47,7 +45,6 @@ public class UCheck implements Serializable {
     public boolean isUCheck() {
         return ucheck;
     }
-
     /**
      * @return true if the timer is not over.
      */

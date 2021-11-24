@@ -8,16 +8,16 @@ import java.util.Date;
  */
 public class UCheck implements Serializable {
 
-    private boolean UCHECK;
-    private Date uCheckTime; // Time of start.
-    private Date bannedPeriod; // Possible ban period.
-    private String utorid;
+    private boolean ucheck; // is valid or not.
+    private Date uchecktime; // Time of start.
+    private Date bannedperiod; // Possible ban period.
+    private final String utorid; // student number.
 
     /**
      * UCheck Initialization.
      */
     public UCheck(String utorid){
-        this.UCHECK = false;
+        this.ucheck = false;
         this.utorid= utorid;
 
     }
@@ -25,16 +25,16 @@ public class UCheck implements Serializable {
      * Initiates timer
      */
     public void setUCheckTime() {
-        this.UCHECK = true;
-        this.uCheckTime = new Date();
-        this.bannedPeriod = new Date(System.currentTimeMillis() - 24*3600*1000);
+        this.ucheck = true;
+        this.uchecktime = new Date();
+        this.bannedperiod = new Date(System.currentTimeMillis() - 24*3600*1000);
     }
 
     /**
      * @return current time of UCheck status.
      */
     public Date getUCheckTime(){
-        return this.uCheckTime;
+        return this.uchecktime;
     }
 
     /**
@@ -47,16 +47,16 @@ public class UCheck implements Serializable {
      * @return boolean if its Ucheck
      */
     public boolean isUCheck() {
-        return UCHECK;
+        return ucheck;
     }
 
     /**
      * @return true if the timer is not over and banned is past
      */
-    public boolean ucheckValid() {
+    public boolean uCheckValid() {
         final long HOUR = 3600 * 1000; // in milli-seconds.
-        Date newDate = new Date(this.uCheckTime.getTime() + 24 * HOUR);
-        return (newDate.getTime() - this.uCheckTime.getTime()) < (24 * HOUR) && this.bannedPeriod.before(new Date());
+        Date newDate = new Date(this.uchecktime.getTime() + 24 * HOUR);
+        return (newDate.getTime() - this.uchecktime.getTime()) < (24 * HOUR) && this.bannedperiod.before(new Date());
     }
 
     /**
@@ -64,13 +64,13 @@ public class UCheck implements Serializable {
      */
     public void setBannedPeriod() {
         final long HOUR = 3600 * 1000; // in milli-seconds.
-        this.bannedPeriod = new Date(this.uCheckTime.getTime() + 14 * 24 * HOUR);
+        this.bannedperiod = new Date(this.uchecktime.getTime() + 14 * 24 * HOUR);
     }
 
     /**
      * @return true if User is banned.
      */
-    public boolean checkBannedPeriodValid() {
-        return this.bannedPeriod.after(new Date());
+    public boolean uCheckBannedPeriodValid() {
+        return this.bannedperiod.after(new Date());
     }
 }

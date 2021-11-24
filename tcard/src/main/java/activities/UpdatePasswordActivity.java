@@ -58,7 +58,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 Toast.makeText(UpdatePasswordActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
             }
             else {
-                myManager.changePassword(oldpass, newpass);
+                myManager.changePassword(oldpass, newpass);//return boolean
                 if(DB.updataPassword(myManager.getinfo())){
                     Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
                 }

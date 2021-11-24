@@ -15,9 +15,10 @@ import controllers.UserManager;
 public class UCheckScrollingActivity extends AppCompatActivity {
 
 private ActivityUcheckScrollingBinding binding;
+//
 
     UserManager myManager;
-    Button submitResults, backToDashboard,btnsignin;
+    Button startSelfAssessment, submitResults, backToDashboard,btnsignin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,15 @@ private ActivityUcheckScrollingBinding binding;
             }
         });
         // the button sends us back to dashboard
-        backToDashboard.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
-            intent.putExtra("manager", myManager);
-            startActivity(intent);
-        });
-        // back to login page TODO make this popout
-        btnsignin.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-        });
+//        backToDashboard.setOnClickListener(view -> {
+//            Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+//            intent.putExtra("manager", myManager);
+//            startActivity(intent);
+//        });
+//        // back to login page TODO make this popout
+//        btnsignin.setOnClickListener(view -> {
+//            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//            startActivity(intent);
+//        });
     }
 }

@@ -32,7 +32,7 @@ public class UserManager implements Serializable {
     public User getUser(){
         return myUserCommands.getUser();
     }
-
+//discuss
     public void changePassword(String oldpass, String newpass) {
         this.myUserCommands.changePassword(oldpass, newpass);
     }

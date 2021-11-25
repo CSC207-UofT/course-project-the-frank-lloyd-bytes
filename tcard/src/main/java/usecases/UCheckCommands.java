@@ -30,13 +30,19 @@ public class UCheckCommands implements Serializable {
     public Date getUCheckTime(){
         return this.UCHECK.getUCheckTime();
     }
+
+    /**
+     * This method interacts with UCheckScrollingActivity's results of the self assessment. If it's true, additional
+     * methods will call to form successful completion of self-assessment questionnaire.
+     *
+     * @param responses is a String of responses completed by the self-assessment.
+     * @return boolean on whether the self-assessment is success or failure.
+     */
     public boolean ucheckResponses(ArrayList<String> responses){
         if (Objects.equals(responses.get(0), "yes")){
              for (int i = 1; i < 8; i++)
                  if(Objects.equals(responses.get(i), "no")){
-                return true;
-                else:
-                     return false;
+                     return true;
             }
         }
         return false;

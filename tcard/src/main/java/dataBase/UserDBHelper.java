@@ -122,7 +122,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_LIST[6], email);
         contentValues.put(COL_LIST[7], year);
         contentValues.put(COL_LIST[8],department);
-        long result = MyDB.insert(TABLE_NAME, null, contentValues);
+        long result = MyDB.insert(TABLE_NAME, null, contentValues); // return created user_id
         return result != -1;
     }
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import controllers.UCheckManager;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity{
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                     ArrayList<String> userInfo = DB.getInfo(user);
                     UserManager myManager = new UserManager(userInfo);
+                    UCheckManager uCheckManager = new UCheckManager(myManager.getUser().getId());
                     Intent intent2 = new Intent(getApplicationContext(), DashBoardActivity.class);
                     intent2.putExtra("manager", myManager);
                     startActivity(intent2);

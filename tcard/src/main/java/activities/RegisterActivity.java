@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import dataBase.UCheckDBHelper;
 import dataBase.UserDBHelper;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity{
         ArrayList<Integer> departmentList = new ArrayList<>();
         String[] departmentArray = {"CompSci", "Math", "History", "NeuroSci", "CogSci", "Music"};
         UserDBHelper DB;
+        UCheckDBHelper UCDB;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity{
             department = findViewById(R.id.registerDepartment);
             selectedDepartment = new boolean[departmentArray.length];
             DB = new UserDBHelper(this);
+            UCDB = new UCheckDBHelper(this);
 
             /**
              * Here we create a multi-select dropdown for the
@@ -127,6 +130,9 @@ public class RegisterActivity extends AppCompatActivity{
                             Boolean insert = DB.insertData(user, pass, firstName,
                                     lastName, mail, (String) department.getText(), userStatus, tcardNumber.getText().toString(),
                                     year.getText().toString(), "");
+                                    // Assigns UCheck with User Identity once User is registered successfully.
+                                    Boolean insert_UC = UCDB.insertData(tcardNumber.getText().toString(), "false");
+
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 // back to login page to sign in

@@ -2,6 +2,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * This is an abstract class that is a base for all user classes. Stores basic user information.
@@ -21,6 +22,7 @@ public abstract class User implements Serializable {
     /**
      * This is a constructor for the User class. This method writes basic user information from a list of strings to a
      * User object.
+     *
      * @param userInfo a list of strings containing information for a user. This parameter is assumed
      *                 to have the following ordering:
      *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to}
@@ -37,6 +39,7 @@ public abstract class User implements Serializable {
 
     /**
      * This method is for checking if an entered password is correct, i.e. if it matches the users password.
+     *
      * @param passwordAttempt a string containing a possible password to be compared against this users actual password.
      * @return a boolean indicating if the passwordAttempt was correct.
      */
@@ -46,6 +49,7 @@ public abstract class User implements Serializable {
 
     /**
      * This method is for changing this user's password.
+     *
      * @param newPassword a string containing the desired new password.
      */
     public void changePassword(String newPassword) {
@@ -55,12 +59,14 @@ public abstract class User implements Serializable {
 
     /**
      * This method is for displaying a users basic profile information.
+     *
      * @return a string that displays the profile in a preferred format.
      */
     public abstract String displayProfile();
 
     /**
      * A getter method to get all the users profile information (including utorid and password) as an arraylist.
+     *
      * @return all the users profile information (including utorid and password)
      */
     public ArrayList<String> getUserInfo() {
@@ -73,17 +79,20 @@ public abstract class User implements Serializable {
 
     /**
      * A getter method to get user's profile as an arraylist.
+     *
      * @return the user's profile
      */
-    public ArrayList<String> getProfile() { return this.profile; }
+    public ArrayList<String> getProfile() {
+        return this.profile;
+    }
 
     /**
      * A getter method to get user's utroid
+     *
      * @return the user's utroid
      */
-    public String getId(){
+    public String getId() {
         return this.utorid;
     }
-
-
 }
+

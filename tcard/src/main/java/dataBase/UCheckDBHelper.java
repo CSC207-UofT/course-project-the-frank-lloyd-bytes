@@ -1,10 +1,14 @@
 package dataBase;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class UCheckDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "UCheck.db";
@@ -27,7 +31,7 @@ public class UCheckDBHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key, STATUS TEXT) ");
+        MyDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key, STATUS BOOLEAN) ");
 
     }
 

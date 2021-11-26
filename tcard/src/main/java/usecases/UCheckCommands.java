@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ *
+ */
 public class UCheckCommands implements Serializable {
 
     private final String USER;
@@ -34,7 +37,7 @@ public class UCheckCommands implements Serializable {
     /**
      * This method interacts with UCheckScrollingActivity's results of the self assessment. If it's true, additional
      * methods will call to form successful completion of self-assessment questionnaire.
-     *
+     * TODO front-end needs to send a list collected from the checked boxes here.
      * @param responses is a String of responses completed by the self-assessment.
      * @return boolean on whether the self-assessment is success or failure.
      */

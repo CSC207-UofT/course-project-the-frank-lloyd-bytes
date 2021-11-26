@@ -132,7 +132,6 @@ public class RegisterActivity extends AppCompatActivity{
                                     year.getText().toString(), "");
                                     // Assigns UCheck with User Identity once User is registered successfully.
                                     Boolean insert_UC = UCDB.insertData(tcardNumber.getText().toString(), "false");
-
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 // back to login page to sign in

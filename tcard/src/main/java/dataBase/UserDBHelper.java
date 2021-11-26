@@ -139,7 +139,6 @@ public class UserDBHelper extends SQLiteOpenHelper {
         }
         long result = MyDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
         return result != -1;
-
     }
 
 }

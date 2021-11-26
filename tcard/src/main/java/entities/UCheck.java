@@ -3,14 +3,14 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
+/**This entity stores information about UCheck which is connected with a User (Faculty/Student) upon registration.
+ * Every User must have a UCheck to confirm COVID-19 safety protocols.
  */
 public class UCheck implements Serializable {
 
     private boolean ucheck; // is valid or not.
     private Date uchecktime; // Time of start.
-    private final String utorid; // student number.
+    private final String utorid; // User utorid number.
 
     /**
      * UCheck Initialization.
@@ -18,7 +18,6 @@ public class UCheck implements Serializable {
     public UCheck(String utorid){
         this.ucheck = false;
         this.utorid= utorid;
-
     }
     /**
      * Initiates timer

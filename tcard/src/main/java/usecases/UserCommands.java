@@ -52,6 +52,8 @@ public class UserCommands implements Serializable {
      * @param oldpassword the old password of the user
      * @param newpassword the new password of the user that they want to change to
      */
+
+    // TODO create a method that does the password check in the front end.
     public void changePassword(String oldpassword, String newpassword){
         if (this.USER.checkPassword(oldpassword)){
             this.USER.changePassword(newpassword);

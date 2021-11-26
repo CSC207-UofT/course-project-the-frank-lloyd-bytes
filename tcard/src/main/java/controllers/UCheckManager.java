@@ -11,7 +11,7 @@ public class UCheckManager implements Serializable {
      * create a new UCheckManager creates a new UCheckCommands
      * @param utorid utorid ID of User.
      */
-    public UCheckManager(String utorid){ // not sure if I need UCheck.
+    public UCheckManager(String utorid){
         this.UCheckCommands = new UCheckCommands(utorid);
     }
     /**

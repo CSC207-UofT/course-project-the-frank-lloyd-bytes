@@ -40,16 +40,11 @@ private ActivityUcheckScrollingBinding binding;
                         .setAction("Action", null).show();
             }
         });
-        // the button sends us back to dashboard
-//        backToDashboard.setOnClickListener(view -> {
-//            Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
-//            intent.putExtra("manager", myManager);
-//            startActivity(intent);
-//        });
-//        // back to login page TODO make this popout
-//        btnsignin.setOnClickListener(view -> {
-//            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-//            startActivity(intent);
-//        });
+        //the button sends us back to dashboard
+        backToDashboard.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+            intent.putExtra("manager", myManager);
+            startActivity(intent);
+    });
     }
 }

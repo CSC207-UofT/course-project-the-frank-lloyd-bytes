@@ -14,23 +14,38 @@
             android:layout_alignParentTop="true">
         <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="392dp"
+                android:layout_height="566dp"
                 android:layout_marginTop="-1dp"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content" android:id="@+id/body">
+                <Button
+                        android:layout_width="361dp"
+                        android:layout_height="49dp"
+                        android:id="@+id/start_assessment"
+                        android:text="Start health screening questionnaire"
+                        app:backgroundTint="@color/UofTblue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="25dp" android:layout_marginEnd="25dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="443dp"
+                        app:layout_constraintTop_toBottomOf="@+id/top_panel"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="77dp"
                         android:id="@+id/top_panel"
-                        android:layout_marginBottom="16dp" app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent">
+                        android:layout_marginBottom="492dp" app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0">
                     <ImageView
                             android:src="@drawable/ucheck_logo"
                             android:layout_width="199dp"
                             android:layout_height="76dp"
-                            android:id="@+id/ucheck_logo"/>
+                            android:id="@+id/ucheck_logo" app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/dashboardbutton" android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="1dp"
+                            app:layout_constraintStart_toStartOf="parent"/>
                     <ImageButton
                             android:src="@drawable/ic_home"
                             android:layout_width="wrap_content"
@@ -41,20 +56,14 @@
                             android:layout_marginEnd="16dp"
                             app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.cardview.widget.CardView
+                        android:layout_width="409dp"
+                        android:layout_height="wrap_content" android:layout_centerVertical="true"
+                        app:layout_constraintTop_toBottomOf="@+id/top_panel"
+                        app:layout_constraintBottom_toTopOf="@+id/start_assessment" android:layout_marginEnd="1dp"
+                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="1dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/linearLayout2">
-            <Button
-                    android:layout_width="361dp"
-                    android:layout_height="49dp"
-                    android:id="@+id/start_assessment"
-                    android:text="Start health screening questionnaire"
-                    app:backgroundTint="@color/UofTblue"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="160dp"
-                    android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </RelativeLayout>

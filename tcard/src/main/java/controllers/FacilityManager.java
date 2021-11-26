@@ -1,8 +1,6 @@
 package controllers;
 
-import entities.User;
 import usecases.FacilityMap;
-
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ import java.util.ArrayList;
 import dataBase.FileReader;
 
 public class FacilityManager implements Serializable {
-    private final FacilityMap myFacilityMap;
+    private final FacilityMap MY_FACILITY_MAP;
     FileReader myFileReader = new FileReader();
     ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
 
@@ -27,7 +25,7 @@ public class FacilityManager implements Serializable {
      * @throws IOException if construction doesn't work
      */
     public FacilityManager() throws IOException {
-        myFacilityMap = new FacilityMap(facilitiesInfo);
+        MY_FACILITY_MAP = new FacilityMap(facilitiesInfo);
     }
 
     /**
@@ -35,7 +33,7 @@ public class FacilityManager implements Serializable {
      * @return a FacilityMap from the database read by the reader
      */
     public FacilityMap getFacilitiesInfo() {
-        return myFacilityMap;
+        return MY_FACILITY_MAP;
     }
 
 

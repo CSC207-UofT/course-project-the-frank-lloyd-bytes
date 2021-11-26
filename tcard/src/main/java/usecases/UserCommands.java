@@ -6,6 +6,7 @@ import entities.Faculty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
@@ -43,7 +44,7 @@ public class UserCommands implements Serializable {
      * get the information of the user in an arraylist format
      * @return an array list of the user in this UserCommands
      */
-    public ArrayList<String> getinfo(){
+    public List<String> getinfo(){
         return this.USER.getUserInfo();
     }
 

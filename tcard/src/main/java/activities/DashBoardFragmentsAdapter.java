@@ -23,8 +23,8 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
     }
     @NonNull
     @Override
-    /**
-     * Here we are assigning each tab/page in the ViewPager2 a Fragment by calling the fragments
+    /*
+      Here we are assigning each tab/page in the ViewPager2 a Fragment by calling the fragments
      */
     public Fragment createFragment(int position){
         switch (position){
@@ -38,9 +38,8 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
                 return tCardFragment;
         }
     }
-    @NonNull
-    /**
-     * We are overriding the method to input that we have two Fragments displayed in the ViewPager2
+    /*
+      We are overriding the method to input that we have two Fragments displayed in the ViewPager2
      */
     @Override
     public int getItemCount(){

@@ -36,12 +36,12 @@
                 <com.google.android.material.tabs.TabLayout
                         android:background="@color/transparent"
                         android:layout_width="match_parent"
-                        android:id="@+id/tab_layout"
+                        android:id="@+id/tabLayout"
                         android:layout_height="wrap_content">
                 </com.google.android.material.tabs.TabLayout>
                 <androidx.viewpager2.widget.ViewPager2
                         android:layout_width="match_parent"
-                        android:id="@+id/view_pager"
+                        android:id="@+id/viewPager"
                         android:layout_height="match_parent">
                 </androidx.viewpager2.widget.ViewPager2>
             </LinearLayout>
@@ -50,7 +50,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
-            android:id="@+id/bottom_menu"
+            android:id="@+id/bottomMenu"
             android:background="@drawable/text_box_type_3"
             android:elevation="2dp"
             app:itemTextColor="@color/white"

@@ -1,15 +1,15 @@
 package entities;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * This is a base for all facility classes. Stores basic facility information.
  *
  */
 public class Facility implements CheckCriteria{
-    protected ArrayList<String> facilityInfo = new ArrayList<>();
+    protected List<String> facilityInfo = new ArrayList<>();
     final int FACILITY_NAME = 0;
     final int FACILITY_ADDRESS = 1;
     final int FACILITY_DESCRIPTION = 2;
@@ -24,7 +24,7 @@ public class Facility implements CheckCriteria{
      *                      {facility name, facility address, description of facility, facility hours, facility
      *                      criteria}
      */
-    public Facility(ArrayList<String> facilityInfo) {
+    public Facility(List<String> facilityInfo) {
         this.facilityInfo.add(facilityInfo.get(FACILITY_NAME));
         this.facilityInfo.add(facilityInfo.get(FACILITY_ADDRESS));
         this.facilityInfo.add(facilityInfo.get(FACILITY_DESCRIPTION));

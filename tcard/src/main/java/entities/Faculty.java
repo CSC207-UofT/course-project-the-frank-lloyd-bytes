@@ -1,6 +1,7 @@
 package entities;
+
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class Faculty is a child class of User, it initializes an instance of a faculty user class. Stores student
@@ -20,7 +21,7 @@ public class Faculty extends User implements Serializable {
      *                 to have the following ordering:
      *                 {UTORid, password, first name, last name, status, ID number, email, year in UofT,Department}
      */
-    public Faculty(ArrayList<String> userInfo) {
+    public Faculty(List<String> userInfo) {
         super(userInfo);
         this.profile.add(userInfo.get(7));//year
         this.profile.add(userInfo.get(8));//department

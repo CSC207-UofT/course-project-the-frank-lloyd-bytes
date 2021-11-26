@@ -18,7 +18,7 @@ public class FileReader {
      */
     public ArrayList<ArrayList<String>> reader() throws IOException {
         ArrayList<ArrayList<String>> buildList = new ArrayList<>();
-        String line = "";
+        String line;
         String splitBy = ",";
         BufferedReader br = new BufferedReader(new java.io.FileReader(FILE_ADDRESS));
         while ((line = br.readLine()) != null)

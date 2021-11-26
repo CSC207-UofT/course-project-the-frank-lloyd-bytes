@@ -18,14 +18,14 @@ public class LoginActivity extends AppCompatActivity{
      * If user logs in succesfully they'll be directed to the Dashboard,
      * or they can go to the registration form page to sign up
      */
-    EditText username, password;
+    EditText userName, password;
     Button register, login;
     UserDBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        username = findViewById(R.id.userNameInput);
+        userName = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
@@ -37,12 +37,12 @@ public class LoginActivity extends AppCompatActivity{
             startActivity(intent);
         });
 
-        /**
-         * Clicking the login button will send the user to the dashboard page if the username exists
-         * in the database and if the password matches the username
+        /*
+          Clicking the login button will send the user to the dashboard page if the username exists
+          in the database and if the password matches the username
          */
         login.setOnClickListener(view -> {
-            String user = username.getText().toString();
+            String user = userName.getText().toString();
             String pass = password.getText().toString();
             if (user.equals("")||pass.equals("")){
                 Toast.makeText(LoginActivity.this, "Please enter your username and password", Toast.LENGTH_SHORT).show();

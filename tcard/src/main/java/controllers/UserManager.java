@@ -5,24 +5,25 @@ import usecases.UserCommands;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserManager implements Serializable {
-    private UserCommands myUserCommands;
+    private final UserCommands MY_USER_COMMANDS;
 
     /**
      * create a new UserManager creates a new UserCommands
      * @param userinfo an arraylist of the user's information to make the UserCommands
      */
     public UserManager(ArrayList<String> userinfo){
-        this.myUserCommands = new UserCommands(userinfo);
+        this.MY_USER_COMMANDS = new UserCommands(userinfo);
     }
 
     /**
      * get the info for the UserCommands for the user
      * @return an arraylist of the user's information
      */
-    public ArrayList<String> getinfo(){
-        return this.myUserCommands.getinfo();
+    public List<String> getinfo(){
+        return this.MY_USER_COMMANDS.getinfo();
     }
 
     /**
@@ -30,10 +31,10 @@ public class UserManager implements Serializable {
      * @return an User object
      */
     public User getUser(){
-        return myUserCommands.getUser();
+        return MY_USER_COMMANDS.getUser();
     }
 
     public void changePassword(String oldpass, String newpass) {
-        this.myUserCommands.changePassword(oldpass, newpass);
+        this.MY_USER_COMMANDS.changePassword(oldpass, newpass);
     }
 }

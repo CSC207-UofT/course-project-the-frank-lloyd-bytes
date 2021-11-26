@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /*
@@ -131,7 +132,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @param data is the user's info
      * @return true if the update work, false if not
      */
-    public Boolean updataPassword(ArrayList<String> data){
+    public Boolean updataPassword(List<String> data){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){

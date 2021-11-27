@@ -32,4 +32,12 @@ public class UCheckCommandsTest {
     @After
     public void tearDown() throws Exception {
     }
+
+    @Test
+    public void displayUCheck() {
+    }
+
+    @Test
+    public void displayFailedUCheck() {
+    }
 }

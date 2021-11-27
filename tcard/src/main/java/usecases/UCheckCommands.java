@@ -50,4 +50,24 @@ public class UCheckCommands implements Serializable {
         }
         return false;
     }
+    // TODO implement below method that checks activity. Default will be grey box. All three boxes will be hidden.
+
+    /**
+     * @return integer into UCheckActivity that will determine which coloured box appears. Grey is default and 0, whereas,
+     * 1 is the Green box.
+     */
+    public int displayUCheck(){
+        if(!(!UCHECK.isUCheck() || !UCHECK.uCheckValid())){
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+     * @param fail is determined in UI.
+     * @return integer that gives the correct display in UCheckActivity/
+     */
+    public int displayFailedUCheck(boolean fail){
+        return 2;
+    }
 }

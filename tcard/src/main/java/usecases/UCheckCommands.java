@@ -64,7 +64,7 @@ public class UCheckCommands implements Serializable {
     }
 
     /**
-     * @param fail is determined in UI.
+     * @param fail boolean is determined in UI.
      * @return integer that gives the correct display in UCheckActivity/
      */
     public int displayFailedUCheck(boolean fail){

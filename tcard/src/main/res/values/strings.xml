@@ -16,4 +16,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_ucheck_scrolling">ScrollingActivity</string>
     <string name="title_activity_ucheck">UCheckActivity</string>
+    <string name="large_text"/>
+    <string name="title_activity_ucheck_fragment_main">UCheckFragmentMain</string>
 </resources>

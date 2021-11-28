@@ -5,13 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import usecases.UserReadWriter;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /*
   A User Database Helper class that set up, add, edit, delete the database.
  */
-public class UserDBHelper extends SQLiteOpenHelper {
+public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     public static final String DB_NAME = "User.db";
     public static final String TABLE_NAME = "users";
     public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS",
@@ -56,44 +59,47 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
     /**
      * Check out the whether the user exists in the database
-     * @param utroid is the id you want to check
+     * @param utorID is the id you want to check
      * @return true if the user exists and false if not
      */
-    public Boolean checkutorid(String utroid) {
+    @Override
+    public Boolean checkUtorID(String utorID) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        @SuppressLint("Recycle") Cursor cursor = MyDB.rawQuery("Select * from users where UTROID = ?", new String[]{utroid});
+        @SuppressLint("Recycle") Cursor cursor = MyDB.rawQuery("Select * from users where UTROID = ?", new String[]{utorID});
         return cursor.getCount() > 0;
     }
 
     /**
      * check out whether the user enter the correct username and password
-     * @param utroid is the user's utroid
+     * @param utorID is the user's utroid
      * @param password is the utroid's corresponding
      * @return true if the user's login successfully, false if not
      */
-    public Boolean checkutroidpassword(String utroid, String password) {
+    @Override
+    public Boolean checkUtorIDPassword(String utorID, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         @SuppressLint("Recycle") Cursor cursor = MyDB.rawQuery("Select * from users where UTROID = ? and PASSWORD = ?",
-                new String[]{utroid, password});
+                new String[]{utorID, password});
         return cursor.getCount() > 0;
     }
 
     /**
      * Get a copy of the information of the user with utroid.
-     * @param utroid the id of the user
+     * @param utorID the id of the user
      * @return an ArrayList of user's information
      */
-    public ArrayList<String> getInfo(String utroid){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ArrayList<String> Info = new ArrayList<>();
-        @SuppressLint("Recycle") Cursor data = MyDB.rawQuery("Select * from " + TABLE_NAME + " where UTROID = ? ", new String[]{utroid});
+    @Override
+    public List<String> getInfo(String utorID){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        List<String> info = new ArrayList<>();
+        @SuppressLint("Recycle") Cursor data = myDB.rawQuery("Select * from " + TABLE_NAME + " where UTROID = ? ", new String[]{utorID});
         for(data.moveToFirst(); !data.isAfterLast(); data.moveToNext()) {
             // The Cursor is now set to the right position
             for (int i=0; i<COL_LIST.length;i++){
-            Info.add(data.getString(i));
+            info.add(data.getString(i));
             }
         }
-        return Info;
+        return info;
     }
 
     /**
@@ -107,8 +113,9 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @param status is the user's status
      * @param tCardNumber is the user's Tcard number
      * @param year is the years that user in UofT
-     * @return ture if the insert success, false if not
+     * @return true if the insert success, false if not
      */
+    @Override
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
                               String department, String status, String tCardNumber, String year, String photo) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -131,7 +138,8 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @param data is the user's info
      * @return true if the update work, false if not
      */
-    public Boolean updataPassword(ArrayList<String> data){
+    @Override
+    public Boolean updatePassword(List<String> data){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){

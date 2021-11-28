@@ -34,11 +34,11 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     /**
      * Create a table when the database is created for the first time
      *
-     * @param MyDB the database where we put the table.
+     * @param myDB the database where we put the table.
      */
     @Override
-    public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key,PASSWORD TEXT,LEGAL_NAME_F TEXT," +
+    public void onCreate(SQLiteDatabase myDB) {
+        myDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key,PASSWORD TEXT,LEGAL_NAME_F TEXT," +
                 "LEGAL_NAME_L TEXT ,STATUS TEXT," +
                 "ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
 
@@ -47,14 +47,14 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     /**
      * Delete the existing table
      *
-     * @param MyDB is the database we are in
+     * @param myDB is the database we are in
      * @param i    old version of the database
      * @param i1   new version of the database
      */
     @Override
-    public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-        MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(MyDB);
+    public void onUpgrade(SQLiteDatabase myDB, int i, int i1) {
+        myDB.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(myDB);
     }
 
     /**
@@ -64,8 +64,8 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      */
     @Override
     public Boolean checkUtorID(String utorID) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        @SuppressLint("Recycle") Cursor cursor = MyDB.rawQuery("Select * from users where UTROID = ?", new String[]{utorID});
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        @SuppressLint("Recycle") Cursor cursor = myDB.rawQuery("Select * from users where UTROID = ?", new String[]{utorID});
         return cursor.getCount() > 0;
     }
 
@@ -77,8 +77,8 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      */
     @Override
     public Boolean checkUtorIDPassword(String utorID, String password) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        @SuppressLint("Recycle") Cursor cursor = MyDB.rawQuery("Select * from users where UTROID = ? and PASSWORD = ?",
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        @SuppressLint("Recycle") Cursor cursor = myDB.rawQuery("Select * from users where UTROID = ? and PASSWORD = ?",
                 new String[]{utorID, password});
         return cursor.getCount() > 0;
     }
@@ -118,7 +118,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     @Override
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
                               String department, String status, String tCardNumber, String year, String photo) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
+        SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_LIST[0], username);
         contentValues.put(COL_LIST[1], password);
@@ -129,7 +129,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
         contentValues.put(COL_LIST[6], email);
         contentValues.put(COL_LIST[7], year);
         contentValues.put(COL_LIST[8],department);
-        long result = MyDB.insert(TABLE_NAME, null, contentValues);
+        long result = myDB.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
 
@@ -140,12 +140,12 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      */
     @Override
     public Boolean updatePassword(List<String> data){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
+        SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));
         }
-        long result = MyDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
         return result != -1;
 
     }

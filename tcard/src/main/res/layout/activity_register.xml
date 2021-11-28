@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="15dp">
             <TextView
-                    android:text=" User Name"
+                    android:text=" Username"
                     android:layout_width="180dp"
                     android:id="@+id/textView11"
                     android:layout_height="30dp"
@@ -43,7 +43,7 @@
                     android:inputType="textPersonName"
                     android:id="@+id/registrationUserName"
                     android:layout_weight="1"
-                    android:hint="enter utorID"/>
+                    android:hint="enter UtorID"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -168,7 +168,7 @@
                     android:ems="10"
                     android:id="@+id/registerEmail"
                     android:layout_weight="1"
-                    android:hint="enter uoft email"/>
+                    android:hint="enter U of T email"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"

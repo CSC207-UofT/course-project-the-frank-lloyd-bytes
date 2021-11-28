@@ -27,7 +27,9 @@ public class UCheckCommands implements Serializable {
            this.UCHECK.setUCheckTime();
            this.UCHECK.setUCheckStatePass();
         }
-        else{this.UCHECK.setUCheckStateFail();}
+        else{
+            this.UCHECK.setUCheckStateFail();
+        }
     }
     /**
      * @return Date is current time of User's UCheck for UI display.
@@ -41,39 +43,16 @@ public class UCheckCommands implements Serializable {
      * methods will call to form successful completion of self-assessment questionnaire.
      * TODO front-end needs to send a list collected from the checked boxes here.
      * @param responses is a String of responses completed by the self-assessment.
-     * @return boolean on whether the self-assessment is success or failure.
      */
-    public boolean ucheckResponses(ArrayList<String> responses){
+    public void ucheckResponses(ArrayList<String> responses){
         if (Objects.equals(responses.get(0), "yes")){
              for (int i = 1; i < 8; i++)
                  if(Objects.equals(responses.get(i), "no")){
-                     return true;
+                     this.setUCheck(true);
             }
         }
-        return false;
-    }
-    // TODO implement below method that checks activity. Default will be grey box. All three boxes will be hidden.
-
-    /**
-     * @return integer into UCheckActivity that will determine which coloured box appears. Grey is default and 0, whereas,
-     * 1 is the Green box.
-     */
-    public int displayUCheck(){
-        if(!(!UCHECK.isUCheck() || !UCHECK.uCheckValid())){
-            return 1;
+        else{
+            this.setUCheck(false);
         }
-        return 0;
-    }
-
-    /**
-     * @param fail boolean is determined in UI.
-     * @return integer that gives the correct display in UCheckActivity/
-     */
-    public int displayFailedUCheck(boolean fail){
-        return 2;
-    }
-
-    public int getUCheckState() {
-        return this.UCHECK.getUCheckState();
     }
 }

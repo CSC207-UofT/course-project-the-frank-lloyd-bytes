@@ -18,4 +18,5 @@
     <string name="title_activity_ucheck">UCheckActivity</string>
     <string name="large_text"/>
     <string name="title_activity_ucheck_fragment_main">UCheckFragmentMain</string>
+    <string name="title_activity_ucheck_questionnaire">UCheckQuestionnaireActivity</string>
 </resources>

@@ -70,4 +70,8 @@ public class UCheckCommands implements Serializable {
     public int displayFailedUCheck(boolean fail){
         return 2;
     }
+
+    public int getUCheckState() {
+        return this.UCHECK.getUCheckState();
+    }
 }

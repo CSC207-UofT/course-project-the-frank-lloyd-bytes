@@ -42,11 +42,11 @@ public class FacilityActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.listOfFaculties);
         if (facilityManager!=null){
-        try {
-            adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

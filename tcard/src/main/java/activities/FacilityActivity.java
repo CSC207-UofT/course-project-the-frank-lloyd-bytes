@@ -54,7 +54,7 @@ public class FacilityActivity extends AppCompatActivity {
 
         requestAccess.setOnClickListener(view -> {
             String name = facilityName.getText().toString();
-            boolean R = facilityManager.getFacilitiesInfo().getFacility(name).evaluate(userManager.getUser());
+            boolean R = facilityManager.evaluateHelper(userManager.getUser(), facilityManager.getFacilitiesInfo().getFacility(name));
 
             if(R){
                 Toast.makeText(FacilityActivity.this, "Access granted, you may visit this facility", Toast.LENGTH_SHORT).show();

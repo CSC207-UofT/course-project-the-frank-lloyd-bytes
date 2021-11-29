@@ -16,8 +16,8 @@ public class UpdatePasswordActivity extends AppCompatActivity {
      * If the password change operator is succesfull than the password will be changed in the database
      * so the next time the user signs in, they have to type the new password
      */
-    EditText currpassword, repassword, newpassword;
-    Button btcancel;
+    EditText currPassword, rePassword, newPassword;
+    Button btnCancel;
     UserManager myManager;
     UserDBHelper DB;
 
@@ -27,13 +27,13 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_updatepassword);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
 
-        currpassword = findViewById(R.id.currpassword);
-        newpassword = findViewById(R.id.newpassword);
-        repassword = findViewById(R.id.repassword);
-        btcancel = findViewById(R.id.btcancel);
+        currPassword = findViewById(R.id.currpassword);
+        newPassword = findViewById(R.id.newpassword);
+        rePassword = findViewById(R.id.repassword);
+        btnCancel = findViewById(R.id.btcancel);
         DB = new UserDBHelper(this);
 
-        btcancel.setOnClickListener(view ->{
+        btnCancel.setOnClickListener(view ->{
             Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
             intent.putExtra("manager", myManager);
             startActivity(intent);
@@ -45,21 +45,21 @@ public class UpdatePasswordActivity extends AppCompatActivity {
      * then the password is changed in the database to the new one
      */
     public void update(View view){
-        String oldpass = currpassword.getText().toString().trim();
-        String newpass = newpassword.getText().toString().trim();
-        String repass = repassword.getText().toString().trim();
+        String oldPass = currPassword.getText().toString().trim();
+        String newPass = newPassword.getText().toString().trim();
+        String repass = rePassword.getText().toString().trim();
         // checks if there are any empty input text boxes
-        if(oldpass.equals("")||newpass.equals("")||repass.equals("")){
+        if(oldPass.equals("")||newPass.equals("")||repass.equals("")){
             Toast.makeText(UpdatePasswordActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
         } else{
-            if(newpass.equals(oldpass)){
+            if(newPass.equals(oldPass)){
                 Toast.makeText(UpdatePasswordActivity.this, "It's same as the current password.", Toast.LENGTH_SHORT).show();
-            } else if(!newpass.equals(repass)){
+            } else if(!newPass.equals(repass)){
                 Toast.makeText(UpdatePasswordActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
             }
             else {
-                myManager.changePassword(oldpass, newpass);
-                if(DB.updataPassword(myManager.getinfo())){
+                myManager.changePassword(oldPass, newPass);
+                if(DB.updatePassword(myManager.getInfo())){
                     Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
                 }
 

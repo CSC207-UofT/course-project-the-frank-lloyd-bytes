@@ -1,19 +1,17 @@
 package activities;
-import android.database.Cursor;
+
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import controllers.FacilityManager;
 import controllers.UserManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DashBoardActivity extends AppCompatActivity{
     /**
@@ -38,10 +36,8 @@ public class DashBoardActivity extends AppCompatActivity{
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
 
-        /**
-         * This is the bottom navigation menu
-         * each case represents the icon clicked and which page clicking on the icon should direct the user to
-         */
+        // This is the bottom navigation menu each case represents the icon clicked and which page clicking on the icon
+        // should direct the user to
         bottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.profileActivity:
@@ -65,12 +61,12 @@ public class DashBoardActivity extends AppCompatActivity{
         FragmentManager fm = getSupportFragmentManager();
 
         Bundle bundle = new Bundle();
-        ArrayList<String> info = myManager.getinfo();
+        List<String> info = myManager.getInfo();
         bundle.putString("fName", info.get(2));
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
-        ArrayList criteria = new ArrayList();
+        List criteria = new ArrayList();
         criteria.add(info.get(4));
         criteria.add(info.get(7));
         criteria.add(info.get(8));
@@ -82,11 +78,8 @@ public class DashBoardActivity extends AppCompatActivity{
         tabLayout.addTab(tabLayout.newTab().setText("QR Code"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        /**
-         * We are changing the view between different tabs (fragments)
-         * one tab will show the TCard while the other shows a QR code
-         * the method below helps us navigate between the tabs so we can go back and forth between them
-         */
+        // We are changing the view between different tabs (fragments) one tab will show the TCard while the other shows
+        // a QR code the method below helps us navigate between the tabs so we can go back and forth between them
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

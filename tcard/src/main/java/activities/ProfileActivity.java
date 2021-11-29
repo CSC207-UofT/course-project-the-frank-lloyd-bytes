@@ -1,18 +1,13 @@
 package activities;
 
-import android.net.Uri;
 import android.widget.*;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import controllers.UserManager;
 
-import java.net.URI;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity{
     /**
@@ -42,10 +37,10 @@ public class ProfileActivity extends AppCompatActivity{
         utorID = findViewById(R.id.profileUtorID);
 
         // putting in USER Object information in
-        ArrayList<String> info = myManager.getinfo();
+        List<String> info = myManager.getInfo();
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
-        names.setText(legalFirstName+" "+legalLastName);
+        names.setText(legalFirstName + " " + legalLastName);
         utorID.setText(info.get(0));
         number.setText(info.get(5));
         email.setText(info.get(6));

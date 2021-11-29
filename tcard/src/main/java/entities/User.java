@@ -2,15 +2,16 @@ package entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is an abstract class that is a base for all user classes. Stores basic user information.
  *
  */
 public abstract class User implements Serializable {
-    protected ArrayList<String> profile = new ArrayList<>();
+    protected List<String> profile = new ArrayList<>();
     private String password;
-    private String utorid;
+    private String utorID;
     //Indexes for profile
     public final int FIRST_NAME = 0;
     public final int LAST_NAME = 1;
@@ -25,8 +26,8 @@ public abstract class User implements Serializable {
      *                 to have the following ordering:
      *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to}
      */
-    public User(ArrayList<String> userInfo) {
-        this.utorid = userInfo.get(0); // UTORid
+    public User(List<String> userInfo) {
+        this.utorID = userInfo.get(0); // UTORid
         this.password = userInfo.get(1); // password
         this.profile.add(userInfo.get(2)); // first name
         this.profile.add(userInfo.get(3)); // last name
@@ -63,9 +64,9 @@ public abstract class User implements Serializable {
      * A getter method to get all the users profile information (including utorid and password) as an arraylist.
      * @return all the users profile information (including utorid and password)
      */
-    public ArrayList<String> getUserInfo() {
+    public List<String> getUserInfo() {
         ArrayList<String> profilelist = new ArrayList<>();
-        profilelist.add(this.utorid);
+        profilelist.add(this.utorID);
         profilelist.add(this.password);
         profilelist.addAll(this.profile);
         return profilelist;
@@ -75,14 +76,14 @@ public abstract class User implements Serializable {
      * A getter method to get user's profile as an arraylist.
      * @return the user's profile
      */
-    public ArrayList<String> getProfile() { return this.profile; }
+    public List<String> getProfile() { return this.profile; }
 
     /**
      * A getter method to get user's utroid
      * @return the user's utroid
      */
     public String getId(){
-        return this.utorid;
+        return this.utorID;
     }
 
 

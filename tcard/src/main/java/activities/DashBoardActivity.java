@@ -1,9 +1,12 @@
 package activities;
 import android.database.Cursor;
 import android.widget.EditText;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -24,6 +27,8 @@ public class DashBoardActivity extends AppCompatActivity{
     TabLayout tabLayout;
     ViewPager2 viewPager;
     EditText username;
+    CardView uCheckCard;
+    TextView uCheckResult;
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
     UserManager myManager;
@@ -34,9 +39,23 @@ public class DashBoardActivity extends AppCompatActivity{
         setContentView(R.layout.dashboard_page);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
+        uCheckCard = findViewById(R.id.UCheckCard);
         bottomMenu = findViewById(R.id.bottom_menu);
+        uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+
+        boolean trial = false; // gonna change this to ucheck result and gonna make the uCheckCard clickable
+
+        if (!trial){
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
+            uCheckResult.setText("UCheck False");
+        }
+        else{
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
+            uCheckResult.setText("UCheck Passed");
+        }
+
 
         /**
          * This is the bottom navigation menu

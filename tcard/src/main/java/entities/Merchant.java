@@ -12,11 +12,11 @@ public class Merchant {
     private final String NAME;
     private final String ADDRESS;
     private final String HOURS;
-    private final List<Discount> DISCOUNTS = new ArrayList<Discount>();
+    private final List<Discount> DISCOUNTS = new ArrayList<>();
 
     public Merchant(List<String> merchantInfo) {
         // marchantInfo = [name, address, hours,
-        // amnt:(item1/...):(stud_yr/...),(stud_prog/...):(fac_yr/...),(fac_dep/...)|...)
+        // amnt:(item1/...):(stud_yr/...),(stud_prog/...):(fac_yr/...),(fac_dep/...)|...)]
         this.NAME = merchantInfo.get(0);
         this.ADDRESS = merchantInfo.get(1);
         this.HOURS = merchantInfo.get(2);

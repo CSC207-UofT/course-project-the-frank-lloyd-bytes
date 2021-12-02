@@ -32,7 +32,6 @@ public class UserManager implements Serializable {
     public User getUser(){
         return myUserCommands.getUser();
     }
-//TODO discuss on whether to return boolean if password has been successfully update, this will help solve clean architecture issue front end.
     public void changePassword(String oldpass, String newpass) {
         this.myUserCommands.changePassword(oldpass, newpass);
     }

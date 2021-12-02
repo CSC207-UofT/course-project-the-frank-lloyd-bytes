@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilityManager;
 import controllers.UserManager;
 import entities.Facility;
+import dataBase.FileReader;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -22,6 +23,7 @@ public class FacilityActivity extends AppCompatActivity {
     FacilityManager facilityManager;
     UserManager userManager;
     FacilityAdapter adapter;
+    FileReader fileReader;
 
     /**
      * starting the activity for the facility's page, programming the buttons on the screen as well as the adapter that
@@ -37,7 +39,11 @@ public class FacilityActivity extends AppCompatActivity {
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
         //facilityManager = new FacilityManager();
         facilitiesInfo = new ArrayList<>();
-        setFacilityInfo();
+        try {
+            setFacilityInfo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         RecyclerView recyclerView = findViewById(R.id.listOfFaculties);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -49,14 +55,16 @@ public class FacilityActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void setFacilityInfo() {
-        ArrayList<String> lineOne = new ArrayList<>();
+    private void setFacilityInfo() throws IOException {
+        facilitiesInfo = fileReader.reader();
+
+        /*ArrayList<String> lineOne = new ArrayList<>();
         ArrayList<String> lineTwo = new ArrayList<>();
         lineOne.add("oneone");
         lineOne.add("onetwo");
         lineTwo.add("twoone");
         lineTwo.add("twotwo");
         facilitiesInfo.add(lineOne);
-        facilitiesInfo.add(lineTwo);
+        facilitiesInfo.add(lineTwo);*/
     }
 }

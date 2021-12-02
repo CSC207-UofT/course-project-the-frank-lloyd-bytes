@@ -1,4 +1,4 @@
-package entities;
+package models;
 
 /**
  * This class is a model of the text display for UCheckQuestionnaireActivity. Gives correct format view model for Listview.

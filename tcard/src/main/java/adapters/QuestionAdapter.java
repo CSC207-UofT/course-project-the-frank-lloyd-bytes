@@ -2,7 +2,7 @@ package adapters;
 
 import android.annotation.SuppressLint;
 import interfaces.OnOptionSelection;
-import entities.UCheckQuestion;
+import models.UCheckQuestion;
 import activities.R;
 import android.content.Context;
 import android.view.LayoutInflater;

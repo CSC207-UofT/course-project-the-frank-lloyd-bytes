@@ -1,6 +1,8 @@
 package entities;
 
 import android.content.Context;
+import models.UCheckResult;
+
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 

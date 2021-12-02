@@ -11,7 +11,7 @@ import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
 import entities.UCheckSharedPreferences;
-import entities.UCheckResult;
+import models.UCheckResult;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +30,6 @@ private ActivityUcheckScrollingBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // send to new activity for questionnaire.
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());

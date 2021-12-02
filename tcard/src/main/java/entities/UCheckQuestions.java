@@ -1,5 +1,7 @@
 package entities;
 
+import models.UCheckQuestion;
+
 import java.util.ArrayList;
 import java.util.List;
 

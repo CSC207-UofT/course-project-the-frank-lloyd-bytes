@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,8 +24,8 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      * @param facilityMap gets the facility array list from the database
      * @throws IOException if the construction doesn't work
      */
-    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap) throws IOException {
-        this.facilityInfo = facilityMap;
+    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap){
+        facilityInfo = facilityMap;
     }
 
     /** declares the variables for the layouts that that is used in each card in the recycler view, assigning these
@@ -41,7 +42,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
             //facilityAddress = itemView.findViewById(R.id.facilityAddress);
         }
     }
-    FacilityManager facilityManager = new FacilityManager();
+    //FacilityManager facilityManager = new FacilityManager();
 
     /**
      * inflate the layout for the list item
@@ -55,6 +56,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     public FacilityAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_facility_layout, parent, false);
         return new ViewHolder(view);
+
     }
 
     /**
@@ -65,7 +67,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = facilityManager.getFacilitiesInfoArray().get(position).get(0);
+        String name = facilityInfo.get(position).get(0);
         //String address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
         //String hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
 
@@ -73,16 +75,6 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         //holder.facilityHours.setText(hours);
         //holder.facilityAddress.setText(address);
     }
-
-    /**
-     * called by RecyclerView when it starts observing this Adapter.
-     * @param recyclerView the actual recycler view
-     */
-    @Override
-    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
-    }
-
 
     /**
      * gets the item of the recycler view, or the database

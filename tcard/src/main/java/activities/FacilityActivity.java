@@ -20,8 +20,8 @@ import java.util.ArrayList;
 public class FacilityActivity extends AppCompatActivity {
     private ArrayList<ArrayList<String>> facilitiesInfo;
     FacilityManager facilityManager;
-    RecyclerView recyclerView;
     UserManager userManager;
+    FacilityAdapter adapter;
 
     /**
      * starting the activity for the facility's page, programming the buttons on the screen as well as the adapter that
@@ -33,22 +33,20 @@ public class FacilityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_main);
+
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
-        try {
-            facilityManager = new FacilityManager();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        recyclerView = findViewById(R.id.listOfFaculties);
+        //facilityManager = new FacilityManager();
         facilitiesInfo = new ArrayList<>();
-
         setFacilityInfo();
-        try {
-            setAdapter();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        RecyclerView recyclerView = findViewById(R.id.listOfFaculties);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        adapter = new FacilityAdapter(facilitiesInfo);
+
+        recyclerView.setAdapter(adapter);
     }
 
     private void setFacilityInfo() {
@@ -61,13 +59,4 @@ public class FacilityActivity extends AppCompatActivity {
         facilitiesInfo.add(lineOne);
         facilitiesInfo.add(lineTwo);
     }
-
-    private void setAdapter() throws IOException {
-        FacilityAdapter adapter = new FacilityAdapter(facilitiesInfo);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-    }
-
 }

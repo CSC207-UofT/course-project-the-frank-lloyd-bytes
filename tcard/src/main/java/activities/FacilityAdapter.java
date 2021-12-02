@@ -13,16 +13,18 @@ import usecases.FacilityMap;
 import controllers.FacilityManager;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
+    private ArrayList<ArrayList<String>> facilityInfo;
     /**
      * Constructor for a facility adapter, pass in the facility map so the adapter can use it
      * @param facilityMap gets the facility array list from the database
      * @throws IOException if the construction doesn't work
      */
     public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap) throws IOException {
-        facilityInfo = facilityMap;
+        this.facilityInfo = facilityMap;
     }
 
     /** declares the variables for the layouts that that is used in each card in the recycler view, assigning these
@@ -35,14 +37,11 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         public ViewHolder(final View itemView) {
             super(itemView);
             facilityName = itemView.findViewById(R.id.facilityName);
-            facilityHours = itemView.findViewById(R.id.facilityHours);
-            facilityAddress = itemView.findViewById(R.id.facilityAddress);
+            //facilityHours = itemView.findViewById(R.id.facilityHours);
+            //facilityAddress = itemView.findViewById(R.id.facilityAddress);
         }
     }
     FacilityManager facilityManager = new FacilityManager();
-    private ArrayList<ArrayList<String>> facilityInfo;
-
-
 
     /**
      * inflate the layout for the list item
@@ -67,23 +66,23 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String name = facilityManager.getFacilitiesInfoArray().get(position).get(0);
-        String address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
-        String hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
+        //String address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
+        //String hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
 
         holder.facilityName.setText(name);
-        holder.facilityHours.setText(hours);
-        holder.facilityAddress.setText(address);
+        //holder.facilityHours.setText(hours);
+        //holder.facilityAddress.setText(address);
     }
 
     /**
      * called by RecyclerView when it starts observing this Adapter.
      * @param recyclerView the actual recycler view
-
+     */
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
-    */
+
 
     /**
      * gets the item of the recycler view, or the database

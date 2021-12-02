@@ -1,7 +1,6 @@
 package adapters;
 
 import android.annotation.SuppressLint;
-
 import interfaces.OnOptionSelection;
 import models.Question;
 import activities.R;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * This class passes in data from UCheckQuestions into the proper view for UCheckQuestionnaireActivity. This class also
+ * This adapter allows UCheckQuestions be inputted into the proper view for UCheckQuestionnaireActivity. This class also
  * determines button selection functionality.
  */
 public class QuestionAdapter extends BaseAdapter {
@@ -81,10 +80,10 @@ public class QuestionAdapter extends BaseAdapter {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (radioButtonNo.isChecked()) {
-                    onOptionSelection.onSelection(true,position);
+                    onOptionSelection.onSelection(true, position);
                 }
                 if (radioButtonYes.isChecked()) {
-                    onOptionSelection.onSelection(false,position);
+                    onOptionSelection.onSelection(false, position);
                 }
 
             }

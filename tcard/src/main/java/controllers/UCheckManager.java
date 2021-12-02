@@ -27,6 +27,13 @@ public class UCheckManager implements Serializable {
     public Date getUCheckTime(){
         return this.UCheckCommands.getUCheckTime();
     }
+
+    /**
+     * @return integer of the most recent state of UCheck. 0 default, 1 pass, 2 fail.
+     */
+    public int getUCheckState(){
+        return this.UCheckCommands.getUCheckState();
+    }
 }
 
 

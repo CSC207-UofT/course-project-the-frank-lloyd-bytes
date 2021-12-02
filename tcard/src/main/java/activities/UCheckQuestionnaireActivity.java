@@ -12,13 +12,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-import controllers.UCheckManager;
-import controllers.UserManager;
 import java.util.List;
 
 public class UCheckQuestionnaireActivity extends AppCompatActivity implements OnOptionSelection {
-    UserManager myManager;
-    UCheckManager myUCheckManager;
     Button btnSubmit;
     ListView listView;
     QuestionAdapter questionAdapter;
@@ -31,14 +27,6 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ucheck_questionnaire);
-
-        // We get the user information from the USER object by using a controller (myManager)
-       // myManager = (UserManager) getIntent().getSerializableExtra("manager");
-
-        // UCheck information from UCheck object in controller.
-      //  myUCheckManager = (UCheckManager) getIntent().getSerializableExtra("ucheck manager");
-
-
         btnSubmit = findViewById(R.id.btnSubmit);
         listView = findViewById(R.id.listView);
         imgBack = findViewById(R.id.imgBack);
@@ -50,10 +38,8 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 setResult(RESULT_CANCELED,null);
                 finish();
-
             }
         });
         // Here the USER interacts with the questionnaire.
@@ -69,9 +55,8 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
                         return;
                     }
                 }
-
                 boolean isAllowed = true;
-                // This is the logic to pass the questionnaire, as with original UCheck. Here without vaccine proof. It fails the test.
+                // This is the logic to pass the questionnaire, as with original UCheck. Here without vaccine proof 'yes'. It fails the test.
                 if(questions.get(0).isNo) {
                     isAllowed = false;
                 }
@@ -83,7 +68,6 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
                         }
                     }
                 }
-
                 Intent intent = getIntent();
                 intent.putExtra("isAllowed", isAllowed);
                 setResult(RESULT_OK, intent);

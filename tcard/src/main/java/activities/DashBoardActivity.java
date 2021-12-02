@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.FacilityManager;
+import controllers.UCheckManager;
 import controllers.UserManager;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class DashBoardActivity extends AppCompatActivity{
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
     UserManager myManager;
+    UCheckManager myUCheckManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -37,6 +39,7 @@ public class DashBoardActivity extends AppCompatActivity{
         bottomMenu = findViewById(R.id.bottom_menu);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+        myUCheckManager = (UCheckManager) getIntent().getSerializableExtra("myucheck manager");
 
         /**
          * This is the bottom navigation menu
@@ -60,8 +63,7 @@ public class DashBoardActivity extends AppCompatActivity{
                 case R.id.ucheckActivity:
                     Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
                     intent4.putExtra("manager", myManager);
-
-
+                    intent4.putExtra("myucheck manager", myUCheckManager);
             }
             return true;
         });

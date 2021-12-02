@@ -2,6 +2,7 @@ package models;
 
 /**
  * This class is a model of the text display for UCheckQuestionnaireActivity. Gives correct format view model for Listview.
+ * The question structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a Question object into it.
  */
 public class Question {
 

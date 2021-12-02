@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 /**
- * This class adds the correct view specifications for UCheckQuestionnaireActivity.
+ * This class adds the correct view specifications for UCheckQuestionnaireActivity. Dynamically measures the correct layout
+ * for given dimensions to fit the activity.
  */
 public class NonScrollListView extends ListView {
 

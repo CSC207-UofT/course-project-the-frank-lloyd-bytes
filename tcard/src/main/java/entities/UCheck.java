@@ -27,6 +27,7 @@ public class UCheck implements Serializable {
     public void setUCheckTime() {
         this.ucheck = true;
         this.uchecktime = new Date();
+        this.setUCheckStatePass();
     }
     /**
      * @return current time of UCheck status.

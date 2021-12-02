@@ -88,7 +88,7 @@ private ActivityUcheckScrollingBinding binding;
         ArrayList<String> info = myManager.getinfo();
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
-        String Name = legalFirstName + legalLastName;
+        String Name = legalFirstName +" " + legalLastName;
         //UCheckResult of questionnaire of USER.
         UCheckResult UCheckResult = UCheckSharedPreferences.getResult(this,myManager.getUser().getId());
         int layout;

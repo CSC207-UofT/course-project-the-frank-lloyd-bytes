@@ -1,6 +1,6 @@
 package activities;
 
-import models.UCheckQuestion;
+import entities.UCheckQuestion;
 import entities.UCheckQuestions;
 import interfaces.OnOptionSelection;
 import adapters.QuestionAdapter;

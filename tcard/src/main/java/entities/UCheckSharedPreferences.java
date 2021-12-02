@@ -1,11 +1,12 @@
 package entities;
 
 import android.content.Context;
-import models.UCheckResult;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+/**
+ *
+ */
 public class UCheckSharedPreferences {
 
     public static void setResult(Context context,String userId,int state) {
@@ -18,11 +19,11 @@ public class UCheckSharedPreferences {
 
     public static UCheckResult getResult(Context context, String userId) {
         android.content.SharedPreferences sharedPreferences = context.getSharedPreferences(userId, Context.MODE_PRIVATE);
-        UCheckResult UCheckResult = new UCheckResult();
+        UCheckResult myUCheckResult = new UCheckResult();
         String date = sharedPreferences.getString("date",new SimpleDateFormat("MMM d, yyyy hh:mm aaa", Locale.ENGLISH).format(new java.util.Date()));
         int status = sharedPreferences.getInt("status",0);
-        UCheckResult.setState(status);
-        UCheckResult.setDate(date);
-        return UCheckResult;
+        myUCheckResult.setState(status);
+        myUCheckResult.setDate(date);
+        return myUCheckResult;
     }
 }

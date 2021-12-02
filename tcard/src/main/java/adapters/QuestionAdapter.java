@@ -2,7 +2,7 @@ package adapters;
 
 import android.annotation.SuppressLint;
 import interfaces.OnOptionSelection;
-import models.UCheckQuestion;
+import entities.UCheckQuestion;
 import activities.R;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -32,7 +32,7 @@ public class QuestionAdapter extends BaseAdapter {
     }
 
     /**
-     * @return integer of list size.
+     * @return integer of UChecklist size.
      */
     @Override
     public int getCount() {

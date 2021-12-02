@@ -13,9 +13,12 @@ import controllers.UserManager;
 import entities.Facility;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class FacilityActivity extends AppCompatActivity {
+    private ArrayList<ArrayList<String>> facilitiesInfo;
     FacilityManager facilityManager;
     RecyclerView recyclerView;
     UserManager userManager;
@@ -38,7 +41,9 @@ public class FacilityActivity extends AppCompatActivity {
         }
 
         recyclerView = findViewById(R.id.listOfFaculties);
+        facilitiesInfo = new ArrayList<>();
 
+        setFacilityInfo();
         try {
             setAdapter();
         } catch (IOException e) {
@@ -46,8 +51,19 @@ public class FacilityActivity extends AppCompatActivity {
         }
     }
 
+    private void setFacilityInfo() {
+        ArrayList<String> lineOne = new ArrayList<>();
+        ArrayList<String> lineTwo = new ArrayList<>();
+        lineOne.add("oneone");
+        lineOne.add("onetwo");
+        lineTwo.add("twoone");
+        lineTwo.add("twotwo");
+        facilitiesInfo.add(lineOne);
+        facilitiesInfo.add(lineTwo);
+    }
+
     private void setAdapter() throws IOException {
-        FacilityAdapter adapter = new FacilityAdapter(facilityManager.getFacilitiesInfoArray());
+        FacilityAdapter adapter = new FacilityAdapter(facilitiesInfo);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

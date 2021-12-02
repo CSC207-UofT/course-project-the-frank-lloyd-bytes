@@ -10,9 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
-import controllers.UCheckManager;
 import entities.UCheckSharedPreferences;
-import models.Result;
+import entities.UCheckResult;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +23,6 @@ public class UCheckScrollingActivity extends AppCompatActivity {
 private ActivityUcheckScrollingBinding binding;
 
     UserManager myManager;
-    UCheckManager myUCheckManager;
 
     /**
      * @param savedInstanceState for any information that was saved previously.
@@ -35,8 +33,6 @@ private ActivityUcheckScrollingBinding binding;
         // send to new activity for questionnaire.
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        // We get the UCheck information from the USER object by using a controller (myUCheckManager)
-        myUCheckManager = (UCheckManager) getIntent().getSerializableExtra("myucheck manager");
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //This button brings USER into the questionnaire activity.
@@ -48,7 +44,6 @@ private ActivityUcheckScrollingBinding binding;
         binding.imgBack.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
             intent.putExtra("manager", myManager);
-            intent.putExtra("myucheck manager", myUCheckManager);
             startActivity(intent);
         });
         // Prompts UofT external website for USER.
@@ -64,7 +59,7 @@ private ActivityUcheckScrollingBinding binding;
 
     /**
      *
-     * The Activity Result APIs provide components for registering for a result, launching the result, and handling the
+     * The Activity UCheckResult APIs provide components for registering for a result, launching the result, and handling the
      * result once it is dispatched by the system.
      * @param requestCode integer target value from result of interacting activity, 001 = pass
      * @param resultCode integer result
@@ -79,7 +74,7 @@ private ActivityUcheckScrollingBinding binding;
                 assert data != null;
                 boolean isAllowed = data.getBooleanExtra("isAllowed", false);
                 //This updates from the results of next activity.
-                UCheckSharedPreferences.setResult(this,myManager.getUser().getId(), isAllowed?1:2);
+                UCheckSharedPreferences.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
                 showScreen();
             }
         }
@@ -95,18 +90,16 @@ private ActivityUcheckScrollingBinding binding;
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
         String Name = legalFirstName + legalLastName;
-        //Result of questionnaire of USER.
-        Result result = UCheckSharedPreferences.getResult(this,myManager.getUser().getId());
+        //UCheckResult of questionnaire of USER.
+        UCheckResult UCheckResult = UCheckSharedPreferences.getResult(this,myManager.getUser().getId());
         int layout;
 
-        if (result.getState()  == 1) {
+        if (UCheckResult.getState()  == 1) {
             layout = R.layout.ucheck_green_layout_view;
-            myUCheckManager.setUCheckStatus(true);
         }
         else
-        if (result.getState()  == 2) {
+        if (UCheckResult.getState()  == 2) {
             layout = R.layout.ucheck_red_layout_view;
-            myUCheckManager.setUCheckStatus(false);
         }
         else
             layout = R.layout.ucheck_grey_layout_view;
@@ -116,9 +109,9 @@ private ActivityUcheckScrollingBinding binding;
         TextView txtName = myLayout.findViewById(R.id.txtName);
         txtName.setText(Name);
 
-        if(result.getState()!=0) {
+        if(UCheckResult.getState()!=0) {
             TextView txtDate = myLayout.findViewById(R.id.txtDate);
-            txtDate.setText(result.getDate());
+            txtDate.setText(UCheckResult.getDate());
         }
         binding.linearLayout.removeAllViews();
         binding.linearLayout.addView(myLayout);

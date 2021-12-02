@@ -2,7 +2,7 @@ package adapters;
 
 import android.annotation.SuppressLint;
 import interfaces.OnOptionSelection;
-import models.Question;
+import entities.UCheckQuestion;
 import activities.R;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,13 +19,13 @@ import java.util.List;
  * determines button selection functionality.
  */
 public class QuestionAdapter extends BaseAdapter {
-    private final List<Question> listData;
+    private final List<UCheckQuestion> listData;
     Context context;
 
     /**
      */
     OnOptionSelection onOptionSelection;
-    public QuestionAdapter(List<Question> listData, Context context, OnOptionSelection onOptionSelection) {
+    public QuestionAdapter(List<UCheckQuestion> listData, Context context, OnOptionSelection onOptionSelection) {
         this.listData = listData;
         this.context=context;
         this.onOptionSelection=onOptionSelection;
@@ -71,9 +71,9 @@ public class QuestionAdapter extends BaseAdapter {
         RadioButton  radioButtonNo = itemView.findViewById(R.id.radioNo);
         RadioButton  radioButtonYes = itemView.findViewById(R.id.radioYes);
         RadioGroup radiogroup = itemView.findViewById(R.id.radiogroup);
-        Question mQuestion = listData.get(position);
-        txtTitle.setText(mQuestion.getTitle());
-        txtQuestion.setText(mQuestion.getQuestion());
+        UCheckQuestion mUCheckQuestion = listData.get(position);
+        txtTitle.setText(mUCheckQuestion.getTitle());
+        txtQuestion.setText(mUCheckQuestion.getQuestion());
         radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             // This determines whether a button has been selected in UI, it also enforces 1 button per yes/no layer.
@@ -85,7 +85,6 @@ public class QuestionAdapter extends BaseAdapter {
                 if (radioButtonYes.isChecked()) {
                     onOptionSelection.onSelection(false, position);
                 }
-
             }
         });
         return itemView;

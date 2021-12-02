@@ -33,7 +33,7 @@ Ming is a user that logs into the app with her own username and password. The ap
 
 
 **Skeleton Program Summary:**
-Only the part of the app that deals with login and profile display was finished for the skeleton program. In the tCardAppShell, instances that are needed to create the command line interface are made immediately when the app is run. Then, the menu class is run where it prompts the user to enter their username and corresponding to it, the password of their account. The Menu class saves what the user inputs and runs the runLogin method in the Controller class. runLogin calls LoginResult in the UserCommands class to check if the username and the corresponding password are correct and exist in the database. After, it goes back to runLogin to print the result for the user. If a match was found, the user will be logged in to the app. If either the password is wrong or the username does not exist, the program will print an error message for the user. After the user successfully logs in, the controller gets the profile which is displayed by the User class. The User Class gets the information for each user from the UserTest Class.
+Only the part of the app that deals with login and profile display was finished for the skeleton program. In the tCardAppShell, instances that are needed to create the command line interface are made immediately when the app is run. Then, the menu class is run where it prompts the user to enter their username and corresponding to it, the password of their account. The Menu class saves what the user inputs and runs the runLogin method in the Controller class. runLogin calls LoginResult in the UserCommands class to check if the username and the corresponding password are correct and exist in the database. After, it goes back to runLogin to print the UCheckResult for the user. If a match was found, the user will be logged in to the app. If either the password is wrong or the username does not exist, the program will print an error message for the user. After the user successfully logs in, the controller gets the profile which is displayed by the User class. The User Class gets the information for each user from the UserTest Class.
 
 **Open Questions:**
 How would we make a transaction? How would the code know when to start the purchase process?
@@ -41,7 +41,7 @@ Would it be cleaner to get rid of the Admins and just register faculties and mer
 How does a barcode work?
 How would it work when we add more merchants and facilities
 Communication has been good, but still needs improvement. We double coded/designed a few things which 
-a better workflow system could have prevented, so an open question is how do we do this?
+a better workflow system could have prevented, so an open UCheckQuestion is how do we do this?
 
 **What Has Worked Well For Our Design:**
 Successfully implemented the User class and it's subclasses. Constructed a basic program structrue that follows the Clean Architecture. The Use Case classes connect our controllers, so modifying the code in one controller won’t affect the other one.

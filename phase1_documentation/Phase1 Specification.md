@@ -106,7 +106,7 @@ Users should be able to complete Uchek through the app every day.
 
 The Ucheck status of the user renews every day(or every 24 hours). Once the Ucheck expires, the app will notify the user to renew their Ucheck status.
 
-On the main menu GUI, users can swipe left or right to change to different GUIs to show their Ucheck result or 
+On the main menu GUI, users can swipe left or right to change to different GUIs to show their Ucheck UCheckResult or 
 vaccination receipt. (There will be two GUIs, one for Ucheck and one for the vaccine. And any modification of the 
 Ucheck or vaccine can be done through their GUIs).
 

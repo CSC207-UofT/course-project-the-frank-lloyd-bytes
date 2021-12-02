@@ -1,10 +1,10 @@
-package models;
+package entities;
 
 /**
  * This class is a model of the text display for UCheckQuestionnaireActivity. Gives correct format view model for Listview.
- * The question structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a Question object into it.
+ * The question structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a UCheckQuestion object into it.
  */
-public class Question {
+public class UCheckQuestion {
 
     private final String title;
     private final String question;
@@ -15,7 +15,7 @@ public class Question {
      * @param title is the title of String to insert.
      * @param question is the question of String to insert.
      */
-    public Question(String title, String question) {
+    public UCheckQuestion(String title, String question) {
         this.title = title;
         this.question = question;
     }

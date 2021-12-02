@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/activity_ucheck_questionnaire.xml" value="0.21" />
         <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/activity_ucheck_scrolling.xml" value="0.22" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/dashboard_page.xml" value="0.15052083333333333" />
         <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/question_layout.xml" value="0.12681159420289856" />
-        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_green_layout_view.xml" value="0.11367753623188406" />
-        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_grey_layout_view.xml" value="0.17" />
-        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_red_layout_view.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_green_layout_view.xml" value="0.33" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_grey_layout_view.xml" value="0.33" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_red_layout_view.xml" value="0.21" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/menu/bottom_menu.xml" value="0.15052083333333333" />
       </map>
     </option>
   </component>

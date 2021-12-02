@@ -64,6 +64,7 @@ public class DashBoardActivity extends AppCompatActivity{
                     Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
                     intent4.putExtra("manager", myManager);
                     intent4.putExtra("myucheck manager", myUCheckManager);
+                    startActivity(intent4);
             }
             return true;
         });

@@ -8,6 +8,8 @@ public class Question {
 
     private final String title;
     private final String question;
+    private boolean isSelected;
+    private boolean isNo;
 
     /**
      * @param title is the title of String to insert.
@@ -18,23 +20,39 @@ public class Question {
         this.question = question;
     }
 
-    public boolean isNo;
-
+    /**
+     * @return boolean if it's selected or not in interface.
+     */
     public boolean isSelected() {
         return isSelected;
     }
 
+    /**
+     * @param selected boolean value if it's selected, we mutate the variable.
+     */
     public void setSelected(boolean selected) {
         isSelected = selected;
     }
-
-    public boolean isSelected;
-
     /**
      * @return String question for front-end.
      */
     public String getQuestion(){
         return this.question;
+    }
+
+    /**
+     * Return if it's no or yes for interface.
+     * @return boolean
+     */
+    public boolean isNo(){
+        return this.isNo;
+    }
+
+    /**
+     * @param value boolean value if set to no in Interface
+     */
+    public void setIsNo(boolean value){
+        this.isNo = value;
     }
 
     /**

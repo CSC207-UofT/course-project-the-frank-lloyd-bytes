@@ -55,25 +55,10 @@ public class UCheck implements Serializable {
     public void setUCheckStateFail(){
         this.ucheckstate = 2;
     }
-
-    /**
-     * @return integer of the current state of ucheck.
-     */
-    public int getUCheckState(){
-        return this.ucheckstate;
-    }
     /**
      * @return boolean if its UCheck.
      */
     public boolean isUCheck() {
         return ucheck;
-    }
-    /**
-     * @return true if the timer is not over.
-     */
-    public boolean uCheckValid() {
-        final long HOUR = 3600 * 1000; // in milli-seconds.
-        Date newDate = new Date(this.uchecktime.getTime() + 24 * HOUR);
-        return (newDate.getTime() - this.uchecktime.getTime()) < (24 * HOUR);
     }
 }

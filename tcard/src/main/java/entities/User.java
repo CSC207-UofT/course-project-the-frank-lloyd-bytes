@@ -94,9 +94,5 @@ public abstract class User implements Serializable {
     public String getId() {
         return this.utorid;
     }
-
-    public String userFullName() {
-        return this.FIRST_NAME + " " + this.LAST_NAME;
-    }
 }
 

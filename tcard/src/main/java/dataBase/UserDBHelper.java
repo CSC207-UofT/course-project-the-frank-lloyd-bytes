@@ -24,7 +24,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
      * @param context the context of the class which calls this constructor
      */
     public UserDBHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 2);
     }
 
 

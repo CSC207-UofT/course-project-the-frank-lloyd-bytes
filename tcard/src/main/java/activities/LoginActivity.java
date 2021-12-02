@@ -9,7 +9,6 @@ import android.widget.Toast;
 import controllers.UCheckManager;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
-
 import java.util.ArrayList;
 
 

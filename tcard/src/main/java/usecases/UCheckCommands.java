@@ -31,16 +31,4 @@ public class UCheckCommands implements Serializable {
             this.UCHECK.setUCheckStateFail();
         }
     }
-    /**
-     * @return Date is current time of User's UCheck for UI display.
-     */
-    public Date getUCheckTime(){
-        return this.UCHECK.getUCheckTime();
-    }
-    /**
-     * @return integer value of state, 0 default (untested), 1 tested + passed, 2 tested + failed.
-     */
-    public int getUCheckState() {
-        return this.UCHECK.getUCheckState();
-    }
 }

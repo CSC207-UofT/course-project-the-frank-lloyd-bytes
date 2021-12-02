@@ -50,19 +50,19 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
             @Override
             public void onClick(View v) {
                 for(Question question:questions) {
-                    if(!question.isSelected) {
+                    if(!question.isSelected()) {
                         Toast.makeText(UCheckQuestionnaireActivity.this,"Please Answer All Questions",Toast.LENGTH_LONG).show();
                         return;
                     }
                 }
                 boolean isAllowed = true;
                 // This is the logic to pass the questionnaire, as with original UCheck. Here without vaccine proof 'yes'. It fails the test.
-                if(questions.get(0).isNo) {
+                if(questions.get(0).isNo()) {
                     isAllowed = false;
                 }
                 else {
                     for(int i = 1; i < questions.size(); i++) {
-                        if(!questions.get(i).isNo) {
+                        if(!questions.get(i).isNo()) {
                             isAllowed = false;
                             break;
                         }
@@ -77,14 +77,14 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
     }
 
     /** This method interacts with the interface.
-     * @param isNo     boolean value to pass in interface whether an option has been selection in UI.
+     * @param isNoVar     boolean value to pass in interface whether an option has been selection in UI.
      * @param position integer position of where in UI the selection has been made.
      */
     @Override
-    public void onSelection(boolean isNo, int position) {
+    public void onSelection(boolean isNoVar, int position) {
         Question question = questions.get(position);
         question.setSelected(true);
-        question.isNo = isNo;
+        question.setIsNo(isNoVar);
         questions.set(position, question);
     }
 

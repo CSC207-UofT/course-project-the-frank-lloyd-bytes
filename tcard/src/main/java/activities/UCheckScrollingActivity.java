@@ -4,41 +4,39 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
 import controllers.UCheckManager;
-import java.util.Date;
+import entities.UCheckSharedPreferences;
+import models.Result;
+import java.util.ArrayList;
 
 /**
  * This is the main dashboard for UCheck. This will display a UI interface for UCheck containing the status of UCheck,
  * and a webpage for additional resources.
  */
-public class UCheckScrollingActivity<myUCheckManager> extends AppCompatActivity {
+public class UCheckScrollingActivity extends AppCompatActivity {
 
 private ActivityUcheckScrollingBinding binding;
 
     UserManager myManager;
     UCheckManager myUCheckManager;
-    Date displayTimeText;
-    String displayFullName;
-    int confirmedDisplay;
 
     /**
      * @param savedInstanceState for any information that was saved previously.
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // send to new activity for questionnaire.
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+        // We get the UCheck information from the USER object by using a controller (myUCheckManager)
         myUCheckManager = (UCheckManager) getIntent().getSerializableExtra("myucheck manager");
-        displayFullName = myManager.getFullName();
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //This button brings USER into the questionnaire activity.
@@ -81,40 +79,48 @@ private ActivityUcheckScrollingBinding binding;
                 assert data != null;
                 boolean isAllowed = data.getBooleanExtra("isAllowed", false);
                 //This updates from the results of next activity.
-                confirmedDisplay = isAllowed?1:2;
+                UCheckSharedPreferences.setResult(this,myManager.getUser().getId(), isAllowed?1:2);
                 showScreen();
             }
         }
     }
 
     /**
-     * Display correct screen.
+     * Display correct screen from the questionnaire with time completed and USER full name.
      */
 
     private void showScreen() {
-
-        //Display the correct xml layout view to inflater.
-        //TODO implement xml with text date on green and username
+        //Name of current USER.
+        ArrayList<String> info = myManager.getinfo();
+        String legalFirstName = info.get(2);
+        String legalLastName = info.get(3);
+        String Name = legalFirstName + legalLastName;
+        //Result of questionnaire of USER.
+        Result result = UCheckSharedPreferences.getResult(this,myManager.getUser().getId());
         int layout;
-        if (myUCheckManager.getUCheckState() == 1) {
-            //green pass display.
-            if (confirmedDisplay == 1) {
-                layout = R.layout.ucheck_green_layout_view;
-                myUCheckManager.setUCheckStatus(true);
-                displayTimeText = myUCheckManager.getUCheckTime();
 
-            }
-            //red fail display.
-            if (confirmedDisplay == 2) {
-                layout = R.layout.ucheck_red_layout_view;
-                myUCheckManager.setUCheckStatus(false);
-            }//default grey display.
-        else {
-            layout = R.layout.ucheck_grey_layout_view;
+        if (result.getState()  == 1) {
+            layout = R.layout.ucheck_green_layout_view;
+            myUCheckManager.setUCheckStatus(true);
         }
+        else
+        if (result.getState()  == 2) {
+            layout = R.layout.ucheck_red_layout_view;
+            myUCheckManager.setUCheckStatus(false);
+        }
+        else
+            layout = R.layout.ucheck_grey_layout_view;
+
         LayoutInflater inflater = getLayoutInflater();
         View myLayout = inflater.inflate(layout, binding.linearLayout, false);
+        TextView txtName = myLayout.findViewById(R.id.txtName);
+        txtName.setText(Name);
+
+        if(result.getState()!=0) {
+            TextView txtDate = myLayout.findViewById(R.id.txtDate);
+            txtDate.setText(result.getDate());
+        }
         binding.linearLayout.removeAllViews();
         binding.linearLayout.addView(myLayout);
-    }
-}}
+}
+}

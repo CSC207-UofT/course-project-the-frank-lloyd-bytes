@@ -49,9 +49,9 @@
         </string>
     <string name="green_2">
         This self-assessment does not confirm a negative diagnosis of COVID-19. </string>
-    <string name="green_3">If you are in an at-risk group, are receiving this \'green status' for the first time, and: </string>
-    <string name="green_4">You are a student, please contact your local health care provider or campus Health &amp; Wellness/Health &amp; Counseling Centre before you arrive on campus/leave your residence.</string>
-    <string name="green_5">You are a Faculty, Librarian, or Staff member, and require an alternative work arrangement or potential accommodation, please contact Health &amp; Well-Being.</string>
+    <string name="green_3">If you are in an at-risk group, are receiving this \'green status\' for the first time, and: </string>
+    <string name="green_4">• You are a student, please contact your local health care provider or campus Health &amp; Wellness/Health &amp; Counseling Centre before you arrive on campus/leave your residence.</string>
+    <string name="green_5">• You are a Faculty, Librarian, or Staff member, and require an alternative work arrangement or potential accommodation, please contact Health &amp; Well-Being.</string>
     <string name="Grey">Complete this self-assessment to generate your COVID-19 risk status.</string>
     <string name="red_1">Based on your selected responses, you may have symptoms of COVID-19, or may have been exposed to
         COVID-19. You should not come to campus as planned. If you live in residence, please self-isolate and

@@ -9,8 +9,11 @@ import java.util.Arrays;
   A reader class that read the csv file.
  */
 public class FileReader {
-    protected static final String  FILE_ADDRESS = "tcard/FacilitiesInfo.csv";
+    protected final String FILE_ADDRESS;
 
+    public FileReader(String fileAddress) {
+        FILE_ADDRESS = fileAddress;
+    }
 
     /**
      * Read the file in the provided address and return a list of what it read.

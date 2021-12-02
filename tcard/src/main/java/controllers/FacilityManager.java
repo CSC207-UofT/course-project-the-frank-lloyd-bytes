@@ -20,7 +20,7 @@ public class FacilityManager implements Serializable {
     private final FacilityMap myFacilityMap;
     private final FacilityHelper myFacilityHelper;
 
-    FileReader myFileReader = new FileReader();
+    FileReader myFileReader = new FileReader("tcard/FacilitiesInfo.csv");
     ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
 
     /**

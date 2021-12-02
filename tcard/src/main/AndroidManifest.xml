@@ -11,20 +11,23 @@
             android:name="activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
+
     </activity>
     <activity
             android:name="activities.RegisterActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
+    <activity
+            android:name="activities.UCheckQuestionnaireActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyApplication.NoActionBar">
+
+    </activity>
 
     <activity android:name="activities.DashBoardActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
 
     </activity>
 
@@ -45,6 +48,11 @@
     <activity android:name="activities.UCheckScrollingActivity"
               android:label="@string/title_activity_ucheck_scrolling"
               android:theme="@style/Theme.MyApplication.NoActionBar">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
     </activity>
 </application>
 </manifest>

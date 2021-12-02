@@ -11,7 +11,7 @@ public class UCheck implements Serializable {
     private boolean ucheck; // is valid or not.
     private Date uchecktime; // Time of start.
     private final String utorid; // User utorid number.
-    private int ucheckstate; // Ucheck state, 0 default, 1 completed + passed, 2 completed + failed.
+    private int ucheckstate; // UCheck state, 0 default, 1 completed + passed, 2 completed + failed.
 
     /**
      * UCheck Initialization.
@@ -22,7 +22,7 @@ public class UCheck implements Serializable {
         this.ucheckstate = 0;
     }
     /**
-     * Initiates timer
+     * Initiates timer.
      */
     public void setUCheckTime() {
         this.ucheck = true;
@@ -42,18 +42,22 @@ public class UCheck implements Serializable {
     }
 
     /**
-     *
+     *Update the state to a passed state.
      */
     public void setUCheckStatePass(){
         this.ucheckstate = 1;
     }
 
     /**
-     *
+     *Updated the state to a failed state.
      */
     public void setUCheckStateFail(){
         this.ucheckstate = 2;
     }
+
+    /**
+     * @return integer of the current state of ucheck.
+     */
     public int getUCheckState(){
         return this.ucheckstate;
     }

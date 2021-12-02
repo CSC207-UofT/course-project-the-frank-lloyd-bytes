@@ -27,8 +27,6 @@ public class UCheckManager implements Serializable {
     public Date getUCheckTime(){
         return this.UCheckCommands.getUCheckTime();
     }
-    public int getUCheckState() {return this.UCheckCommands.getUCheckState();
-    }
 }
 
 

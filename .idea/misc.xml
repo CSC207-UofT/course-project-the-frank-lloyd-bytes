@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/activity_ucheck_questionnaire.xml" value="0.21" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/activity_ucheck_scrolling.xml" value="0.22" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/question_layout.xml" value="0.12681159420289856" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_green_layout_view.xml" value="0.11367753623188406" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_grey_layout_view.xml" value="0.17" />
+        <entry key="..\:/Users/Jesse/IdeaProjects/untitled6/tcard/src/main/res/layout/ucheck_red_layout_view.xml" value="0.11367753623188406" />
+      </map>
+    </option>
+  </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
@@ -47,7 +59,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android API 30 Platform" project-jdk-type="Android SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android API 30 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/output" />
   </component>
 </project>

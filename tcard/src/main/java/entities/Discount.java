@@ -14,8 +14,6 @@ public class Discount {
     private final String CRITERIA;
 
     public Discount(String discountInfo) {
-        // amnt:(item1/...):(stud_yr/...),(stud_prog/...):(fac_yr/...),(fac_dep/...)
-
         String[] discountInfoArray = discountInfo.split(":");
         this.AMOUNT = discountInfoArray[0];
         this.ITEMS = discountInfoArray[1];

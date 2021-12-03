@@ -21,7 +21,7 @@ public class UCheckCommands {
     }
 
     /**
-     * @return integer of current state which determines the correct layout display of UCheck.
+     * @return integer of current state which determines the correct layout display of UCheck. //add check if UCheck expired here or not, return 0; otherwise.
      */
     public int getState(){
         return UCHECK.getState();
@@ -61,7 +61,7 @@ public class UCheckCommands {
     /**
      * This method returns the state of UCheck with corresponds to a layout display in UCheckScrollingActivity for the UI.
      * Method calls getState() in function that gets UCheck state.
-     * @return integer of correct layout for UCheckScrollingActivity.
+     * @return integer of correct layout for UCheckScrollingActivity.  //check isExpired() true: return grey, false: red/greenUCheck here if valid then return grey one if it's been 24hr
      */
     public int getLayout() {
 

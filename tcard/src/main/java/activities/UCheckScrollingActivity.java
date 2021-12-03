@@ -79,7 +79,7 @@ private ActivityUcheckScrollingBinding binding;
     }
 
     /**
-     * Display correct screen from the questionnaire with time completed and USER full name.
+     * Display correct screen from the questionnaire with time completed and USER full name. //add usecase method isValid() UCheck
      */
 
     private void showScreen() {

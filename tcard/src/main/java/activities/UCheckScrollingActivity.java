@@ -96,7 +96,7 @@ private ActivityUcheckScrollingBinding binding;
         View myLayout = inflater.inflate(layout, binding.linearLayout, false);
         TextView txtName = myLayout.findViewById(R.id.txtName);
         txtName.setText(Name);
-        if(myUCheckCommands.getState()!=0) {
+        if(myUCheckCommands.getState()!= 0) {
             TextView txtDate = myLayout.findViewById(R.id.txtDate);
             txtDate.setText(myUCheckCommands.getDate());
         }

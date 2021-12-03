@@ -17,8 +17,7 @@ public class Discount {
 
     /**
      * Constructs a Discount object.
-     * @param discountInfo A string containing information for a discount. This string is formatted as:
-     *                      "amount:(item/...):(student_yr/...).(student_prog/...):(faculty_yr/...).(faculty_dep/...)"
+     * @param discountInfo A string containing information for a discount.
      */
     public Discount(String discountInfo) {
         String[] discountInfoArray = discountInfo.split(":");
@@ -51,8 +50,7 @@ public class Discount {
     }
 
     /**
-     * Helper method to represent a discounts items as a string. For example, this converts "(item1/item2/item3)" into
-     * "item1, item2, and item3"
+     * Helper method to represent a discounts items as a string.
      * @return a string listing a discounts items in a sentence.
      */
     private String makeItemsString() {

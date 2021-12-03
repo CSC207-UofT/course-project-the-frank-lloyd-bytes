@@ -12,6 +12,7 @@ import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
 import usecases.UCheckCommands;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the main dashboard for UCheck. This will display a UI interface for UCheck containing the status of UCheck,
@@ -84,7 +85,7 @@ private ActivityUcheckScrollingBinding binding;
 
     private void showScreen() {
         //Name of current USER.
-        ArrayList<String> info = myManager.getinfo();
+        List<String> info = myManager.getInfo();
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
         String Name = legalFirstName + " " + legalLastName;

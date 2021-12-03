@@ -18,7 +18,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     public static final String DB_NAME = "User.db";
     public static final String TABLE_NAME = "users";
     public static final String[] COL_LIST = {"UTROID", "PASSWORD", "LEGAL_NAME_F", "LEGAL_NAME_L", "STATUS",
-            "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO"};
+            "ID_NUMBER", "EMAIL", "YEAR_IN_UOFT", "BELONGTO", "PICTURE"};
 
 
     /**
@@ -40,7 +40,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     public void onCreate(SQLiteDatabase myDB) {
         myDB.execSQL("create Table " + TABLE_NAME + " (UTROID TEXT primary key,PASSWORD TEXT,LEGAL_NAME_F TEXT," +
                 "LEGAL_NAME_L TEXT ,STATUS TEXT," +
-                "ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT)");
+                "ID_NUMBER TEXT,EMAIL TEXT,YEAR_IN_UOFT TEXT,BELONGTO TEXT, PICTURE TEXT)");
 
     }
 
@@ -117,7 +117,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      */
     @Override
     public Boolean insertData(String username, String password, String firstName, String lastName, String email,
-                              String department, String status, String tCardNumber, String year, String photo) {
+                              String department, String status, String tCardNumber, String year, String pic) {
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_LIST[0], username);
@@ -129,6 +129,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
         contentValues.put(COL_LIST[6], email);
         contentValues.put(COL_LIST[7], year);
         contentValues.put(COL_LIST[8],department);
+        contentValues.put(COL_LIST[9], pic);
         long result = myDB.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
@@ -140,6 +141,17 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      */
     @Override
     public Boolean updatePassword(List<String> data){
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        for (int i=0; i<data.size();i++){
+            contentValues.put(COL_LIST[i], data.get(i));
+        }
+        long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        return result != -1;
+
+    }
+
+    public Boolean updatePicture(List<String> data){
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){

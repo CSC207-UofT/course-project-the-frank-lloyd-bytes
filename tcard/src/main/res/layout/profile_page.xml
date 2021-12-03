@@ -160,26 +160,36 @@
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content">
-            <Button
-                    android:text="Change Password"
-                    android:layout_width="170dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/text_box_type_3"
-                    android:id="@+id/profileChangePassword"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+                <Button
+                        android:text="Change Password"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_box_type_3"
+                        android:id="@+id/profileChangePassword"/>
+                <Button
+                        android:text="Upload Picture"
+                        android:layout_width="180dp"
+
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_box_type_3"
+                        android:id="@+id/profileChangePicture"/>
+            </LinearLayout>
             <Button
                     app:icon="@drawable/ic_home"
                     android:layout_width="60dp"
                     android:layout_gravity="center"
                     android:paddingLeft="18dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="90dp"
                     android:background="@drawable/circle"
                     android:id="@+id/profileGoBack"/>
 

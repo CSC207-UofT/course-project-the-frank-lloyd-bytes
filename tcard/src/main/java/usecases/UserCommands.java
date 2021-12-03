@@ -58,18 +58,15 @@ public class UserCommands implements Serializable {
         }
     }
 
+    public void changePicture(String newPicture){
+        this.USER.changePicture(newPicture);
+    }
+
     /**
      * get the user of this UserCommands
      * @return an User object
      */
     public User getUser(){
         return this.USER;
-    }
-
-    /**
-     * @return String ID of User utorid.
-     */
-    public String getId(){
-        return this.USER.getId();
     }
 }

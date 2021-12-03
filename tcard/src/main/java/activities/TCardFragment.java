@@ -1,5 +1,6 @@
 package activities;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +24,16 @@ public class TCardFragment extends Fragment{
         TextView lastName = view.findViewById(R.id.tLastName);
         TextView utorID = view.findViewById(R.id.tUtorID);
         TextView number = view.findViewById(R.id.tCardNo);
+        ImageView profile = view.findViewById(R.id.profilePic);
         Bundle bundle = getArguments();
         firstName.setText(bundle.getString("fName"));
         lastName.setText(bundle.getString("lName"));
         utorID.setText(bundle.getString("uID"));
         number.setText(bundle.getString("no"));
+        //if (bundle.getString("pic") != ""){
+        //    profile.setImageURI(Uri.parse(bundle.getString("pic")));
+        //}
+
 
         return view;
     }

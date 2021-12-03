@@ -28,7 +28,7 @@ public class UserManager implements Serializable {
 
     /**
      * get the user for the UserCommands for this UserManager
-     * @return an User object
+     * @return a User object
      */
     public User getUser(){
         return myUserCommands.getUser();
@@ -36,5 +36,9 @@ public class UserManager implements Serializable {
 
     public void changePassword(String oldPass, String newPass) {
         this.myUserCommands.changePassword(oldPass, newPass);
+    }
+
+    public void changePicture(String newPic) {
+        this.myUserCommands.changePicture(newPic);
     }
 }

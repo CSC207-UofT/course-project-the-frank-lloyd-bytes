@@ -37,7 +37,12 @@ public class FacilityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_facility_main);
 
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
-        //facilityManager = new FacilityManager();
+        try {
+            facilityManager = new FacilityManager();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        fileReader = new FileReader();
         facilitiesInfo = new ArrayList<>();
         try {
             setFacilityInfo();
@@ -56,15 +61,21 @@ public class FacilityActivity extends AppCompatActivity {
     }
 
     private void setFacilityInfo() throws IOException {
-        facilitiesInfo = fileReader.reader();
 
-        /*ArrayList<String> lineOne = new ArrayList<>();
-        ArrayList<String> lineTwo = new ArrayList<>();
-        lineOne.add("oneone");
-        lineOne.add("onetwo");
-        lineTwo.add("twoone");
-        lineTwo.add("twotwo");
-        facilitiesInfo.add(lineOne);
-        facilitiesInfo.add(lineTwo);*/
+        //facilitiesInfo = fileReader.reader();
+
+        ArrayList<String> facilityOne = new ArrayList<>();
+        ArrayList<String> facilityTwo = new ArrayList<>();
+        facilityOne.add("Bahen");
+        facilityOne.add("St George");
+        facilityOne.add("library");
+        facilityOne.add("9 to 5");
+
+        facilityTwo.add("Robarts");
+        facilityTwo.add("St George");
+        facilityTwo.add("lab");
+        facilityTwo.add("9 to 5");
+        facilitiesInfo.add(facilityOne);
+        facilitiesInfo.add(facilityTwo);
     }
 }

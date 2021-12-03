@@ -43,10 +43,11 @@ public class FacilityManager implements Serializable {
     /**
      * get the facilities info in map format, or as a FacilityMap
      * @return a FacilityMap from the database read by the reader
-     */
+
     public FacilityMap getFacilitiesInfo() {
         return myFacilityMap;
     }
+     */
 
     public boolean evaluateHelper(User user, Facility facility){
         if (Objects.equals(myFacilityHelper.StudentFacultyDifferHelper(user), "Student")){

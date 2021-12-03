@@ -38,11 +38,19 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         public ViewHolder(final View itemView) {
             super(itemView);
             facilityName = itemView.findViewById(R.id.facilityName);
-            //facilityHours = itemView.findViewById(R.id.facilityHours);
-            //facilityAddress = itemView.findViewById(R.id.facilityAddress);
+            facilityAddress = itemView.findViewById(R.id.facilityAddress);
+            facilityHours = itemView.findViewById(R.id.facilityHours);
         }
     }
-    //FacilityManager facilityManager = new FacilityManager();
+
+    FacilityManager facilityManager;
+    {
+        try {
+            facilityManager = new FacilityManager();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * inflate the layout for the list item
@@ -68,12 +76,12 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String name = facilityInfo.get(position).get(0);
-        //String address = facilityManager.getFacilitiesInfoArray().get(position).get(1);
-        //String hours = facilityManager.getFacilitiesInfoArray().get(position).get(3);
+        String address = facilityInfo.get(position).get(1);
+        String hours = facilityInfo.get(position).get(3);
 
         holder.facilityName.setText(name);
-        //holder.facilityHours.setText(hours);
-        //holder.facilityAddress.setText(address);
+        holder.facilityAddress.setText(address);
+        holder.facilityHours.setText(hours);
     }
 
     /**

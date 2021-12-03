@@ -37,8 +37,11 @@ public class DiscountHelper {
         List<String> yearCriteria = getSubCriteriaList(studentCriteriaArray[0]);
         List<String> programCriteria = getSubCriteriaList(studentCriteriaArray[1]);
 
-        boolean yearCriteriaSatisfied = yearCriteria.contains(student.getProfile().get(student.STUDENT_YEAR));
-        boolean programCriteriaSatisfied = programCriteria.contains(student.getProfile().get(student.STUDENT_PROGRAM));
+        boolean yearCriteriaSatisfied = yearCriteria.contains(student.getProfile().get(student.STUDENT_YEAR)) ||
+                yearCriteria.contains("any");
+
+        boolean programCriteriaSatisfied = programCriteria.contains(student.getProfile().get(student.STUDENT_PROGRAM))
+                || programCriteria.contains("any");
 
         return (yearCriteriaSatisfied & programCriteriaSatisfied);
     }
@@ -55,10 +58,13 @@ public class DiscountHelper {
         List<String> yearCriteria = getSubCriteriaList(facultyCriteriaArray[0]);
         List<String> departmentCriteria = getSubCriteriaList(facultyCriteriaArray[1]);
 
-        boolean yearCriteriaSatisfied = yearCriteria.contains(faculty.getProfile().get(faculty.FACULTY_YEAR));
-        boolean programCriteriaSatisfied = departmentCriteria.contains(faculty.getProfile().get(faculty.FACULTY_DEPARTMENT));
+        boolean yearCriteriaSatisfied = yearCriteria.contains(faculty.getProfile().get(faculty.FACULTY_YEAR)) ||
+                yearCriteria.contains("any");
 
-        return (yearCriteriaSatisfied & programCriteriaSatisfied);
+        boolean departmentCriteriaSatisfied = departmentCriteria.contains(faculty.getProfile().
+                get(faculty.FACULTY_DEPARTMENT)) || departmentCriteria.contains("any");
+
+        return (yearCriteriaSatisfied & departmentCriteriaSatisfied);
     }
 
     /**

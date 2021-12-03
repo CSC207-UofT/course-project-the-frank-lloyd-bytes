@@ -72,7 +72,8 @@ public class ProfileActivity extends AppCompatActivity{
         String imageAddress = info.get(9);
 
         if (imageAddress != "") {
-            profilePic.setImageURI(Uri.parse(imageAddress));
+            Uri pic = Uri.parse(imageAddress);
+            //profilePic.setImageURI(pic);
         }
 
 
@@ -98,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity{
                         Uri imageUri = Uri.parse(data.getDataString());
                         profilePic.setImageURI(imageUri);
                         myManager.changePicture(imageUri.toString());
-                        DB.updatePicture(myManager.getinfo());
+                        DB.updatePicture(myManager.getInfo());
                     }
 
             }});

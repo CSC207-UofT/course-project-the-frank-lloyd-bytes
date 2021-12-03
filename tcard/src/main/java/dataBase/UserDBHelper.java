@@ -151,8 +151,8 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
 
     }
 
-    public Boolean updatePicture(ArrayList<String> data){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
+    public Boolean updatePicture(List<String> data){
+        SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));

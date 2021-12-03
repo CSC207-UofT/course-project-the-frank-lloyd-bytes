@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,4 +24,29 @@ public class Discount {
     public String getItems() { return this.ITEMS; }
 
     public String getCriteria() { return this.CRITERIA; }
+
+    private List<String> getItemsList(String items) {
+        return Arrays.asList(items.substring(items.indexOf("(") + 1, items.indexOf(")")).
+                split("/"));
+    }
+
+    private String makeItemsString() {
+        String[] itemsArray = ITEMS.substring(1, ITEMS.length() - 1).split("/");
+
+        StringBuilder itemsString = new StringBuilder(itemsArray[0]);
+
+        if (itemsArray.length == 2) {
+            itemsString.append(" and ").append(itemsArray[1]);
+        } else if (itemsArray.length > 2) {
+            for (String item : Arrays.copyOfRange(itemsArray, 1, itemsArray.length - 1)) {
+                itemsString.append(", ").append(item);
+            }
+            itemsString.append(", and ").append(itemsArray[itemsArray.length - 1]);
+        }
+        return itemsString.toString();
+    }
+
+    public String discountString() {
+        return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!";
+    }
 }

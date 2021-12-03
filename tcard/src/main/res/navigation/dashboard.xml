@@ -8,4 +8,5 @@
     <activity android:id="@+id/profileActivity" android:name="activities.ProfileActivity" android:label="ProfileActivity"/>
     <activity android:id="@+id/facilityActivity" android:name="activities.FacilityActivity"
               android:label="FacilityActivity"/>
+    <activity android:id="@+id/ucheckActivity" android:name="activities.UCheckScrollingActivity" android:label="UCheckActivity"/>
 </navigation>

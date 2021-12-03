@@ -50,7 +50,7 @@ We did achieve a large part of our specs: Register, Login, Change password. We a
 - IntelliJ and Github problems: More than half of the time that we have worked on this class, we have been debugging any problems with git and IntelliJ. Some members expressed that there was very minimal help offered throughout the reading week. This is definitely our fault though for starting a few weeks before the due date. (ask Jeffery how many times we called him for help :)) We met up multiple times throughout the week to code together, but most of the time was still spent on solving administrative problems.
 - Miscommunication and lack of planning: Due to some miscommunication, some members were confused about which parts to work on. Despite having token cards on Github, we were a bit confused with who added what and who is actually working on what.
 
-We are not trying to make any excuses for our ending result, we will use this as a learning experience and hopefully improve greatly for the next phase.
+We are not trying to make any excuses for our ending UCheckResult, we will use this as a learning experience and hopefully improve greatly for the next phase.
 
 
 ## Open Questions and What has worked well with our design:

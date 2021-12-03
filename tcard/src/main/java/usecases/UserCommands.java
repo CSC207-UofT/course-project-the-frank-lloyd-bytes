@@ -3,7 +3,6 @@ package usecases;
 import entities.Student;
 import entities.User;
 import entities.Faculty;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,5 +64,12 @@ public class UserCommands implements Serializable {
      */
     public User getUser(){
         return this.USER;
+    }
+
+    /**
+     * @return String ID of User utorid.
+     */
+    public String getId(){
+        return this.USER.getId();
     }
 }

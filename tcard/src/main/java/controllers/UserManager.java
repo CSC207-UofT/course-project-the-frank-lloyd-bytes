@@ -28,7 +28,7 @@ public class UserManager implements Serializable {
 
     /**
      * get the user for the UserCommands for this UserManager
-     * @return a User object
+     * @return an User object
      */
     public User getUser(){
         return myUserCommands.getUser();

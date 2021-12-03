@@ -1,5 +1,8 @@
 package activities;
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.widget.*;
+import android.text.TextUtils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 import android.content.Intent;

@@ -51,8 +51,8 @@ public class Discount {
     }
 
     /**
-     * Helper method to represent a discounts items as a string. Represents "(item1/item2/item3)" as "item1, item2, and
-     * item3"
+     * Helper method to represent a discounts items as a string. For example, this converts "(item1/item2/item3)" into
+     * "item1, item2, and item3"
      * @return a string listing a discounts items in a sentence.
      */
     private String makeItemsString() {

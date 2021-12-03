@@ -44,11 +44,6 @@ public class Discount {
      */
     public String getCriteria() { return this.CRITERIA; }
 
-    private List<String> getItemsList(String items) {
-        return Arrays.asList(items.substring(items.indexOf("(") + 1, items.indexOf(")")).
-                split("/"));
-    }
-
     /**
      * Helper method to represent a discounts items as a string.
      * @return a string listing a discounts items in a sentence.

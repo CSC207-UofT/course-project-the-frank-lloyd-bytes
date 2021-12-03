@@ -1,9 +1,9 @@
 package entities;
 
 /**
- * This class is a entity of the text display for UCheckQuestionnaireActivity. Gives correct format view model for Listview.
+ * This class is an entity stores the state of UCheck result completed by USER in UCheckQuestionnaireActivity.This class takes in one UCheckQuestion from UCheckQuestions.
  * The question structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a UCheckQuestion object into it.
- * This class also contains data for the questionnaire and UI interaction state.
+ * This class also contains data for the questionnaire and UI interaction state that USER interacts with in UI.
  */
 public class UCheckQuestion {
 

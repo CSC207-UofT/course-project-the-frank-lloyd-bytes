@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * This adapter allows UCheckQuestions be inputted into the proper view for UCheckQuestionnaireActivity. This class also
+ * This adapter allows UCheckQuestions be inputted into the proper view for UCheckQuestionnaireActivity and for data entry points. This class also
  * determines button selection functionality.
  */
 public class QuestionAdapter extends BaseAdapter {

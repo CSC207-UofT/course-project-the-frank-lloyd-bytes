@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class just stores String values of title and question for the self-assessment page.
+ * This class just stores String values of title and question for the self-assessment page. Hardcoded for use in UI.
+ * The questions are iterated through and produce an entity UCheckQuestion which displays on UCheckQuestionnaireActivity.
  */
 public class UCheckQuestions {
 

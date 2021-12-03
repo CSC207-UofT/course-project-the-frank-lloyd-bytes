@@ -3,7 +3,6 @@ package usecases;
 import entities.Student;
 import entities.User;
 import entities.Faculty;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

@@ -1,21 +1,23 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * This entity is a UCheck data structure, which contains Date and state information about UCheck result,
  * which is connected with a User (Faculty/Student) upon registration. Every User must have a UCheck to confirm COVID-19 safety protocols.
  */
-public class UCheckResult {
+public class UCheck implements Serializable {
 
     String date; //default "": updates when questionnaire is complete
     int state; // default 0: 1 = pass, 2 = fail.
 
-    public UCheckResult() {}
+    public UCheck() {}
 
     /**
      * @return String value of date and initiates timer after.
      */
     public String getDate() {
-        return date;
+        return this.date;
     }
 
     /**
@@ -29,7 +31,7 @@ public class UCheckResult {
      * @return integer of the current state after results.
      */
     public int getState() {
-        return state;
+        return this.state;
     }
 
     /**

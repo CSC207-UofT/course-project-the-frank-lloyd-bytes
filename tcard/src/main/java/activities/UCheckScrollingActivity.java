@@ -10,8 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
-import entities.UCheckSharedPreferences;
-import entities.UCheckResult;
+import usecases.UCheckCommands;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +22,7 @@ public class UCheckScrollingActivity extends AppCompatActivity {
 private ActivityUcheckScrollingBinding binding;
 
     UserManager myManager;
-
+    UCheckCommands myUCheckCommands;
     /**
      * @param savedInstanceState for any information that was saved previously.
      */
@@ -33,6 +32,7 @@ private ActivityUcheckScrollingBinding binding;
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
+        myUCheckCommands=new UCheckCommands();
         setContentView(binding.getRoot());
         //This button brings USER into the questionnaire activity.
         binding.startSelfAssessment.setOnClickListener(view -> {
@@ -58,7 +58,7 @@ private ActivityUcheckScrollingBinding binding;
 
     /**
      *
-     * The Activity UCheckResult APIs provide components for registering for a result, launching the result, and handling the
+     * The Activity UCheck APIs provide components for registering for a result, launching the result, and handling the
      * result once it is dispatched by the system.
      * @param requestCode integer target value from result of interacting activity, 001 = pass
      * @param resultCode integer result
@@ -67,13 +67,12 @@ private ActivityUcheckScrollingBinding binding;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if(requestCode == 001) {
             if(resultCode == RESULT_OK) {
                 assert data != null;
                 boolean isAllowed = data.getBooleanExtra("isAllowed", false);
-                //This updates from the results of next activity.
-                UCheckSharedPreferences.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
+                // This updates from the results of next activity.
+                myUCheckCommands.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
                 showScreen();
             }
         }
@@ -89,28 +88,17 @@ private ActivityUcheckScrollingBinding binding;
         String legalFirstName = info.get(2);
         String legalLastName = info.get(3);
         String Name = legalFirstName + " " + legalLastName;
-        //UCheckResult of questionnaire of USER.
-        UCheckResult UCheckResult = UCheckSharedPreferences.getResult(this,myManager.getUser().getId());
-        int layout;
-
-        if (UCheckResult.getState()  == 1) {
-            layout = R.layout.ucheck_green_layout_view;
-        }
-        else
-        if (UCheckResult.getState()  == 2) {
-            layout = R.layout.ucheck_red_layout_view;
-        }
-        else
-            layout = R.layout.ucheck_grey_layout_view;
-
+        // Once a questionnaire is completed, this method sets the UCheck results
+        myUCheckCommands.populateResult(this, myManager.getUser().getId());
+        //UCheck of questionnaire of USER.
+        int layout = myUCheckCommands.getLayout();
         LayoutInflater inflater = getLayoutInflater();
         View myLayout = inflater.inflate(layout, binding.linearLayout, false);
         TextView txtName = myLayout.findViewById(R.id.txtName);
         txtName.setText(Name);
-
-        if(UCheckResult.getState()!=0) {
+        if(myUCheckCommands.getState()!=0) {
             TextView txtDate = myLayout.findViewById(R.id.txtDate);
-            txtDate.setText(UCheckResult.getDate());
+            txtDate.setText(myUCheckCommands.getDate());
         }
         binding.linearLayout.removeAllViews();
         binding.linearLayout.addView(myLayout);

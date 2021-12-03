@@ -1,5 +1,4 @@
 package activities;
-import android.database.Cursor;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,12 +7,9 @@ import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import controllers.FacilityManager;
 import controllers.UserManager;
 
 import java.util.ArrayList;
@@ -77,7 +73,10 @@ public class DashBoardActivity extends AppCompatActivity{
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
                     break;
-
+                case R.id.ucheckActivity:
+                    Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
+                    intent4.putExtra("manager", myManager);
+                    startActivity(intent4);
             }
             return true;
         });

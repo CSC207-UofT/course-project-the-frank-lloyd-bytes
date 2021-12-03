@@ -5,7 +5,6 @@ import usecases.UserCommands;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserManager implements Serializable {
     private UserCommands myUserCommands;

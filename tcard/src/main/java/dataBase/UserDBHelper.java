@@ -27,7 +27,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      * @param context the context of the class which calls this constructor
      */
     public UserDBHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 2);
     }
 
 
@@ -159,7 +159,6 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
         }
         long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
         return result != -1;
-
     }
 
 }

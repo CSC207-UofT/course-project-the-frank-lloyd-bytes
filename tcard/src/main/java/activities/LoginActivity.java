@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import controllers.UCheckManager;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 

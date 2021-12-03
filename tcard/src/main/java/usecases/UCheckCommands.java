@@ -9,8 +9,8 @@ import entities.UCheckResults;
 
 public class UCheckCommands {
 
-    UCheck UCHECK;
-    UCheckResults UCHECKRESULTS;
+    private final UCheck UCHECK;
+    private final UCheckResults UCHECKRESULTS;
 
     /**
      * Initializes UCheckResults & UCheck object for interaction between UI and Entities.
@@ -46,7 +46,7 @@ public class UCheckCommands {
     }
 
     /**
-     * This method updates UCheck object with correct date and status when a USER completes UCheck in UCheckScrollingActivity.
+     * This method updates UCheck object with correct date and status when a USER completes UCheck in UCheckScrollingActivity. It also updates data in Shared preferences.
      * @param context context is from the activity location.
      * @param userId String USER userid completing questionnaire.
      */

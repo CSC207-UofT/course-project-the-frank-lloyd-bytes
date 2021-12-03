@@ -6,7 +6,7 @@ import java.util.List;
 
 public class UCheckQuestionCommands {
 
-    List<UCheckQuestion> questionList;
+    private final List<UCheckQuestion> questionList;
 
     /**
      * Initiates a questionList with UCheckQuestions for UI.

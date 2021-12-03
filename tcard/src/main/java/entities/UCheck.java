@@ -8,8 +8,8 @@ import java.io.Serializable;
  */
 public class UCheck implements Serializable {
 
-    String date; //default "": updates when questionnaire is complete
-    int state; // default 0: 1 = pass, 2 = fail.
+    private String date; //default "": updates when questionnaire is complete
+    private int state; // default 0: 1 = pass, 2 = fail.
 
     public UCheck() {}
 

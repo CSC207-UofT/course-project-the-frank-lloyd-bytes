@@ -8,12 +8,15 @@ import java.util.List;
  *
  */
 public class Merchant {
-    // attribute for each piece of info, private, make getters
     private final String NAME;
     private final String ADDRESS;
     private final String HOURS;
     private final List<Discount> DISCOUNTS = new ArrayList<>();
 
+    /**
+     * Constructs a Merchant object.
+     * @param merchantInfo a list of strings containing merchant information.
+     */
     public Merchant(List<String> merchantInfo) {
         this.NAME = merchantInfo.get(0);
         this.ADDRESS = merchantInfo.get(1);
@@ -26,11 +29,27 @@ public class Merchant {
         }
     }
 
+    /**
+     * Getter for a merchants name.
+     * @return a merchants name, represented as a string.
+     */
     public String getName() { return this.NAME; }
 
+    /**
+     * Getter for a merchants address.
+     * @return a merchants address, represented as a string.
+     */
     public String getAddress() { return this.ADDRESS; }
 
+    /**
+     * Getter for a merchants hours.
+     * @return a merchants hours, represented as a string.
+     */
     public String getHours() { return this.HOURS; }
 
+    /**
+     * Getter for a merchants discounts.
+     * @return a list of strings, each string representing a merchant discount.
+     */
     public List<Discount> getDiscounts() { return this.DISCOUNTS; }
 }

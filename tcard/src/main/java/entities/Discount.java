@@ -3,7 +3,6 @@ package entities;
 import androidx.annotation.NonNull;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * This is a base for all discount classes. Stores a discount amount, the items that are discounted, and criteria for
@@ -25,18 +24,6 @@ public class Discount {
         this.ITEMS = discountInfoArray[1];
         this.CRITERIA = discountInfoArray[2] + ":" + discountInfoArray[3];
     }
-
-    /**
-     * Getter for a discounts amount.
-     * @return a discounts amount, represented as a string.
-     */
-    public String getAmount() { return this.AMOUNT; }
-
-    /**
-     * Getter for a discounts items.
-     * @return a discounts items, represented as a string.
-     */
-    public String getItems() { return this.ITEMS; }
 
     /**
      * Getter for a discounts criteria.

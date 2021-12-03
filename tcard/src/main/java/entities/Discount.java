@@ -1,5 +1,7 @@
 package entities;
 
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,7 +48,7 @@ public class Discount {
         return itemsString.toString();
     }
 
-    public String discountString() {
-        return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!";
-    }
+    @NonNull
+    @Override
+    public String toString() { return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!"; }
 }

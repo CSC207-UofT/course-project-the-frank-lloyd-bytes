@@ -56,7 +56,7 @@ public class DiscountHelper {
 
         for (Discount discount : discounts) {
             if (discountApplicable(discount, user)) {
-                applicableDiscounts.add(discount.discountString());
+                applicableDiscounts.add(discount.toString());
             }
         }
         return applicableDiscounts;

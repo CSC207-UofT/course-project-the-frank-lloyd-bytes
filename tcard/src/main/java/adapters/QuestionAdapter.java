@@ -27,8 +27,8 @@ public class QuestionAdapter extends BaseAdapter {
     OnOptionSelection onOptionSelection;
     public QuestionAdapter(List<UCheckQuestion> listData, Context context, OnOptionSelection onOptionSelection) {
         this.listData = listData;
-        this.context=context;
-        this.onOptionSelection=onOptionSelection;
+        this.context = context;
+        this.onOptionSelection = onOptionSelection;
     }
 
     /**

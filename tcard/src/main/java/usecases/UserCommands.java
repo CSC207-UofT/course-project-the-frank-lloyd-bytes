@@ -6,6 +6,7 @@ import entities.Faculty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
@@ -14,7 +15,7 @@ public class UserCommands implements Serializable {
      * instantiate usercommands from the userList given, create a new user in UserCommands with the given user info
      * @param userList is a list of information for a certain user
      */
-    public UserCommands(ArrayList<String> userList) {
+    public UserCommands(List<String> userList) {
         this.USER = this.createUser(userList);
     }
 
@@ -32,7 +33,7 @@ public class UserCommands implements Serializable {
      * @param userInfo an array list of the information of the user
      * @return a User object
      */
-    public User createUser(ArrayList<String> userInfo) {
+    public User createUser(List<String> userInfo) {
         if (userInfo.get(4).equals("student")) {
             return new Student(userInfo);
         }
@@ -43,20 +44,18 @@ public class UserCommands implements Serializable {
      * get the information of the user in an arraylist format
      * @return an array list of the user in this UserCommands
      */
-    public ArrayList<String> getinfo(){
+    public List<String> getInfo(){
         return this.USER.getUserInfo();
     }
 
     /**
      * changes the password for this user in this UserCommands
-     * @param oldpassword the old password of the user
-     * @param newpassword the new password of the user that they want to change to
+     * @param oldPassword the old password of the user
+     * @param newPassword the new password of the user that they want to change to
      */
-
-    // TODO create a method that does the password check in the front end.
-    public void changePassword(String oldpassword, String newpassword){
-        if (this.USER.checkPassword(oldpassword)){
-            this.USER.changePassword(newpassword);
+    public void changePassword(String oldPassword, String newPassword){
+        if (this.USER.checkPassword(oldPassword)){
+            this.USER.changePassword(newPassword);
         }
     }
 
@@ -70,12 +69,5 @@ public class UserCommands implements Serializable {
      */
     public User getUser(){
         return this.USER;
-    }
-
-    /**
-     * @return String ID of User utorid.
-     */
-    public String getId(){
-        return this.USER.getId();
     }
 }

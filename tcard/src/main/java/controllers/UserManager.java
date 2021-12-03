@@ -36,4 +36,8 @@ public class UserManager implements Serializable {
     public void changePassword(String oldpass, String newpass) {
         this.myUserCommands.changePassword(oldpass, newpass);
     }
+
+    public void changePicture(String newPic) {
+        this.myUserCommands.changePicture(newPic);
+    }
 }

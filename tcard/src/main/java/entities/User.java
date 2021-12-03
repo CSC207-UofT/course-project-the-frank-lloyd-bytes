@@ -12,6 +12,7 @@ public abstract class User implements Serializable {
     protected ArrayList<String> profile = new ArrayList<>();
     private String password;
     private String utorid;
+    private String picture;
     //Indexes for profile
     public final int FIRST_NAME = 0;
     public final int LAST_NAME = 1;
@@ -35,6 +36,7 @@ public abstract class User implements Serializable {
         this.profile.add(userInfo.get(4)); // status
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
+        this.picture = userInfo.get(9); //picture Uri in String form
     }
 
     /**
@@ -56,6 +58,15 @@ public abstract class User implements Serializable {
         this.password = newPassword;
     }
 
+    /**
+     * This method is for changing this user's password.
+     *
+     * @param newPicture a string containing the Uri of the new profile picture.
+     */
+    public void changePicture(String newPicture) {
+        this.picture = newPicture;
+    }
+
 
     /**
      * This method is for displaying a users basic profile information.
@@ -74,6 +85,7 @@ public abstract class User implements Serializable {
         profilelist.add(this.utorid);
         profilelist.add(this.password);
         profilelist.addAll(this.profile);
+        profilelist.add(this.picture);
         return profilelist;
     }
 

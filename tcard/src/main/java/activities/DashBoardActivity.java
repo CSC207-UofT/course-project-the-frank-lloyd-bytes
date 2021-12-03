@@ -89,6 +89,7 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
+        bundle.putString("pic", info.get(9));
         ArrayList criteria = new ArrayList();
         criteria.add(info.get(4));
         criteria.add(info.get(7));

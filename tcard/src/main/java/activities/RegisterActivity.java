@@ -34,9 +34,11 @@ public class RegisterActivity extends AppCompatActivity{
      * Here we are checking which radio button is selected
      * This gives us the status (student or faculty) the user selected when signing up
      */
+    int checkedOrNot = 0;
     public void onRadioButtonClicked(View view) {
         int radioButtonID = status.getCheckedRadioButtonId();
         checkedButton = findViewById(radioButtonID);
+        checkedOrNot = 1;
     }
 
         @Override
@@ -107,6 +109,11 @@ public class RegisterActivity extends AppCompatActivity{
         // Here we are putting the input information to the database to create a new user object
         btnSignUp.setOnClickListener(view -> {
 
+            if(checkedOrNot==0){
+                Toast.makeText(RegisterActivity.this, "No status option picked", Toast.LENGTH_SHORT).show();
+            }
+            else{
+
             List<String> userRegistrationInfo = new ArrayList<>();
             userRegistrationInfo.add(username.getText().toString()); // username
             userRegistrationInfo.add(password.getText().toString()); // password
@@ -121,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity{
 
             String registrationMessage = registerController.runRegister(userRegistrationInfo);
             Toast.makeText(RegisterActivity.this, registrationMessage, Toast.LENGTH_SHORT).show();
-        });
+        }});
         // back to login page
         btnSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

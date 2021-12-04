@@ -39,9 +39,8 @@ private ActivityUcheckScrollingBinding binding;
         myUCheckCommands=new UCheckCommands();
         setContentView(binding.getRoot());
         // The launcher with the Intent you want to start for self-assessment questionnaire.
-        binding.startSelfAssessment.setOnClickListener(v -> {
-            mStartForResult.launch(new Intent(this, UCheckQuestionnaireActivity.class));
-        });
+        binding.startSelfAssessment.setOnClickListener(v ->
+                mStartForResult.launch(new Intent(this, UCheckQuestionnaireActivity.class)));
         //the button sends us back to dashboard.
         binding.imgBack.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
@@ -78,7 +77,7 @@ private ActivityUcheckScrollingBinding binding;
             });
 
     /**
-     * Display correct screen from the questionnaire with time completed and USER full name. //add usecase method isValid() UCheck
+     * Display correct screen from the questionnaire with time completed and USER full name.
      */
     private void showScreen() {
         //Name of current USER.

@@ -3,9 +3,6 @@ package entities;
 import junit.framework.TestCase;
 
 public class DiscountTest extends TestCase {
-    String sampleDiscountInfo1;
-    String sampleDiscountInfo2;
-    String sampleDiscountInfo3;
     Discount sampleDiscount1;
     Discount sampleDiscount2;
     Discount sampleDiscount3;
@@ -13,14 +10,9 @@ public class DiscountTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
 
-        sampleDiscountInfo1 = "10:(stickey notes):(any).(MAT/PHY):(1/2).(APM/CS)";
-        sampleDiscount1 = new Discount(sampleDiscountInfo1);
-
-        sampleDiscountInfo2 = "20:(hats/sweaters):(any).(MAT/PHY):(1/2).(APM/CS)";
-        sampleDiscount2 = new Discount(sampleDiscountInfo2);
-
-        sampleDiscountInfo3 = "70:(textbooks/stationary/chips):(any).(MAT/PHY):(1/2).(APM/CS)";
-        sampleDiscount3 = new Discount(sampleDiscountInfo3);
+        sampleDiscount1 = new Discount("10:(stickey notes):(any).(MAT/PHY):(1/2).(APM/CS)");
+        sampleDiscount2 = new Discount("20:(hats/sweaters):(any).(MAT/PHY):(1/2).(APM/CS)");
+        sampleDiscount3 = new Discount("70:(textbooks/stationary/chips):(any).(MAT/PHY):(1/2).(APM/CS)");
     }
 
     public void testGetCriteria() {

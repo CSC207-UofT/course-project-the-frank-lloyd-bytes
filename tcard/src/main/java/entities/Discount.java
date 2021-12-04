@@ -64,7 +64,7 @@ public class Discount {
     @NonNull
     @Override
     public String toString() {
-        return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!";
+        return this.AMOUNT + "% off on " + makeItemsString() + "!";
     }
 }
 

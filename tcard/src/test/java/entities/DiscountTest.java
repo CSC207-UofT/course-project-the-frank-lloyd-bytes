@@ -20,8 +20,8 @@ public class DiscountTest extends TestCase {
     }
 
     public void testTestToString() {
-        assertEquals("-10% off on stickey notes!", sampleDiscount1.toString());
-        assertEquals("-20% off on hats and sweaters!", sampleDiscount2.toString());
-        assertEquals("-70% off on textbooks, stationary, and chips!", sampleDiscount3.toString());
+        assertEquals("10% off on stickey notes!", sampleDiscount1.toString());
+        assertEquals("20% off on hats and sweaters!", sampleDiscount2.toString());
+        assertEquals("70% off on textbooks, stationary, and chips!", sampleDiscount3.toString());
     }
 }

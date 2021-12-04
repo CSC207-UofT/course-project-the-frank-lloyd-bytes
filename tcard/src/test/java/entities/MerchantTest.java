@@ -35,9 +35,9 @@ public class MerchantTest extends TestCase {
     public void testGetDiscounts() {
         // To test that two discounts are equal, we check that their string representations and criteria are equal.
         List<String> expectedDiscounts = new ArrayList<>();
-        expectedDiscounts.add("-70% off on textbooks, stationary, and chips!");
+        expectedDiscounts.add("70% off on textbooks, stationary, and chips!");
         expectedDiscounts.add("(any).(MAT/PHY):(1/2).(APM/CS)");
-        expectedDiscounts.add("-20% off on hats and sweaters!");
+        expectedDiscounts.add("20% off on hats and sweaters!");
         expectedDiscounts.add("(any).(MAT/PHY):(1/2).(APM/CS)");
 
         List<String> actualDiscounts = new ArrayList<>();

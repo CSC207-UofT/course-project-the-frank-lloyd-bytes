@@ -50,7 +50,7 @@ public class MerchantMapTest extends TestCase {
         }
 
         List<String> expectedMerchantDiscounts = new ArrayList<>();
-        expectedMerchantDiscounts.add("-70% off on textbooks, stationary, and chips!");
+        expectedMerchantDiscounts.add("70% off on textbooks, stationary, and chips!");
         expectedMerchantDiscounts.add("(any).(MAT/PHY):(1/2).(APM/CS)");
 
         assertEquals(expectedMerchantDiscounts, actualMerchantDiscounts);

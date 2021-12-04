@@ -16,6 +16,7 @@ public class Discount {
 
     /**
      * Constructs a Discount object.
+     *
      * @param discountInfo A string containing information for a discount.
      */
     public Discount(String discountInfo) {
@@ -27,12 +28,16 @@ public class Discount {
 
     /**
      * Getter for a discounts criteria.
+     *
      * @return a discounts criteria, represented as a string.
      */
-    public String getCriteria() { return this.CRITERIA; }
+    public String getCriteria() {
+        return this.CRITERIA;
+    }
 
     /**
      * Helper method to represent a discounts items as a string.
+     *
      * @return a string listing a discounts items in a sentence.
      */
     private String makeItemsString() {
@@ -53,9 +58,13 @@ public class Discount {
 
     /**
      * Returns a string representation of a discount. Example output: "-10% off on textbooks and pencils!".
+     *
      * @return a string describing a discounts information in a sentence.
      */
     @NonNull
     @Override
-    public String toString() { return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!"; }
+    public String toString() {
+        return "-" + this.AMOUNT + "% off on " + makeItemsString() + "!";
+    }
 }
+

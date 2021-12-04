@@ -10,6 +10,7 @@
     <color name="text_color">#9C27B0</color>
     <color name="negativeUCheck">#932E2E</color>
     <color name="positiveUCheck">#326A0F</color>
+    <color name="neutralUCheck">#454545</color>
     <color name="Tcardblue">#2C41FF</color>
     <color name="UofTblue">#FF032F67</color>
     <color name="transparent">#00000000</color>

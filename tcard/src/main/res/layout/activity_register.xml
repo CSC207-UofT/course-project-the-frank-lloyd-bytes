@@ -6,7 +6,7 @@
                 android:layout_height="match_parent"
                 android:padding="15dp"
                 tools:context="activities.RegisterActivity"
-                android:background="@color/white">
+                android:background="@color/background">
 
     <LinearLayout
             android:orientation="vertical"
@@ -18,9 +18,11 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:id="@+id/textView4"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/secondaryTextColor"
                 android:background="@drawable/text_box_type_3"
-                android:fontFamily="sans-serif" android:ellipsize="none"
+                android:fontFamily="sans-serif"
+                android:ellipsize="none"
         />
         <LinearLayout
                 android:orientation="horizontal"
@@ -33,7 +35,7 @@
                     android:id="@+id/textView11"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
@@ -54,7 +56,7 @@
                     android:layout_width="244dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
                     android:id="@+id/textView8"
@@ -93,7 +95,7 @@
                     android:gravity="center_vertical"
                     android:id="@+id/textView17"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
             />
             <LinearLayout
                     android:orientation="vertical"
@@ -128,9 +130,10 @@
                     android:layout_height="50dp"
                     android:id="@+id/textView5"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/thirdTextColor"/>
             <RadioButton
                     android:text="Faculty"
+                    android:textColor="@color/thirdTextColor"
                     android:layout_width="255dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="130dp"
@@ -140,6 +143,7 @@
             />
             <RadioButton
                     android:text="Student"
+                    android:textColor="@color/thirdTextColor"
                     android:layout_width="255dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="130dp"
@@ -160,7 +164,7 @@
                     android:id="@+id/textView12"
                     android:layout_weight="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/thirdTextColor"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -183,7 +187,7 @@
                     android:id="@+id/textView14"
                     android:layout_weight="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/thirdTextColor"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -205,7 +209,8 @@
                     android:layout_height="30dp"
                     android:id="@+id/textView13"
                     android:layout_weight="1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/thirdTextColor"
             />
             <TextView
                     android:layout_width="190dp"
@@ -216,6 +221,7 @@
                     android:drawablePadding="16dp"
                     android:drawableEnd="@android:drawable/arrow_down_float"
                     android:background="@android:drawable/editbox_background"
+                    android:backgroundTint="@color/fragmentBackground"
                     android:layout_weight="1"
                     android:drawableRight="@android:drawable/arrow_down_float"/>
         </LinearLayout>
@@ -231,7 +237,8 @@
                     android:layout_height="30dp"
                     android:id="@+id/textView18"
                     android:layout_weight="1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" android:textColor="@color/black"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/thirdTextColor"/>
             <EditText
                     android:layout_width="176dp"
                     android:layout_height="wrap_content"
@@ -245,6 +252,7 @@
                 android:id="@+id/btnsignup1"
                 android:layout_width="150dp"
                 android:textSize="16dp"
+                android:textColor="@color/secondaryTextColor"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
                 android:layout_marginTop="15dp"
@@ -258,8 +266,8 @@
                 android:textSize="16dp"
                 android:text="Go back to login"
                 android:layout_marginTop="5dp"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/UofTblue"
+                app:backgroundTint="@color/fragmentBackground"
+                android:textColor="@color/textColor"
                 android:textAllCaps="false"
                 android:shadowColor="@null"
                 android:layout_gravity="center"/>

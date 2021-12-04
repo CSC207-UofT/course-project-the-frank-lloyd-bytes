@@ -4,6 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 tools:context=".DashBoardActivity"
                 android:layout_width="match_parent"
+                android:background="@color/background"
                 android:layout_height="match_parent">
 
     <TextView
@@ -15,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textSize="35dp"
-            android:textColor="@color/UofTblue"
+            android:textColor="@color/textColor"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,6 +39,7 @@
                         android:background="@color/transparent"
                         android:layout_width="match_parent"
                         android:id="@+id/tab_layout"
+                        android:backgroundTint="@color/fragmentBackground"
                         android:layout_height="wrap_content">
                 </com.google.android.material.tabs.TabLayout>
                 <androidx.viewpager2.widget.ViewPager2
@@ -56,7 +58,7 @@
                     android:layout_height="70dp">
                 <TextView
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/secondaryTextColor"
                         android:textSize="40dp"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -71,13 +73,13 @@
             android:id="@+id/bottom_menu"
             android:background="@drawable/text_box_type_3"
             android:elevation="2dp"
-            app:itemTextColor="@color/white"
+            app:itemTextColor="@color/secondaryTextColor"
             app:itemRippleColor="@color/transparent"
             android:layout_height="60dp"
             app:menu="@menu/bottom_menu"
             app:itemIconSize="40dp"
             app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@color/white"
+            app:itemIconTint="@color/secondaryTextColor"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"

@@ -6,18 +6,18 @@
                                                    android:layout_height="match_parent"
                                                    android:id="@+id/openingPage"
                                                    tools:context="activities.LoginActivity"
-                                                   android:background="@color/white">
+                                                   android:background="@color/background">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="20dp">
         <Switch
-                android:text="View Mode"
+                android:text="@string/viewMode"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:id="@+id/moodSwitcher"
-                android:textColor="@color/UofTblue"
+                android:textColor="@color/textColor"
                 android:layout_gravity="center"/>
         <LinearLayout
                 android:orientation="vertical"
@@ -31,7 +31,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:layout_gravity= "center"
                     android:textSize="40sp"
-                    android:textColor="@color/UofTblue"
+                    android:textColor="@color/textColor"
                     android:textStyle="bold"/>
             <ImageView
                     android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                         android:gravity="center"
                         android:background="@drawable/text_box_type_1"
                         android:textStyle="bold"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/secondaryTextColor"/>
                 <EditText
                         android:layout_width="120dp"
                         android:layout_gravity="center"
@@ -92,7 +92,7 @@
                         android:gravity="center"
                         android:background="@drawable/text_box_type_1"
                         android:textStyle="bold"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/secondaryTextColor"/>
                 <EditText
                         android:layout_width="120dp"
                         android:layout_height="35dp"
@@ -110,6 +110,7 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:textSize="15dp"
+                    android:textColor="@color/secondaryTextColor"
                     android:layout_marginTop="30dp"
                     android:id="@+id/login"
                     android:background="@drawable/text_box_type_3"
@@ -122,11 +123,11 @@
                     android:id="@+id/register"
                     android:textSize="15dp"
                     android:layout_marginTop="5dp"
-                    app:backgroundTint="@color/white"
+                    app:backgroundTint="@color/fragmentBackground"
                     android:shadowColor="@null"
                     android:layout_gravity="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/UofTblue" />
+                    android:textColor="@color/textColor" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

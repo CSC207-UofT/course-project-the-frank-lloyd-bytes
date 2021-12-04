@@ -1,11 +1,12 @@
 package activities;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -28,6 +29,7 @@ public class DashBoardActivity extends AppCompatActivity{
     ViewPager2 viewPager;
     EditText username;
     CardView uCheckCard;
+    //IconSwitch viewMode;
     TextView uCheckResult;
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
@@ -46,6 +48,10 @@ public class DashBoardActivity extends AppCompatActivity{
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+
+
+
+
         myUCheckCommands = new UCheckCommands();
 
         int uCheckStatus = myUCheckCommands.getState();

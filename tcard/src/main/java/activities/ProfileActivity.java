@@ -1,32 +1,21 @@
 package activities;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
-import android.widget.*;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
 import java.util.List;
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity{
     /**
@@ -76,8 +65,8 @@ public class ProfileActivity extends AppCompatActivity{
 
         if (imageAddress != " ") {
             profilePic.setImageURI(null);
-            Uri path = Uri.parse(imageAddress);
-            //profilePic.setImageURI(Uri.parse(imageAddress));
+          //  Uri path = Uri.parse(imageAddress);
+          //  profilePic.setImageURI(path);
         }
 
 
@@ -100,6 +89,8 @@ public class ProfileActivity extends AppCompatActivity{
                 if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
                     Intent data = result.getData();
                     Uri imageUri = Uri.parse(data.getDataString());
+                    getContentResolver().takePersistableUriPermission(imageUri,
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     profilePic.setImageURI(imageUri);
                     String imagePath = imageUri.toString();
                     myManager.changePicture(imagePath);

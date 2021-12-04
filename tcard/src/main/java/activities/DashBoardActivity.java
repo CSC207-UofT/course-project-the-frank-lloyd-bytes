@@ -1,4 +1,5 @@
 package activities;
+import android.annotation.SuppressLint;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class DashBoardActivity extends AppCompatActivity{
     BottomNavigationView bottomMenu;
     UserManager myManager;
 
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -54,9 +56,9 @@ public class DashBoardActivity extends AppCompatActivity{
         }
 
 
-        /**
-         * This is the bottom navigation menu
-         * each case represents the icon clicked and which page clicking on the icon should direct the user to
+        /*
+          This is the bottom navigation menu
+          each case represents the icon clicked and which page clicking on the icon should direct the user to
          */
         bottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -90,7 +92,7 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
         bundle.putString("pic", info.get(9));
-        List criteria = new ArrayList();
+        List<String> criteria = new ArrayList<>();
         criteria.add(info.get(4));
         criteria.add(info.get(7));
         criteria.add(info.get(8));

@@ -31,7 +31,7 @@ public class TCardFragment extends Fragment{
         utorID.setText(bundle.getString("uID"));
         number.setText(bundle.getString("no"));
         //if (bundle.getString("pic") != ""){
-        //    profile.setImageURI(Uri.parse(bundle.getString("pic")));
+           //profile.setImageURI(Uri.parse(bundle.getString("pic")));
         //}
 
 

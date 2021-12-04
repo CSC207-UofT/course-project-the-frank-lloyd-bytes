@@ -48,18 +48,21 @@ public class DashBoardActivity extends AppCompatActivity{
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         myUCheckCommands = new UCheckCommands();
 
-        if (myUCheckCommands.getState() == 2){
+        int uCheckStatus = myUCheckCommands.getState();
+
+        if (uCheckStatus == 2){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
-            uCheckResult.setText(myUCheckCommands.getState());
+            uCheckResult.setText("UCheck Failed");
         }
-        else if(myUCheckCommands.getState() == 1){
+        else if(uCheckStatus == 1){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
-            uCheckResult.setText(myUCheckCommands.getState());
+            uCheckResult.setText("UCheck Passed");
         }
         else
         {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
-            uCheckResult.setText("Take Ucheck Test");
+            uCheckResult.setText("Take UCheck Test");
+            uCheckResult.setTextSize(30);
         }
 
 

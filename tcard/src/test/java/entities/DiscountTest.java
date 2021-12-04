@@ -16,18 +16,12 @@ public class DiscountTest extends TestCase {
     }
 
     public void testGetCriteria() {
-        String expectedCriteria = "(any).(MAT/PHY):(1/2).(APM/CS)";
-
-        assertEquals(expectedCriteria, sampleDiscount1.getCriteria());
+        assertEquals("(any).(MAT/PHY):(1/2).(APM/CS)", sampleDiscount1.getCriteria());
     }
 
     public void testTestToString() {
-        String expectedString1 = "-10% off on stickey notes!";
-        String expectedString2 = "-20% off on hats and sweaters!";
-        String expectedString3 = "-70% off on textbooks, stationary, and chips!";
-
-        assertEquals(expectedString1, sampleDiscount1.toString());
-        assertEquals(expectedString2, sampleDiscount2.toString());
-        assertEquals(expectedString3, sampleDiscount3.toString());
+        assertEquals("-10% off on stickey notes!", sampleDiscount1.toString());
+        assertEquals("-20% off on hats and sweaters!", sampleDiscount2.toString());
+        assertEquals("-70% off on textbooks, stationary, and chips!", sampleDiscount3.toString());
     }
 }

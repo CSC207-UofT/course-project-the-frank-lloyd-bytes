@@ -6,16 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchantTest extends TestCase {
-    Discount sampleDiscount1;
-    Discount sampleDiscount2;
     List<String> sampleMerchantInfo = new ArrayList<>();
     Merchant sampleMerchant;
 
     public void setUp() throws Exception {
         super.setUp();
-
-        sampleDiscount1 = new Discount("70:(textbooks/stationary/chips):(any).(MAT/PHY):(1/2).(APM/CS)");
-        sampleDiscount2 = new Discount("20:(hats/sweaters):(any).(MAT/PHY):(1/2).(APM/CS)");
 
         sampleMerchantInfo.add("U of T Bookstore");
         sampleMerchantInfo.add("214 College Street");

@@ -64,9 +64,9 @@ private ActivityUcheckScrollingBinding binding;
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
     new ActivityResultContracts.StartActivityForResult(),
     new ActivityResultCallback<ActivityResult>() {
-        /**
-         * @param result Result of activity UCheckQuestionnaireActivity.class.
-         */
+    /**
+     * @param result Result of activity UCheckQuestionnaireActivity.class.
+     */
     @Override
     public void onActivityResult(ActivityResult result) {
         if (result.getResultCode() == Activity.RESULT_OK) {
@@ -79,7 +79,7 @@ private ActivityUcheckScrollingBinding binding;
             showScreen();
         }
     }
-            });
+    });
     /**
      * Display correct screen from the questionnaire with time completed and USER full name. //add usecase method isValid() UCheck
      */

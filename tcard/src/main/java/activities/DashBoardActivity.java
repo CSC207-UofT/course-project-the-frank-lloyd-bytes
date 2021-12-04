@@ -1,12 +1,10 @@
 package activities;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -14,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
+import android.view.View;
 import usecases.UCheckCommands;
 
 import java.util.ArrayList;
@@ -29,7 +28,6 @@ public class DashBoardActivity extends AppCompatActivity{
     ViewPager2 viewPager;
     EditText username;
     CardView uCheckCard;
-    //IconSwitch viewMode;
     TextView uCheckResult;
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
@@ -48,27 +46,21 @@ public class DashBoardActivity extends AppCompatActivity{
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+        myUCheckCommands=new UCheckCommands();
 
-
-
-
-        myUCheckCommands = new UCheckCommands();
-
-        int uCheckStatus = myUCheckCommands.getState();
-
-        if (uCheckStatus == 2){
+        int uCheckState = myUCheckCommands.getState();
+        if (uCheckState ==2){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
             uCheckResult.setText("UCheck Failed");
         }
-        else if(uCheckStatus == 1){
+        else if(uCheckState ==1){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
             uCheckResult.setText("UCheck Passed");
         }
         else
         {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
-            uCheckResult.setText("Take UCheck Test");
-            uCheckResult.setTextSize(30);
+            uCheckResult.setText("Take Ucheck Test");
         }
 
 
@@ -85,6 +77,7 @@ public class DashBoardActivity extends AppCompatActivity{
                     break;
                 case R.id.facilityActivity:
                     Intent intent = new Intent(getApplicationContext(), FacilityActivity.class);
+                    intent.putExtra("manager", myManager);
                     startActivity(intent);
                     break;
                 case R.id.loginActivity:
@@ -143,7 +136,6 @@ public class DashBoardActivity extends AppCompatActivity{
         });
 
     }
-
     public void onUCheckCardClick(View view) {
         Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
         intent4.putExtra("manager", myManager);

@@ -1,5 +1,8 @@
-package entities;
+package entitiesTest;
 
+import entities.Facility;
+import entities.Faculty;
+import entities.Student;
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -108,14 +111,14 @@ public class FacilityTest {
     }
 
     @Test
-    public void testEvaluate() {
-        //Assert.assertTrue(sampleFacility.evaluate(sampleStudent1));
-        //Assert.assertFalse(sampleFacility.evaluate(sampleStudent2));
-        //Assert.assertFalse(sampleFacility.evaluate(sampleStudent3));
-        //Assert.assertTrue(sampleFacility.evaluate(sampleFaculty1));
-        //Assert.assertFalse(sampleFacility.evaluate(sampleFaculty2));
+    /*public void testEvaluate() {
+        Assert.assertTrue(sampleFacility.evaluate(sampleStudent1));
+        Assert.assertFalse(sampleFacility.evaluate(sampleStudent2));
+        Assert.assertFalse(sampleFacility.evaluate(sampleStudent3));
+        Assert.assertTrue(sampleFacility.evaluate(sampleFaculty1));
+        Assert.assertFalse(sampleFacility.evaluate(sampleFaculty2));
     }
-
+    */
     @After
     public void tearDown() {
         sampleFacility = null;

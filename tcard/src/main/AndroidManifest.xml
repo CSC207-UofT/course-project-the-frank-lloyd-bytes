@@ -1,10 +1,8 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="activities">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-    <application
+<application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.MyApplication">
@@ -13,11 +11,10 @@
             android:name="activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN"/>
-                    <category android:name="android.intent.category.LAUNCHER"/>
-                </intent-filter>
-
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
     </activity>
     <activity
             android:name="activities.RegisterActivity"
@@ -30,21 +27,18 @@
             android:theme="@style/Theme.MyApplication.NoActionBar">
 
     </activity>
-    <activity
-            android:name="activities.UCheckScrollingActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
-
-    </activity>
 
     <activity android:name="activities.DashBoardActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
+
+
     </activity>
 
     <activity android:name="activities.ProfileActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
+
     </activity>
 
     <activity android:name="activities.FacilityActivity"
@@ -55,6 +49,10 @@
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
+    <activity android:name="activities.UCheckScrollingActivity"
+              android:label="@string/title_activity_ucheck_scrolling"
+              android:theme="@style/Theme.MyApplication.NoActionBar">
 
+    </activity>
 </application>
 </manifest>

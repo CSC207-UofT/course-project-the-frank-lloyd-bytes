@@ -1,17 +1,21 @@
 package activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import androidx.annotation.Nullable;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
 import usecases.UCheckCommands;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -35,13 +39,11 @@ private ActivityUcheckScrollingBinding binding;
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
         myUCheckCommands=new UCheckCommands();
         setContentView(binding.getRoot());
-        //This button brings USER into the questionnaire activity.
-        binding.startSelfAssessment.setOnClickListener(view -> {
-                    Intent intent = new Intent(getApplicationContext(), UCheckQuestionnaireActivity.class);
-                    startActivityForResult(intent,001);
-        });
+        // The launcher with the Intent you want to start for self-assessment questionnaire.
+        binding.startSelfAssessment.setOnClickListener(v ->
+                mStartForResult.launch(new Intent(this, UCheckQuestionnaireActivity.class)));
         //the button sends us back to dashboard.
-        binding.imgBack.setOnClickListener(view -> {
+        binding.imgBack.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
             intent.putExtra("manager", myManager);
             startActivity(intent);
@@ -56,33 +58,28 @@ private ActivityUcheckScrollingBinding binding;
         });
         showScreen();
     }
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                /**
+                 * @param result Result of activity UCheckQuestionnaireActivity.class.
+                 */
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = result.getData();
+                        // Handle the Intent
+                        assert intent != null;
+                        boolean isAllowed = intent.getBooleanExtra("isAllowed", false);
+                        // This updates from the results of next activity.
+                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getUser().getId(), isAllowed?1:2);
+                        showScreen();
+                    }
+                }
+            });
 
     /**
-     *
-     * The Activity UCheck APIs provide components for registering for a result, launching the result, and handling the
-     * result once it is dispatched by the system.
-     * @param requestCode integer target value from result of interacting activity, 001 = pass
-     * @param resultCode integer result
-     * @param data Intent ...
+     * Display correct screen from the questionnaire with time completed and USER full name.
      */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 001) {
-            if(resultCode == RESULT_OK) {
-                assert data != null;
-                boolean isAllowed = data.getBooleanExtra("isAllowed", false);
-                // This updates from the results of next activity.
-                myUCheckCommands.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
-                showScreen();
-            }
-        }
-    }
-
-    /**
-     * Display correct screen from the questionnaire with time completed and USER full name. //add usecase method isValid() UCheck
-     */
-
     private void showScreen() {
         //Name of current USER.
         List<String> info = myManager.getInfo();

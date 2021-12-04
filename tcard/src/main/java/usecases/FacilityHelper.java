@@ -4,9 +4,7 @@ import entities.Facility;
 import entities.Faculty;
 import entities.Student;
 import entities.User;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FacilityHelper{
     /**
@@ -22,7 +20,7 @@ public class FacilityHelper{
     }
     //to decrease size of method
     public String StudentFacultyDifferHelper(User user){
-        if (user.getProfile().get(user.STATUS).equals("student")) {
+        if (user.getSTATUS().equals("student")) {
             return "Student";
 
         } else { // if the user is not a student, then the user is a faculty member
@@ -45,8 +43,8 @@ public class FacilityHelper{
     public ArrayList<String> getStudentInfo(Student student){
         //in the order of studentprogram, studentyear
         ArrayList<String> stuInfo = new ArrayList<>();
-        stuInfo.add(student.getProfile().get(student.STUDENT_PROGRAM));
-        stuInfo.add(student.getProfile().get(student.STUDENT_YEAR));
+        stuInfo.add(student.STUDENT_PROGRAM);
+        stuInfo.add(student.STUDENT_YEAR);
         return stuInfo;
     }
     public ArrayList<String[]> getFacilityCriteriaFaculty(String[] criteria){
@@ -59,8 +57,8 @@ public class FacilityHelper{
     public ArrayList<String> getFacultyInfo(Faculty faculty){
         //in the order of facultydepartment, facultyyear
         ArrayList<String> facinfo = new ArrayList<>();
-        facinfo.add(faculty.getProfile().get(faculty.FACULTY_DEPARTMENT));
-        facinfo.add(faculty.getProfile().get(faculty.FACULTY_YEAR));
+        facinfo.add(faculty.getFACULTY_DEPARTMENT());
+        facinfo.add(faculty.getFACULTY_YEAR());
         return facinfo;
     }
 }

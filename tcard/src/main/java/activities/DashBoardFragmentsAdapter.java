@@ -23,22 +23,19 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
     }
     @NonNull
     @Override
-    /**
-     * Here we are assigning each tab/page in the ViewPager2 a Fragment by calling the fragments
+    /*
+      Here we are assigning each tab/page in the ViewPager2 a Fragment by calling the fragments
      */
     public Fragment createFragment(int position){
-        switch (position){
-            case 1:
-                qrCodeFragment = new QRCodeFragment();
-                qrCodeFragment.setArguments(bundle);
-                return qrCodeFragment;
-            default:
-                tCardFragment = new TCardFragment();
-                tCardFragment.setArguments(bundle);
-                return tCardFragment;
+        if (position == 1) {
+            qrCodeFragment = new QRCodeFragment();
+            qrCodeFragment.setArguments(bundle);
+            return qrCodeFragment;
         }
+        tCardFragment = new TCardFragment();
+        tCardFragment.setArguments(bundle);
+        return tCardFragment;
     }
-    @NonNull
     /*
       We are overriding the method to input that we have two Fragments displayed in the ViewPager2
      */

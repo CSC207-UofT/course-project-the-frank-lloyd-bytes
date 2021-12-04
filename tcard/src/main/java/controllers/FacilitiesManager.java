@@ -4,49 +4,39 @@ import entities.Facility;
 import entities.Faculty;
 import entities.Student;
 import entities.User;
-import usecases.FacilityMap;
+import usecases.FacilitiesCommands;
 import usecases.FacilityHelper;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Objects;
 
 import dataBase.FileReader;
 
-public class FacilityManager implements Serializable {
-    private final FacilityMap myFacilityMap;
+public class FacilitiesManager implements Serializable {
     private final FacilityHelper myFacilityHelper;
-
-    FileReader myFileReader = new FileReader();
-    ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
-
-    /**
-     * get the facilities info in an array format rather than a FacilityMap
-     * @return an array list of the facilities in the database
-     */
-    public ArrayList<ArrayList<String>> getFacilitiesInfoArray(){
-        return facilitiesInfo;
-    }
+    private FacilitiesCommands facilitiesCommands;
 
     /**
      * create a new facility manager that sets up a facility map with the read file from the database
-     * @throws IOException if construction doesn't work
      */
-    public FacilityManager() throws IOException {
-        myFacilityMap = new FacilityMap(facilitiesInfo);
-        myFacilityHelper = new FacilityHelper();
+    public FacilitiesManager(ArrayList<ArrayList<String>> facilitiesInfo) {
+        this.facilitiesCommands = new FacilitiesCommands(facilitiesInfo);
+        this.myFacilityHelper = new FacilityHelper();
     }
 
-    /**
-     * get the facilities info in map format, or as a FacilityMap
-     * @return a FacilityMap from the database read by the reader
-     */
-    public FacilityMap getFacilitiesInfo() {
-        return myFacilityMap;
+    public ArrayList<ArrayList<String>> getFacilitiesInfo(){
+        return this.facilitiesCommands.getInfo();
     }
+
+    public Facility getFacility(String name){
+        return this.facilitiesCommands.getFacility(name);
+    }
+
+    //FileReader myFileReader = new FileReader();
+    //ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
 
     public boolean evaluateHelper(User user, Facility facility){
         if (Objects.equals(myFacilityHelper.StudentFacultyDifferHelper(user), "Student")){

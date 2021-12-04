@@ -8,27 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchantMapTest extends TestCase {
-    List<String> sampleMerchantInfo1 = new ArrayList<>();
-    List<String> sampleMerchantInfo2 = new ArrayList<>();
-    List<List<String>> sampleMerchantList = new ArrayList<>();
     MerchantMap sampleMerchantMap;
-
 
     public void setUp() throws Exception {
         super.setUp();
         // create sample merchant 1 info
+        List<String> sampleMerchantInfo1 = new ArrayList<>();
         sampleMerchantInfo1.add("U of T Bookstore");
         sampleMerchantInfo1.add("214 College Street");
         sampleMerchantInfo1.add("11am to 6pm");
         sampleMerchantInfo1.add("70:(textbooks/stationary/chips):(any).(MAT/PHY):(1/2).(APM/CS)");
 
         // create sample merchant 2 info
+        List<String> sampleMerchantInfo2 = new ArrayList<>();
         sampleMerchantInfo2.add("Cafe Reznikoff");
         sampleMerchantInfo2.add("75 St George St");
         sampleMerchantInfo2.add("7:30am to 11pm");
         sampleMerchantInfo2.add("20:(hats/sweaters):(any).(MAT/PHY):(1/2).(APM/CS)");
 
         // create sample merchant map
+        List<List<String>> sampleMerchantList = new ArrayList<>();
         sampleMerchantList.add(sampleMerchantInfo1);
         sampleMerchantList.add(sampleMerchantInfo2);
 

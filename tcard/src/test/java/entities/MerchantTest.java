@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchantTest extends TestCase {
-    List<String> sampleMerchantInfo = new ArrayList<>();
     Merchant sampleMerchant;
 
     public void setUp() throws Exception {
         super.setUp();
 
+        List<String> sampleMerchantInfo = new ArrayList<>();
         sampleMerchantInfo.add("U of T Bookstore");
         sampleMerchantInfo.add("214 College Street");
         sampleMerchantInfo.add("11am to 6pm");

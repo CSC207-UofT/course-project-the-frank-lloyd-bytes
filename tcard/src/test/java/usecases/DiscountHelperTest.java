@@ -9,11 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiscountHelperTest extends TestCase {
-    Discount sampleDiscount1;
-    Discount sampleDiscount2;
-    Discount sampleDiscount3;
-    Discount sampleDiscount4;
-    Discount sampleDiscount5;
     List<Discount> sampleDiscountList = new ArrayList<>();
     Student sampleStudent;
     Faculty sampleFaculty;
@@ -23,11 +18,11 @@ public class DiscountHelperTest extends TestCase {
         super.setUp();
 
         // create sample discounts
-        sampleDiscount1 = new Discount("1:(item1):(1/2).(MAT/PHY):(5/6).(APM/CS)");
-        sampleDiscount2 = new Discount("2:(item2):(3/4).(MAT/PHY):(4/5).(APM/CS)");
-        sampleDiscount3 = new Discount("3:(item3):(1/2).(APM/CS):(4/5).(MAT/PHY)");
-        sampleDiscount4 = new Discount("4:(item4):(any).(any):().()");
-        sampleDiscount5 = new Discount("5:(item5):().():(any).(any)");
+        Discount sampleDiscount1 = new Discount("1:(item1):(1/2).(MAT/PHY):(5/6).(APM/CS)");
+        Discount sampleDiscount2 = new Discount("2:(item2):(3/4).(MAT/PHY):(4/5).(APM/CS)");
+        Discount sampleDiscount3 = new Discount("3:(item3):(1/2).(APM/CS):(4/5).(MAT/PHY)");
+        Discount sampleDiscount4 = new Discount("4:(item4):(any).(any):().()");
+        Discount sampleDiscount5 = new Discount("5:(item5):().():(any).(any)");
 
         sampleDiscountList.add(sampleDiscount1);
         sampleDiscountList.add(sampleDiscount2);

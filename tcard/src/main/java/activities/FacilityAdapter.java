@@ -1,31 +1,34 @@
 package activities;
 
-import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import usecases.FacilityMap;
-import controllers.FacilityManager;
+import controllers.FacilitiesManager;
+import controllers.UserManager;
+import entities.Facility;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
     private ArrayList<ArrayList<String>> facilityInfo;
+    private FacilitiesManager facilitiesManager;
+    UserManager userManager;
     /**
      * Constructor for a facility adapter, pass in the facility map so the adapter can use it
      * @param facilityMap gets the facility array list from the database
      * @throws IOException if the construction doesn't work
      */
-    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap){
-        facilityInfo = facilityMap;
+    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap, FacilitiesManager facilitiesManager,
+                           UserManager userManager){
+        this.facilityInfo = facilityMap;
+        this.facilitiesManager = facilitiesManager;
+        this.userManager = userManager;
     }
 
     /** declares the variables for the layouts that that is used in each card in the recycler view, assigning these
@@ -34,23 +37,26 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView facilityName, facilityHours, facilityAddress;
+        ArrayList<String> facility;
 
         public ViewHolder(final View itemView) {
             super(itemView);
             facilityName = itemView.findViewById(R.id.facilityName);
             facilityAddress = itemView.findViewById(R.id.facilityAddress);
             facilityHours = itemView.findViewById(R.id.facilityHours);
+
+            itemView.findViewById(R.id.checkFacilityAccess).setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   String name = facilityName.getText().toString();
+                   Boolean R = facilitiesManager.evaluateHelper(userManager.getUser(),
+                           facilitiesManager.getFacility(name));
+                   Toast.makeText(itemView.getContext(), facility.get(0), Toast.LENGTH_SHORT).show();
+               }
+            });
         }
     }
 
-    FacilityManager facilityManager;
-    {
-        try {
-            facilityManager = new FacilityManager();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * inflate the layout for the list item
@@ -78,10 +84,13 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         String name = facilityInfo.get(position).get(0);
         String address = facilityInfo.get(position).get(1);
         String hours = facilityInfo.get(position).get(3);
+        ArrayList<String> facility = facilityInfo.get(position);
 
         holder.facilityName.setText(name);
         holder.facilityAddress.setText(address);
         holder.facilityHours.setText(hours);
+        holder.facility = facility;
+
     }
 
     /**

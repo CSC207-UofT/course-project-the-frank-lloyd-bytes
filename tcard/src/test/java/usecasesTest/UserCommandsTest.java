@@ -1,4 +1,4 @@
-package usecases;
+package usecasesTest;
 
 import entities.Faculty;
 import entities.Student;
@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import usecases.UserCommands;
 
 import java.util.ArrayList;
 
@@ -51,19 +52,6 @@ public class UserCommandsTest {
         sampleUserCommands2 = new UserCommands(sampleFacultyInfo);
     }
 
-    @Test
-    public void testTestToString() {
-        String expectedString = "First Name: Jonah\nLast Name: Mackey\nUTORid: mackeyjonah\nStatus: student\n" +
-                "ID number: 1234567890\nEmail: jonah.mackey@mail.utoronto.ca\nProgram of Study: Math\nYear of Study: 4";
-        Assert.assertEquals(expectedString, sampleUserCommands1.toString());
-    }
-
-    @Test
-    public void testGetUser() {
-        // here, I am assuming two users are equal if their strings from .displayProfile() are equal.
-        Assert.assertEquals(sampleStudent.displayProfile(), sampleUserCommands1.getUser().displayProfile());
-        Assert.assertEquals(sampleFaculty.displayProfile(), sampleUserCommands2.getUser().displayProfile());
-    }
 
     @Test
     public void testChangePassword() {

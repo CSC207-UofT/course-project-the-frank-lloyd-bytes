@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilitiesManager;
 import controllers.UserManager;
-import entities.Facility;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
     private ArrayList<ArrayList<String>> facilityInfo;
     private FacilitiesManager facilitiesManager;
-    UserManager userManager;
+    private UserManager userManager;
     /**
      * Constructor for a facility adapter, pass in the facility map so the adapter can use it
      * @param facilityMap gets the facility array list from the database

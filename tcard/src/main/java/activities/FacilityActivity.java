@@ -78,6 +78,6 @@ public class FacilityActivity extends AppCompatActivity {
         facilitiesInfo.add(facilityTwo);
         facilitiesInfo.add(facilityThree);
 
-        FacilitiesManager facilitiesManager = new FacilitiesManager(facilitiesInfo);
+        facilitiesManager = new FacilitiesManager(facilitiesInfo);
     }
 }

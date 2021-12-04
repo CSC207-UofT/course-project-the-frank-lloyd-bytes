@@ -12,6 +12,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
+import android.view.View;
+import usecases.UCheckCommands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class DashBoardActivity extends AppCompatActivity{
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
     UserManager myManager;
+    UCheckCommands myUCheckCommands;
 
     @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
@@ -43,16 +46,21 @@ public class DashBoardActivity extends AppCompatActivity{
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+        myUCheckCommands=new UCheckCommands();
 
-        boolean trial = false; // gonna change this to ucheck result and gonna make the uCheckCard clickable
-
-        if (!trial){
+        int uCheckState = myUCheckCommands.getState();
+        if (uCheckState ==2){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
-            uCheckResult.setText("UCheck False");
+            uCheckResult.setText("UCheck Failed");
         }
-        else{
+        else if(uCheckState ==1){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
             uCheckResult.setText("UCheck Passed");
+        }
+        else
+        {
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
+            uCheckResult.setText("Take Ucheck Test");
         }
 
 
@@ -69,16 +77,13 @@ public class DashBoardActivity extends AppCompatActivity{
                     break;
                 case R.id.facilityActivity:
                     Intent intent = new Intent(getApplicationContext(), FacilityActivity.class);
+                    intent.putExtra("manager", myManager);
                     startActivity(intent);
                     break;
                 case R.id.loginActivity:
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
                     break;
-                case R.id.ucheckActivity:
-                    Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
-                    intent4.putExtra("manager", myManager);
-                    startActivity(intent4);
             }
             return true;
         });
@@ -130,5 +135,10 @@ public class DashBoardActivity extends AppCompatActivity{
             }
         });
 
+    }
+    public void onUCheckCardClick(View view) {
+        Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
+        intent4.putExtra("manager", myManager);
+        startActivity(intent4);
     }
 }

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
 import controllers.UserManager;
 import usecases.UCheckCommands;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**

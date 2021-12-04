@@ -18,13 +18,6 @@ public class UserCommands implements Serializable {
         this.USER = this.createUser(userList);
     }
 
-    /**
-     * shows the profile of the user in this UserCommands
-     * @return a string of the user's information
-     */
-    public String showProfile(){
-        return this.USER.displayProfile();
-    }
 
     /**
      * create a new user given the information passed in. if user is student, create new student, else create new
@@ -58,6 +51,10 @@ public class UserCommands implements Serializable {
         }
     }
 
+    /**
+     * Change the picture of the user's avatar
+     * @param newPicture is the picture we want to use
+     */
     public void changePicture(String newPicture){
         this.USER.changePicture(newPicture);
     }

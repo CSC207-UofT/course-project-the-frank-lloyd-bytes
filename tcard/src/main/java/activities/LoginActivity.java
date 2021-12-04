@@ -8,13 +8,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
-import java.util.ArrayList;
+
+import java.util.List;
 
 
 public class LoginActivity extends AppCompatActivity{
     /**
      * This is the first page the User will see
-     * If user logs in succesfully they'll be directed to the Dashboard,
+     * If user logs in successfully they'll be directed to the Dashboard,
      * or they can go to the registration form page to sign up
      */
     EditText username, password;
@@ -36,10 +37,8 @@ public class LoginActivity extends AppCompatActivity{
             startActivity(intent);
         });
 
-        /**
-         * Clicking the login button will send the user to the dashboard page if the username exists
-         * in the database and if the password matches the username
-         */
+        // Clicking the login button will send the user to the dashboard page if the username exists in the database and
+        // if the password matches the username
         login.setOnClickListener(view -> {
             String user = username.getText().toString();
             String pass = password.getText().toString();
@@ -47,10 +46,10 @@ public class LoginActivity extends AppCompatActivity{
                 Toast.makeText(LoginActivity.this, "Please enter your username and password", Toast.LENGTH_SHORT).show();
             }
             else {
-                Boolean checkuserpass = DB.checkutroidpassword(user, pass);
-                if (checkuserpass) {
+                Boolean checkUserPass = DB.checkUtorIDPassword(user, pass);
+                if (checkUserPass) {
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                    ArrayList<String> userInfo = DB.getInfo(user);
+                    List<String> userInfo = DB.getInfo(user);
                     UserManager myManager = new UserManager(userInfo);
                     Intent intent2 = new Intent(getApplicationContext(), DashBoardActivity.class);
                     intent2.putExtra("manager", myManager);

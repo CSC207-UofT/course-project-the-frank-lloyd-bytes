@@ -1,9 +1,6 @@
 package activities;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.*;
@@ -74,11 +71,10 @@ public class ProfileActivity extends AppCompatActivity{
         year.setText(info.get(7));
         String imageAddress = info.get(9);
 
-        if (imageAddress != " ") {
-            profilePic.setImageURI(null);
-            Uri path = Uri.parse(imageAddress);
-            //profilePic.setImageURI(Uri.parse(imageAddress));
-        }
+        //if (!Objects.equals(imageAddress, "")) {
+            //Uri pic = Uri.parse(imageAddress);
+            //profilePic.setImageURI(pic);
+        //}
 
 
         // the button sends us back to dashboard
@@ -96,17 +92,17 @@ public class ProfileActivity extends AppCompatActivity{
         });
 
         activityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(), result -> {
-                if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
-                    Intent data = result.getData();
-                    Uri imageUri = Uri.parse(data.getDataString());
-                    profilePic.setImageURI(imageUri);
-                    String imagePath = imageUri.toString();
-                    myManager.changePicture(imagePath);
-                    DB.updatePicture(myManager.getInfo());
-                }
+                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>(){
+                    public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
+                        Intent data = result.getData();
+                        Uri imageUri = Uri.parse(data.getDataString());
+                        profilePic.setImageURI(imageUri);
+                        myManager.changePicture(imageUri.toString());
+                        DB.updatePicture(myManager.getInfo());
+                    }
 
-        });
+            }});
 
         uploadPicture.setOnClickListener(view -> {
             Intent imagePickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

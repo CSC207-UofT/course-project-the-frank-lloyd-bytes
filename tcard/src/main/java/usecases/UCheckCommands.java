@@ -2,8 +2,6 @@ package usecases;
 
 import android.content.Context;
 import activities.R;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import entities.UCheck;
 import java.text.SimpleDateFormat;
 import java.util.Locale;

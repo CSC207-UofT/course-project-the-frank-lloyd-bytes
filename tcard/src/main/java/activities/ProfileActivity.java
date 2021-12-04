@@ -1,8 +1,6 @@
 package activities;
 
-import android.app.Instrumentation;
-import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.*;
@@ -25,6 +23,7 @@ import java.util.List;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity{
     /**
@@ -39,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity{
     ActivityResultLauncher<Intent> activityResultLauncher;
     UserDBHelper DB;
 
+    @SuppressLint({"SetTextI18n", "IntentReset"})
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
@@ -71,10 +71,10 @@ public class ProfileActivity extends AppCompatActivity{
         year.setText(info.get(7));
         String imageAddress = info.get(9);
 
-        if (imageAddress != "") {
-            Uri pic = Uri.parse(imageAddress);
+        //if (!Objects.equals(imageAddress, "")) {
+            //Uri pic = Uri.parse(imageAddress);
             //profilePic.setImageURI(pic);
-        }
+        //}
 
 
         // the button sends us back to dashboard

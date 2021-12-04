@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/virtual_tcard.iml" filepath="$PROJECT_DIR$/.idea/modules/virtual_tcard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tcard/virtual_tcard.tcard.iml" filepath="$PROJECT_DIR$/.idea/modules/tcard/virtual_tcard.tcard.iml" />
-    </modules>
-  </component>
-</project>

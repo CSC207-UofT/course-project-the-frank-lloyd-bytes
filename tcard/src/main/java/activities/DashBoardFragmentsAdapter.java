@@ -39,8 +39,8 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
         }
     }
     @NonNull
-    /**
-     * We are overriding the method to input that we have two Fragments displayed in the ViewPager2
+    /*
+      We are overriding the method to input that we have two Fragments displayed in the ViewPager2
      */
     @Override
     public int getItemCount(){

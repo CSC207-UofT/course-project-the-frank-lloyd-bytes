@@ -1,9 +1,14 @@
 package activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -36,8 +41,8 @@ private ActivityUcheckScrollingBinding binding;
         setContentView(binding.getRoot());
         //This button brings USER into the questionnaire activity.
         binding.startSelfAssessment.setOnClickListener(view -> {
-                    Intent intent = new Intent(getApplicationContext(), UCheckQuestionnaireActivity.class);
-                    startActivityForResult(intent,001);
+            Intent intent = new Intent(this, UCheckQuestionnaireActivity.class);
+            someActivityResultLauncher.launch(intent);
         });
         //the button sends us back to dashboard.
         binding.imgBack.setOnClickListener(view -> {
@@ -55,29 +60,26 @@ private ActivityUcheckScrollingBinding binding;
         });
         showScreen();
     }
-
-    /**
-     *
-     * The Activity UCheck APIs provide components for registering for a result, launching the result, and handling the
-     * result once it is dispatched by the system.
-     * @param requestCode integer target value from result of interacting activity, 001 = pass
-     * @param resultCode integer result
-     * @param data Intent ...
-     */
+    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+    new ActivityResultContracts.StartActivityForResult(),
+    new ActivityResultCallback<ActivityResult>() {
+        /**
+         * @param result Result of activity UCheckQuestionnaireActivity.class.
+         */
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 001) {
-            if(resultCode == RESULT_OK) {
-                assert data != null;
-                boolean isAllowed = data.getBooleanExtra("isAllowed", false);
-                // This updates from the results of next activity.
-                myUCheckCommands.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
-                showScreen();
-            }
+    public void onActivityResult(ActivityResult result) {
+        if (result.getResultCode() == Activity.RESULT_OK) {
+            // There are no request codes
+            Intent data = result.getData();
+            assert data != null;
+            boolean isAllowed = data.getBooleanExtra("isAllowed", false);
+            // This updates from the results of next activity.
+            myUCheckCommands.setResult(this, myManager.getUser().getId(), isAllowed?1:2);
+            showScreen();
         }
     }
-
+            });
     /**
      * Display correct screen from the questionnaire with time completed and USER full name. //add usecase method isValid() UCheck
      */

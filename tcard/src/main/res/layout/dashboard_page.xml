@@ -15,6 +15,7 @@
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textSize="35dp"
+            android:onClick="onUCheckCardClick"
             android:textColor="@color/UofTblue"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <androidx.constraintlayout.widget.ConstraintLayout

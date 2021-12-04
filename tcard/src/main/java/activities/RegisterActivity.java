@@ -27,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity{
     boolean[] selectedDepartment;
     List<Integer> departmentList = new ArrayList<>();
     String[] departmentArray = {"CompSci", "Math", "History", "NeuroSci", "CogSci", "Music"};
+
     UserDBHelper DB;
     RegisterController registerController;
 
@@ -41,10 +42,10 @@ public class RegisterActivity extends AppCompatActivity{
         checkedOrNot = 1;
     }
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_register);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
 
         username = findViewById(R.id.registrationUserName);
         password = findViewById(R.id.registerPassword1);
@@ -108,27 +109,25 @@ public class RegisterActivity extends AppCompatActivity{
 
         // Here we are putting the input information to the database to create a new user object
         btnSignUp.setOnClickListener(view -> {
-
             if(checkedOrNot==0){
                 Toast.makeText(RegisterActivity.this, "No status option picked", Toast.LENGTH_SHORT).show();
             }
-            else{
+            else {
+                List<String> userRegistrationInfo = new ArrayList<>();
+                userRegistrationInfo.add(username.getText().toString()); // username
+                userRegistrationInfo.add(password.getText().toString()); // password
+                userRegistrationInfo.add(rePassword.getText().toString()); // re password
+                userRegistrationInfo.add(firstName.getText().toString()); // first name
+                userRegistrationInfo.add(lastName.getText().toString()); // last name
+                userRegistrationInfo.add(email.getText().toString()); // email
+                userRegistrationInfo.add(checkedButton.getText().toString()); // status
+                userRegistrationInfo.add(department.getText().toString()); // department
+                userRegistrationInfo.add(tCardNumber.getText().toString().trim()); // TCard number
+                userRegistrationInfo.add(year.getText().toString().trim()); // year
 
-            List<String> userRegistrationInfo = new ArrayList<>();
-            userRegistrationInfo.add(username.getText().toString()); // username
-            userRegistrationInfo.add(password.getText().toString()); // password
-            userRegistrationInfo.add(rePassword.getText().toString()); // re password
-            userRegistrationInfo.add(firstName.getText().toString()); // first name
-            userRegistrationInfo.add(lastName.getText().toString()); // last name
-            userRegistrationInfo.add(email.getText().toString()); // email
-            userRegistrationInfo.add(checkedButton.getText().toString()); // status
-            userRegistrationInfo.add(department.getText().toString()); // department
-            userRegistrationInfo.add(tCardNumber.getText().toString().trim()); // TCard number
-            userRegistrationInfo.add(year.getText().toString().trim()); // year
-
-            String registrationMessage = registerController.runRegister(userRegistrationInfo);
-            Toast.makeText(RegisterActivity.this, registrationMessage, Toast.LENGTH_SHORT).show();
-        }});
+                String registrationMessage = registerController.runRegister(userRegistrationInfo);
+                Toast.makeText(RegisterActivity.this, registrationMessage, Toast.LENGTH_SHORT).show();
+            }});
         // back to login page
         btnSignIn.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

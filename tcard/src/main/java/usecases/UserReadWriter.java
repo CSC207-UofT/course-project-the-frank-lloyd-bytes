@@ -40,10 +40,11 @@ public interface UserReadWriter {
      * @param status is the user's status
      * @param tCardNumber is the user's Tcard number
      * @param year is the years that user in UofT
+     * @param pic is the profile picture Uri in string form
      * @return true if the insert success, false if not
      */
     Boolean insertData(String username, String password, String firstName, String lastName, String email,
-                       String department, String status, String tCardNumber, String year, String photo);
+                       String department, String status, String tCardNumber, String year, String pic);
 
     /**
      * update the password for the user in the database
@@ -51,4 +52,5 @@ public interface UserReadWriter {
      * @return true if the update work, false if not
      */
     Boolean updatePassword(List<String> data);
+    Boolean updatePicture(List<String> data);
 }

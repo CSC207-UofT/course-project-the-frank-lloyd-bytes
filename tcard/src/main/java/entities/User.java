@@ -35,11 +35,7 @@ public abstract class User implements Serializable {
         this.profile.add(userInfo.get(4)); // status
         this.profile.add(userInfo.get(5)); // ID number
         this.profile.add(userInfo.get(6)); // email
-        if (userInfo.size() < 10){
-            this.picture = "";
-        } else{
-            this.picture = userInfo.get(9);
-        }
+        this.picture = userInfo.get(9); // profile picture path
 
     }
 
@@ -58,6 +54,14 @@ public abstract class User implements Serializable {
      */
     public void changePassword(String newPassword) {
         this.password = newPassword;
+    }
+
+    /**
+     * This method is for changing this user's profile picture.
+     * @param newPicture a string containing the picture path in String form.
+     */
+    public void changePicture(String newPicture) {
+        this.picture = newPicture;
     }
 
 
@@ -94,8 +98,4 @@ public abstract class User implements Serializable {
         return this.utorID;
     }
 
-
-    public void changePicture(String newPicture) {
-        this.picture = newPicture;
-    }
 }

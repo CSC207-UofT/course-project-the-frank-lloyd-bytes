@@ -15,7 +15,6 @@
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textSize="35dp"
-            android:onClick="onUCheckCardClick"
             android:textColor="@color/UofTblue"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,6 +52,7 @@
                     app:cardCornerRadius="20dp"
                     android:layout_marginTop="30dp"
                     android:id="@+id/UCheckCard"
+                    android:onClick="onUCheckCardClick"
                     android:layout_height="70dp">
                 <TextView
                         android:text=""

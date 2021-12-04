@@ -67,8 +67,8 @@ public class UserCommandsTest {
 
     @Test
     public void testChangePassword() {
-        sampleUserCommands1.changePassword("password!", "newpassword!");
-        sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!");
+        sampleUserCommands1.changePassword("password!", "newpassword!", "newpassword!");
+        sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!", "newpassword!");
 
         Assert.assertTrue(sampleUserCommands1.getUser().checkPassword("newpassword!"));
         Assert.assertFalse(sampleUserCommands2.getUser().checkPassword("newpassword!"));

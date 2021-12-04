@@ -1,5 +1,6 @@
 package usecases;
 
+import dataBase.UserDBHelper;
 import entities.Student;
 import entities.User;
 import entities.Faculty;
@@ -9,7 +10,10 @@ import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
-
+    UserDBHelper DB;
+    public enum PasswordUpdateResult {
+        EMPTY_FIELD, OLD_PASSWORD_WRONG, NEW_SAME_AS_OLD, NEW_ATTEMPTS_DONT_MATCH, SUCCESS
+    }
     /**
      * instantiate usercommands from the userList given, create a new user in UserCommands with the given user info
      * @param userList is a list of information for a certain user
@@ -52,9 +56,22 @@ public class UserCommands implements Serializable {
      * @param oldPassword the old password of the user
      * @param newPassword the new password of the user that they want to change to
      */
-    public void changePassword(String oldPassword, String newPassword){
-        if (this.USER.checkPassword(oldPassword)){
-            this.USER.changePassword(newPassword);
+    public PasswordUpdateResult changePassword(String oldPassword, String newPassword, String newPasswordReEntry){
+        if (oldPassword.equals("") || newPassword.equals("") || newPasswordReEntry.equals("")){
+            return PasswordUpdateResult.EMPTY_FIELD;
+        }
+        else if (!this.USER.checkPassword(oldPassword)){
+            return PasswordUpdateResult.OLD_PASSWORD_WRONG;
+        }
+        else {
+            if(!newPassword.equals(newPasswordReEntry)){
+                return PasswordUpdateResult.NEW_ATTEMPTS_DONT_MATCH;}
+            else if(newPassword.equals(oldPassword)){
+                return PasswordUpdateResult.NEW_SAME_AS_OLD;}
+            else{
+                this.USER.changePassword(newPassword);
+                return PasswordUpdateResult.SUCCESS;
+            }
         }
     }
 

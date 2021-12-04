@@ -47,24 +47,14 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     public void update(View view){
         String oldPass = currPassword.getText().toString().trim();
         String newPass = newPassword.getText().toString().trim();
-        String repass = rePassword.getText().toString().trim();
-        // checks if there are any empty input text boxes
-        if(oldPass.equals("")||newPass.equals("")||repass.equals("")){
-            Toast.makeText(UpdatePasswordActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-        } else{
-            if(newPass.equals(oldPass)){
-                Toast.makeText(UpdatePasswordActivity.this, "It's same as the current password.", Toast.LENGTH_SHORT).show();
-            } else if(!newPass.equals(repass)){
-                Toast.makeText(UpdatePasswordActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                myManager.changePassword(oldPass, newPass);
-                if(DB.updatePassword(myManager.getInfo())){
-                    Toast.makeText(UpdatePasswordActivity.this, "Password Successfully updated.", Toast.LENGTH_SHORT).show();
-                }
+        String rePass = rePassword.getText().toString().trim();
 
-            }
+        String updateMessage = myManager.changePassword(oldPass, newPass, rePass);
+        Toast.makeText(UpdatePasswordActivity.this, updateMessage, Toast.LENGTH_SHORT).show();
+        if (updateMessage.equals("Password successfully changed")){
+            DB.updatePassword(myManager.getInfo());
         }
+        // checks if there are any empty input text boxes
     }
 
 }

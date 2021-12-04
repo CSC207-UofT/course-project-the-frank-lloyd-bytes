@@ -1,6 +1,5 @@
 package activities;
 import android.annotation.SuppressLint;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
+import android.view.View;
 import usecases.UCheckCommands;
 
 import java.util.ArrayList;
@@ -77,6 +77,7 @@ public class DashBoardActivity extends AppCompatActivity{
                     break;
                 case R.id.facilityActivity:
                     Intent intent = new Intent(getApplicationContext(), FacilityActivity.class);
+                    intent.putExtra("manager", myManager);
                     startActivity(intent);
                     break;
                 case R.id.loginActivity:
@@ -135,7 +136,6 @@ public class DashBoardActivity extends AppCompatActivity{
         });
 
     }
-
     public void onUCheckCardClick(View view) {
         Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
         intent4.putExtra("manager", myManager);

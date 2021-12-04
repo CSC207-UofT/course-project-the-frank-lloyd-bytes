@@ -1,5 +1,6 @@
-package entities;
+package entitiesTest;
 
+import entities.UCheck;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

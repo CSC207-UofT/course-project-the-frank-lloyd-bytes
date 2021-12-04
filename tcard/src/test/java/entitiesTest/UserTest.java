@@ -1,5 +1,7 @@
-package entities;
+package entitiesTest;
 
+import entities.Student;
+import entities.User;
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -54,19 +56,6 @@ public class UserTest {
         expectedUserInfo.add("Math"); // program
 
         Assert.assertEquals(expectedUserInfo, sampleUser.getUserInfo());
-    }
-    @Test
-    public void testGetProfile() {
-        ArrayList<String> expectedProfile = new ArrayList<>();
-        expectedProfile.add("Jonah"); // first name
-        expectedProfile.add("Mackey"); // last name
-        expectedProfile.add("student"); // status
-        expectedProfile.add("1234567890"); // ID number
-        expectedProfile.add("jonah.mackey@mail.utoronto.ca"); // email
-        expectedProfile.add("4"); // year
-        expectedProfile.add("Math"); // program
-
-        Assert.assertEquals(expectedProfile, sampleUser.getProfile());
     }
 
 

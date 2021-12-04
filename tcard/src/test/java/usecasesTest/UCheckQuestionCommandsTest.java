@@ -1,9 +1,10 @@
-package usecases;
+package usecasesTest;
 
 import entities.UCheckQuestion;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import usecases.UCheckQuestionCommands;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import dataBase.FileReader;
@@ -21,13 +22,13 @@ public class FacilityManager implements Serializable {
     private final FacilityHelper myFacilityHelper;
 
     FileReader myFileReader = new FileReader("tcard/FacilitiesInfo.csv");
-    ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
+    List<List<String>> facilitiesInfo = myFileReader.reader();
 
     /**
      * get the facilities info in an array format rather than a FacilityMap
      * @return an array list of the facilities in the database
      */
-    public ArrayList<ArrayList<String>> getFacilitiesInfoArray(){
+    public List<List<String>> getFacilitiesInfoArray(){
         return facilitiesInfo;
     }
 

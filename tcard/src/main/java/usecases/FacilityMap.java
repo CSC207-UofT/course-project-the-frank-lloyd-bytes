@@ -4,6 +4,7 @@ import entities.Facility;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class FacilityMap {
@@ -14,8 +15,8 @@ public class FacilityMap {
      * name of the facility
      * @param facilityList passed in to create a hashmap of the same information
      */
-    public FacilityMap(ArrayList<ArrayList<String>> facilityList){
-        for (ArrayList<String> strings : facilityList) {
+    public FacilityMap(List<List<String>> facilityList){
+        for (List<String> strings : facilityList) {
             Facility facility = new Facility(strings);
             facilityMap.put(facility.getFacilityInfo().get(0), facility);
         }

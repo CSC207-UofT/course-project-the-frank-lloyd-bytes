@@ -11,6 +11,7 @@ import controllers.FacilityManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
 
@@ -29,14 +30,14 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     }
     LayoutInflater inflater;
     FacilityManager facilityManager = new FacilityManager();
-    private ArrayList<ArrayList<String>> facilityInfo;
+    private List<List<String>> facilityInfo;
 
     /**
      * Constructor for a facility adapter, pass in the facility map so the adapter can use it
      * @param facilityMap gets the facility array list from the database
      * @throws IOException if the construction doesn't work
      */
-    public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap) throws IOException {
+    public FacilityAdapter(List<List<String>> facilityMap) throws IOException {
         facilityInfo = facilityMap;
     }
 

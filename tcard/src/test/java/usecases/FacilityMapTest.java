@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.After;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FacilityMapTest {
     private Facility sampleFacility1;
@@ -16,7 +17,7 @@ public class FacilityMapTest {
     @Before
     public void setUp() {
         // create sample facilities
-        ArrayList<String> sampleFacilityInfo1 = new ArrayList<>();
+        List<String> sampleFacilityInfo1 = new ArrayList<>();
         sampleFacilityInfo1.add("Bahen Centre"); // name
         sampleFacilityInfo1.add("40 St George Street"); // address
         sampleFacilityInfo1.add("The Bahen Centre for Information Technology!"); // description
@@ -35,7 +36,7 @@ public class FacilityMapTest {
         sampleFacility2 = new Facility(sampleFacilityInfo2);
 
         // create facility map
-        ArrayList<ArrayList<String>> facilitiesInfo = new ArrayList<>();
+        List<List<String>> facilitiesInfo = new ArrayList<>();
         facilitiesInfo.add(sampleFacilityInfo1);
         facilitiesInfo.add(sampleFacilityInfo2);
 

@@ -43,8 +43,8 @@ public class UCheckCommands {
      * @param userId String representation of USER utorid.
      * @param state Integer result state.
      */
-    public void setResult(ActivityResultCallback<ActivityResult> context, String userId, int state){
-        UCHECKRESULTS.setResults((Context) context,userId, state);
+    public void setResult(Context context, String userId, int state){
+        UCHECKRESULTS.setResults(context,userId, state);
     }
 
     /**

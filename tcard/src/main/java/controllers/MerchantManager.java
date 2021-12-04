@@ -1,10 +1,8 @@
 package controllers;
 
-import entities.Merchant;
 import usecases.DiscountHelper;
 import usecases.MerchantMap;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +12,6 @@ public class MerchantManager {
     private final MerchantMap MERCHANT_MAP;
     private final DiscountHelper DISCOUNT_HELPER;
     private final UserManager USER_MANAGER;
-    // Merchant Reader
 
     /**
      * Contructs a MerchantManager object.

@@ -1,13 +1,12 @@
 package usecases;
 
-import android.content.Context;
 import activities.R;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
+import android.content.Context;
 import entities.UCheck;
+import entities.UCheckResults;
+
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import entities.UCheckResults;
 
 public class UCheckCommands {
 
@@ -78,5 +77,31 @@ public class UCheckCommands {
         else
             layout = R.layout.ucheck_grey_layout_view;
         return layout;
+    }
+
+    public int getCardColor() {
+        int color;
+        if (getState()  == 1) {
+            color = R.color.positiveUCheck;
+        }
+        else if (getState()  == 2) {
+            color = R.color.negativeUCheck;
+        }
+        else
+            color = R.color.neutralUCheck;
+        return color;
+    }
+
+    public String getCardText() {
+        String text;
+        if (getState()  == 1) {
+            text = "UCheck Passed";
+        }
+        else if (this.getState()  == 2) {
+            text = "UCheck Failed";
+        }
+        else
+            text = "Take UCheck";
+        return text;
     }
 }

@@ -1,10 +1,14 @@
 package activities;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -12,7 +16,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
-import android.view.View;
 import usecases.UCheckCommands;
 
 import java.util.ArrayList;
@@ -26,6 +29,7 @@ public class DashBoardActivity extends AppCompatActivity{
      */
     TabLayout tabLayout;
     ViewPager2 viewPager;
+    Switch viewMode;
     EditText username;
     CardView uCheckCard;
     TextView uCheckResult;
@@ -41,27 +45,44 @@ public class DashBoardActivity extends AppCompatActivity{
         setContentView(R.layout.dashboard_page);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
+        viewMode = findViewById(R.id.moodSwitcher);
         uCheckCard = findViewById(R.id.UCheckCard);
         bottomMenu = findViewById(R.id.bottom_menu);
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         myUCheckCommands=new UCheckCommands();
+        SharedPreferences sharedPreferences = null;
 
-        int uCheckState = myUCheckCommands.getState();
-        if (uCheckState ==2){
-            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
-            uCheckResult.setText("UCheck Failed");
-        }
-        else if(uCheckState ==1){
-            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
-            uCheckResult.setText("UCheck Passed");
-        }
-        else
-        {
-            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
-            uCheckResult.setText("Take Ucheck Test");
-        }
+        //sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
+        //Boolean booleanValue = sharedPreferences.getBoolean("nightMode", true);
+        //if (booleanValue){
+        //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        //    viewMode.setChecked(true);
+        //}
+
+        //SharedPreferences finalSharedPreferences = sharedPreferences;
+        //viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        //    if (isChecked){
+        //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        //        viewMode.setChecked(true);
+        //        SharedPreferences.Editor editor = finalSharedPreferences.edit();
+        //        editor.putBoolean("nightMode", true);
+        //        editor.apply();
+
+        //    }
+        //    else{
+        //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        //        viewMode.setChecked(false);
+        //        SharedPreferences.Editor editor = finalSharedPreferences.edit();
+        //        editor.putBoolean("nightMode", false);
+        //        editor.apply();
+        //    }
+        //});
+
+        uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, myUCheckCommands.getCardColor()));
+        uCheckResult.setText(myUCheckCommands.getCardText());
+
 
 
         /*

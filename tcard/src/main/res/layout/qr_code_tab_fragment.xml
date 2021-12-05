@@ -4,6 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    tools:context="activities.QRCodeFragment"
+                                                    android:background="@color/fragmentBackground"
                                                    android:layout_height="match_parent">
     <ImageView
             android:layout_width="282dp"

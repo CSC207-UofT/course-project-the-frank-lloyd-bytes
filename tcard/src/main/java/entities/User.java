@@ -74,6 +74,21 @@ public abstract class User implements Serializable {
         this.password = newPassword;
     }
 
+    /**
+     * This method is for changing this user's password.
+     *
+     * @param newPicture a string containing the Uri of the new profile picture.
+     */
+    public void changePicture(String newPicture) {
+        this.picture = newPicture;
+    }
+
+
+    /**
+     * This method is for displaying a users basic profile information.
+     * @return a string that displays the profile in a preferred format.
+     */
+    public abstract String displayProfile();
 
     /**
      * A getter method to get all the users profile information (including utorid and password) as an arraylist.

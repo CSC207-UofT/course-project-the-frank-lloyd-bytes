@@ -15,9 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHolder> {
-    private ArrayList<ArrayList<String>> facilityInfo;
-    private FacilitiesManager facilitiesManager;
-    private UserManager userManager;
+    private final ArrayList<ArrayList<String>> FACILITY_INFO;
+    private final FacilitiesManager facilitiesManager;
+    private final UserManager userManager;
     /**
      * Constructor for a facility adapter, pass in the facility map so the adapter can use it
      * @param facilityMap gets the facility array list from the database
@@ -25,7 +25,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      */
     public FacilityAdapter(ArrayList<ArrayList<String>> facilityMap, FacilitiesManager facilitiesManager,
                            UserManager userManager){
-        this.facilityInfo = facilityMap;
+        this.FACILITY_INFO = facilityMap;
         this.facilitiesManager = facilitiesManager;
         this.userManager = userManager;
     }
@@ -80,10 +80,10 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = facilityInfo.get(position).get(0);
-        String address = facilityInfo.get(position).get(1);
-        String hours = facilityInfo.get(position).get(3);
-        ArrayList<String> facility = facilityInfo.get(position);
+        String name = FACILITY_INFO.get(position).get(0);
+        String address = FACILITY_INFO.get(position).get(1);
+        String hours = FACILITY_INFO.get(position).get(3);
+        ArrayList<String> facility = FACILITY_INFO.get(position);
 
         holder.facilityName.setText(name);
         holder.facilityAddress.setText(address);
@@ -98,7 +98,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
      */
     @Override
     public int getItemCount() {
-        return facilityInfo.size();
+        return FACILITY_INFO.size();
     }
 
 

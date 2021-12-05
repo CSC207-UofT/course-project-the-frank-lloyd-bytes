@@ -1,6 +1,5 @@
-package entitiesTest;
+package entities;
 
-import entities.UCheckQuestion;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +30,7 @@ public class UCheckQuestionTest {
     }
     @Test
     public void getQuestion() {
-        assertEquals("question", testUCheckQuestion.getQuestion());
+        assertEquals("question", testUCheckQuestion.getQUESTION());
     }
 
     @Test
@@ -51,6 +50,6 @@ public class UCheckQuestionTest {
 
     @Test
     public void getTitle() {
-        assertEquals("title", testUCheckQuestion.getTitle());
+        assertEquals("title", testUCheckQuestion.getTITLE());
     }
 }

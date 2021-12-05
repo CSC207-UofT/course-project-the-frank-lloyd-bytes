@@ -39,10 +39,10 @@ public class DashBoardActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_page);
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
-        uCheckCard = findViewById(R.id.UCheckCard);
-        bottomMenu = findViewById(R.id.bottom_menu);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        uCheckCard = findViewById(R.id.uCheckCard);
+        bottomMenu = findViewById(R.id.bottomMenu);
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
@@ -83,6 +83,11 @@ public class DashBoardActivity extends AppCompatActivity{
                 case R.id.loginActivity:
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
+                    break;
+                case R.id.merchantActivity:
+                    Intent intent4 = new Intent(getApplicationContext(), MerchantActivity.class);
+                    intent4.putExtra("manager", myManager);
+                    startActivity(intent4);
                     break;
             }
             return true;

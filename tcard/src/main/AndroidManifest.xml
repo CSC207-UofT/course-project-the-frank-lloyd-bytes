@@ -32,13 +32,16 @@
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
 
-
     </activity>
 
     <activity android:name="activities.ProfileActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
+    </activity>
 
+    <activity android:name="activities.MerchantActivity"
+              android:label="@string/title_activity_dash_board"
+              android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
 
     <activity android:name="activities.FacilityActivity"

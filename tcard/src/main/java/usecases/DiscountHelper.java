@@ -37,10 +37,10 @@ public class DiscountHelper {
         List<String> yearCriteria = getSubCriteriaList(studentCriteriaArray[0]);
         List<String> programCriteria = getSubCriteriaList(studentCriteriaArray[1]);
 
-        boolean yearCriteriaSatisfied = yearCriteria.contains(student.getProfile().get(student.STUDENT_YEAR)) ||
+        boolean yearCriteriaSatisfied = yearCriteria.contains(student.getSTUDENT_YEAR()) ||
                 yearCriteria.contains("any");
 
-        boolean programCriteriaSatisfied = programCriteria.contains(student.getProfile().get(student.STUDENT_PROGRAM))
+        boolean programCriteriaSatisfied = programCriteria.contains(student.getSTUDENT_PROGRAM())
                 || programCriteria.contains("any");
 
         return (yearCriteriaSatisfied & programCriteriaSatisfied);
@@ -58,11 +58,11 @@ public class DiscountHelper {
         List<String> yearCriteria = getSubCriteriaList(facultyCriteriaArray[0]);
         List<String> departmentCriteria = getSubCriteriaList(facultyCriteriaArray[1]);
 
-        boolean yearCriteriaSatisfied = yearCriteria.contains(faculty.getProfile().get(faculty.FACULTY_YEAR)) ||
+        boolean yearCriteriaSatisfied = yearCriteria.contains(faculty.getFACULTY_YEAR()) ||
                 yearCriteria.contains("any");
 
-        boolean departmentCriteriaSatisfied = departmentCriteria.contains(faculty.getProfile().
-                get(faculty.FACULTY_DEPARTMENT)) || departmentCriteria.contains("any");
+        boolean departmentCriteriaSatisfied = departmentCriteria.contains(faculty.getFACULTY_DEPARTMENT())
+                || departmentCriteria.contains("any");
 
         return (yearCriteriaSatisfied & departmentCriteriaSatisfied);
     }
@@ -87,7 +87,7 @@ public class DiscountHelper {
     private boolean discountApplicable(Discount discount, User user) {
         String[] discountCriteriaArray = discount.getCriteria().split(":");
 
-        if (user.getProfile().get(user.STATUS).equals("student")) {
+        if (user.getSTATUS().equals("student")) {
             return studentDiscountApplicable(discountCriteriaArray[0], (Student) user);
         }  else {
             return facultyDiscountApplicable(discountCriteriaArray[1], (Faculty) user);

@@ -6,13 +6,13 @@ import java.util.List;
 
 public class UCheckQuestionCommands {
 
-    private final List<UCheckQuestion> questionList;
+    private final List<UCheckQuestion> QUESTION_List;
 
     /**
-     * Initiates a questionList with UCheckQuestions for UI.
+     * Initiates a QUESTION_List with UCheckQuestions for UI.
      */
     public UCheckQuestionCommands(){
-        questionList = UCheckQuestions.getQuestions();
+        QUESTION_List = UCheckQuestions.getQuestions();
     }
 
     /**
@@ -32,7 +32,7 @@ public class UCheckQuestionCommands {
      * @return a list of UCheckQuestions.
      */
     public  List<UCheckQuestion> getQuestions() {
-        return questionList;
+        return QUESTION_List;
     }
 
     /**

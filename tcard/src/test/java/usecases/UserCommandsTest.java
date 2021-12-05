@@ -1,4 +1,4 @@
-package usecasesTest;
+package usecases;
 
 import entities.Faculty;
 import entities.Student;
@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import usecases.UserCommands;
 
 import java.util.ArrayList;
 

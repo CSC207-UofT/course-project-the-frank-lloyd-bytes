@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UserManager implements Serializable {
-    private UserCommands myUserCommands;
+    private final UserCommands MY_USER_COMMANDS;
     final Map<UserCommands.PasswordUpdateResult, String> PASSWORD_UPDATE_MESSAGES = new EnumMap<>(UserCommands.PasswordUpdateResult.class);
 
     /**
@@ -16,7 +16,7 @@ public class UserManager implements Serializable {
      * @param userInfo an arraylist of the user's information to make the UserCommands
      */
     public UserManager(List<String> userInfo){
-        this.myUserCommands = new UserCommands(userInfo);
+        this.MY_USER_COMMANDS = new UserCommands(userInfo);
         PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.EMPTY_FIELD, "Please fill all the fields");
         PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.OLD_PASSWORD_WRONG, "Your old password is wrong");
         PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.NEW_SAME_AS_OLD, "Your new password is the same as the old one");
@@ -30,7 +30,7 @@ public class UserManager implements Serializable {
      * @return an arraylist of the user's information
      */
     public List<String> getInfo(){
-        return this.myUserCommands.getInfo();
+        return this.MY_USER_COMMANDS.getInfo();
     }
 
     /**
@@ -38,15 +38,15 @@ public class UserManager implements Serializable {
      * @return a User object
      */
     public User getUser(){
-        return myUserCommands.getUser();
+        return MY_USER_COMMANDS.getUser();
     }
 
     public String changePassword(String oldPass, String newPass, String newPassReEntry) {
-        UserCommands.PasswordUpdateResult passwordUpdateResult = this.myUserCommands.changePassword(oldPass, newPass, newPassReEntry);
+        UserCommands.PasswordUpdateResult passwordUpdateResult = this.MY_USER_COMMANDS.changePassword(oldPass, newPass, newPassReEntry);
         return PASSWORD_UPDATE_MESSAGES.get(passwordUpdateResult);
     }
 
     public void changePicture(String newPic) {
-        this.myUserCommands.changePicture(newPic);
+        this.MY_USER_COMMANDS.changePicture(newPic);
     }
 }

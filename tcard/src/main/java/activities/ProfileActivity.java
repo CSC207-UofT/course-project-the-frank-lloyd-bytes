@@ -29,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity{
     Button changePassword, backToDashboard, uploadPicture;
     UserManager myManager;
     ActivityResultLauncher<Intent> activityResultLauncher;
-    UserDBHelper DB;
+    UserDBHelper dB;
 
     @SuppressLint({"SetTextI18n", "IntentReset"})
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity{
         setContentView(R.layout.profile_page);
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        DB = new UserDBHelper(this);
+        dB = new UserDBHelper(this);
 
         profilePic = findViewById(R.id.profilePic);
         names = findViewById(R.id.legalNames);
@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity{
                     profilePic.setImageURI(imageUri);
                     String imagePath = imageUri.toString();
                     myManager.changePicture(imagePath);
-                    DB.updatePicture(myManager.getInfo());
+                    dB.updatePicture(myManager.getInfo());
                 }
 
         });

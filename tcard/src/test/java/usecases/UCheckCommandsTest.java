@@ -1,4 +1,4 @@
-package usecasesTest;
+package usecases;
 
 import entities.UCheck;
 import entities.UCheckResults;

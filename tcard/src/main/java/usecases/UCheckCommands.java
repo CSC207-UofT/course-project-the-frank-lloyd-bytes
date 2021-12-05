@@ -2,8 +2,6 @@ package usecases;
 
 import android.content.Context;
 import activities.R;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import entities.UCheck;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -12,13 +10,13 @@ import entities.UCheckResults;
 public class UCheckCommands {
 
     private final UCheck UCHECK;
-    private final UCheckResults UCHECKRESULTS;
+    private final UCheckResults UCHECK_RESULTS;
 
     /**
      * Initializes UCheckResults & UCheck object for interaction between UI and Entities.
      */
     public UCheckCommands(){
-        UCHECKRESULTS = new UCheckResults();
+        UCHECK_RESULTS = new UCheckResults();
         UCHECK = new UCheck();
     }
 
@@ -44,7 +42,7 @@ public class UCheckCommands {
      * @param state Integer result state.
      */
     public void setResult(Context context, String userId, int state){
-        UCHECKRESULTS.setResults(context,userId, state);
+        UCHECK_RESULTS.setResults(context,userId, state);
     }
 
     /**

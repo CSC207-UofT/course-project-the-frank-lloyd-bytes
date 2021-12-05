@@ -50,5 +50,9 @@ public class MerchantManager {
         }
     }
 
+    /**
+     * Getter for the merchant lit.
+     * @return a list of lists of strings, each sublist containing information for a merchant.
+     */
     public List<List<String>> getMerchantList() {return MERCHANT_LIST; }
 }

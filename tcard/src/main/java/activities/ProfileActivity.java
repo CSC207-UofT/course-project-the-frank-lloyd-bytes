@@ -64,9 +64,8 @@ public class ProfileActivity extends AppCompatActivity{
         String imageAddress = info.get(9);
 
         if (imageAddress != " ") {
-            profilePic.setImageURI(null);
-          //  Uri path = Uri.parse(imageAddress);
-          //  profilePic.setImageURI(path);
+            Uri path = Uri.parse(imageAddress);
+            profilePic.setImageURI(path);
         }
 
 
@@ -102,6 +101,8 @@ public class ProfileActivity extends AppCompatActivity{
         uploadPicture.setOnClickListener(view -> {
             Intent imagePickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             imagePickerIntent.setType("image/*");
+            imagePickerIntent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            imagePickerIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             activityResultLauncher.launch(imagePickerIntent);
         });
     }

@@ -12,17 +12,19 @@ public class MerchantManager {
     private final MerchantMap MERCHANT_MAP;
     private final DiscountHelper DISCOUNT_HELPER;
     private final UserManager USER_MANAGER;
+    private final List<List<String>> MERCHANT_LIST;
 
     /**
      * Contructs a MerchantManager object.
-     * @param merchantsInfo a list of lists, each sublist contains the information for a single merchant represented as
+     * @param merchantList a list of lists, each sublist contains the information for a single merchant represented as
      *                      strings.
      * @param userManager a UserManager object.
      */
-    public MerchantManager(List<List<String>> merchantsInfo, UserManager userManager) {
-        MERCHANT_MAP = new MerchantMap(merchantsInfo);
+    public MerchantManager(List<List<String>> merchantList, UserManager userManager) {
+        MERCHANT_MAP = new MerchantMap(merchantList);
         DISCOUNT_HELPER = new DiscountHelper();
         USER_MANAGER = userManager;
+        MERCHANT_LIST = merchantList;
     }
 
     /**
@@ -47,4 +49,10 @@ public class MerchantManager {
             return discountsString.toString();
         }
     }
+
+    /**
+     * Getter for the merchant lit.
+     * @return a list of lists of strings, each sublist containing information for a merchant.
+     */
+    public List<List<String>> getMerchantList() {return MERCHANT_LIST; }
 }

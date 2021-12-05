@@ -53,7 +53,11 @@ public class DashBoardActivity extends AppCompatActivity{
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
                     break;
-
+                case R.id.merchantActivity:
+                    Intent intent4 = new Intent(getApplicationContext(), MerchantActivity.class);
+                    intent4.putExtra("manager", myManager);
+                    startActivity(intent4);
+                    break;
             }
             return true;
         });

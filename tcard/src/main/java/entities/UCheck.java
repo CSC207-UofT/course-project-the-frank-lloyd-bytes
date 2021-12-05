@@ -1,7 +1,5 @@
 package entities;
 
-import java.io.Serializable;
-
 /**
  * This entity is a UCheck data structure, which contains Date and state information about UCheck result,
  * which is connected with a User (Faculty/Student) upon registration. Every User must have a UCheck to confirm COVID-19 safety protocols.

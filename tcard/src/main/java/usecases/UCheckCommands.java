@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 import entities.UCheckResults;
 
-public class UCheckCommands {
+public class UCheckCommands{
 
     private final UCheck UCHECK;
     private final UCheckResults UCHECKRESULTS;

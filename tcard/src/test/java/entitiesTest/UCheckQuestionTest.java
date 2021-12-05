@@ -38,15 +38,23 @@ public class UCheckQuestionTest {
     public void isNoFalse() {
         assertFalse(testUCheckQuestion.isNo());
     }
+
     @Test
     public void isNoTrue() {
         testUCheckQuestion.setIsNo(true);
         assertTrue(testUCheckQuestion.isNo());
     }
+
     @Test
     public void setIsNo() {
         testUCheckQuestion.setIsNo(true);
         assertTrue(testUCheckQuestion.isNo());
+    }
+
+    @Test
+    public void setIsNoFalse() {
+        testUCheckQuestion.setIsNo(false);
+        assertFalse(testUCheckQuestion.isNo());
     }
 
     @Test

@@ -19,16 +19,16 @@
                 android:layout_marginRight="5dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"/>
+
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="547dp"
                 android:id="@+id/listOfMerchants"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:paddingTop="5dp"
                 android:layout_marginBottom="1dp"/>
-
         <Button
                 android:text="GO BACK"
                 android:layout_width="wrap_content"

@@ -42,9 +42,9 @@ public class MerchantManager {
             StringBuilder discountsString = new StringBuilder();
 
             for (String discount : discountsList) {
-                discountsString.append(discount).append("\n");
+                discountsString.append(discount).append("\r\n");
             }
-            discountsString.delete(discountsString.length() - 1, discountsString.length());
+            discountsString.delete(discountsString.length() - 2, discountsString.length());
 
             return discountsString.toString();
         }

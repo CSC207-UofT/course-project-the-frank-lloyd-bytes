@@ -54,6 +54,7 @@ public class UserTest {
         expectedUserInfo.add("jonah.mackey@mail.utoronto.ca"); // email
         expectedUserInfo.add("4"); // year
         expectedUserInfo.add("Math"); // program
+        expectedUserInfo.add(""); // picture
 
         Assert.assertEquals(expectedUserInfo, sampleUser.getUserInfo());
     }

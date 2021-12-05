@@ -30,7 +30,7 @@ public abstract class User implements Serializable {
      */
     public User(List<String> userInfo) {
         this.profiles.put(UTORID, userInfo.get(0));// UTORid
-        this.password = userInfo.get(0); // password
+        this.password = userInfo.get(1); // password
         this.profiles.put(FIRST_NAME, userInfo.get(2)); // first name
         this.profiles.put(LAST_NAME, userInfo.get(3)); // last name
         this.profiles.put(STATUS, userInfo.get(4)); // status

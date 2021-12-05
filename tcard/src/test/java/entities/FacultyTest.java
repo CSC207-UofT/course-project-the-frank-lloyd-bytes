@@ -1,9 +1,7 @@
 package entities;
 
-import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import java.util.ArrayList;
 
@@ -24,13 +22,6 @@ public class FacultyTest {
         sampleFacultyInfo.add("Math"); // department
 
         sampleFaculty = new Faculty(sampleFacultyInfo);
-    }
-
-    @Test
-    public void testDisplayProfile() {
-        String expectedProfileString = "First Name: Jonah\nLast Name: Mackey\nUTORid: mackeyjonah\nStatus: faculty\n" +
-                "ID number: 1234567890\nEmail: jonah.mackey@mail.utoronto.ca\nYears at U of T: 2\nDepartment: Math";
-        Assert.assertEquals(expectedProfileString, sampleFaculty.displayProfile());
     }
 
     @After

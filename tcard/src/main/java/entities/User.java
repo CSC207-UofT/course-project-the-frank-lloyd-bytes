@@ -2,6 +2,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -9,35 +10,43 @@ import java.util.List;
  *
  */
 public abstract class User implements Serializable {
-    protected List<String> profile = new ArrayList<>();
-    private String password;
-    private String utorID;
-    //Indexes for profile
-    public final int FIRST_NAME = 0;
-    public final int LAST_NAME = 1;
-    public final int STATUS = 2;
-    public final int ID_NUMBER = 3;
-    public final int EMAIL = 4;
+    protected HashMap<String, String> profiles = new HashMap<>();
+    protected String password;
+    protected String picture;
+    private final String UTORID = "utorid";
+    private final String FIRST_NAME = "firstName";
+    private final String LAST_NAME = "lastName";
+    private final String STATUS = "status";
+    private final String ID_NUMBER = "idNumber";
+    private final String EMAIL = "eMail";
 
     /**
      * This is a constructor for the User class. This method writes basic user information from a list of strings to a
      * User object.
+     *
      * @param userInfo a list of strings containing information for a user. This parameter is assumed
      *                 to have the following ordering:
-     *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to}
+     *                 {UTORid, password, first name, last name, status, ID number, email, year, belongs to, (picture)}
      */
     public User(List<String> userInfo) {
-        this.utorID = userInfo.get(0); // UTORid
+        this.profiles.put(UTORID, userInfo.get(0));// UTORid
         this.password = userInfo.get(1); // password
-        this.profile.add(userInfo.get(2)); // first name
-        this.profile.add(userInfo.get(3)); // last name
-        this.profile.add(userInfo.get(4)); // status
-        this.profile.add(userInfo.get(5)); // ID number
-        this.profile.add(userInfo.get(6)); // email
+        this.profiles.put(FIRST_NAME, userInfo.get(2)); // first name
+        this.profiles.put(LAST_NAME, userInfo.get(3)); // last name
+        this.profiles.put(STATUS, userInfo.get(4)); // status
+        this.profiles.put(ID_NUMBER, userInfo.get(5)); // ID number
+        this.profiles.put(EMAIL, userInfo.get(6)); // email
+        if (userInfo.size() < 10) {
+            this.picture = "";
+        } else {
+            this.picture = userInfo.get(9);
+        }
+
     }
 
     /**
      * This method is for checking if an entered password is correct, i.e. if it matches the users password.
+     *
      * @param passwordAttempt a string containing a possible password to be compared against this users actual password.
      * @return a boolean indicating if the passwordAttempt was correct.
      */
@@ -45,8 +54,20 @@ public abstract class User implements Serializable {
         return passwordAttempt.equals(this.password);
     }
 
+
+    /**
+     * Change the picture of this user using newPictue
+     *
+     * @param newPicture is the picture we want to use.
+     */
+    public void changePicture(String newPicture) {
+        this.picture = newPicture;
+    }
+
+
     /**
      * This method is for changing this user's password.
+     *
      * @param newPassword a string containing the desired new password.
      */
     public void changePassword(String newPassword) {
@@ -55,35 +76,59 @@ public abstract class User implements Serializable {
 
 
     /**
-     * This method is for displaying a users basic profile information.
-     * @return a string that displays the profile in a preferred format.
-     */
-    public abstract String displayProfile();
-
-    /**
      * A getter method to get all the users profile information (including utorid and password) as an arraylist.
-     * @return all the users profile information (including utorid and password)
+     *
+     * @return all the users profile information (including utorid and password) in the following order:{UTORid,
+     * password, first name, last name, status, ID number, email, year, belongs to, (picture)}
      */
     public List<String> getUserInfo() {
-        ArrayList<String> profilelist = new ArrayList<>();
-        profilelist.add(this.utorID);
-        profilelist.add(this.password);
-        profilelist.addAll(this.profile);
-        return profilelist;
+        ArrayList<String> profiles = new ArrayList<>();
+        profiles.add(this.profiles.get(UTORID));
+        profiles.add(this.password);
+        profiles.add(this.profiles.get(FIRST_NAME));
+        profiles.add(this.profiles.get(LAST_NAME));
+        profiles.add(this.profiles.get(STATUS));
+        profiles.add(this.profiles.get(ID_NUMBER));
+        profiles.add(this.profiles.get(EMAIL));
+        profiles.add(this.picture);
+        return profiles;
     }
 
     /**
-     * A getter method to get user's profile as an arraylist.
-     * @return the user's profile
+     * @return the user's utorid
      */
-    public List<String> getProfile() { return this.profile; }
-
+    public String getId() {
+        return this.profiles.get(UTORID);
+    }
     /**
-     * A getter method to get user's utroid
-     * @return the user's utroid
+     * @return the user's first name
      */
-    public String getId(){
-        return this.utorID;
+    public String getFN() {
+        return this.profiles.get(FIRST_NAME);
+    }
+    /**
+     * @return the user's last name
+     */
+    public String getLN() {
+        return this.profiles.get(LAST_NAME);
+    }
+    /**
+     * @return the user's status
+     */
+    public String getSTATUS() {
+        return this.profiles.get(STATUS);
+    }
+    /**
+     * @return the user's id number
+     */
+    public String getID_NUMBER() {
+        return this.profiles.get(ID_NUMBER);
+    }
+    /**
+     * @return the user's email
+     */
+    public String getEMAIL() {
+        return this.profiles.get(EMAIL);
     }
 
 

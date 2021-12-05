@@ -31,14 +31,14 @@
                         android:layout_width="151dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="-80dp"
+                        android:layout_marginTop="-70dp"
                         android:id="@+id/profilePic"
                         android:layout_weight="1"/>
                 <TextView
                         android:text="TextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="-80dp"
+                        android:layout_marginTop="-65dp"
                         android:id="@+id/tUtorID"
                         android:layout_gravity="center"/>
             </LinearLayout>

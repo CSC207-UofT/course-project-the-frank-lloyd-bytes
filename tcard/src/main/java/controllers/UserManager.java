@@ -2,20 +2,27 @@ package controllers;
 
 import entities.User;
 import usecases.UserCommands;
-
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserManager implements Serializable {
-    private UserCommands myUserCommands;
+    private final UserCommands MY_USER_COMMANDS;
+    final Map<UserCommands.PasswordUpdateResult, String> PASSWORD_UPDATE_MESSAGES = new EnumMap<>(UserCommands.PasswordUpdateResult.class);
 
     /**
      * create a new UserManager creates a new UserCommands
      * @param userInfo an arraylist of the user's information to make the UserCommands
      */
     public UserManager(List<String> userInfo){
-        this.myUserCommands = new UserCommands(userInfo);
+        this.MY_USER_COMMANDS = new UserCommands(userInfo);
+        PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.EMPTY_FIELD, "Please fill all the fields");
+        PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.OLD_PASSWORD_WRONG, "Your old password is wrong");
+        PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.NEW_SAME_AS_OLD, "Your new password is the same as the old one");
+        PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.NEW_ATTEMPTS_DONT_MATCH, "Your new password attempts don't match");
+        PASSWORD_UPDATE_MESSAGES.put(UserCommands.PasswordUpdateResult.SUCCESS, "Password successfully changed");
+
     }
 
     /**
@@ -23,7 +30,7 @@ public class UserManager implements Serializable {
      * @return an arraylist of the user's information
      */
     public List<String> getInfo(){
-        return this.myUserCommands.getInfo();
+        return this.MY_USER_COMMANDS.getInfo();
     }
 
     /**
@@ -31,10 +38,15 @@ public class UserManager implements Serializable {
      * @return a User object
      */
     public User getUser(){
-        return myUserCommands.getUser();
+        return MY_USER_COMMANDS.getUser();
     }
 
-    public void changePassword(String oldPass, String newPass) {
-        this.myUserCommands.changePassword(oldPass, newPass);
+    public String changePassword(String oldPass, String newPass, String newPassReEntry) {
+        UserCommands.PasswordUpdateResult passwordUpdateResult = this.MY_USER_COMMANDS.changePassword(oldPass, newPass, newPassReEntry);
+        return PASSWORD_UPDATE_MESSAGES.get(passwordUpdateResult);
+    }
+
+    public void changePicture(String newPic) {
+        this.MY_USER_COMMANDS.changePicture(newPic);
     }
 }

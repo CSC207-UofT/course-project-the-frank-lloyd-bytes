@@ -52,21 +52,9 @@ public class UserTest {
         expectedUserInfo.add("jonah.mackey@mail.utoronto.ca"); // email
         expectedUserInfo.add("4"); // year
         expectedUserInfo.add("Math"); // program
+        expectedUserInfo.add(""); // picture
 
         Assert.assertEquals(expectedUserInfo, sampleUser.getUserInfo());
-    }
-    @Test
-    public void testGetProfile() {
-        ArrayList<String> expectedProfile = new ArrayList<>();
-        expectedProfile.add("Jonah"); // first name
-        expectedProfile.add("Mackey"); // last name
-        expectedProfile.add("student"); // status
-        expectedProfile.add("1234567890"); // ID number
-        expectedProfile.add("jonah.mackey@mail.utoronto.ca"); // email
-        expectedProfile.add("4"); // year
-        expectedProfile.add("Math"); // program
-
-        Assert.assertEquals(expectedProfile, sampleUser.getProfile());
     }
 
 

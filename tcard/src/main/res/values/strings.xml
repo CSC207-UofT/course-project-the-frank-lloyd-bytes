@@ -1,5 +1,6 @@
 <resources>
     <string name="title_activity_home">HomeActivity</string>
+    <string name = "viewMode">Day Mode</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -9,6 +10,52 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_dash_board">DashBoardActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_ucheck_scrolling">ScrollingActivity</string>
+    <string name="title_activity_ucheck">UCheckActivity</string>
+    <string name="large_text"/>
+    <string name="title_activity_ucheck_fragment_main">UCheckFragmentMain</string>
+    <string name="title_activity_ucheck_questionnaire">UCheckQuestionnaireActivity</string>
+    <string name="start_health_screening_questionnaire">Start health screening questionnaire</string>
+    <string name="visit_the_university_of_toronto_utogether_website_for_more_information_amp_support">
+        <![CDATA[Visit the University of Toronto UTogether website for more information & support.]]></string>
+    <string name="logo_of_ucheck">Logo of Ucheck</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="returns_user_back_to_main">returns User back to main</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="Resources_questionnaire">This assessment is not a replacement for medical advice. If you are experiencing severe
+        symptoms or have other concerns, please seek medical attention.
+    </string>
+    <string name="status_check_in">Status Check-in</string>
+    <string name="Screen">Screening must be completed before coming on campus.</string>
+    <string name="Medical_advice">This assessment is not a replacement for medical advice. If you are experiencing
+        severe symptoms or have other concerns, please seek medical attention.
+    </string>
+    <string name="UOFT_POLICY">All members of the University of Toronto community are required to be fully vaccinated
+        against COVID-19 to be on University campuses and premises. Please confirm your vaccination status below as part
+        of your UCheck health screening.
+    </string>
+    <string name="image_of_info">Image of info</string>
+    <string name="ScreenQuestionnaireButton">Start Health Screening Questionnaire</string>
+    <string name="webpage_button">Webpage button</string>
+    <string name="Resources">Resources</string>
+    <string name="green_1">
+        Based on your answers, you do not report symptoms of COVID-19 and can continue to come to campus as planned. Please continue to abide by all applicable public health requirements, remember to wear a mask, and abide by all University posted signage. You must ensure that your manager, supervisor, or University contact person has your up-to-date contact information prior to coming on site.
+    </string>
+    <string name="green_2">
+        This self-assessment does not confirm a negative diagnosis of COVID-19. </string>
+    <string name="green_3">If you are in an at-risk group, are receiving this \'green status\' for the first time, and: </string>
+    <string name="green_4">• You are a student, please contact your local health care provider or campus Health &amp; Wellness/Health &amp; Counseling Centre before you arrive on campus/leave your residence.</string>
+    <string name="green_5">• You are a Faculty, Librarian, or Staff member, and require an alternative work arrangement or potential accommodation, please contact Health &amp; Well-Being.</string>
+    <string name="Grey">Complete this self-assessment to generate your COVID-19 risk status.</string>
+    <string name="red_1">Based on your selected responses, you may have symptoms of COVID-19, or may have been exposed to
+        COVID-19. You should not come to campus as planned. If you live in residence, please self-isolate and
+        immediately contact residence staff. </string>
+    <string name="red_2">Please note, this self-assessment does not confirm a diagnosis of COVID-19. </string>
+    <string name="red_3">Please proceed by following the recommendations below.</string>
 </resources>

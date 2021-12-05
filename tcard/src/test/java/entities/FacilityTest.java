@@ -98,31 +98,14 @@ public class FacilityTest {
 
     }
 
-//    @Test
-//    public void testDisplayFacilityInfo() {
-//       String expectedFacilityString = "Facility Name: Bahen Centre\nFacility Address: 40 St George Street\nFacility " +
-//               "Description: The Bahen Centre for Information Technology!\nFacility Hours: Monday: 8:30AM-9:00PM\n" +
-//               "Facility Criteria: program=(CS/MAT),year=(1/2):department=(APM),year=(any)";
-//
-//       Assert.assertEquals(expectedFacilityString, sampleFacility.displayFacilityInfo());
-//    }
-//
-//    @Test
-//    public void testEvaluate() {
-//        Assert.assertTrue(sampleFacility.evaluate(sampleStudent1));
-//        Assert.assertFalse(sampleFacility.evaluate(sampleStudent2));
-//        Assert.assertFalse(sampleFacility.evaluate(sampleStudent3));
-//        Assert.assertTrue(sampleFacility.evaluate(sampleFaculty1));
-//        Assert.assertFalse(sampleFacility.evaluate(sampleFaculty2));
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        sampleFacility = null;
-//        sampleStudent1 = null;
-//        sampleStudent2 = null;
-//        sampleStudent3 = null;
-//        sampleFaculty1 = null;
-//        sampleFaculty2 = null;
-//    }
+    @Test
+    public void testDisplayFacilityInfo() {
+       String expectedFacilityString = "Facility Name: Bahen Centre\nFacility Address: 40 St George Street\nFacility " +
+               "Description: The Bahen Centre for Information Technology!\nFacility Hours: Monday: 8:30AM-9:00PM\n" +
+               "Facility Criteria: program=(CS/MAT),year=(1/2):department=(APM),year=(any)";
+
+       Assert.assertEquals(expectedFacilityString, sampleFacility.displayFacilityInfo());
+    }
+
+
 }

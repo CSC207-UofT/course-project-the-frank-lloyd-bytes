@@ -1,14 +1,19 @@
 package activities;
-
+import android.annotation.SuppressLint;
 import android.widget.EditText;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
+import android.view.View;
+import usecases.UCheckCommands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,22 +27,47 @@ public class DashBoardActivity extends AppCompatActivity{
     TabLayout tabLayout;
     ViewPager2 viewPager;
     EditText username;
+    CardView uCheckCard;
+    TextView uCheckResult;
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
     UserManager myManager;
+    UCheckCommands myUCheckCommands;
 
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_page);
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
-        bottomMenu = findViewById(R.id.bottom_menu);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        uCheckCard = findViewById(R.id.uCheckCard);
+        bottomMenu = findViewById(R.id.bottomMenu);
+        uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
+        myUCheckCommands=new UCheckCommands();
 
-        // This is the bottom navigation menu each case represents the icon clicked and which page clicking on the icon
-        // should direct the user to
+        int uCheckState = myUCheckCommands.getState();
+        if (uCheckState ==2){
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
+            uCheckResult.setText("UCheck Failed");
+        }
+        else if(uCheckState ==1){
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
+            uCheckResult.setText("UCheck Passed");
+        }
+        else
+        {
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
+            uCheckResult.setText("Take Ucheck Test");
+        }
+
+
+        /*
+          This is the bottom navigation menu
+          each case represents the icon clicked and which page clicking on the icon should direct the user to
+         */
         bottomMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.profileActivity:
@@ -71,7 +101,8 @@ public class DashBoardActivity extends AppCompatActivity{
         bundle.putString("lName", info.get(3));
         bundle.putString("uID", info.get(0));
         bundle.putString("no", info.get(5));
-        List criteria = new ArrayList();
+        bundle.putString("pic", info.get(9));
+        List<String> criteria = new ArrayList<>();
         criteria.add(info.get(4));
         criteria.add(info.get(7));
         criteria.add(info.get(8));
@@ -109,5 +140,10 @@ public class DashBoardActivity extends AppCompatActivity{
             }
         });
 
+    }
+    public void onUCheckCardClick(View view) {
+        Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
+        intent4.putExtra("manager", myManager);
+        startActivity(intent4);
     }
 }

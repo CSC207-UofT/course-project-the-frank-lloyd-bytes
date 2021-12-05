@@ -1,16 +1,17 @@
 package usecases;
 
+
 import entities.Student;
 import entities.User;
 import entities.Faculty;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
-
+    public enum PasswordUpdateResult {
+        EMPTY_FIELD, OLD_PASSWORD_WRONG, NEW_SAME_AS_OLD, NEW_ATTEMPTS_DONT_MATCH, SUCCESS
+    }
     /**
      * instantiate usercommands from the userList given, create a new user in UserCommands with the given user info
      * @param userList is a list of information for a certain user
@@ -19,13 +20,6 @@ public class UserCommands implements Serializable {
         this.USER = this.createUser(userList);
     }
 
-    /**
-     * shows the profile of the user in this UserCommands
-     * @return a string of the user's information
-     */
-    public String showProfile(){
-        return this.USER.displayProfile();
-    }
 
     /**
      * create a new user given the information passed in. if user is student, create new student, else create new
@@ -53,10 +47,31 @@ public class UserCommands implements Serializable {
      * @param oldPassword the old password of the user
      * @param newPassword the new password of the user that they want to change to
      */
-    public void changePassword(String oldPassword, String newPassword){
-        if (this.USER.checkPassword(oldPassword)){
-            this.USER.changePassword(newPassword);
+    public PasswordUpdateResult changePassword(String oldPassword, String newPassword, String newPasswordReEntry){
+        if (oldPassword.equals("") || newPassword.equals("") || newPasswordReEntry.equals("")){
+            return PasswordUpdateResult.EMPTY_FIELD;
         }
+        else if (!this.USER.checkPassword(oldPassword)){
+            return PasswordUpdateResult.OLD_PASSWORD_WRONG;
+        }
+        else {
+            if(!newPassword.equals(newPasswordReEntry)){
+                return PasswordUpdateResult.NEW_ATTEMPTS_DONT_MATCH;}
+            else if(newPassword.equals(oldPassword)){
+                return PasswordUpdateResult.NEW_SAME_AS_OLD;}
+            else{
+                this.USER.changePassword(newPassword);
+                return PasswordUpdateResult.SUCCESS;
+            }
+        }
+    }
+
+    /**
+     * Change the picture of the user's avatar
+     * @param newPicture is the picture we want to use
+     */
+    public void changePicture(String newPicture){
+        this.USER.changePicture(newPicture);
     }
 
     /**

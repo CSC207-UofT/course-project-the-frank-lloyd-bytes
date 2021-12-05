@@ -30,8 +30,21 @@ public class MerchantManager {
      * @param merchantName a merchants name, represented as a string.
      * @return a list of applicable discounts, each represented as a string.
      */
-    public List<String> checkApplicableDiscounts(String merchantName) {
-        return DISCOUNT_HELPER.getApplicableDiscounts(MERCHANT_MAP.
-                getMerchant(merchantName).getDiscounts(), USER_MANAGER.getUser());
+    public String checkApplicableDiscounts(String merchantName) {
+        List<String> discountsList = DISCOUNT_HELPER.getApplicableDiscounts(MERCHANT_MAP.getMerchant(merchantName).
+                getDiscounts(), USER_MANAGER.getUser());
+
+        if (discountsList.size() == 0){
+            return "You have no discounts at this merchant";
+        } else {
+            StringBuilder discountsString = new StringBuilder();
+
+            for (String discount : discountsList) {
+                discountsString.append(discount).append("\n");
+            }
+            discountsString.delete(discountsString.length() - 1, discountsString.length());
+
+            return discountsString.toString();
+        }
     }
 }

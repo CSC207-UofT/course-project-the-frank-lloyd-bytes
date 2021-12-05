@@ -38,9 +38,6 @@ public class MerchantManagerTest extends TestCase {
     }
 
     public void testCheckApplicableDiscounts() {
-        List<String> expectedDiscounts = new ArrayList<>();
-        expectedDiscounts.add("70% off on textbooks, stationary, and chips!");
-
-        assertEquals(expectedDiscounts, sampleMerchantManager.checkApplicableDiscounts("U of T Bookstore"));
+        assertEquals("70% off on textbooks, stationary, and chips!", sampleMerchantManager.checkApplicableDiscounts("U of T Bookstore"));
     }
 }

@@ -1,6 +1,8 @@
 package activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +20,8 @@ public class FacilityActivity extends AppCompatActivity {
     FacilitiesManager facilitiesManager;
     UserManager userManager;
     FacilityAdapter adapter;
+    Button backToDashboard;
+    UserManager myManager;
     //FileReader fileReader;
 
     /**
@@ -31,6 +35,14 @@ public class FacilityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_main);
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
+        backToDashboard = findViewById(R.id.facilitiesGoBack);
+
+        backToDashboard.setOnClickListener(view -> {
+            Intent intent4 = new Intent(getApplicationContext(), DashBoardActivity.class);
+            intent4.putExtra("manager", userManager);
+            startActivity(intent4);
+        });
+
         //fileReader = new FileReader();
         facilitiesInfo = new ArrayList<>();
         try {
@@ -78,6 +90,6 @@ public class FacilityActivity extends AppCompatActivity {
         facilitiesInfo.add(facilityTwo);
         facilitiesInfo.add(facilityThree);
 
-        FacilitiesManager facilitiesManager = new FacilitiesManager(facilitiesInfo);
+        facilitiesManager = new FacilitiesManager(facilitiesInfo);
     }
 }

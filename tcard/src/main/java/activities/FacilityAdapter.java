@@ -51,7 +51,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
                    String name = facilityName.getText().toString();
                    Boolean R = facilitiesManager.evaluateHelper(userManager.getUser(),
                            facilitiesManager.getFacility(name));
-                   Toast.makeText(itemView.getContext(), facility.get(0), Toast.LENGTH_SHORT).show();
+                   Toast.makeText(itemView.getContext(), R.toString(), Toast.LENGTH_SHORT).show();
                }
             });
         }

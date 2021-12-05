@@ -7,14 +7,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import controllers.FacilityManager;
 import controllers.MerchantManager;
 import controllers.UserManager;
 import dataBase.FileReader;
 
 import java.io.IOException;
-import java.util.List;
-
 
 public class MerchantActivity extends AppCompatActivity {
     Button seeDiscounts;
@@ -26,7 +23,7 @@ public class MerchantActivity extends AppCompatActivity {
     FileReader merchantReader = new FileReader("tcard/MerchantsData.csv");
 
     /**
-     * starting the activity for the facility's page, programming the buttons on the screen as well as the adapter that
+     * Starts the activity for the merchants page, programming the buttons on the screen as well as the adapter that
      * sets up the texts
      *
      * @param savedInstanceState for any information that was saved previously

@@ -16,6 +16,7 @@ import controllers.UserManager;
 import dataBase.UserDBHelper;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity{
     /**
@@ -63,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity{
         year.setText(info.get(7));
         String imageAddress = info.get(9);
 
-        if (imageAddress != " ") {
+        if (!Objects.equals(imageAddress, " ")) {
             Uri path = Uri.parse(imageAddress);
             profilePic.setImageURI(path);
         }

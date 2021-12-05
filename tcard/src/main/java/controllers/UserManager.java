@@ -1,12 +1,8 @@
 package controllers;
 
 import entities.User;
-import usecases.RegisterUseCase;
 import usecases.UserCommands;
-import usecases.UserReadWriter;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;

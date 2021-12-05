@@ -32,12 +32,9 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
         questionAdapter = new QuestionAdapter(myUCheckQuestions.getQuestions(),this,this);
         listView.setAdapter(questionAdapter);
         //the button sends us back to UCheck dashboard. With result.
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(RESULT_CANCELED,null);
-                finish();
-            }
+        imgBack.setOnClickListener(v -> {
+            setResult(RESULT_CANCELED,null);
+            finish();
         });
         // Here the USER interacts with the questionnaire.
         btnSubmit.setOnClickListener(new View.OnClickListener() {

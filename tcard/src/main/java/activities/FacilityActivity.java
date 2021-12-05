@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilitiesManager;
 import controllers.UserManager;
-import entities.User;
-
 import java.io.IOException;
 import java.util.ArrayList;
 

@@ -32,10 +32,10 @@ public class LoginActivity extends AppCompatActivity{
         viewMode = findViewById(R.id.moodSwitcher);
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);
-        SharedPreferences sharedPreferences = null;
+        SharedPreferences sharedPreferences;
 
         sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean("nightMode", false);
+        boolean booleanValue = sharedPreferences.getBoolean("nightMode", false);
         if (booleanValue){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             viewMode.setChecked(true);

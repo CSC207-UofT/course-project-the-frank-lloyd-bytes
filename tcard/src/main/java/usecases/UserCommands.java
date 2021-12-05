@@ -1,16 +1,14 @@
 package usecases;
 
-import dataBase.UserDBHelper;
+
 import entities.Student;
 import entities.User;
 import entities.Faculty;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
-    UserDBHelper DB;
     public enum PasswordUpdateResult {
         EMPTY_FIELD, OLD_PASSWORD_WRONG, NEW_SAME_AS_OLD, NEW_ATTEMPTS_DONT_MATCH, SUCCESS
     }

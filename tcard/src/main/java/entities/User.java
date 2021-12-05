@@ -54,17 +54,6 @@ public abstract class User implements Serializable {
         return passwordAttempt.equals(this.password);
     }
 
-
-    /**
-     * Change the picture of this user using newPictue
-     *
-     * @param newPicture is the picture we want to use.
-     */
-    public void changePicture(String newPicture) {
-        this.picture = newPicture;
-    }
-
-
     /**
      * This method is for changing this user's password.
      *
@@ -83,12 +72,6 @@ public abstract class User implements Serializable {
         this.picture = newPicture;
     }
 
-
-    /**
-     * This method is for displaying a users basic profile information.
-     * @return a string that displays the profile in a preferred format.
-     */
-    public abstract String displayProfile();
 
     /**
      * A getter method to get all the users profile information (including utorid and password) as an arraylist.

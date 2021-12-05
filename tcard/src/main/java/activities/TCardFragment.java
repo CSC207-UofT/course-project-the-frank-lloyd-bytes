@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 public class TCardFragment extends Fragment{
@@ -30,9 +29,9 @@ public class TCardFragment extends Fragment{
         lastName.setText(bundle.getString("lName"));
         utorID.setText(bundle.getString("uID"));
         number.setText(bundle.getString("no"));
-        //if (bundle.getString("pic") != ""){
-           //profile.setImageURI(Uri.parse(bundle.getString("pic")));
-        //}
+        if (bundle.getString("pic") != " "){
+           profile.setImageURI(Uri.parse(bundle.getString("pic")));
+        }
 
 
         return view;

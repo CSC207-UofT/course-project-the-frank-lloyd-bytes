@@ -1,11 +1,11 @@
 package activities;
 
-import android.content.SharedPreferences;
-import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatDelegate;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity{
      */
     EditText username, password;
     Button register, login;
-    Switch viewMode;
     UserDBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,36 +28,9 @@ public class LoginActivity extends AppCompatActivity{
         username = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
         login = findViewById(R.id.login);
-        viewMode = findViewById(R.id.moodSwitcher);
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);
-        SharedPreferences sharedPreferences = null;
 
-        sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean("nightMode", false);
-        if (booleanValue){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            viewMode.setChecked(true);
-        }
-
-        SharedPreferences finalSharedPreferences = sharedPreferences;
-        viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                viewMode.setChecked(true);
-                SharedPreferences.Editor editor = finalSharedPreferences.edit();
-                editor.putBoolean("nightMode", true);
-                editor.apply();
-
-            }
-            else{
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                viewMode.setChecked(false);
-                SharedPreferences.Editor editor = finalSharedPreferences.edit();
-                editor.putBoolean("nightMode", false);
-                editor.apply();
-            }
-        });
 
         // Clicking to the register button takes the user to the registration page
         register.setOnClickListener(view -> {

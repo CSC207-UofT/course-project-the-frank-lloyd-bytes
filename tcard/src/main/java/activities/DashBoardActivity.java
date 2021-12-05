@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -52,33 +53,35 @@ public class DashBoardActivity extends AppCompatActivity{
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         myUCheckCommands=new UCheckCommands();
-        SharedPreferences sharedPreferences = null;
 
-        //sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
-        //Boolean booleanValue = sharedPreferences.getBoolean("nightMode", true);
-        //if (booleanValue){
-        //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        //    viewMode.setChecked(true);
-        //}
+        // This part control the switch button for the day-night mode
+        // Note: it's not working perfectly, but it doesn't glitch at least
+        // I'll make it work perfectly if UofT hires us to use the app irl
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // here we check if the nightMode is on or not to decide which state the button should be at
+        if (sharedPreferences.getBoolean("nightMode", false)){
+            viewMode.setChecked(false);
+        }
+        else{
+            viewMode.setChecked(true);
+        }
+        // here we change the default mode when the switch is moved by the user
+        // the editor passes on if we're on the nightMode or not, so the state is saved
+        viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                editor.putBoolean("nightMode", true);
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                editor.putBoolean("nightMode", false);
+            }
+            editor.apply();
+            editor.commit();
+        });
 
-        //SharedPreferences finalSharedPreferences = sharedPreferences;
-        //viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-        //    if (isChecked){
-        //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        //        viewMode.setChecked(true);
-        //        SharedPreferences.Editor editor = finalSharedPreferences.edit();
-        //        editor.putBoolean("nightMode", true);
-        //        editor.apply();
 
-        //    }
-        //    else{
-        //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        //        viewMode.setChecked(false);
-        //        SharedPreferences.Editor editor = finalSharedPreferences.edit();
-        //        editor.putBoolean("nightMode", false);
-        //        editor.apply();
-        //    }
-        //});
 
         uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, myUCheckCommands.getCardColor()));
         uCheckResult.setText(myUCheckCommands.getCardText());

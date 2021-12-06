@@ -23,7 +23,7 @@
             android:paddingTop="50dp"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
-            android:textSize="35dp"
+            android:textSize="35sp"
             android:textColor="@color/textColor"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <androidx.constraintlayout.widget.ConstraintLayout

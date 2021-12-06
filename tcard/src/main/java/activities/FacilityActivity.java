@@ -20,7 +20,6 @@ public class FacilityActivity extends AppCompatActivity {
     UserManager userManager;
     FacilityAdapter adapter;
     Button backToDashboard;
-    UserManager myManager;
     //FileReader fileReader;
 
     /**

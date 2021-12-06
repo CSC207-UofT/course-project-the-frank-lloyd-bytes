@@ -1,5 +1,6 @@
 package activities;
 
+import adapters.DashBoardFragmentsAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;

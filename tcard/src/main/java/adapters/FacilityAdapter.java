@@ -1,5 +1,6 @@
-package activities;
+package adapters;
 
+import activities.R;
 import android.view.LayoutInflater;
 import android.view.View;
 

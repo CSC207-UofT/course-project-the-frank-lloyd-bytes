@@ -1,5 +1,6 @@
 package activities;
 
+import adapters.FacilityAdapter;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;

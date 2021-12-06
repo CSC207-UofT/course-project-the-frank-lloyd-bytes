@@ -1,4 +1,4 @@
-package usecases;
+package interfaces;
 
 import java.util.List;
 

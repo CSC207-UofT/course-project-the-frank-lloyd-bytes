@@ -1,5 +1,6 @@
 package activities;
 
+import controllers.UCheckManager;
 import interfaces.OnOptionSelection;
 import adapters.QuestionAdapter;
 import android.content.Intent;
@@ -10,14 +11,13 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-import usecases.UCheckQuestionsCommands;
 
 public class UCheckQuestionnaireActivity extends AppCompatActivity implements OnOptionSelection {
     Button btnSubmit;
     ListView listView;
     QuestionAdapter questionAdapter;
     ImageView imgBack;
-    UCheckQuestionsCommands myUCheckQuestions;
+    UCheckManager myUCheckManager;
     /**
      * @param savedInstanceState the previous saved state in other activity.
      */
@@ -28,8 +28,8 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
         btnSubmit = findViewById(R.id.btnSubmit);
         listView = findViewById(R.id.listView);
         imgBack = findViewById(R.id.imgBack);
-        myUCheckQuestions = new UCheckQuestionsCommands();
-        questionAdapter = new QuestionAdapter(myUCheckQuestions.getQuestions(),this,this);
+        myUCheckManager = new UCheckManager();
+        questionAdapter = new QuestionAdapter(myUCheckManager.getQuestions(),this,this);
         listView.setAdapter(questionAdapter);
         //the button sends us back to UCheck dashboard. With result.
         imgBack.setOnClickListener(v -> {
@@ -44,14 +44,14 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
             @Override
             public void onClick(View v) {
                 // If not every option is selected during the questionnaire, a Toast is sent out in UI to warn USER and stop next activity.
-                if(!myUCheckQuestions.isAllSelected())
+                if(!myUCheckManager.isAllSelected())
                 {
                     Toast.makeText(UCheckQuestionnaireActivity.this,"Please Answer All Questions",Toast.LENGTH_LONG).show();
                     return;
                 }
                 boolean isAllowed;
                 // This is the logic to pass the questionnaire, as with original UCheck. Here without vaccine proof 'yes'. It fails the test.
-                isAllowed = myUCheckQuestions.isAllowed();
+                isAllowed = myUCheckManager.isAllowed();
                 Intent intent = getIntent();
                 intent.putExtra("isAllowed", isAllowed);
                 setResult(RESULT_OK, intent);
@@ -67,7 +67,7 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
      */
     @Override
     public void onSelection(boolean isNoVar, int position) {
-        myUCheckQuestions.updateSelection(isNoVar, position);
+        myUCheckManager.updateSelection(isNoVar, position);
 
     }
 

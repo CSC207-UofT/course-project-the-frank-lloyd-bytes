@@ -130,6 +130,4 @@ public abstract class User implements Serializable {
     public String getEMAIL() {
         return this.profiles.get(EMAIL);
     }
-
-
 }

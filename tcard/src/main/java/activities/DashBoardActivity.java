@@ -51,7 +51,7 @@ public class DashBoardActivity extends AppCompatActivity{
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         myUCheckCommands = new UCheckCommands();
         //Add previous Activity results back in SharedPreferences.
-        myUCheckCommands.populateResult(this, myManager.getUser().getId());
+        myUCheckCommands.populateResult(this, myManager.getId());
         //Get previous state.
         int layoutInt = myUCheckCommands.getState();
         //Once a questionnaire is completed, this method sets the UCheck results

@@ -83,4 +83,22 @@ public class UserCommands implements Serializable {
     public User getUser(){
         return this.USER;
     }
+
+    /**
+     * This method returns the String of USER ID (UTor ID).
+     * @return String of USER id.
+     */
+    public String getId(){
+        return this.USER.getId();
+    }
+
+    /**
+     *This method returns the full name of USER.
+     * @return String of full name with space in middle.
+     */
+    public String getFullName(){
+        String firstName = this.USER.getFN();
+        String lastName = this.USER.getLN();
+        return firstName + " " + lastName;
+    }
 }

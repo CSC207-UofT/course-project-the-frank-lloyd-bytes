@@ -62,6 +62,12 @@ public class UserCommandsTest {
         Assert.assertFalse(sampleUserCommands2.getUser().checkPassword("newpassword!"));
     }
 
+    @Test
+    public void testUserID() {
+        Assert.assertEquals("1234567890", sampleUserCommands2.getId());
+        Assert.assertEquals("1234567890", sampleUserCommands1.getId());
+    }
+
     @After
     public void tearDown() {
         sampleStudent = null;

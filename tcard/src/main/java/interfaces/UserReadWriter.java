@@ -1,4 +1,4 @@
-package usecases;
+package interfaces;
 
 import java.util.List;
 
@@ -49,8 +49,12 @@ public interface UserReadWriter {
     /**
      * update the password for the user in the database
      * @param data is the user's info
-     * @return true if the update work, false if not
      */
-    Boolean updatePassword(List<String> data);
-    Boolean updatePicture(List<String> data);
+    void updatePassword(List<String> data);
+
+    /**
+     * update the picture for the user in the database
+     * @param data is the usr's picture
+     */
+    void updatePicture(List<String> data);
 }

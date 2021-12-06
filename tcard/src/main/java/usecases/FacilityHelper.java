@@ -20,7 +20,7 @@ public class FacilityHelper{
     }
     //to decrease size of method
     public String StudentFacultyDifferHelper(User user){
-        if (user.getSTATUS().equals("student")) {
+        if (user.getSTATUS().equals("Student")) {
             return "Student";
 
         } else { // if the user is not a student, then the user is a faculty member
@@ -43,8 +43,8 @@ public class FacilityHelper{
     public ArrayList<String> getStudentInfo(Student student){
         //in the order of studentprogram, studentyear
         ArrayList<String> stuInfo = new ArrayList<>();
-        stuInfo.add(student.STUDENT_PROGRAM);
-        stuInfo.add(student.STUDENT_YEAR);
+        stuInfo.add(student.getSTUDENT_PROGRAM());
+        stuInfo.add(student.getSTUDENT_YEAR());
         return stuInfo;
     }
     public ArrayList<String[]> getFacilityCriteriaFaculty(String[] criteria){

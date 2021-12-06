@@ -1,23 +1,22 @@
 package usecases;
 
-import activities.R;
 import android.content.Context;
+import activities.R;
 import entities.UCheck;
-import entities.UCheckResults;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import dataBase.UCheckResults;
 
-public class UCheckCommands {
+public class UCheckCommands{
 
     private final UCheck UCHECK;
-    private final UCheckResults UCHECKRESULTS;
+    private final UCheckResults UCHECK_RESULTS;
 
     /**
      * Initializes UCheckResults & UCheck object for interaction between UI and Entities.
      */
     public UCheckCommands(){
-        UCHECKRESULTS = new UCheckResults();
+        UCHECK_RESULTS = new UCheckResults();
         UCHECK = new UCheck();
     }
 
@@ -43,7 +42,7 @@ public class UCheckCommands {
      * @param state Integer result state.
      */
     public void setResult(Context context, String userId, int state){
-        UCHECKRESULTS.setResults(context,userId, state);
+        UCHECK_RESULTS.setResults(context,userId, state);
     }
 
     /**
@@ -77,31 +76,5 @@ public class UCheckCommands {
         else
             layout = R.layout.ucheck_grey_layout_view;
         return layout;
-    }
-
-    public int getCardColor() {
-        int color;
-        if (getState()  == 1) {
-            color = R.color.positiveUCheck;
-        }
-        else if (getState()  == 2) {
-            color = R.color.negativeUCheck;
-        }
-        else
-            color = R.color.neutralUCheck;
-        return color;
-    }
-
-    public String getCardText() {
-        String text;
-        if (getState()  == 1) {
-            text = "UCheck Passed";
-        }
-        else if (this.getState()  == 2) {
-            text = "UCheck Failed";
-        }
-        else
-            text = "Take UCheck";
-        return text;
     }
 }

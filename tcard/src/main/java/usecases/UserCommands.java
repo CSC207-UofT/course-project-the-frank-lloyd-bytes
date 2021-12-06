@@ -1,16 +1,14 @@
 package usecases;
 
-import dataBase.UserDBHelper;
+
 import entities.Student;
 import entities.User;
 import entities.Faculty;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserCommands implements Serializable {
     private final User USER;
-    UserDBHelper DB;
     public enum PasswordUpdateResult {
         EMPTY_FIELD, OLD_PASSWORD_WRONG, NEW_SAME_AS_OLD, NEW_ATTEMPTS_DONT_MATCH, SUCCESS
     }
@@ -30,7 +28,7 @@ public class UserCommands implements Serializable {
      * @return a User object
      */
     public User createUser(List<String> userInfo) {
-        if (userInfo.get(4).equals("student")) {
+        if (userInfo.get(4).equals("Student")) {
             return new Student(userInfo);
         }
         return new Faculty(userInfo);
@@ -82,5 +80,23 @@ public class UserCommands implements Serializable {
      */
     public User getUser(){
         return this.USER;
+    }
+
+    /**
+     * This method returns the String of USER ID.
+     * @return String of USER id.
+     */
+    public String getId(){
+        return this.USER.getId();
+    }
+
+    /**
+     *This method returns the full name of USER.
+     * @return String of full name with space in middle.
+     */
+    public String getFullName(){
+        String firstName = this.USER.getFN();
+        String lastName = this.USER.getLN();
+        return firstName + " " + lastName;
     }
 }

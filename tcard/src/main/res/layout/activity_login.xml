@@ -38,7 +38,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="50dp">
             <TextView
-                    android:text="@string/myVirtualTCard"
+                    android:text="My Virtual TCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -61,7 +61,7 @@
                     android:paddingTop="80dp"
                     android:id="@+id/linearLayout1">
                 <TextView
-                        android:text="@string/userName"
+                        android:text="User Name"
                         android:layout_width="30dp"
                         android:layout_height="35dp"
                         android:id="@+id/textView10"
@@ -82,7 +82,7 @@
                         android:id="@+id/userNameInput"
                         android:layout_weight="1"
                         android:textColor="#818181"
-                        android:hint="@string/hintUtorId"/>
+                        android:hint="enter utorID"/>
             </LinearLayout>
 
             <LinearLayout
@@ -95,7 +95,7 @@
 
                     android:id="@+id/linearLayout">
                 <TextView
-                        android:text="@string/password"
+                        android:text="Password"
                         android:layout_width="30dp"
                         android:layout_height="35dp"
                         android:id="@+id/textView9"
@@ -116,10 +116,10 @@
                         android:id="@+id/passwordInput"
                         android:layout_weight="1"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:hint="@string/hintPassword"/>
+                        android:hint="enter password"/>
             </LinearLayout>
             <Button
-                    android:text="@string/login"
+                    android:text="Login"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:textSize="15dp"
@@ -130,7 +130,7 @@
                     android:layout_gravity="center"
                     app:backgroundTint="@null"/>
             <Button
-                    android:text="@string/newUser"
+                    android:text="New user? Register now"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:id="@+id/register"

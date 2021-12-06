@@ -1,4 +1,6 @@
-package activities;
+package adapters;
+import activities.QRCodeFragment;
+import activities.TCardFragment;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

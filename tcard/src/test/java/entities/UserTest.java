@@ -1,7 +1,5 @@
-package entitiesTest;
+package entities;
 
-import entities.Student;
-import entities.User;
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;

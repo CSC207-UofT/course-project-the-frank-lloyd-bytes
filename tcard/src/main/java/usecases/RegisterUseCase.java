@@ -1,5 +1,7 @@
 package usecases;
 
+import interfaces.UserReadWriter;
+
 import java.util.List;
 
 /**

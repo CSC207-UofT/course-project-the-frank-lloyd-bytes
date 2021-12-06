@@ -1,5 +1,6 @@
 package activities;
 
+import adapters.DashBoardFragmentsAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,15 +45,18 @@ public class DashBoardActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_page);
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
         viewMode = findViewById(R.id.moodSwitcher);
-        uCheckCard = findViewById(R.id.UCheckCard);
-        bottomMenu = findViewById(R.id.bottom_menu);
+        uCheckCard = findViewById(R.id.uCheckCard);
+        bottomMenu = findViewById(R.id.bottomMenu);
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        myUCheckCommands=new UCheckCommands();
+        myUCheckCommands = new UCheckCommands();
+
+
+
 
         // This part control the switch button for the day-night mode
         // Note: it's not working perfectly, but it doesn't glitch at least
@@ -60,12 +64,7 @@ public class DashBoardActivity extends AppCompatActivity{
         SharedPreferences sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         // here we check if the nightMode is on or not to decide which state the button should be at
-        if (sharedPreferences.getBoolean("nightMode", false)){
-            viewMode.setChecked(false);
-        }
-        else{
-            viewMode.setChecked(true);
-        }
+        viewMode.setChecked(!sharedPreferences.getBoolean("nightMode", false));
         // here we change the default mode when the switch is moved by the user
         // the editor passes on if we're on the nightMode or not, so the state is saved
         viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -83,10 +82,28 @@ public class DashBoardActivity extends AppCompatActivity{
 
 
 
-        uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, myUCheckCommands.getCardColor()));
-        uCheckResult.setText(myUCheckCommands.getCardText());
 
 
+
+
+        //Add previous Activity results back in SharedPreferences.
+        myUCheckCommands.populateResult(this, myManager.getId());
+        //Get previous state.
+        int layoutInt = myUCheckCommands.getState();
+        //Once a questionnaire is completed, this method sets the UCheck results
+        //UCheck of questionnaire of USER.
+        if (layoutInt == 2){
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
+            uCheckResult.setText("UCheck Failed");
+        }
+        else if(layoutInt == 1){
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
+            uCheckResult.setText("UCheck Passed");
+        }
+        else {
+            uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
+            uCheckResult.setText("Take UCheck Test");
+        }
 
         /*
           This is the bottom navigation menu
@@ -107,6 +124,11 @@ public class DashBoardActivity extends AppCompatActivity{
                 case R.id.loginActivity:
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
+                    break;
+                case R.id.merchantActivity:
+                    Intent intent4 = new Intent(getApplicationContext(), MerchantActivity.class);
+                    intent4.putExtra("manager", myManager);
+                    startActivity(intent4);
                     break;
             }
             return true;

@@ -1,10 +1,7 @@
-package entitiesTest;
+package entities;
 
-import entities.Student;
-import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import java.util.ArrayList;
 

@@ -10,14 +10,14 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-import usecases.UCheckQuestionCommands;
+import usecases.UCheckQuestionsCommands;
 
 public class UCheckQuestionnaireActivity extends AppCompatActivity implements OnOptionSelection {
     Button btnSubmit;
     ListView listView;
     QuestionAdapter questionAdapter;
     ImageView imgBack;
-    UCheckQuestionCommands myUCheckQuestions;
+    UCheckQuestionsCommands myUCheckQuestions;
     /**
      * @param savedInstanceState the previous saved state in other activity.
      */
@@ -28,16 +28,13 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
         btnSubmit = findViewById(R.id.btnSubmit);
         listView = findViewById(R.id.listView);
         imgBack = findViewById(R.id.imgBack);
-        myUCheckQuestions = new UCheckQuestionCommands();
+        myUCheckQuestions = new UCheckQuestionsCommands();
         questionAdapter = new QuestionAdapter(myUCheckQuestions.getQuestions(),this,this);
         listView.setAdapter(questionAdapter);
         //the button sends us back to UCheck dashboard. With result.
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(RESULT_CANCELED,null);
-                finish();
-            }
+        imgBack.setOnClickListener(v -> {
+            setResult(RESULT_CANCELED,null);
+            finish();
         });
         // Here the USER interacts with the questionnaire.
         btnSubmit.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package usecasesTest;
+package usecases;
 
 import entities.Faculty;
 import entities.Student;
@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import usecases.UserCommands;
 
 import java.util.ArrayList;
 
@@ -60,6 +59,18 @@ public class UserCommandsTest {
 
         Assert.assertTrue(sampleUserCommands1.getUser().checkPassword("newpassword!"));
         Assert.assertFalse(sampleUserCommands2.getUser().checkPassword("newpassword!"));
+    }
+
+    @Test
+    public void testUserID() {
+        Assert.assertEquals("mackeyjonah", sampleUserCommands2.getId());
+        Assert.assertEquals("mackeyjonah", sampleUserCommands1.getId());
+    }
+
+    @Test
+    public void testFullName() {
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands2.getFullName());
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands1.getFullName());
     }
 
     @After

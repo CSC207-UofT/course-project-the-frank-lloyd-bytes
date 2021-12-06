@@ -10,36 +10,32 @@ import usecases.FacilityHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Objects;
 
-import dataBase.FileReader;
-
 public class FacilitiesManager implements Serializable {
-    private final FacilityHelper myFacilityHelper;
-    private FacilitiesCommands facilitiesCommands;
+    private final FacilityHelper MY_FACILITY_HELPER;
+    private final FacilitiesCommands FACILITIES_COMMANDS;
 
     /**
      * create a new facility manager that sets up a facility map with the read file from the database
      */
     public FacilitiesManager(ArrayList<ArrayList<String>> facilitiesInfo) {
-        this.facilitiesCommands = new FacilitiesCommands(facilitiesInfo);
-        this.myFacilityHelper = new FacilityHelper();
+        this.FACILITIES_COMMANDS = new FacilitiesCommands(facilitiesInfo);
+        this.MY_FACILITY_HELPER = new FacilityHelper();
     }
 
     public ArrayList<ArrayList<String>> getFacilitiesInfo(){
-        return this.facilitiesCommands.getInfo();
+        return this.FACILITIES_COMMANDS.getInfo();
     }
 
     public Facility getFacility(String name){
-        return this.facilitiesCommands.getFacility(name);
+        return this.FACILITIES_COMMANDS.getFacility(name);
     }
 
-    //FileReader myFileReader = new FileReader();
-    //ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
+
 
     public boolean evaluateHelper(User user, Facility facility){
-        if (Objects.equals(myFacilityHelper.StudentFacultyDifferHelper(user), "Student")){
+        if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "Student")){
             return evaluateStudent((Student) user, facility);
         }
         else{
@@ -48,12 +44,12 @@ public class FacilitiesManager implements Serializable {
     }
 
     public boolean evaluateStudent(Student student, Facility facility){
-        ArrayList<String[]> conditions = myFacilityHelper.
-                getFacilityCriteriaStudent(myFacilityHelper.getCriteria(facility));
+        ArrayList<String[]> conditions = MY_FACILITY_HELPER.
+                getFacilityCriteriaStudent(MY_FACILITY_HELPER.getCriteria(facility));
         String[] programConditions = conditions.get(0);
         String[] yearConditions = conditions.get(1);
 
-        ArrayList<String> studentInfo = myFacilityHelper.getStudentInfo(student);
+        ArrayList<String> studentInfo = MY_FACILITY_HELPER.getStudentInfo(student);
         String studentProgram = studentInfo.get(0);
         String studentYear = studentInfo.get(1);
 
@@ -71,12 +67,12 @@ public class FacilitiesManager implements Serializable {
     }
 
     public boolean evaluateFaculty(Faculty faculty, Facility facility){
-        ArrayList<String[]> conditions = myFacilityHelper.
-                getFacilityCriteriaFaculty(myFacilityHelper.getCriteria(facility));
+        ArrayList<String[]> conditions = MY_FACILITY_HELPER.
+                getFacilityCriteriaFaculty(MY_FACILITY_HELPER.getCriteria(facility));
         String[] departmentConditions = conditions.get(0);
         String[] yearConditions = conditions.get(1);
 
-        ArrayList<String> facultyInfo = myFacilityHelper.getFacultyInfo(faculty);
+        ArrayList<String> facultyInfo = MY_FACILITY_HELPER.getFacultyInfo(faculty);
         String facultyDepartment = facultyInfo.get(0);
         String facultyYear = facultyInfo.get(1);
 

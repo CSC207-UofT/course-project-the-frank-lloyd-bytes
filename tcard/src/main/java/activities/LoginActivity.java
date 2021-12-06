@@ -1,16 +1,15 @@
 package activities;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
 import java.util.List;
-import java.util.Locale;
 
 
 public class LoginActivity extends AppCompatActivity{
@@ -22,37 +21,12 @@ public class LoginActivity extends AppCompatActivity{
     EditText username, password;
     Button register, login;
     UserDBHelper DB;
-    RadioGroup languageGroup;
-    RadioButton checkedButton;
-    Locale locale;
-
-    public void onRadioButtonClicked(View view) {
-        int radioButtonID = languageGroup.getCheckedRadioButtonId();
-        checkedButton = findViewById(radioButtonID);
-        String location = "en";
-
-        String language = checkedButton.toString();
-        Toast.makeText(LoginActivity.this, language, Toast.LENGTH_SHORT).show();
-        if (language.equals(R.string.english)){
-                location = "en";
-        }
-        else if (language.equals(R.string.french)){
-            location = "fr";
-        }
-        locale = new Locale(location);
-        Locale.setDefault(locale);
-        Configuration configuration = getResources().getConfiguration();
-        configuration.locale = locale;
-        getApplicationContext().getResources().updateConfiguration(configuration, getApplicationContext().getResources().getDisplayMetrics());
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.userNameInput);
         password = findViewById(R.id.passwordInput);
-        languageGroup = findViewById(R.id.languageGroup);
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);

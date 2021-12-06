@@ -12,6 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import usecases.UCheckQuestionCommands;
+
 import java.util.List;
 
 /**
@@ -71,9 +73,10 @@ public class QuestionAdapter extends BaseAdapter {
         RadioButton  radioButtonNo = itemView.findViewById(R.id.radioNo);
         RadioButton  radioButtonYes = itemView.findViewById(R.id.radioYes);
         RadioGroup radiogroup = itemView.findViewById(R.id.radiogroup);
-        UCheckQuestion mUCheckQuestion = listData.get(position);
-        txtTitle.setText(mUCheckQuestion.getTitle());
-        txtQuestion.setText(mUCheckQuestion.getQuestion());
+        UCheckQuestionCommands myUCheckQuestionCommands = new UCheckQuestionCommands();
+        myUCheckQuestionCommands.populateUCheckQuestion(listData.get(position));
+        txtTitle.setText(myUCheckQuestionCommands.getTitle());
+        txtQuestion.setText(myUCheckQuestionCommands.getQuestion());
         radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             // This determines whether a button has been selected in UI, it also enforces 1 button per yes/no layer.

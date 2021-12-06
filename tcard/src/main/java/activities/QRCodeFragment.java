@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidx.fragment.app.Fragment;
-import com.google.zxing.WriterException;
+
 
 public class QRCodeFragment extends Fragment {
     /**
@@ -23,6 +23,7 @@ public class QRCodeFragment extends Fragment {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.qr_code_tab_fragment, container, false);
         qrImage = view.findViewById(R.id.qrPlaceHolder);
         Bundle bundle = getArguments();
+        assert bundle != null;
         String input = bundle.getString("allInfo");
         QRGEncoder qrgEncoder = new QRGEncoder(input, QRGContents.Type.TEXT, 200);
         Bitmap bitmap = qrgEncoder.getBitmap();

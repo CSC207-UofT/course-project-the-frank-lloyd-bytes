@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
+import java.util.Objects;
+
 public class TCardFragment extends Fragment{
     /**
      * This is one of the fragments that's displayed in the Dashboard through ViewPager2
@@ -25,11 +27,12 @@ public class TCardFragment extends Fragment{
         TextView number = view.findViewById(R.id.tCardNo);
         ImageView profile = view.findViewById(R.id.profilePic);
         Bundle bundle = getArguments();
+        assert bundle != null;
         firstName.setText(bundle.getString("fName"));
         lastName.setText(bundle.getString("lName"));
         utorID.setText(bundle.getString("uID"));
         number.setText(bundle.getString("no"));
-        if (bundle.getString("pic") != " "){
+        if (!Objects.equals(bundle.getString("pic"), "")){
            profile.setImageURI(Uri.parse(bundle.getString("pic")));
         }
 

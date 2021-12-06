@@ -1,14 +1,15 @@
 package activities;
 
+import android.content.Intent;
+import adapters.FacilityAdapter;
 import android.os.Bundle;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilitiesManager;
 import controllers.UserManager;
-import entities.User;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,6 +19,8 @@ public class FacilityActivity extends AppCompatActivity {
     FacilitiesManager facilitiesManager;
     UserManager userManager;
     FacilityAdapter adapter;
+    Button backToDashboard;
+    UserManager myManager;
     //FileReader fileReader;
 
     /**
@@ -31,6 +34,14 @@ public class FacilityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_main);
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
+        backToDashboard = findViewById(R.id.facilitiesGoBack);
+
+        backToDashboard.setOnClickListener(view -> {
+            Intent intent4 = new Intent(getApplicationContext(), DashBoardActivity.class);
+            intent4.putExtra("manager", userManager);
+            startActivity(intent4);
+        });
+
         //fileReader = new FileReader();
         facilitiesInfo = new ArrayList<>();
         try {
@@ -67,13 +78,13 @@ public class FacilityActivity extends AppCompatActivity {
         facilityTwo.add("St George");
         facilityTwo.add("lab");
         facilityTwo.add("9 to 5");
-        facilityTwo.add("program=(CS),level=(undergrad):department=(CS),position=(postdoc/professor)");
+        facilityTwo.add("program=(CompSci/Math),level=(1/2/3):department=(CompSci/Math),position=(4/5/6)");
 
         facilityThree.add("New College");
         facilityThree.add("21 classic");
         facilityThree.add("residence");
         facilityThree.add("24 hours");
-        facilityThree.add("program=(CS),level=(undergrad):department=(CS),position=(postdoc/professor)");
+        facilityThree.add("program=(Music),level=(1):department=(Music),position=(1)");
         facilitiesInfo.add(facilityOne);
         facilitiesInfo.add(facilityTwo);
         facilitiesInfo.add(facilityThree);

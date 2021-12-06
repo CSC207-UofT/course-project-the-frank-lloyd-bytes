@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class FacilitiesCommands implements Serializable {
     private final ArrayList<Facility> FACILITIES;
-    private final HashMap<String, Facility> facilityMap = new HashMap<>();
+    private final HashMap<String, Facility> FACILITY_Map = new HashMap<>();
 
     public FacilitiesCommands(ArrayList<ArrayList<String>> facilitiesInfo){
         this.FACILITIES = this.createFacilities(facilitiesInfo);
@@ -19,13 +19,13 @@ public class FacilitiesCommands implements Serializable {
         for (ArrayList<String> facility : facilitiesInfo){
             Facility facilityInstance = new Facility(facility);
             facilities.add(facilityInstance);
-            facilityMap.put(facility.get(0), facilityInstance);
+            FACILITY_Map.put(facility.get(0), facilityInstance);
         }
         return facilities;
     }
 
     public Facility getFacility(String name){
-        return facilityMap.get(name);
+        return FACILITY_Map.get(name);
     }
 
 

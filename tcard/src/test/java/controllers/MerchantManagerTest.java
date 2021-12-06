@@ -15,7 +15,7 @@ public class MerchantManagerTest extends TestCase {
         sampleMerchantInfo1.add("U of T Bookstore");
         sampleMerchantInfo1.add("214 College Street");
         sampleMerchantInfo1.add("11am to 6pm");
-        sampleMerchantInfo1.add("70:(textbooks/stationary/chips):(any).(any):().()|30:(fruit/snacks):().():(any).(any)");
+        sampleMerchantInfo1.add("70:(textbooks/stationary/chips):(any).(any):(any).(any)|30:(fruit/snacks):(any).(any):(any).(any)");
 
         List<List<String>> sampleMerchantList = new ArrayList<>();
         sampleMerchantList.add(sampleMerchantInfo1);
@@ -38,6 +38,6 @@ public class MerchantManagerTest extends TestCase {
     }
 
     public void testCheckApplicableDiscounts() {
-        assertEquals("70% off on textbooks, stationary, and chips!", sampleMerchantManager.checkApplicableDiscounts("U of T Bookstore"));
+        assertEquals("70% off on textbooks, stationary, and chips!\r\n30% off on fruit and snacks!", sampleMerchantManager.checkApplicableDiscounts("U of T Bookstore"));
     }
 }

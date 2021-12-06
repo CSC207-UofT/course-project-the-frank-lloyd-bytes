@@ -1,5 +1,6 @@
-package activities;
+package fragmentAndView;
 
+import activities.R;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="activities.TCardFragment"
+                tools:context="fragmentAndView.TCardFragment"
                 android:background="@drawable/gradient_1">
     <LinearLayout
             android:orientation="vertical"
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="30dp"
                         android:textStyle="bold"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:layout_gravity="center"
                         android:id="@+id/tLastName"/>
                 <TextView
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/tName"
                         android:paddingTop="5dp"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:layout_gravity="center"/>
                 <TextView
                         android:text="TextView"
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/tCardNo"
                         android:paddingTop="10dp"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>

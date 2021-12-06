@@ -145,7 +145,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));
         }
-        long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
 
     }
 
@@ -155,7 +155,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));
         }
-        long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
+        myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
 
     }
 

@@ -63,6 +63,16 @@ public class UserTest {
         Assert.assertEquals("mackeyjonah", sampleUser.getId());
     }
 
+    @Test
+    public void testGetIdNumber() {
+        Assert.assertEquals("1234567890", sampleUser.getID_NUMBER());
+    }
+
+    @Test
+    public void testGetEmail() {
+        Assert.assertEquals("jonah.mackey@mail.utoronto.ca", sampleUser.getEMAIL());
+    }
+
     @After
     public void tearDown() {
         sampleUser = null;

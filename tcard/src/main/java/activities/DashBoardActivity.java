@@ -103,6 +103,7 @@ public class DashBoardActivity extends AppCompatActivity{
         else {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
             uCheckResult.setText("Take UCheck Test");
+            uCheckResult.setTextSize(30);
         }
 
         /*

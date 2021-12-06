@@ -1,5 +1,6 @@
 <resources>
     <string name="title_activity_home">HomeActivity</string>
+    <string name = "viewMode">Day Mode</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -9,7 +10,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_dash_board">DashBoardActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
 
@@ -46,7 +46,7 @@
     <string name="Resources">Resources</string>
     <string name="green_1">
         Based on your answers, you do not report symptoms of COVID-19 and can continue to come to campus as planned. Please continue to abide by all applicable public health requirements, remember to wear a mask, and abide by all University posted signage. You must ensure that your manager, supervisor, or University contact person has your up-to-date contact information prior to coming on site.
-        </string>
+    </string>
     <string name="green_2">
         This self-assessment does not confirm a negative diagnosis of COVID-19. </string>
     <string name="green_3">If you are in an at-risk group, are receiving this \'green status\' for the first time, and: </string>

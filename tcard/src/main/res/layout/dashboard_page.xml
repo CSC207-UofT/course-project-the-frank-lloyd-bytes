@@ -4,19 +4,27 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 tools:context=".DashBoardActivity"
                 android:layout_width="match_parent"
+                android:background="@color/background"
                 android:layout_height="match_parent">
-
+    <Switch
+            android:text="@string/viewMode"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/moodSwitcher"
+            android:textColor="@color/textColor"
+            android:layout_gravity="center"/>
     <TextView
             android:text="VIRTUAL TCARD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
-            android:paddingTop="40dp"
+            android:paddingTop="50dp"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textSize="35dp"
-            android:onClick="onUCheckCardClick"
-            android:textColor="@color/UofTblue"
+            android:textColor="@color/textColor"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,12 +46,13 @@
                 <com.google.android.material.tabs.TabLayout
                         android:background="@color/transparent"
                         android:layout_width="match_parent"
-                        android:id="@+id/tab_layout"
+                        android:id="@+id/tabLayout"
+                        android:backgroundTint="@color/fragmentBackground"
                         android:layout_height="wrap_content">
                 </com.google.android.material.tabs.TabLayout>
                 <androidx.viewpager2.widget.ViewPager2
                         android:layout_width="match_parent"
-                        android:id="@+id/view_pager"
+                        android:id="@+id/viewPager"
                         android:layout_height="match_parent">
                 </androidx.viewpager2.widget.ViewPager2>
             </LinearLayout>
@@ -52,12 +61,13 @@
                     app:cardElevation="4dp"
                     app:cardCornerRadius="20dp"
                     android:layout_marginTop="30dp"
-                    android:id="@+id/UCheckCard"
+                    android:id="@+id/uCheckCard"
+                    android:onClick="onUCheckCardClick"
                     android:layout_height="70dp">
                 <TextView
                         android:text=""
-                        android:textColor="@color/white"
-                        android:textSize="40dp"
+                        android:textColor="@color/secondaryTextColor"
+                        android:textSize="40sp"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -68,16 +78,16 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
-            android:id="@+id/bottom_menu"
+            android:id="@+id/bottomMenu"
             android:background="@drawable/text_box_type_3"
             android:elevation="2dp"
-            app:itemTextColor="@color/white"
+            app:itemTextColor="@color/secondaryTextColor"
             app:itemRippleColor="@color/transparent"
             android:layout_height="60dp"
             app:menu="@menu/bottom_menu"
             app:itemIconSize="40dp"
             app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@color/white"
+            app:itemIconTint="@color/secondaryTextColor"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"

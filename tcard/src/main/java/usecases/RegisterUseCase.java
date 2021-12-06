@@ -1,5 +1,7 @@
 package usecases;
 
+import interfaces.UserReadWriter;
+
 import java.util.List;
 
 /**
@@ -76,7 +78,7 @@ public class RegisterUseCase {
 
         // register a new user in the database
         Boolean registerUserInfo = userReadWriter.insertData(username, password, firstName, lastName, mail, department,
-                status, tCardNumber, year, "");
+                status, tCardNumber, year, " ");
 
         if (registerUserInfo) {
             return RegistrationResult.REGISTER_SUCCESS;

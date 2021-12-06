@@ -1,7 +1,7 @@
 package controllers;
 
 import usecases.RegisterUseCase;
-import usecases.UserReadWriter;
+import interfaces.UserReadWriter;
 
 import java.util.*;
 

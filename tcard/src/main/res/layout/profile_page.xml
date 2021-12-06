@@ -6,7 +6,7 @@
                 android:layout_height="match_parent"
                 android:padding="15dp"
                 tools:context="activities.ProfileActivity"
-                android:background="@color/white">
+                android:background="@color/background">
 
     <LinearLayout
             android:orientation="vertical"
@@ -34,7 +34,7 @@
                         android:layout_height="match_parent">
                     <TextView
                             android:text="Text View"
-                            android:textColor="@color/white"
+                            android:textColor="@color/secondaryTextColor"
                             android:textSize="20dp"
                             android:textStyle="bold"
                             android:gravity="center"
@@ -44,7 +44,7 @@
                             android:layout_weight="1"/>
                     <TextView
                             android:text="TextView"
-                            android:textColor="@color/white"
+                            android:textColor="@color/secondaryTextColor"
                             android:textSize="20dp"
                             android:gravity="center_horizontal"
                             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                     android:background="@color/transparent"
                     android:id="@+id/profileNumber"
                     android:enabled="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:text="numero"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:enabled="false"
                     android:id="@+id/profileEmail"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:background="@color/transparent"
                     android:text="email"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +114,7 @@
                     android:id="@+id/profileStatus"
                     android:background="@color/transparent"
                     android:enabled="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:text="Status"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:enabled="false"
                     android:id="@+id/profileDepartment"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:background="@color/transparent"
                     android:text="Department"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +154,7 @@
                     android:id="@+id/profileYear"
                     android:background="@color/transparent"
                     android:enabled="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/thirdTextColor"
                     android:text="Year"/>
         </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
@@ -169,13 +169,14 @@
                 <Button
                         android:text="Change Password"
                         android:layout_width="180dp"
+                        android:textColor="@color/secondaryTextColor"
                         android:layout_height="wrap_content"
                         android:background="@drawable/text_box_type_3"
                         android:id="@+id/profileChangePassword"/>
                 <Button
                         android:text="Upload Picture"
                         android:layout_width="180dp"
-
+                        android:textColor="@color/secondaryTextColor"
                         android:layout_marginTop="10dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/text_box_type_3"
@@ -184,6 +185,7 @@
             <Button
                     app:icon="@drawable/ic_home"
                     android:layout_width="60dp"
+                    app:itemIconTint="@color/secondaryTextColor"
                     android:layout_gravity="center"
                     android:paddingLeft="18dp"
                     android:layout_marginBottom="10dp"

@@ -1,28 +1,21 @@
 package activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
-import android.widget.*;
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
 import java.util.List;
-import java.io.IOException;
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity{
@@ -36,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity{
     Button changePassword, backToDashboard, uploadPicture;
     UserManager myManager;
     ActivityResultLauncher<Intent> activityResultLauncher;
-    UserDBHelper DB;
+    UserDBHelper dB;
 
     @SuppressLint({"SetTextI18n", "IntentReset"})
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity{
         setContentView(R.layout.profile_page);
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        DB = new UserDBHelper(this);
+        dB = new UserDBHelper(this);
 
         profilePic = findViewById(R.id.profilePic);
         names = findViewById(R.id.legalNames);
@@ -71,10 +64,10 @@ public class ProfileActivity extends AppCompatActivity{
         year.setText(info.get(7));
         String imageAddress = info.get(9);
 
-        //if (!Objects.equals(imageAddress, "")) {
-            //Uri pic = Uri.parse(imageAddress);
-            //profilePic.setImageURI(pic);
-        //}
+        if (!Objects.equals(imageAddress, " ")) {
+            Uri path = Uri.parse(imageAddress);
+            profilePic.setImageURI(path);
+        }
 
 
         // the button sends us back to dashboard
@@ -92,21 +85,25 @@ public class ProfileActivity extends AppCompatActivity{
         });
 
         activityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>(){
-                    public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
-                        Intent data = result.getData();
-                        Uri imageUri = Uri.parse(data.getDataString());
-                        profilePic.setImageURI(imageUri);
-                        myManager.changePicture(imageUri.toString());
-                        DB.updatePicture(myManager.getInfo());
-                    }
+                new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
+                    Intent data = result.getData();
+                    Uri imageUri = Uri.parse(data.getDataString());
+                    getContentResolver().takePersistableUriPermission(imageUri,
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    profilePic.setImageURI(imageUri);
+                    String imagePath = imageUri.toString();
+                    myManager.changePicture(imagePath);
+                    dB.updatePicture(myManager.getInfo());
+                }
 
-            }});
+        });
 
         uploadPicture.setOnClickListener(view -> {
             Intent imagePickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             imagePickerIntent.setType("image/*");
+            imagePickerIntent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+            imagePickerIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             activityResultLauncher.launch(imagePickerIntent);
         });
     }

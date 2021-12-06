@@ -1,7 +1,6 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,9 +9,8 @@ import java.util.List;
  *
  */
 public class Student extends User implements Serializable {
-    //extra indexes for student's profile
-    public final int STUDENT_YEAR = 5;
-    public final int STUDENT_PROGRAM = 6;
+    public final String STUDENT_YEAR = "year";
+    public final String STUDENT_PROGRAM = "program";
 
     /**
      * This is a constructor for the Student class. This method writes student information from a list of strings
@@ -23,21 +21,21 @@ public class Student extends User implements Serializable {
      */
     public Student(List<String> userInfo) {
         super(userInfo);
-        this.getProfile().add(userInfo.get(7)); // year
-        this.getProfile().add(userInfo.get(8)); // program
+        this.profiles.put(STUDENT_YEAR, userInfo.get(7)); //year
+        this.profiles.put(STUDENT_PROGRAM, userInfo.get(8)); //department
     }
-
-    /**
-     * This method is for displaying a students profile information.
-     * @return a string that displays the student profile.
-     */
-    @Override
-    public String displayProfile() {
-        return "First Name: " + this.getProfile().get(FIRST_NAME)+ "\n" +  "Last Name: " +
-                this.getProfile().get(LAST_NAME) + "\n"+ "UTORid: " + this.getId() +
-                "\n" + "Status: " + this.getProfile().get(STATUS) + "\n" + "ID number: " +
-                this.getProfile().get(ID_NUMBER) + "\n" + "Email: " + this.getProfile().get(EMAIL) + "\n" +
-                "Program of Study: " + this.getProfile().get(STUDENT_PROGRAM) + "\n" + "Year of Study: " +
-                this.getProfile().get(STUDENT_YEAR);
+    public List<String> getUserInfo(){
+        List<String> info = super.getUserInfo();
+        String pic = info.get(7);
+        info.set(7, this.getSTUDENT_YEAR());
+        info.add(this.getSTUDENT_PROGRAM());
+        info.add(pic);
+        return info;
+    }
+    public String getSTUDENT_YEAR(){
+        return this.profiles.get(STUDENT_YEAR);
+    }
+    public String getSTUDENT_PROGRAM(){
+        return this.profiles.get(STUDENT_PROGRAM);
     }
 }

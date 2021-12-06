@@ -51,27 +51,26 @@ public class UserCommandsTest {
         sampleUserCommands2 = new UserCommands(sampleFacultyInfo);
     }
 
-    @Test
-    public void testTestToString() {
-        String expectedString = "First Name: Jonah\nLast Name: Mackey\nUTORid: mackeyjonah\nStatus: student\n" +
-                "ID number: 1234567890\nEmail: jonah.mackey@mail.utoronto.ca\nProgram of Study: Math\nYear of Study: 4";
-        Assert.assertEquals(expectedString, sampleUserCommands1.toString());
-    }
-
-    @Test
-    public void testGetUser() {
-        // here, I am assuming two users are equal if their strings from .displayProfile() are equal.
-        Assert.assertEquals(sampleStudent.displayProfile(), sampleUserCommands1.getUser().displayProfile());
-        Assert.assertEquals(sampleFaculty.displayProfile(), sampleUserCommands2.getUser().displayProfile());
-    }
 
     @Test
     public void testChangePassword() {
-        sampleUserCommands1.changePassword("password!", "newpassword!");
-        sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!");
+        sampleUserCommands1.changePassword("password!", "newpassword!", "newpassword!");
+        sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!", "newpassword!");
 
         Assert.assertTrue(sampleUserCommands1.getUser().checkPassword("newpassword!"));
         Assert.assertFalse(sampleUserCommands2.getUser().checkPassword("newpassword!"));
+    }
+
+    @Test
+    public void testUserID() {
+        Assert.assertEquals("mackeyjonah", sampleUserCommands2.getId());
+        Assert.assertEquals("mackeyjonah", sampleUserCommands1.getId());
+    }
+
+    @Test
+    public void testFullName() {
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands2.getFullName());
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands1.getFullName());
     }
 
     @After

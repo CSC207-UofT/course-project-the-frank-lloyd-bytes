@@ -1,9 +1,10 @@
-package entities;
+package entitiesTest;
 
+import entities.UCheck;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class UCheckTest {
 
@@ -14,26 +15,48 @@ public class UCheckTest {
     }
 
     @Test
-    public void getDate() {
+    public void testGetDate() {
         testUCheck.setDate("date");
         Assert.assertSame(testUCheck.getDate(), "date");
     }
 
     @Test
-    public void setDate() {
+    public void testSetDate() {
         testUCheck.setDate("date");
-        assertEquals("date", testUCheck.getDate());
+        Assert.assertEquals("date", testUCheck.getDate());
     }
 
     @Test
-    public void getState() {
+    public void testGetStatePass() {
         testUCheck.setState(1);
-        assertEquals(testUCheck.getState(), 1);
+        Assert.assertEquals(1, testUCheck.getState());
+    }
+    
+    @Test
+    public void testGetStateFail() {
+        testUCheck.setState(2);
+        Assert.assertEquals(2, testUCheck.getState());
     }
 
     @Test
-    public void setState() {
+    public void testGetStateNeutral() {
+        Assert.assertEquals(0, testUCheck.getState());
+    }
+
+    @Test
+    public void testSetStatePass() {
         testUCheck.setState(1);
-        assertEquals(testUCheck.getState(), 1);
+        Assert.assertEquals(1, testUCheck.getState());
+    }
+
+    @Test
+    public void testSetStateFail() {
+        testUCheck.setState(2);
+        Assert.assertEquals(2, testUCheck.getState());
+    }
+
+    @After
+    public void tearDown() {
+        testUCheck = null;
     }
 }

@@ -7,18 +7,12 @@ package entities;
  */
 public class UCheckQuestion {
 
-    private final String title;
-    private final String question;
+    private  String title;
+    private  String question;
     private boolean isSelected;
     private boolean isNo;
 
-    /**
-     * @param title is the title of String to insert.
-     * @param question is the question of String to insert.
-     */
-    public UCheckQuestion(String title, String question) {
-        this.title = title;
-        this.question = question;
+    public UCheckQuestion() {
     }
 
     /**
@@ -61,5 +55,19 @@ public class UCheckQuestion {
      */
     public String getTitle(){
         return this.title;
+    }
+
+    /**
+     * @param title String title of the Question.
+     */
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    /**
+     * @param question String question of Question.
+     */
+    public void setQuestion(String question){
+        this.question = question;
     }
 }

@@ -3,4 +3,5 @@
     <corners android:radius="40dp"></corners>
     <stroke android:width="2dp"
             android:color="@color/UofTblue"/>
+    <solid android:color="@color/fragmentBackground"></solid>
 </shape>

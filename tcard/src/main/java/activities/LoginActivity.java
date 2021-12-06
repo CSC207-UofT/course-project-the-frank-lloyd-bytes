@@ -1,11 +1,11 @@
 package activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
 
@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity{
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
         DB = new UserDBHelper(this);
+
 
         // Clicking to the register button takes the user to the registration page
         register.setOnClickListener(view -> {

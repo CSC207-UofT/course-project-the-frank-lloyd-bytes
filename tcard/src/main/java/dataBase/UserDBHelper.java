@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import usecases.UserReadWriter;
+import interfaces.UserReadWriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
      * @param context the context of the class which calls this constructor
      */
     public UserDBHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, 2);
     }
 
 
@@ -137,28 +137,25 @@ public class UserDBHelper extends SQLiteOpenHelper implements UserReadWriter {
     /**
      * update the password for the user in the database
      * @param data is the user's info
-     * @return true if the update work, false if not
      */
     @Override
-    public Boolean updatePassword(List<String> data){
+    public void updatePassword(List<String> data){
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));
         }
         long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
-        return result != -1;
 
     }
 
-    public Boolean updatePicture(List<String> data){
+    public void updatePicture(List<String> data){
         SQLiteDatabase myDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         for (int i=0; i<data.size();i++){
             contentValues.put(COL_LIST[i], data.get(i));
         }
         long result = myDB.update(TABLE_NAME, contentValues," UTROID=?", new String[] {data.get(0)});
-        return result != -1;
 
     }
 

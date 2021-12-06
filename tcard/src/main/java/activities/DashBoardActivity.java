@@ -1,11 +1,16 @@
 package activities;
+
+import adapters.DashBoardFragmentsAdapter;
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -26,6 +31,7 @@ public class DashBoardActivity extends AppCompatActivity{
      */
     TabLayout tabLayout;
     ViewPager2 viewPager;
+    Switch viewMode;
     EditText username;
     CardView uCheckCard;
     TextView uCheckResult;
@@ -39,30 +45,65 @@ public class DashBoardActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_page);
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
-        uCheckCard = findViewById(R.id.UCheckCard);
-        bottomMenu = findViewById(R.id.bottom_menu);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        viewMode = findViewById(R.id.moodSwitcher);
+        uCheckCard = findViewById(R.id.uCheckCard);
+        bottomMenu = findViewById(R.id.bottomMenu);
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        myUCheckCommands=new UCheckCommands();
+        myUCheckCommands = new UCheckCommands();
 
-        int uCheckState = myUCheckCommands.getState();
-        if (uCheckState ==2){
+
+
+
+        // This part control the switch button for the day-night mode
+        // Note: it's not working perfectly, but it doesn't glitch at least
+        // I'll make it work perfectly if UofT hires us to use the app irl
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // here we check if the nightMode is on or not to decide which state the button should be at
+        viewMode.setChecked(!sharedPreferences.getBoolean("nightMode", false));
+        // here we change the default mode when the switch is moved by the user
+        // the editor passes on if we're on the nightMode or not, so the state is saved
+        viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                editor.putBoolean("nightMode", true);
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                editor.putBoolean("nightMode", false);
+            }
+            editor.apply();
+            editor.commit();
+        });
+
+
+
+
+
+
+
+        //Add previous Activity results back in SharedPreferences.
+        myUCheckCommands.populateResult(this, myManager.getId());
+        //Get previous state.
+        int layoutInt = myUCheckCommands.getState();
+        //Once a questionnaire is completed, this method sets the UCheck results
+        //UCheck of questionnaire of USER.
+        if (layoutInt == 2){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
             uCheckResult.setText("UCheck Failed");
         }
-        else if(uCheckState ==1){
+        else if(layoutInt == 1){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
             uCheckResult.setText("UCheck Passed");
         }
-        else
-        {
+        else {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
-            uCheckResult.setText("Take Ucheck Test");
+            uCheckResult.setText("Take UCheck Test");
         }
-
 
         /*
           This is the bottom navigation menu
@@ -77,11 +118,17 @@ public class DashBoardActivity extends AppCompatActivity{
                     break;
                 case R.id.facilityActivity:
                     Intent intent = new Intent(getApplicationContext(), FacilityActivity.class);
+                    intent.putExtra("manager", myManager);
                     startActivity(intent);
                     break;
                 case R.id.loginActivity:
                     Intent intent3 = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent3);
+                    break;
+                case R.id.merchantActivity:
+                    Intent intent4 = new Intent(getApplicationContext(), MerchantActivity.class);
+                    intent4.putExtra("manager", myManager);
+                    startActivity(intent4);
                     break;
             }
             return true;
@@ -135,7 +182,6 @@ public class DashBoardActivity extends AppCompatActivity{
         });
 
     }
-
     public void onUCheckCardClick(View view) {
         Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
         intent4.putExtra("manager", myManager);

@@ -5,6 +5,7 @@
 <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:configChanges="uiMode"
         android:theme="@style/Theme.MyApplication">
 
     <activity
@@ -38,7 +39,11 @@
     <activity android:name="activities.ProfileActivity"
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
+    </activity>
 
+    <activity android:name="activities.MerchantActivity"
+              android:label="@string/title_activity_dash_board"
+              android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
 
     <activity android:name="activities.FacilityActivity"
@@ -49,10 +54,13 @@
               android:label="@string/title_activity_dash_board"
               android:theme="@style/Theme.MyApplication.NoActionBar">
     </activity>
-    <activity android:name="activities.UCheckScrollingActivity"
-              android:label="@string/title_activity_ucheck_scrolling"
-              android:theme="@style/Theme.MyApplication.NoActionBar">
+
+    <activity
+            android:name="activities.UCheckScrollingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyApplication.NoActionBar">
 
     </activity>
+
 </application>
 </manifest>

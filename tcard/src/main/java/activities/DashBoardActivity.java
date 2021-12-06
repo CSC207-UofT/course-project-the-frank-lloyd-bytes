@@ -1,12 +1,15 @@
 package activities;
+
 import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -14,7 +17,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import controllers.UserManager;
-import android.view.View;
 import usecases.UCheckCommands;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class DashBoardActivity extends AppCompatActivity{
      */
     TabLayout tabLayout;
     ViewPager2 viewPager;
+    Switch viewMode;
     EditText username;
     CardView uCheckCard;
     TextView uCheckResult;
@@ -36,7 +39,6 @@ public class DashBoardActivity extends AppCompatActivity{
     UserManager myManager;
     UCheckCommands myUCheckCommands;
 
-
     @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -44,12 +46,45 @@ public class DashBoardActivity extends AppCompatActivity{
         setContentView(R.layout.dashboard_page);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+        viewMode = findViewById(R.id.moodSwitcher);
         uCheckCard = findViewById(R.id.uCheckCard);
         bottomMenu = findViewById(R.id.bottomMenu);
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         myUCheckCommands = new UCheckCommands();
+
+
+
+
+        // This part control the switch button for the day-night mode
+        // Note: it's not working perfectly, but it doesn't glitch at least
+        // I'll make it work perfectly if UofT hires us to use the app irl
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettingPrefs", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // here we check if the nightMode is on or not to decide which state the button should be at
+        viewMode.setChecked(!sharedPreferences.getBoolean("nightMode", false));
+        // here we change the default mode when the switch is moved by the user
+        // the editor passes on if we're on the nightMode or not, so the state is saved
+        viewMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                editor.putBoolean("nightMode", true);
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                editor.putBoolean("nightMode", false);
+            }
+            editor.apply();
+            editor.commit();
+        });
+
+
+
+
+
+
+
         //Add previous Activity results back in SharedPreferences.
         myUCheckCommands.populateResult(this, myManager.getUser().getId());
         //Get previous state.

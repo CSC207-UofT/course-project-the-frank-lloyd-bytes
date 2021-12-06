@@ -32,8 +32,7 @@ public class FacilitiesManager implements Serializable {
         return this.FACILITIES_COMMANDS.getFacility(name);
     }
 
-    //FileReader myFileReader = new FileReader();
-    //ArrayList<ArrayList<String>> facilitiesInfo = myFileReader.reader();
+
 
     public boolean evaluateHelper(User user, Facility facility){
         if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "Student")){

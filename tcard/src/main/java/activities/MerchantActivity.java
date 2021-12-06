@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.MerchantManager;
 import controllers.UserManager;
-import dataBase.FileReader;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,14 +34,7 @@ public class MerchantActivity extends AppCompatActivity {
 
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
 
-//        FileReader merchantReader = new FileReader("tcard/MerchantsData.csv");
-//        List<List<String>> merchantList = null;
-//        try {
-//            merchantList = merchantReader.reader();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        merchantManager = new MerchantManager(merchantList, userManager);
+
         merchantManager = new MerchantManager(setMerchantList(), userManager);
 
         backToDashboard = findViewById(R.id.merchantsGoBack);

@@ -1,7 +1,7 @@
 package usecases;
 
 import entities.UCheck;
-import entities.UCheckResults;
+import dataBase.UCheckResults;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

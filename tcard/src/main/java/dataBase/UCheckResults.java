@@ -1,4 +1,4 @@
-package entities;
+package dataBase;
 
 import android.content.Context;
 import java.text.SimpleDateFormat;

@@ -5,7 +5,7 @@ import activities.R;
 import entities.UCheck;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import entities.UCheckResults;
+import dataBase.UCheckResults;
 
 public class UCheckCommands{
 

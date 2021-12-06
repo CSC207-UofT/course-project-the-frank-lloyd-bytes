@@ -7,8 +7,8 @@ package entities;
  */
 public class UCheckQuestion {
 
-    private final String TITLE;
-    private final String QUESTION;
+    private  String title;
+    private  String question;
     private boolean isSelected;
     private boolean isNo;
 
@@ -29,10 +29,10 @@ public class UCheckQuestion {
         isSelected = selected;
     }
     /**
-     * @return String QUESTION for front-end.
+     * @return String question for front-end.
      */
-    public String getQUESTION(){
-        return this.QUESTION;
+    public String getQuestion(){
+        return this.question;
     }
 
     /**
@@ -51,23 +51,23 @@ public class UCheckQuestion {
     }
 
     /**
-     * @return String TITLE for front-end.
+     * @return String title for front-end.
      */
-    public String getTITLE(){
-        return this.TITLE;
+    public String getTitle(){
+        return this.title;
     }
 
     /**
      * @param title String title of the Question.
      */
     public void setTitle(String title){
-        this.TITLE = title;
+        this.title = title;
     }
 
     /**
      * @param question String question of Question.
      */
     public void setQuestion(String question){
-        this.QUESTION = question;
+        this.question = question;
     }
 }

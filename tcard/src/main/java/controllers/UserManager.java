@@ -65,13 +65,13 @@ public class UserManager implements Serializable {
      * @return String of USER ID.
      */
     public String getId() {
-        return myUserCommands.getId();
+        return MY_USER_COMMANDS.getId();
     }
 
     /**
      * @return String USER full name a with space in middle.
      */
     public String getFullName() {
-        return myUserCommands.getFullName();
+        return MY_USER_COMMANDS.getFullName();
     }
 }

@@ -19,7 +19,7 @@ public class UCheckQuestionsCommandsTest {
     }
 
     @Test
-    public void isAllSelected() {
+    public void testIsAllSelected() {
         boolean test = uCheckQuestionsCommandsSample.isAllSelected();
         Assert.assertFalse(String.valueOf(true), test);
     }

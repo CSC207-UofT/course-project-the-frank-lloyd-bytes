@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class UCheckCommandsTest {
 
@@ -20,24 +19,24 @@ public class UCheckCommandsTest {
     }
 
     @Test
-    public void getStateTrue() {
+    public void testGetStateTrue() {
         uCheckSample.setState(1);
         Assert.assertEquals(1, uCheckSample.getState());
     }
 
     @Test
-    public void getStateFalse() {
+    public void testGetStateFalse() {
         uCheckSample.setState(2);
         Assert.assertEquals(2, uCheckSample.getState());
     }
 
     @Test
-    public void getStateNeutral() {
+    public void testGetStateNeutral() {
         Assert.assertEquals(0, uCheckSample.getState());
     }
 
     @Test
-    public void getDateUCheck() {
+    public void testGetDateUCheck() {
         uCheckSample.setDate("test");
         Assert.assertEquals("test", uCheckSample.getDate());
     }

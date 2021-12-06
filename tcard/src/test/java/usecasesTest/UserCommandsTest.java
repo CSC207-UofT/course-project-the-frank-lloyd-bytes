@@ -64,8 +64,14 @@ public class UserCommandsTest {
 
     @Test
     public void testUserID() {
-        Assert.assertEquals("1234567890", sampleUserCommands2.getId());
-        Assert.assertEquals("1234567890", sampleUserCommands1.getId());
+        Assert.assertEquals("mackeyjonah", sampleUserCommands2.getId());
+        Assert.assertEquals("mackeyjonah", sampleUserCommands1.getId());
+    }
+
+    @Test
+    public void testFullName() {
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands2.getFullName());
+        Assert.assertEquals("Jonah Mackey", sampleUserCommands1.getFullName());
     }
 
     @After

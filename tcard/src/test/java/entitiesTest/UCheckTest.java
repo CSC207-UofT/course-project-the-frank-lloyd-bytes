@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class UCheckTest {
 
@@ -16,42 +15,42 @@ public class UCheckTest {
     }
 
     @Test
-    public void getDate() {
+    public void testGetDate() {
         testUCheck.setDate("date");
         Assert.assertSame(testUCheck.getDate(), "date");
     }
 
     @Test
-    public void setDate() {
+    public void testSetDate() {
         testUCheck.setDate("date");
         Assert.assertEquals("date", testUCheck.getDate());
     }
 
     @Test
-    public void getStatePass() {
+    public void testGetStatePass() {
         testUCheck.setState(1);
         Assert.assertEquals(1, testUCheck.getState());
     }
     
     @Test
-    public void getStateFail() {
+    public void testGetStateFail() {
         testUCheck.setState(2);
         Assert.assertEquals(2, testUCheck.getState());
     }
 
     @Test
-    public void getStateNeutral() {
+    public void testGetStateNeutral() {
         Assert.assertEquals(0, testUCheck.getState());
     }
 
     @Test
-    public void setStatePass() {
+    public void testSetStatePass() {
         testUCheck.setState(1);
         Assert.assertEquals(1, testUCheck.getState());
     }
 
     @Test
-    public void setStateFail() {
+    public void testSetStateFail() {
         testUCheck.setState(2);
         Assert.assertEquals(2, testUCheck.getState());
     }

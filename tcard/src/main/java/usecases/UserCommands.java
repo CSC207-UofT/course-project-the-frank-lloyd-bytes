@@ -85,7 +85,7 @@ public class UserCommands implements Serializable {
     }
 
     /**
-     * This method returns the String of USER ID (UTor ID).
+     * This method returns the String of USER ID.
      * @return String of USER id.
      */
     public String getId(){

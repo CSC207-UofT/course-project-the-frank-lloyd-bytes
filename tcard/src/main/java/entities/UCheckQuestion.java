@@ -2,7 +2,7 @@ package entities;
 
 /**
  * This class is an entity stores the state of UCheck result completed by USER in UCheckQuestionnaireActivity.This class takes in one UCheckQuestion from UCheckQuestions.
- * The QUESTION structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a UCheckQuestion object into it.
+ * The question structure matches XML file structure in activity_ucheck_questionnaire.xml and the adapter will apply a UCheckQuestion object into it.
  * This class also contains data for the questionnaire and UI interaction state that USER interacts with in UI.
  */
 public class UCheckQuestion {
@@ -12,13 +12,7 @@ public class UCheckQuestion {
     private boolean isSelected;
     private boolean isNo;
 
-    /**
-     * @param title is the TITLE of String to insert.
-     * @param QUESTION is the QUESTION of String to insert.
-     */
-    public UCheckQuestion(String title, String QUESTION) {
-        this.TITLE = title;
-        this.QUESTION = QUESTION;
+    public UCheckQuestion() {
     }
 
     /**
@@ -61,5 +55,19 @@ public class UCheckQuestion {
      */
     public String getTITLE(){
         return this.TITLE;
+    }
+
+    /**
+     * @param title String title of the Question.
+     */
+    public void setTitle(String title){
+        this.TITLE = title;
+    }
+
+    /**
+     * @param question String question of Question.
+     */
+    public void setQuestion(String question){
+        this.QUESTION = question;
     }
 }

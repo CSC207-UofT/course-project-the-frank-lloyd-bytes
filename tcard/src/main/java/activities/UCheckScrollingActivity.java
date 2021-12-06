@@ -70,7 +70,7 @@ private ActivityUcheckScrollingBinding binding;
                         assert intent != null;
                         boolean isAllowed = intent.getBooleanExtra("isAllowed", false);
                         // This updates from the results of next activity.
-                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getUser().getId(), isAllowed?1:2);
+                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getId(), isAllowed?1:2);
                         showScreen();
                     }
                 }
@@ -80,18 +80,15 @@ private ActivityUcheckScrollingBinding binding;
      */
     private void showScreen() {
         //Name of current USER.
-        List<String> info = myManager.getInfo();
-        String legalFirstName = info.get(2);
-        String legalLastName = info.get(3);
-        String Name = legalFirstName + " " + legalLastName;
+        String legalFullName = myManager.getFullName();
         // Once a questionnaire is completed, this method sets the UCheck results
-        myUCheckCommands.populateResult(this, myManager.getUser().getId());
+        myUCheckCommands.populateResult(this, myManager.getId());
         //UCheck of questionnaire of USER.
         int layout = myUCheckCommands.getLayout();
         LayoutInflater inflater = getLayoutInflater();
         View myLayout = inflater.inflate(layout, binding.linearLayout, false);
         TextView txtName = myLayout.findViewById(R.id.txtName);
-        txtName.setText(Name);
+        txtName.setText(legalFullName);
         if(myUCheckCommands.getState()!= 0) {
             TextView txtDate = myLayout.findViewById(R.id.txtDate);
             txtDate.setText(myUCheckCommands.getDate());

@@ -41,12 +41,37 @@ public class UserManager implements Serializable {
         return MY_USER_COMMANDS.getUser();
     }
 
+    /**
+     * This method updates USER information (password) in UpdatePasswordActivity.
+     * @param oldPass String old password of USER.
+     * @param newPass String new password of USER.
+     * @param newPassReEntry String of repeated new password of USER.
+     * @return String of the new updated password result.
+     */
     public String changePassword(String oldPass, String newPass, String newPassReEntry) {
         UserCommands.PasswordUpdateResult passwordUpdateResult = this.MY_USER_COMMANDS.changePassword(oldPass, newPass, newPassReEntry);
         return PASSWORD_UPDATE_MESSAGES.get(passwordUpdateResult);
     }
 
+    /**
+     * This method updates a new picture in ProfileActivity.
+     * @param newPic String of new picture.
+     */
     public void changePicture(String newPic) {
         this.MY_USER_COMMANDS.changePicture(newPic);
+    }
+
+    /** This method returns the String of USER ID (UTor ID).
+     * @return String of USER ID.
+     */
+    public String getId() {
+        return myUserCommands.getId();
+    }
+
+    /**
+     * @return String USER full name a with space in middle.
+     */
+    public String getFullName() {
+        return myUserCommands.getFullName();
     }
 }

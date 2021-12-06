@@ -87,7 +87,7 @@ public class DashBoardActivity extends AppCompatActivity{
 
 
         //Add previous Activity results back in SharedPreferences.
-        myUCheckCommands.populateResult(this, myManager.getUser().getId());
+        myUCheckCommands.populateResult(this, myManager.getId());
         //Get previous state.
         int layoutInt = myUCheckCommands.getState();
         //Once a questionnaire is completed, this method sets the UCheck results
@@ -104,7 +104,6 @@ public class DashBoardActivity extends AppCompatActivity{
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
             uCheckResult.setText("Take UCheck Test");
         }
-
 
         /*
           This is the bottom navigation menu

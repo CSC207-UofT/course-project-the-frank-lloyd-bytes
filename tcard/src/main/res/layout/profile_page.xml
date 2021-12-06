@@ -64,7 +64,7 @@
                 android:paddingLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/round_box"
-                android:hint="TCard Number"
+                android:hint="@string/tCard"
         >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -83,7 +83,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_box"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:paddingTop="10dp"
                 android:paddingLeft="10dp"
         >
@@ -105,7 +105,7 @@
                 android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_box"
-                android:hint="Status"
+                android:hint="@string/status"
         >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -125,7 +125,7 @@
                 android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_box"
-                android:hint="Department"
+                android:hint="@string/department"
         >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -145,7 +145,7 @@
                 android:paddingLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_box"
-                android:hint="Year"
+                android:hint="@string/year"
         >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -167,14 +167,14 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content">
                 <Button
-                        android:text="Change Password"
+                        android:text="@string/changePassword"
                         android:layout_width="180dp"
                         android:textColor="@color/secondaryTextColor"
                         android:layout_height="wrap_content"
                         android:background="@drawable/text_box_type_3"
                         android:id="@+id/profileChangePassword"/>
                 <Button
-                        android:text="Upload Picture"
+                        android:text="@string/uploadPic"
                         android:layout_width="180dp"
                         android:textColor="@color/secondaryTextColor"
                         android:layout_marginTop="10dp"

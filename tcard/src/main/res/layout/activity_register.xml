@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <TextView
-                android:text=" User Registration Form"
+                android:text="@string/userRegForm"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:gravity="center"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="15dp">
             <TextView
-                    android:text=" Username"
+                    android:text="@string/userName"
                     android:layout_width="180dp"
                     android:id="@+id/textView11"
                     android:layout_height="30dp"
@@ -45,14 +45,14 @@
                     android:inputType="textPersonName"
                     android:id="@+id/registrationUserName"
                     android:layout_weight="1"
-                    android:hint="enter UtorID"/>
+                    android:hint="@string/hintUtorId"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="90dp">
             <TextView
-                    android:text=" Password"
+                    android:text="@string/password"
                     android:layout_width="244dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -73,13 +73,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
                         android:id="@+id/registerPassword1"
-                        android:hint="enter password"/>
+                        android:hint="@string/hintPassword"/>
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
                         android:id="@+id/registerPassword2"
-                        android:hint="re-enter password"/>
+                        android:hint="@string/hintRePassword"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="85dp">
             <TextView
-                    android:text=" Legal Names"
+                    android:text="@string/legalNames"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -107,14 +107,14 @@
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:id="@+id/registerLegalFirstName"
-                        android:hint="enter first name"/>
+                        android:hint="@string/hintFirstName"/>
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:ems="10"
                         android:id="@+id/registerLegalLastName"
-                        android:hint="enter last name"/>
+                        android:hint="@string/hintLastName"/>
             </LinearLayout>
         </LinearLayout>
         <RadioGroup
@@ -123,7 +123,7 @@
                 android:layout_height="100dp">
 
             <TextView
-                    android:text=" Status"
+                    android:text="@string/status"
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
@@ -132,7 +132,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/thirdTextColor"/>
             <RadioButton
-                    android:text="Faculty"
+                    android:text="@string/faculty"
                     android:textColor="@color/thirdTextColor"
                     android:layout_width="255dp"
                     android:layout_height="50dp"
@@ -142,7 +142,7 @@
                     android:id="@+id/facultyStatus"
             />
             <RadioButton
-                    android:text="Student"
+                    android:text="@string/student"
                     android:textColor="@color/thirdTextColor"
                     android:layout_width="255dp"
                     android:layout_height="50dp"
@@ -156,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
-                    android:text=" Email"
+                    android:text="@string/email"
                     android:layout_width="93dp"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
@@ -172,14 +172,14 @@
                     android:ems="10"
                     android:id="@+id/registerEmail"
                     android:layout_weight="1"
-                    android:hint="enter U of T email"/>
+                    android:hint="@string/hintEmail"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="41dp">
             <TextView
-                    android:text=" TCard #"
+                    android:text="@string/tCard"
                     android:layout_width="94dp"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
@@ -195,14 +195,14 @@
                     android:ems="10"
                     android:id="@+id/registerTcardNumber"
                     android:layout_weight="1"
-                    android:hint="enter TCard number"/>
+                    android:hint="@string/hintTCard"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
             <TextView
-                    android:text=" Department"
+                    android:text="@string/department"
                     android:layout_width="70dp"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
@@ -217,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/registerDepartment"
                     android:textSize="18dp"
-                    android:hint="select department"
+                    android:hint="@string/hintDepartment"
                     android:drawablePadding="16dp"
                     android:drawableEnd="@android:drawable/arrow_down_float"
                     android:background="@android:drawable/editbox_background"
@@ -230,7 +230,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
-                    android:text=" Year"
+                    android:text="@string/year"
                     android:layout_width="55dp"
                     android:paddingLeft="10dp"
                     android:gravity="center_vertical"
@@ -246,7 +246,7 @@
                     android:ems="10"
                     android:id="@+id/registerYear"
                     android:layout_weight="1"
-                    android:hint="enter your year (e.g. 2)"/>
+                    android:hint="@string/hintYear"/>
         </LinearLayout>
         <Button
                 android:id="@+id/btnsignup1"
@@ -254,7 +254,7 @@
                 android:textSize="16dp"
                 android:textColor="@color/secondaryTextColor"
                 android:layout_height="wrap_content"
-                android:text="Sign Up"
+                android:text="@string/signUp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/text_box_type_3"
                 app:backgroundTint="@color/UofTblue"
@@ -264,7 +264,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
-                android:text="Go back to login"
+                android:text="@string/backToLogin"
                 android:layout_marginTop="5dp"
                 app:backgroundTint="@color/fragmentBackground"
                 android:textColor="@color/textColor"

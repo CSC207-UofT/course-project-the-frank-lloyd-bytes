@@ -28,7 +28,7 @@
                         android:padding="5dp"
                         android:layout_height="match_parent">
                     <TextView
-                            android:text="Name"
+                            android:text="@string/name"
                             android:layout_width="match_parent"
                             android:gravity="center"
                             android:textSize="30dp"
@@ -39,14 +39,14 @@
 
                     />
                     <TextView
-                            android:text="Hours"
+                            android:text= "@string/hours"
                             android:layout_width="match_parent"
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:layout_height="wrap_content"
                             android:id="@+id/facilityHours"/>
                     <TextView
-                            android:text="Address"
+                            android:text="@string/address"
                             android:layout_width="match_parent"
                             android:gravity="center"
                             android:textColor="@color/black"
@@ -54,7 +54,7 @@
                             android:id="@+id/facilityAddress" android:layout_weight="1"/>
                 </LinearLayout>
                 <Button
-                        android:text="Check Facility Access"
+                        android:text="@string/checkAccess"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"

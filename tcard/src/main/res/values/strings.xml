@@ -1,6 +1,46 @@
 <resources>
-    <string name="title_activity_home">HomeActivity</string>
     <string name = "viewMode">Day Mode</string>
+    <string name = "name">Name</string>
+    <string name = "hours">Hours</string>
+    <string name = "address">Address</string>
+    <string name = "checkAccess">Check Facility Access</string>
+    <string name = "facilities">Facilities</string>
+    <string name = "goBack">GO BACK</string>
+    <string name = "myVirtualTCard">My Virtual TCard</string>
+    <string name = "userName">User Name</string>
+    <string name="hintUtorId">enter utorID</string>
+    <string name = "password">Password</string>
+    <string name="hintPassword">enter password</string>
+    <string name = "login">Login</string>
+    <string name = "newUser"> New user? Register now</string>
+    <string name = "userRegForm">User Registration Form</string>
+    <string name = "hintRePassword">re-enter password</string>
+    <string name = "legalNames">Legal Names</string>
+    <string name = "hintFirstName">enter first name</string>
+    <string name = "hintLastName">enter last name</string>
+    <string name = "status">Status</string>
+    <string name = "faculty">Faculty</string>
+    <string name = "student">Student</string>
+    <string name = "email">Email</string>
+    <string name = "hintEmail">enter U of T email</string>
+    <string name = "tCard">TCard #</string>
+    <string name = "hintTCard">enter TCard number</string>
+    <string name = "department">Department</string>
+    <string name = "hintDepartment">select department</string>
+    <string name = "year">Year</string>
+    <string name = "hintYear">enter your year (e.g. 2)</string>
+    <string name = "signUp">Sign Up</string>
+    <string name = "backToLogin">Go back to login</string>
+    <string name = "changePassword">Change Password</string>
+    <string name = "oldPassword">Old Password</string>
+    <string name = "newPass">New Password</string>
+    <string name = "reNewPass">Verify New Password</string>
+    <string name = "updatePass">Update Password</string>
+    <string name = "uploadPic">Upload Picture</string>
+    <string name = "virtualTCard">VIRTUAL TCARD</string>
+
+
+    <string name="title_activity_home">HomeActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -58,4 +98,11 @@
         immediately contact residence staff. </string>
     <string name="red_2">Please note, this self-assessment does not confirm a diagnosis of COVID-19. </string>
     <string name="red_3">Please proceed by following the recommendations below.</string>
+    <string name="english">EN</string>
+    <string name="french">FR</string>
+
+
+
+
+
 </resources>

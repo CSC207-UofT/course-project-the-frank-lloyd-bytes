@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <TextView
-                android:text="Facilities"
+                android:text="@string/facilities"
                 android:background="@drawable/text_box_type_3"
                 android:layout_width="match_parent"
                 android:textColor="@color/white"
@@ -30,7 +30,7 @@
                 android:paddingTop="5dp"
                 android:layout_marginBottom="1dp"/>
         <Button
-                android:text="GO BACK"
+                android:text="@string/goBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_box_type_3"

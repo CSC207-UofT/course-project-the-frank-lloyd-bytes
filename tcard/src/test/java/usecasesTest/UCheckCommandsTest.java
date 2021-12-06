@@ -2,9 +2,10 @@ package usecasesTest;
 
 import entities.UCheck;
 import entities.UCheckResults;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class UCheckCommandsTest {
@@ -21,20 +22,29 @@ public class UCheckCommandsTest {
     @Test
     public void getStateTrue() {
         uCheckSample.setState(1);
-        assertEquals(1, uCheckSample.getState());
+        Assert.assertEquals(1, uCheckSample.getState());
     }
+
     @Test
     public void getStateFalse() {
         uCheckSample.setState(2);
-        assertEquals(2, uCheckSample.getState());
+        Assert.assertEquals(2, uCheckSample.getState());
     }
+
     @Test
     public void getStateNeutral() {
-        assertEquals(0, uCheckSample.getState());
+        Assert.assertEquals(0, uCheckSample.getState());
     }
+
     @Test
     public void getDateUCheck() {
         uCheckSample.setDate("test");
-        assertEquals("test", uCheckSample.getDate());
+        Assert.assertEquals("test", uCheckSample.getDate());
+    }
+
+    @After
+    public void tearDown() {
+        uCheckSample = null;
+        uCheckResultsSample = null;
     }
 }

@@ -69,7 +69,6 @@ public class DashBoardActivity extends AppCompatActivity{
             uCheckResult.setText("Take UCheck Test");
         }
 
-
         /*
           This is the bottom navigation menu
           each case represents the icon clicked and which page clicking on the icon should direct the user to

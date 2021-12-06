@@ -1,6 +1,7 @@
 package entitiesTest;
 
 import entities.UCheck;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,35 +24,40 @@ public class UCheckTest {
     @Test
     public void setDate() {
         testUCheck.setDate("date");
-        assertEquals("date", testUCheck.getDate());
+        Assert.assertEquals("date", testUCheck.getDate());
     }
 
     @Test
     public void getStatePass() {
         testUCheck.setState(1);
-        assertEquals(1, testUCheck.getState());
+        Assert.assertEquals(1, testUCheck.getState());
     }
     
     @Test
     public void getStateFail() {
         testUCheck.setState(2);
-        assertEquals(2, testUCheck.getState());
+        Assert.assertEquals(2, testUCheck.getState());
     }
 
     @Test
     public void getStateNeutral() {
-        assertEquals(0, testUCheck.getState());
+        Assert.assertEquals(0, testUCheck.getState());
     }
 
     @Test
     public void setStatePass() {
         testUCheck.setState(1);
-        assertEquals(1, testUCheck.getState());
+        Assert.assertEquals(1, testUCheck.getState());
     }
 
     @Test
     public void setStateFail() {
         testUCheck.setState(2);
-        assertEquals(2, testUCheck.getState());
+        Assert.assertEquals(2, testUCheck.getState());
+    }
+
+    @After
+    public void tearDown() {
+        testUCheck = null;
     }
 }

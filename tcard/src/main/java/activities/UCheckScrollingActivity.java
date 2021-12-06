@@ -70,7 +70,7 @@ private ActivityUcheckScrollingBinding binding;
                         assert intent != null;
                         boolean isAllowed = intent.getBooleanExtra("isAllowed", false);
                         // This updates from the results of next activity.
-                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getUser().getId(), isAllowed?1:2);
+                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getId(), isAllowed?1:2);
                         showScreen();
                     }
                 }

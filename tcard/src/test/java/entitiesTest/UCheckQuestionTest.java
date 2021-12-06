@@ -1,64 +1,75 @@
 package entitiesTest;
 
 import entities.UCheckQuestion;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class UCheckQuestionTest {
 
     UCheckQuestion testUCheckQuestion;
+
     @Before
     public void setUp(){
-        testUCheckQuestion = new UCheckQuestion("title", "question");
+        testUCheckQuestion = new UCheckQuestion();
+        testUCheckQuestion.setTitle("title");
+        testUCheckQuestion.setQuestion("question");
     }
 
     @Test
     public void isSelectedFalse() {
-        assertFalse(testUCheckQuestion.isSelected());
+        Assert.assertFalse(testUCheckQuestion.isSelected());
     }
 
     @Test
     public void setSelectedTrue() {
         testUCheckQuestion.setSelected(true);
-        assertTrue(testUCheckQuestion.isSelected());
+        Assert.assertTrue(testUCheckQuestion.isSelected());
     }
+
     @Test
     public void setSelectedFalse() {
         testUCheckQuestion.setSelected(false);
-        assertFalse(testUCheckQuestion.isSelected());
+        Assert.assertFalse(testUCheckQuestion.isSelected());
     }
+
     @Test
     public void getQuestion() {
-        assertEquals("question", testUCheckQuestion.getQuestion());
+        Assert.assertEquals("question", testUCheckQuestion.getQuestion());
     }
 
     @Test
     public void isNoFalse() {
-        assertFalse(testUCheckQuestion.isNo());
+        Assert.assertFalse(testUCheckQuestion.isNo());
     }
 
     @Test
     public void isNoTrue() {
         testUCheckQuestion.setIsNo(true);
-        assertTrue(testUCheckQuestion.isNo());
+        Assert.assertTrue(testUCheckQuestion.isNo());
     }
 
     @Test
     public void setIsNo() {
         testUCheckQuestion.setIsNo(true);
-        assertTrue(testUCheckQuestion.isNo());
+        Assert.assertTrue(testUCheckQuestion.isNo());
     }
 
     @Test
     public void setIsNoFalse() {
         testUCheckQuestion.setIsNo(false);
-        assertFalse(testUCheckQuestion.isNo());
+        Assert.assertFalse(testUCheckQuestion.isNo());
     }
 
     @Test
     public void getTitle() {
-        assertEquals("title", testUCheckQuestion.getTitle());
+        Assert.assertEquals("title", testUCheckQuestion.getTitle());
+    }
+
+    @After
+    public void tearDown() {
+        testUCheckQuestion = null;
     }
 }

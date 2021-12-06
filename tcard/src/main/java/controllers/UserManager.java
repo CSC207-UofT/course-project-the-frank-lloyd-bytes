@@ -72,6 +72,9 @@ public class UserManager implements Serializable {
         return myUserCommands.getId();
     }
 
+    /**
+     * @return String USER full name a with space in middle.
+     */
     public String getFullName() {
         return myUserCommands.getFullName();
     }

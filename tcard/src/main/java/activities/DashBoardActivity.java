@@ -17,9 +17,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import controllers.UCheckManager;
 import controllers.UserManager;
-import usecases.UCheckCommands;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class DashBoardActivity extends AppCompatActivity{
     DashBoardFragmentsAdapter adapter;
     BottomNavigationView bottomMenu;
     UserManager myManager;
-    UCheckCommands myUCheckCommands;
+    UCheckManager myUCheckManager;
 
     @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
@@ -53,9 +52,7 @@ public class DashBoardActivity extends AppCompatActivity{
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        myUCheckCommands = new UCheckCommands();
-
-
+        myUCheckManager = new UCheckManager();
 
 
         // This part control the switch button for the day-night mode
@@ -80,16 +77,10 @@ public class DashBoardActivity extends AppCompatActivity{
             editor.commit();
         });
 
-
-
-
-
-
-
         //Add previous Activity results back in SharedPreferences.
-        myUCheckCommands.populateResult(this, myManager.getId());
+        myUCheckManager.populateResult(this, myManager.getId());
         //Get previous state.
-        int layoutInt = myUCheckCommands.getState();
+        int layoutInt = myUCheckManager.getState();
         //Once a questionnaire is completed, this method sets the UCheck results
         //UCheck of questionnaire of USER.
         if (layoutInt == 2){

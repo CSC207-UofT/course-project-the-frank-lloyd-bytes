@@ -13,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import activities.databinding.ActivityUcheckScrollingBinding;
+import controllers.UCheckManager;
 import controllers.UserManager;
-import usecases.UCheckCommands;
-import java.util.List;
 
 /**
  * This is the main dashboard for UCheck. This will display a UI interface for UCheck containing the status of UCheck,
@@ -26,7 +25,7 @@ public class UCheckScrollingActivity extends AppCompatActivity {
 private ActivityUcheckScrollingBinding binding;
 
     UserManager myManager;
-    UCheckCommands myUCheckCommands;
+    UCheckManager myUCheckManager;
     /**
      * @param savedInstanceState for any information that was saved previously.
      */
@@ -36,7 +35,7 @@ private ActivityUcheckScrollingBinding binding;
         // We get the user information from the USER object by using a controller (myManager)
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
         binding = ActivityUcheckScrollingBinding.inflate(getLayoutInflater());
-        myUCheckCommands= new UCheckCommands();
+        myUCheckManager = new UCheckManager();
         setContentView(binding.getRoot());
         // The launcher with the Intent you want to start for self-assessment questionnaire.
         binding.startSelfAssessment.setOnClickListener(v ->
@@ -70,7 +69,7 @@ private ActivityUcheckScrollingBinding binding;
                         assert intent != null;
                         boolean isAllowed = intent.getBooleanExtra("isAllowed", false);
                         // This updates from the results of next activity.
-                        myUCheckCommands.setResult(UCheckScrollingActivity.this, myManager.getId(), isAllowed?1:2);
+                        myUCheckManager.setResult(UCheckScrollingActivity.this, myManager.getId(), isAllowed?1:2);
                         showScreen();
                     }
                 }
@@ -82,16 +81,16 @@ private ActivityUcheckScrollingBinding binding;
         //Name of current USER.
         String legalFullName = myManager.getFullName();
         // Once a questionnaire is completed, this method sets the UCheck results
-        myUCheckCommands.populateResult(this, myManager.getId());
+        myUCheckManager.populateResult(this, myManager.getId());
         //UCheck of questionnaire of USER.
-        int layout = myUCheckCommands.getLayout();
+        int layout = myUCheckManager.getLayout();
         LayoutInflater inflater = getLayoutInflater();
         View myLayout = inflater.inflate(layout, binding.linearLayout, false);
         TextView txtName = myLayout.findViewById(R.id.txtName);
         txtName.setText(legalFullName);
-        if(myUCheckCommands.getState()!= 0) {
+        if(myUCheckManager.getState()!= 0) {
             TextView txtDate = myLayout.findViewById(R.id.txtDate);
-            txtDate.setText(myUCheckCommands.getDate());
+            txtDate.setText(myUCheckManager.getDate());
         }
         binding.linearLayout.removeAllViews();
         binding.linearLayout.addView(myLayout);

@@ -26,14 +26,31 @@ public class UCheckTest {
     }
 
     @Test
-    public void getState() {
+    public void getStatePass() {
         testUCheck.setState(1);
-        assertEquals(testUCheck.getState(), 1);
+        assertEquals(1, testUCheck.getState());
+    }
+    
+    @Test
+    public void getStateFail() {
+        testUCheck.setState(2);
+        assertEquals(2, testUCheck.getState());
     }
 
     @Test
-    public void setState() {
+    public void getStateNeutral() {
+        assertEquals(0, testUCheck.getState());
+    }
+
+    @Test
+    public void setStatePass() {
         testUCheck.setState(1);
-        assertEquals(testUCheck.getState(), 1);
+        assertEquals(1, testUCheck.getState());
+    }
+
+    @Test
+    public void setStateFail() {
+        testUCheck.setState(2);
+        assertEquals(2, testUCheck.getState());
     }
 }

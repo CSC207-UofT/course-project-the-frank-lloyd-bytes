@@ -1,7 +1,9 @@
 package activities;
 import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ public class DashBoardActivity extends AppCompatActivity{
     UserManager myManager;
     UCheckCommands myUCheckCommands;
 
+
     @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -46,21 +49,24 @@ public class DashBoardActivity extends AppCompatActivity{
         uCheckResult = findViewById(R.id.uCheckTestResult);
         username = findViewById(R.id.userNameInput);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-        myUCheckCommands=new UCheckCommands();
-
-        int uCheckState = myUCheckCommands.getState();
-        if (uCheckState ==2){
+        myUCheckCommands = new UCheckCommands();
+        //Add previous Activity results back in SharedPreferences.
+        myUCheckCommands.populateResult(this, myManager.getUser().getId());
+        //Get previous state.
+        int layoutInt = myUCheckCommands.getState();
+        //Once a questionnaire is completed, this method sets the UCheck results
+        //UCheck of questionnaire of USER.
+        if (layoutInt == 2){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.negativeUCheck));
             uCheckResult.setText("UCheck Failed");
         }
-        else if(uCheckState ==1){
+        else if(layoutInt == 1){
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.positiveUCheck));
             uCheckResult.setText("UCheck Passed");
         }
-        else
-        {
+        else {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
-            uCheckResult.setText("Take Ucheck Test");
+            uCheckResult.setText("Take UCheck Test");
         }
 
 

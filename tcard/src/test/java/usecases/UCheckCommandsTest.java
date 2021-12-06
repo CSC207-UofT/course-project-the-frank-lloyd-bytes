@@ -13,7 +13,7 @@ public class UCheckCommandsTest {
     UCheckResults uCheckResultsSample;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         uCheckSample = new UCheck();
         uCheckResultsSample = new UCheckResults();
     }
@@ -23,7 +23,15 @@ public class UCheckCommandsTest {
         uCheckSample.setState(1);
         assertEquals(1, uCheckSample.getState());
     }
-
+    @Test
+    public void getStateFalse() {
+        uCheckSample.setState(2);
+        assertEquals(2, uCheckSample.getState());
+    }
+    @Test
+    public void getStateNeutral() {
+        assertEquals(0, uCheckSample.getState());
+    }
     @Test
     public void getDateUCheck() {
         uCheckSample.setDate("test");

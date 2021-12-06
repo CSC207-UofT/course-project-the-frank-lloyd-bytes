@@ -13,6 +13,25 @@
             android:layout_height="match_parent"
             android:paddingTop="20dp">
 
+        <RadioGroup
+                android:orientation="horizontal"
+                android:layout_marginLeft="270dp"
+                android:layout_width="150dp"
+                android:id="@+id/languageGroup"
+                android:layout_height="40dp">
+            <RadioButton
+                    android:text="@string/english"
+                    android:layout_width="50dp"
+                    android:checked="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/english"/>
+            <RadioButton
+                    android:text="@string/french"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/french"
+                    android:layout_weight="1"/>
+        </RadioGroup>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"

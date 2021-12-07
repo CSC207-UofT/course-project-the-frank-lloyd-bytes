@@ -94,6 +94,7 @@ public class DashBoardActivity extends AppCompatActivity{
         else {
             uCheckCard.setCardBackgroundColor(ContextCompat.getColor(this, R.color.neutralUCheck));
             uCheckResult.setText("Take UCheck Test");
+            uCheckResult.setTextSize(30);
         }
 
         /*
@@ -138,6 +139,17 @@ public class DashBoardActivity extends AppCompatActivity{
         criteria.add(info.get(4));
         criteria.add(info.get(7));
         criteria.add(info.get(8));
+        String uCheck ="";
+
+        if (layoutInt == 1){
+            uCheck = "UCheck Passed";}
+        else if(layoutInt == 2){
+            uCheck = "UCheck Failed";
+        }
+        else{
+            uCheck = "UCheck Not Done";
+        }
+        criteria.add(uCheck);
         bundle.putString("allInfo", criteria.toString());
 
         adapter = new DashBoardFragmentsAdapter(fm, getLifecycle(), bundle);

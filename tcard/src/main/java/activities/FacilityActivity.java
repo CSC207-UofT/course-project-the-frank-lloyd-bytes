@@ -20,7 +20,6 @@ public class FacilityActivity extends AppCompatActivity {
     UserManager userManager;
     FacilityAdapter adapter;
     Button backToDashboard;
-    UserManager myManager;
     //FileReader fileReader;
 
     /**
@@ -78,13 +77,13 @@ public class FacilityActivity extends AppCompatActivity {
         facilityTwo.add("St George");
         facilityTwo.add("lab");
         facilityTwo.add("9 to 5");
-        facilityTwo.add("program=(CS),level=(undergrad):department=(CS),position=(postdoc/professor)");
+        facilityTwo.add("program=(CompSci/Math),level=(1/2/3):department=(CompSci/Math),position=(4/5/6)");
 
         facilityThree.add("New College");
         facilityThree.add("21 classic");
         facilityThree.add("residence");
         facilityThree.add("24 hours");
-        facilityThree.add("program=(CS),level=(undergrad):department=(CS),position=(postdoc/professor)");
+        facilityThree.add("program=(Music),level=(1):department=(Music),position=(1)");
         facilitiesInfo.add(facilityOne);
         facilitiesInfo.add(facilityTwo);
         facilitiesInfo.add(facilityThree);

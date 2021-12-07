@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="negativeUCheck">#673131</color>
-    <color name="positiveUCheck">#4A6547</color>
+    <color name="negativeUCheck">#e77072</color>
+    <color name="positiveUCheck">#479e7a</color>
     <color name="neutralUCheck">#77787A</color>
     <color name="Tcardblue">#3C4C67</color>
     <color name="UofTblue">#101827</color>

@@ -24,10 +24,6 @@ public class FacilitiesManager implements Serializable {
         this.MY_FACILITY_HELPER = new FacilityHelper();
     }
 
-    public ArrayList<ArrayList<String>> getFacilitiesInfo(){
-        return this.FACILITIES_COMMANDS.getInfo();
-    }
-
     public Facility getFacility(String name){
         return this.FACILITIES_COMMANDS.getFacility(name);
     }

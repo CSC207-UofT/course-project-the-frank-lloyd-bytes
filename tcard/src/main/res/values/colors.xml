@@ -6,8 +6,8 @@
     <color name="textColor">#FF032F67</color>
     <color name="secondaryTextColor">#FFFFFF</color>
     <color name="thirdTextColor">#1E1E1E</color>
-    <color name="negativeUCheck">#932E2E</color>
-    <color name="positiveUCheck">#326A0F</color>
+    <color name="negativeUCheck">#e77072</color>
+    <color name="positiveUCheck">#479e7a</color>
     <color name="neutralUCheck">#454545</color>
     <color name="Tcardblue">#FF032F67</color>
     <color name="UofTblue">#FF032F67</color>

@@ -41,7 +41,6 @@ public abstract class User implements Serializable {
         } else {
             this.picture = userInfo.get(9);
         }
-
     }
 
     /**
@@ -100,36 +99,39 @@ public abstract class User implements Serializable {
     public String getId() {
         return this.profiles.get(UTORID);
     }
+
     /**
      * @return the user's first name
      */
     public String getFN() {
         return this.profiles.get(FIRST_NAME);
     }
+
     /**
      * @return the user's last name
      */
     public String getLN() {
         return this.profiles.get(LAST_NAME);
     }
+
     /**
      * @return the user's status
      */
     public String getSTATUS() {
         return this.profiles.get(STATUS);
     }
+
     /**
      * @return the user's id number
      */
     public String getID_NUMBER() {
         return this.profiles.get(ID_NUMBER);
     }
+
     /**
      * @return the user's email
      */
     public String getEMAIL() {
         return this.profiles.get(EMAIL);
     }
-
-
 }

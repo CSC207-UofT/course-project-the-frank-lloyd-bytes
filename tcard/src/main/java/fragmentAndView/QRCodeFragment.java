@@ -11,7 +11,6 @@ import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidx.fragment.app.Fragment;
 
-
 public class QRCodeFragment extends Fragment {
     /**
      * This is one of the fragments that's displayed in the Dashboard through ViewPager2

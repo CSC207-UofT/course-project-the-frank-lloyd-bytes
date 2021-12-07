@@ -1,6 +1,5 @@
 package usecases;
 
-
 import entities.Student;
 import entities.User;
 import entities.Faculty;
@@ -76,7 +75,7 @@ public class UserCommands implements Serializable {
 
     /**
      * get the user of this UserCommands
-     * @return an User object
+     * @return a User object
      */
     public User getUser(){
         return this.USER;

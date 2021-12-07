@@ -3,7 +3,6 @@ package adapters;
 import activities.R;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.FacilitiesManager;
 import controllers.UserManager;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -80,7 +78,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
 
     /**
      * configuring the layouts of the facilities page. for each card view in recycler view, get the information from
-     * from the database and set them to the texts
+     * the database and set them to the texts
      * @param holder for each of the cards in the recycler view
      * @param position for which position in the arraylist that we need to implement in the recycler view
      */
@@ -90,7 +88,6 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
         String address = FACILITY_INFO.get(position).get(1);
         String hours = FACILITY_INFO.get(position).get(3);
         ArrayList<String> facility = FACILITY_INFO.get(position);
-
         holder.facilityName.setText(name);
         holder.facilityAddress.setText(address);
         holder.facilityHours.setText(hours);
@@ -106,6 +103,4 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
     public int getItemCount() {
         return FACILITY_INFO.size();
     }
-
-
 }

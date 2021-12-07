@@ -76,17 +76,13 @@ public class QuestionAdapter extends BaseAdapter {
         myUCheckManager.populateUCheckQuestion(listData.get(position));
         txtTitle.setText(myUCheckManager.getTitle());
         txtQuestion.setText(myUCheckManager.getQuestion());
-        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            // This determines whether a button has been selected in UI, it also enforces 1 button per yes/no layer.
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                if (radioButtonNo.isChecked()) {
-                    onOptionSelection.onSelection(true, position);
-                }
-                if (radioButtonYes.isChecked()) {
-                    onOptionSelection.onSelection(false, position);
-                }
+        // This determines whether a button has been selected in UI, it also enforces 1 button per yes/no layer.
+        radiogroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (radioButtonNo.isChecked()) {
+                onOptionSelection.onSelection(true, position);
+            }
+            if (radioButtonYes.isChecked()) {
+                onOptionSelection.onSelection(false, position);
             }
         });
         return itemView;

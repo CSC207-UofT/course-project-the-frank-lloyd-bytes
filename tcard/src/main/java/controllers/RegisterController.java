@@ -2,7 +2,6 @@ package controllers;
 
 import usecases.RegisterUseCase;
 import interfaces.UserReadWriter;
-
 import java.util.*;
 
 /**
@@ -36,11 +35,6 @@ public class RegisterController {
      */
     public String runRegister(List<String> userRegistrationInfo) {
         RegisterUseCase.RegistrationResult registerResult = registerUseCase.registerUser(userRegistrationInfo);
-
         return REGISTER_MESSAGES.get(registerResult);
     }
-
-
-
-
 }

@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import controllers.UserManager;
 import dataBase.UserDBHelper;
-
 import java.util.List;
 import java.util.Objects;
 

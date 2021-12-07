@@ -10,7 +10,6 @@ import android.widget.ListView;
  * for given dimensions to fit the activity.
  */
 public class NonScrollListView extends ListView {
-
     public NonScrollListView(Context context) {
         super(context);
     }

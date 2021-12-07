@@ -50,8 +50,6 @@ public class Facility {
         facilityInfo.add(this.facilityInfo.get(FACILITY_DESCRIPTION));
         facilityInfo.add(this.facilityInfo.get(FACILITY_HOURS));
         facilityInfo.add(this.facilityInfo.get(FACILITY_CRITERIA));
-
         return facilityInfo;
     }
-
 }

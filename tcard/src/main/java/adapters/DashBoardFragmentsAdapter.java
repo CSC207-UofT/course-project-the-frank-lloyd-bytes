@@ -1,4 +1,5 @@
 package adapters;
+
 import fragmentAndView.QRCodeFragment;
 import fragmentAndView.TCardFragment;
 import android.os.Bundle;
@@ -7,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
 
 public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
     /**
@@ -23,6 +23,7 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
         super(fragmentManager,lifecycle);
         this.bundle=bundle;
     }
+
     @NonNull
     @Override
     /*
@@ -38,6 +39,7 @@ public class DashBoardFragmentsAdapter extends FragmentStateAdapter {
         tCardFragment.setArguments(bundle);
         return tCardFragment;
     }
+
     /*
       We are overriding the method to input that we have two Fragments displayed in the ViewPager2
      */

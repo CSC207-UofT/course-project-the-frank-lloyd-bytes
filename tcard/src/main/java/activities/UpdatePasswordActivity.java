@@ -13,7 +13,7 @@ import dataBase.UserDBHelper;
 public class UpdatePasswordActivity extends AppCompatActivity {
     /**
      * This page is called by the ProfileActivity to change the password of the user
-     * If the password change operator is succesfull than the password will be changed in the database
+     * If the password change operator is successful than the password will be changed in the database
      * so the next time the user signs in, they have to type the new password
      */
     EditText currPassword, rePassword, newPassword;
@@ -26,7 +26,6 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updatepassword);
         myManager = (UserManager) getIntent().getSerializableExtra("manager");
-
         currPassword = findViewById(R.id.currpassword);
         newPassword = findViewById(R.id.newpassword);
         rePassword = findViewById(R.id.repassword);

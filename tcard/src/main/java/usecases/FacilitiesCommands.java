@@ -1,7 +1,6 @@
 package usecases;
 
 import entities.Facility;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,8 +26,6 @@ public class FacilitiesCommands implements Serializable {
     public Facility getFacility(String name){
         return FACILITY_Map.get(name);
     }
-
-
 
     public ArrayList<ArrayList<String>> getInfo() {
         ArrayList<ArrayList<String>> facilitiesArray = new ArrayList<>();

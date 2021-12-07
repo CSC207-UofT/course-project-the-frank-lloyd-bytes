@@ -6,7 +6,6 @@ import entities.Student;
 import entities.User;
 import usecases.FacilitiesCommands;
 import usecases.FacilityHelper;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,8 +26,6 @@ public class FacilitiesManager implements Serializable {
     public Facility getFacility(String name){
         return this.FACILITIES_COMMANDS.getFacility(name);
     }
-
-
 
     public boolean evaluateHelper(User user, Facility facility){
         if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "Student")){
@@ -81,8 +78,6 @@ public class FacilitiesManager implements Serializable {
         if(Arrays.asList(yearConditions).contains("any")){
             yearConditionSatisfied = true;
         }
-
         return (departmentConditionSatisfied & yearConditionSatisfied);
     }
-
 }

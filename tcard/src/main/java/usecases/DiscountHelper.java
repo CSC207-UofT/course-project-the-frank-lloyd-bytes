@@ -4,7 +4,6 @@ import entities.Discount;
 import entities.Faculty;
 import entities.Student;
 import entities.User;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,6 @@
 package entities;
 
 import androidx.annotation.NonNull;
-
 import java.util.Arrays;
 
 /**
@@ -59,7 +58,7 @@ public class Discount {
     /**
      * Returns a string representation of a discount. Example output: "-10% off on textbooks and pencils!".
      *
-     * @return a string describing a discounts information in a sentence.
+     * @return a string describing a discounts' information in a sentence.
      */
     @NonNull
     @Override

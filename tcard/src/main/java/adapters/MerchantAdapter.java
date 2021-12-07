@@ -3,14 +3,12 @@ package adapters;
 import activities.R;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 import controllers.MerchantManager;
-
 import java.io.IOException;
 
 public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHolder> {
@@ -37,14 +35,11 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
             name = itemView.findViewById(R.id.merchantName);
             address = itemView.findViewById(R.id.merchantAddress);
             hours = itemView.findViewById(R.id.merchantHours);
-
             itemView.findViewById(R.id.seeMerchantDiscounts).setOnClickListener(v -> {
                 String applicableDiscounts = MERCHANT_MANAGER.checkApplicableDiscounts(name.getText().toString());
-
 //                Toast.makeText(itemView.getContext(), applicableDiscounts, Toast.LENGTH_SHORT).show();
                 Snackbar mySnackbar = Snackbar.make(v, applicableDiscounts, Snackbar.LENGTH_LONG);
                 mySnackbar.show();
-
             });
         }
     }
@@ -73,7 +68,6 @@ public class MerchantAdapter extends RecyclerView.Adapter<MerchantAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String addressString = "Address: " + MERCHANT_MANAGER.getMerchantList().get(position).get(1);
         String hoursString = "Hours: " + MERCHANT_MANAGER.getMerchantList().get(position).get(2);
-
         holder.name.setText(MERCHANT_MANAGER.getMerchantList().get(position).get(0));
         holder.address.setText(addressString);
         holder.hours.setText(hoursString);

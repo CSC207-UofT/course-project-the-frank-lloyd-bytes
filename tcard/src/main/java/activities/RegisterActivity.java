@@ -14,7 +14,7 @@ import java.util.List;
 public class RegisterActivity extends AppCompatActivity{
     /**
      * The registration form for new users
-     * Once they succesfully register they'll go back to the Login page to sign in
+     * Once they successfully register they'll go back to the Login page to sign in
      */
     EditText username, password, rePassword, firstName, lastName, email, tCardNumber, year;
     Button btnSignUp, btnSignIn;

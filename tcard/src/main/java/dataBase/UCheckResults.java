@@ -3,12 +3,11 @@ package dataBase;
 import android.content.Context;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import java.io.Serializable;
 
 /**
  * This Entity store the results from UI UCheckScrollingActivity in onActivityResult.
  */
-public class UCheckResults implements Serializable{
+public class UCheckResults{
 
     public UCheckResults(){}
 

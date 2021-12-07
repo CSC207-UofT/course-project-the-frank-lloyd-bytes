@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 /*
   A reader class that read the csv file.
  */
@@ -32,6 +31,4 @@ public class FileReader {
         }
         return buildList;
     }
-
-
 }

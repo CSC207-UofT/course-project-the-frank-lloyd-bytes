@@ -25,6 +25,7 @@ public class Faculty extends User implements Serializable {
         this.profiles.put(FACULTY_YEAR, userInfo.get(7)); //year
         this.profiles.put(FACULTY_DEPARTMENT, userInfo.get(8)); //department
     }
+
     @Override
     public List<String> getUserInfo(){
         List<String> info = super.getUserInfo();

@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import controllers.MerchantManager;
 import controllers.UserManager;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +30,9 @@ public class MerchantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_merchant_main);
-
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
-
-
         merchantManager = new MerchantManager(setMerchantList(), userManager);
-
         backToDashboard = findViewById(R.id.merchantsGoBack);
-
         backToDashboard.setOnClickListener(view -> {
             Intent intent4 = new Intent(getApplicationContext(), DashBoardActivity.class);
             intent4.putExtra("manager", userManager);

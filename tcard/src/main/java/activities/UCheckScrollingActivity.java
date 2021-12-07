@@ -23,7 +23,6 @@ import controllers.UserManager;
 public class UCheckScrollingActivity extends AppCompatActivity {
 
 private ActivityUcheckScrollingBinding binding;
-
     UserManager myManager;
     UCheckManager myUCheckManager;
     /**
@@ -56,6 +55,7 @@ private ActivityUcheckScrollingBinding binding;
         });
         showScreen();
     }
+
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 /**
@@ -74,6 +74,7 @@ private ActivityUcheckScrollingBinding binding;
                     }
                 }
             });
+
     /**
      * Display correct screen from the questionnaire with time completed and USER full name.
      */

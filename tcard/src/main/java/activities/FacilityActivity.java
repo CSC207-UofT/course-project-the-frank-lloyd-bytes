@@ -34,7 +34,6 @@ public class FacilityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_facility_main);
         userManager = (UserManager) getIntent().getSerializableExtra("manager");
         backToDashboard = findViewById(R.id.facilitiesGoBack);
-
         backToDashboard.setOnClickListener(view -> {
             Intent intent4 = new Intent(getApplicationContext(), DashBoardActivity.class);
             intent4.putExtra("manager", userManager);
@@ -53,9 +52,7 @@ public class FacilityActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         adapter = new FacilityAdapter(facilitiesInfo, facilitiesManager, userManager);
-
         recyclerView.setAdapter(adapter);
     }
 

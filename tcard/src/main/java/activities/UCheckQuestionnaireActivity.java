@@ -68,7 +68,6 @@ public class UCheckQuestionnaireActivity extends AppCompatActivity implements On
     @Override
     public void onSelection(boolean isNoVar, int position) {
         myUCheckManager.updateSelection(isNoVar, position);
-
     }
 
     /**

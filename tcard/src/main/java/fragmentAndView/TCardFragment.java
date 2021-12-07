@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-
 import java.util.Objects;
 
 public class TCardFragment extends Fragment{
@@ -36,9 +35,6 @@ public class TCardFragment extends Fragment{
         if (!Objects.equals(bundle.getString("pic"), "")){
            profile.setImageURI(Uri.parse(bundle.getString("pic")));
         }
-
-
         return view;
     }
-
 }

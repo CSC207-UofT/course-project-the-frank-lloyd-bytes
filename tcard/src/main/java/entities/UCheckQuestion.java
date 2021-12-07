@@ -12,8 +12,7 @@ public class UCheckQuestion {
     private boolean isSelected;
     private boolean isNo;
 
-    public UCheckQuestion() {
-    }
+    public UCheckQuestion() {}
 
     /**
      * @return boolean if it's selected or not in interface.

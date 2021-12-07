@@ -1,7 +1,6 @@
 package usecases;
 
 import entities.Merchant;
-
 import java.util.HashMap;
 import java.util.List;
 

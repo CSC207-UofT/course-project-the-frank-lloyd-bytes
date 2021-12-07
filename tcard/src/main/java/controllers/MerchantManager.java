@@ -2,7 +2,6 @@ package controllers;
 
 import usecases.DiscountHelper;
 import usecases.MerchantMap;
-
 import java.util.List;
 
 /**
@@ -15,7 +14,7 @@ public class MerchantManager {
     private final List<List<String>> MERCHANT_LIST;
 
     /**
-     * Contructs a MerchantManager object.
+     * Constructs a MerchantManager object.
      * @param merchantList a list of lists, each sublist contains the information for a single merchant represented as
      *                      strings.
      * @param userManager a UserManager object.

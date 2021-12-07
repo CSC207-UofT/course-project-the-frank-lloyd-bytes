@@ -28,7 +28,5 @@ public class QRCodeFragment extends Fragment {
         QRGEncoder qrgEncoder = new QRGEncoder(input, QRGContents.Type.TEXT, 200);
         Bitmap bitmap = qrgEncoder.getBitmap();
         qrImage.setImageBitmap(bitmap);
-
-
         return view;
     }}

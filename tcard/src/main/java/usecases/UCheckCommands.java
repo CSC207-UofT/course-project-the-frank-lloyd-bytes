@@ -58,6 +58,10 @@ public class UCheckCommands{
         UCHECK.setDate(date);
     }
 
+    public UCheck getUCHECK() {
+        return UCHECK;
+    }
+
     /**
      * This method returns the state of UCheck with corresponds to a layout display in UCheckScrollingActivity for the UI.
      * Method calls getState() in function that gets UCheck state.

@@ -86,7 +86,7 @@ public class DiscountHelper {
     private boolean discountApplicable(Discount discount, User user) {
         String[] discountCriteriaArray = discount.getCriteria().split(":");
 
-        if (user.getSTATUS().equals("Student")) {
+        if (user.getSTATUS().equals("student")) {
             return studentDiscountApplicable(discountCriteriaArray[0], (Student) user);
         }  else {
             return facultyDiscountApplicable(discountCriteriaArray[1], (Faculty) user);

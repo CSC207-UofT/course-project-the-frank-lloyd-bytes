@@ -27,7 +27,7 @@ public class UserCommands implements Serializable {
      * @return a User object
      */
     public User createUser(List<String> userInfo) {
-        if (userInfo.get(4).equals("Student")) {
+        if (userInfo.get(4).equals("student")) {
             return new Student(userInfo);
         }
         return new Faculty(userInfo);

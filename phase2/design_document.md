@@ -31,18 +31,19 @@ current version of  gradle is the only one that can run on everyone's computer. 
 
 There was inconsistency in our naming style. We’ve tried to use the gradle plugin “checkstyle”  to automatically check 
 the errors. But it didn’t work. So we had to check it manually. Most of the inconsistencies should be removed now.
-
-Documentation will be done by Wednesday, and they will be for all methods. 
+ 
 
 ### Testing: (Line Coverage) **
+- Controllers(81%)
+- Usecases(78%)
 - Entities(100%)
-- Usecases(33%)
-- Controllers(29%)
+- dataBase(18%) 
+- Our overall line coverage is 36%. We've done our best to test our code as much as possible.
+However, we do not have the ability to test classes in activities,adapters,fragmentAndView and database because it 
+involves android environment and all the tools we found seems no longer working on 
+Intellij(ActivityScenario, ActivityTestRule and AndroidJUnitRunner). 
 
-The testing coverage was higher. But unfortunately some tests were not successfully committed to Github and we lost 
-those tests by accident. We’ve added a lot of code after phase 1 and that also lowered our test coverage. We will 
-improve the coverage to 50% before submitting the final version of our project.
-
+  
 ### Refactoring:
 Made changes to variable types to satisfy the open closed principle. For example, we refactored ArrayList<String> var = 
 new ArrayList<>(); to List<String> var = new ArrayList<>(); wherever it was applicable.
@@ -207,6 +208,7 @@ Yanbin:
 - Refactored User.
 - Created tests for the project.
 - Correct the naming style issues
+- Helping others with adding new features(facility, uploading pictures)
 - I have been merging everybody’s work manually because the pull request was not working properly. I’ve also been fixing
 all of the conflicts when a new feature was added.  
 - This commit (https://github.com/CSC207-UofT/course-project-the-frank-lloyd-bytes/commit/bbe33a7d90b889277c6c5195b832bc08da5e6c77) is a significant commit I made this term. With this commit, and several other commits close to this one, 

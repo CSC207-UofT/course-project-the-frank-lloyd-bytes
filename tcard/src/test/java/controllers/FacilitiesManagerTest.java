@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.Facility;
 import entities.Faculty;
 import entities.Student;
 import junit.framework.TestCase;
@@ -7,14 +8,36 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 
 public class FacilitiesManagerTest extends TestCase {
-    private Student sampleStudent1;
-    private Student sampleStudent2;
-    private Student sampleStudent3;
-    private Faculty sampleFaculty1;
-    private Faculty sampleFaculty2;
+    ArrayList<ArrayList<String>> faciInfo = new ArrayList<>();
+    ArrayList<String> sampleFacilityInfo = new ArrayList<>();
+    ArrayList<String> sampleFacilityInfo2 = new ArrayList<>();
+    FacilitiesManager facilitiesManager;
+    Facility facility;
+    Facility facility2;
+    private Student sampleStudent;
+    private Faculty sampleFaculty;
+
 
     public void setUp() throws Exception {
         super.setUp();
+        // set up the facility info
+        sampleFacilityInfo.add("Bahen Centre"); // name
+        sampleFacilityInfo.add("40 St George Street"); // address
+        sampleFacilityInfo.add("The Bahen Centre for Information Technology!"); // description
+        sampleFacilityInfo.add("Monday: 8:30AM-9:00PM"); // hours
+        sampleFacilityInfo.add("program=(CS/MAT),year=(1/2):department=(APM),year=(any)"); // criteria
+
+        sampleFacilityInfo2.add("Robarts Library"); // name
+        sampleFacilityInfo2.add("130 St George Street"); // address
+        sampleFacilityInfo2.add("The Favorite Library of Yanbin's"); // description
+        sampleFacilityInfo2.add("Monday: 8:30AM-9:00PM"); // hours
+        sampleFacilityInfo2.add("program=(any),year=(any):department=(any),year=(any)"); // criteria
+
+        faciInfo.add(sampleFacilityInfo);
+        faciInfo.add(sampleFacilityInfo2);
+        facility = new Facility(sampleFacilityInfo);
+        facility2 = new Facility(sampleFacilityInfo2);
+
         // create sample students
         ArrayList<String> sampleStudentInfo1 = new ArrayList<>();
         sampleStudentInfo1.add("mackeyjonah"); // utorid
@@ -27,33 +50,7 @@ public class FacilitiesManagerTest extends TestCase {
         sampleStudentInfo1.add("2"); // year
         sampleStudentInfo1.add("MAT"); // program
 
-        sampleStudent1 = new Student(sampleStudentInfo1); // student that is allowed access (correct program, correct year)
-
-        ArrayList<String> sampleStudentInfo2 = new ArrayList<>();
-        sampleStudentInfo2.add("mackeyjonah"); // utorid
-        sampleStudentInfo2.add("password!"); // password
-        sampleStudentInfo2.add("Jonah"); // first name
-        sampleStudentInfo2.add("Mackey"); // last name
-        sampleStudentInfo2.add("student"); // status
-        sampleStudentInfo2.add("1234567890"); // ID number
-        sampleStudentInfo2.add("jonah.mackey@mail.utoronto.ca"); // email
-        sampleStudentInfo2.add("1"); // year
-        sampleStudentInfo2.add("APM"); // program
-
-        sampleStudent2 = new Student(sampleStudentInfo2); // student that is not allowed access (incorrect program, correct year)
-
-        ArrayList<String> sampleStudentInfo3 = new ArrayList<>();
-        sampleStudentInfo3.add("mackeyjonah"); // utorid
-        sampleStudentInfo3.add("password!"); // password
-        sampleStudentInfo3.add("Jonah"); // first name
-        sampleStudentInfo3.add("Mackey"); // last name
-        sampleStudentInfo3.add("student"); // status
-        sampleStudentInfo3.add("1234567890"); // ID number
-        sampleStudentInfo3.add("jonah.mackey@mail.utoronto.ca"); // email
-        sampleStudentInfo3.add("3"); // year
-        sampleStudentInfo3.add("CS"); // program
-
-        sampleStudent3 = new Student(sampleStudentInfo3); // student that is not allowed access (incorrect year, correct program)
+        sampleStudent = new Student(sampleStudentInfo1); // student that is allowed access (correct program, correct year)
 
         // create sample faculty
         ArrayList<String> sampleFacultyInfo1 = new ArrayList<>();
@@ -67,31 +64,22 @@ public class FacilitiesManagerTest extends TestCase {
         sampleFacultyInfo1.add("5"); // year
         sampleFacultyInfo1.add("APM"); // department
 
-        sampleFaculty1 = new Faculty(sampleFacultyInfo1); // faculty that allowed access (correct department, correct year)
+        sampleFaculty = new Faculty(sampleFacultyInfo1); // faculty that allowed access (correct department, correct year)
 
-        ArrayList<String> sampleFacultyInfo2 = new ArrayList<>();
-        sampleFacultyInfo2.add("mackeyjonah"); // utorid
-        sampleFacultyInfo2.add("password!"); // password
-        sampleFacultyInfo2.add("Jonah"); // first name
-        sampleFacultyInfo2.add("Mackey"); // last name
-        sampleFacultyInfo2.add("faculty"); // status
-        sampleFacultyInfo2.add("1234567890"); // ID number
-        sampleFacultyInfo2.add("jonah.mackey@mail.utoronto.ca"); // email
-        sampleFacultyInfo2.add("6"); // year
-        sampleFacultyInfo2.add("CS"); // department
-
-        sampleFaculty2 = new Faculty(sampleFacultyInfo2); // faculty that is not allowed access (incorrect program, correct year)
     }
 
     public void testGetFacility() {
+        facilitiesManager = new FacilitiesManager(faciInfo);
+        assertEquals(facility.getFacilityInfo(), facilitiesManager.getFacility("Bahen Centre").getFacilityInfo());
     }
 
     public void testEvaluateHelper() {
-    }
-
-    public void testEvaluateStudent() {
+        facilitiesManager = new FacilitiesManager(faciInfo);
+        assertTrue(facilitiesManager.evaluateHelper(sampleStudent, facility2));
     }
 
     public void testEvaluateFaculty() {
+        facilitiesManager = new FacilitiesManager(faciInfo);
+        assertTrue(facilitiesManager.evaluateHelper(sampleFaculty, facility2));
     }
 }

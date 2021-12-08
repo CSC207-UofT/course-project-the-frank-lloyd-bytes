@@ -4,7 +4,6 @@ import entities.Facility;
 import entities.Faculty;
 import entities.Student;
 import junit.framework.TestCase;
-
 import java.util.ArrayList;
 
 public class FacilitiesManagerTest extends TestCase {

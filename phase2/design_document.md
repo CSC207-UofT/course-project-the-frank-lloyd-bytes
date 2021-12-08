@@ -168,30 +168,6 @@ Some other functionalities that we have implemented are:
 - Upload/change profile picture
 - Dark mode
 
-### Accessibility & Universal Design Principles:
-Day/Night Mode: We have implemented dark and day night modes for the app that can be used by switching the viewMode 
-switch found in the Dashboard. This feature minimizes the fatigue the user can experience by looking at a bright white 
-screen at a low lighting environment and provides a method of choice to the user. So it follows the flexibility and low
-physical effort universal design principles.
-
-MultiLanguage Option: We have set up the bases for implementing multiple language options for the app. Right now all the
-strings displayed in the xml layouts are stored in an English and French string.xml. Ideally, with a radio button group 
-in the login page, the user can switch between languages (though this doesn’t work yet). We decided to implement this 
-feature as Canada is a bilingual country and most official organizations are required to offer French options as well 
-in the services they provide to their users. We are also considering implementing a Mandarin language option as a large
-portion of the student body has Mandarin as their mother tongue. Implementation of this feature will make the app 
-equitable to use as users not comfortable with English can still easily use the app. And even if they’re comfortable 
-with English, they’ll have a choice to have the app in different languages which increases the flexibility of the app.
-
-UCheck CardView Colors: Once the user logs in, they’ll be faced with the dashboard where the UCheck Cardview is 
-displayed. While this card has the functional use of taking the user to the UCheck test + results, it also changes 
-color and text content based on whether the user has taken the test yet or the results they received from the test. 
-Having these vibrant colors and large fonted UCheck results displayed in the dashboard maximizes the “legibility” of the
-UCheck results and increases the perceptibility of information. It also acts as a warning to users who have not taken 
-their UCheck test yet or users who failed their UCheck test. In the future a notification feature can be added if the 
-user has entered the campus area (they need to allow the app to access their location) but haven’t completed the UCheck 
-test yet to increase the implementation of Tolerance for Error principle. 
-
 ### Open Questions and what has worked well with our design:
 - For dark mode, I thought about having an entity class that would store the app settings (because in the future of the 
 app there’ll be more settings to store e.g. language of the app, location enabled or not, access to gallery granted or 

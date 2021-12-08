@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity{
      */
     EditText username, password;
     Button register, login;
-    UserDBHelper DB;
+    UserDBHelper dB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity{
         password = findViewById(R.id.passwordInput);
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
-        DB = new UserDBHelper(this);
+        dB = new UserDBHelper(this);
 
 
         // Clicking to the register button takes the user to the registration page
@@ -47,10 +47,10 @@ public class LoginActivity extends AppCompatActivity{
                 Toast.makeText(LoginActivity.this, "Please enter your username and password", Toast.LENGTH_SHORT).show();
             }
             else {
-                Boolean checkUserPass = DB.checkUtorIDPassword(user, pass);
+                Boolean checkUserPass = dB.checkUtorIDPassword(user, pass);
                 if (checkUserPass) {
                     Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                    List<String> userInfo = DB.getInfo(user);
+                    List<String> userInfo = dB.getInfo(user);
                     UserManager myManager = new UserManager(userInfo);
                     Intent intent2 = new Intent(getApplicationContext(), DashBoardActivity.class);
                     intent2.putExtra("manager", myManager);

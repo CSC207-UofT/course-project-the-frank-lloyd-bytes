@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity{
     boolean[] selectedDepartment;
     List<Integer> departmentList = new ArrayList<>();
     String[] departmentArray = {"CompSci", "Math", "History", "NeuroSci", "CogSci", "Music"};
-    UserDBHelper DB;
+    UserDBHelper dB;
     RegisterController registerController;
 
     /**
@@ -57,8 +57,8 @@ public class RegisterActivity extends AppCompatActivity{
         department = findViewById(R.id.registerDepartment);
         selectedDepartment = new boolean[departmentArray.length];
 
-        DB = new UserDBHelper(this);
-        registerController = new RegisterController(DB);
+        dB = new UserDBHelper(this);
+        registerController = new RegisterController(dB);
 
         // Here we create a multi-select dropdown for the user to select the departments/programs they're in.
         department.setOnClickListener(view -> {

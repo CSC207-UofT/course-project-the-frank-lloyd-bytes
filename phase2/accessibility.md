@@ -17,7 +17,7 @@ Tolerance of Error
 - This feature isn’t very applicable because the app usage doesn’t have any risky consequences. However, if going to the campus without completing the UCheck would count as an error (since it’s a Covid self assessment, and you shouldn’t be at campus if you fail the assessment), in the future the app can pop up a notification reminding the user to complete their UCheck test when the user enters the campus grounds. For this, the user needs to give location access to the app.
 
 Low Physical Effort
-- If the user is using the app in a dark environment, having the dark mode options reduces the contrast between the screen and the environment which makes it less tiring to look at the screen.
+- If the user is using the app in a dark environment, having the dark mode options reduces the contrast between the screen and the environment which makes it less taxing on the eyes to look at the screen.
 - Having the critical user information (status of the user, their department, which year they are in) + UCheck results in the QR code makes the process to enter the facilities faster as the user won’t have to pull out each information separately. Less waiting time in the Robarts line.
 
 Size and Space for Approach and Use

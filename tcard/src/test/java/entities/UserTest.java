@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class UserTest {
     private User sampleUser;
+    private User sampleUser2;
 
     @Before
     public void setUp() {
@@ -24,6 +25,8 @@ public class UserTest {
         sampleUserInfo.add("Math"); // belongs to
 
         sampleUser = new Student(sampleUserInfo);
+        sampleUserInfo.add("1");
+        sampleUser2 = new Student(sampleUserInfo);
     }
 
     @Test
@@ -59,6 +62,30 @@ public class UserTest {
 
 
     @Test
+    public void changePicture() {
+        sampleUser.changePicture("1");
+        Assert.assertEquals("1", sampleUser.picture);
+    }
+
+    @Test
+    public void changePicture2() {
+        sampleUser2.changePicture("2");
+        Assert.assertEquals("2", sampleUser2.picture);
+    }
+
+    @Test
+    public void getFN() { Assert.assertEquals("Jonah", sampleUser.getFN());
+    }
+
+    @Test
+    public void getLN() { Assert.assertEquals("Mackey", sampleUser.getLN());
+    }
+
+    @Test
+    public void getSTATUS() { Assert.assertEquals("student", sampleUser.getSTATUS());
+    }
+
+    @Test
     public void testGetId() {
         Assert.assertEquals("mackeyjonah", sampleUser.getId());
     }
@@ -77,5 +104,6 @@ public class UserTest {
     public void tearDown() {
         sampleUser = null;
     }
-
 }
+
+

@@ -1,49 +1,53 @@
 package usecases;
 
-import entities.UCheck;
-import dataBase.UCheckResults;
-import org.junit.After;
+
+import activities.R;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class UCheckCommandsTest {
 
-    UCheck uCheckSample;
-    UCheckResults uCheckResultsSample;
+    UCheckCommands uCheckCommandsSample;
 
     @Before
     public void setUp(){
-        uCheckSample = new UCheck();
-        uCheckResultsSample = new UCheckResults();
+        uCheckCommandsSample = new UCheckCommands();
     }
 
     @Test
     public void testGetStateTrue() {
-        uCheckSample.setState(1);
-        Assert.assertEquals(1, uCheckSample.getState());
+        uCheckCommandsSample.getUCHECK().setState(1);
+        Assert.assertEquals(1, uCheckCommandsSample.getState());
     }
 
     @Test
     public void testGetStateFalse() {
-        uCheckSample.setState(2);
-        Assert.assertEquals(2, uCheckSample.getState());
+        uCheckCommandsSample.getUCHECK().setState(2);
+        Assert.assertEquals(2, uCheckCommandsSample.getState());
     }
 
     @Test
     public void testGetStateNeutral() {
-        Assert.assertEquals(0, uCheckSample.getState());
+        Assert.assertEquals(0, uCheckCommandsSample.getState());
     }
 
     @Test
     public void testGetDateUCheck() {
-        uCheckSample.setDate("test");
-        Assert.assertEquals("test", uCheckSample.getDate());
+        uCheckCommandsSample.getUCHECK().setDate("test");
+        Assert.assertEquals("test", uCheckCommandsSample.getDate());
     }
 
-    @After
-    public void tearDown() {
-        uCheckSample = null;
-        uCheckResultsSample = null;
+
+    @Test
+    public void testGetLayout(){
+        uCheckCommandsSample.getUCHECK().setState(1);
+        Assert.assertEquals(R.layout.ucheck_green_layout_view, uCheckCommandsSample.getLayout());
+        uCheckCommandsSample.getUCHECK().setState(2);
+        Assert.assertEquals(R.layout.ucheck_red_layout_view, uCheckCommandsSample.getLayout());
+        uCheckCommandsSample.getUCHECK().setState(0);
+        Assert.assertEquals(R.layout.ucheck_grey_layout_view, uCheckCommandsSample.getLayout());
     }
+
+
 }

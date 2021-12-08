@@ -1,8 +1,5 @@
 package usecases;
 
-import entities.Faculty;
-import entities.Student;
-import entities.User;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -12,15 +9,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class UserCommandsTest {
-    private User sampleStudent;
-    private User sampleFaculty;
+    ArrayList<String> sampleStudentInfo = new ArrayList<>();
+    ArrayList<String> sampleFacultyInfo = new ArrayList<>();
     private UserCommands sampleUserCommands1;
     private UserCommands sampleUserCommands2;
 
     @Before
     public void setUp() {
         // create sample student
-        ArrayList<String> sampleStudentInfo = new ArrayList<>();
+
         sampleStudentInfo.add("mackeyjonah"); // utorid
         sampleStudentInfo.add("password!"); // password
         sampleStudentInfo.add("Jonah"); // first name
@@ -30,11 +27,11 @@ public class UserCommandsTest {
         sampleStudentInfo.add("jonah.mackey@mail.utoronto.ca"); // email
         sampleStudentInfo.add("4"); // year
         sampleStudentInfo.add("Math"); // program
+        sampleStudentInfo.add("1"); //picture
 
-        sampleStudent = new Student(sampleStudentInfo);
 
         // create sample faculty
-        ArrayList<String> sampleFacultyInfo = new ArrayList<>();
+
         sampleFacultyInfo.add("mackeyjonah"); // utorid
         sampleFacultyInfo.add("password!"); // password
         sampleFacultyInfo.add("Jonah"); // first name
@@ -45,7 +42,6 @@ public class UserCommandsTest {
         sampleFacultyInfo.add("2"); // year
         sampleFacultyInfo.add("Math"); // program
 
-        sampleFaculty = new Faculty(sampleFacultyInfo);
 
         sampleUserCommands1 = new UserCommands(sampleStudentInfo);
         sampleUserCommands2 = new UserCommands(sampleFacultyInfo);
@@ -53,12 +49,29 @@ public class UserCommandsTest {
 
 
     @Test
-    public void testChangePassword() {
+    public void testChangePassword1() {
         sampleUserCommands1.changePassword("password!", "newpassword!", "newpassword!");
         sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!", "newpassword!");
 
         Assert.assertTrue(sampleUserCommands1.getUser().checkPassword("newpassword!"));
         Assert.assertFalse(sampleUserCommands2.getUser().checkPassword("newpassword!"));
+    }
+
+
+    @Test
+    public void testChangePassword2() {
+        UserCommands.PasswordUpdateResult result1 = sampleUserCommands1.changePassword("", "newpassword!", "newpassword!");
+        UserCommands.PasswordUpdateResult result2 = sampleUserCommands2.changePassword("incorrectpassword!", "newpassword!", "newpassword!");
+        UserCommands.PasswordUpdateResult result3 = sampleUserCommands1.changePassword("password!", "newpassword", "newpassword!");
+        UserCommands.PasswordUpdateResult result4 = sampleUserCommands1.changePassword("password!", "newpassword!", "newpassword!");
+        UserCommands.PasswordUpdateResult result5 = sampleUserCommands1.changePassword("newpassword!", "newpassword!", "newpassword!");
+
+        Assert.assertEquals(UserCommands.PasswordUpdateResult.EMPTY_FIELD, result1);
+        Assert.assertEquals(UserCommands.PasswordUpdateResult.OLD_PASSWORD_WRONG, result2);
+        Assert.assertEquals(UserCommands.PasswordUpdateResult.NEW_ATTEMPTS_DONT_MATCH, result3);
+        Assert.assertEquals(UserCommands.PasswordUpdateResult.SUCCESS, result4);
+        Assert.assertEquals(UserCommands.PasswordUpdateResult.NEW_SAME_AS_OLD, result5);
+
     }
 
     @Test
@@ -73,10 +86,20 @@ public class UserCommandsTest {
         Assert.assertEquals("Jonah Mackey", sampleUserCommands1.getFullName());
     }
 
+    @Test
+    public void testChangePicture(){
+        sampleUserCommands1.changePicture("2");
+        sampleUserCommands2.changePicture("2");
+        Assert.assertEquals("2", sampleUserCommands2.getInfo().get(9));
+    }
+
+    @Test
+    public void testGetInfo(){
+        Assert.assertEquals(sampleStudentInfo, sampleUserCommands1.getInfo());
+    }
+
     @After
     public void tearDown() {
-        sampleStudent = null;
-        sampleFaculty = null;
         sampleUserCommands1 = null;
         sampleUserCommands2 = null;
     }

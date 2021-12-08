@@ -1,4 +1,4 @@
-package usecases;
+package controllers;
 
 import interfaces.UserReadWriter;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Use case for user registration.
  */
-public class RegisterUseCase {
+public class RegisterHelper {
     UserReadWriter userReadWriter;
 
     /**
@@ -21,7 +21,7 @@ public class RegisterUseCase {
      * Constructs a RegisterUseCase instance
      * @param userReadWriter an instance of the database helper interface UserReadWriter
      */
-    public RegisterUseCase(UserReadWriter userReadWriter) {
+    public RegisterHelper(UserReadWriter userReadWriter) {
         this.userReadWriter = userReadWriter;
     }
 

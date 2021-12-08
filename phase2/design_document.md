@@ -33,7 +33,7 @@ There was inconsistency in our naming style. We’ve tried to use the gradle plu
 the errors. But it didn’t work. So we had to check it manually. Most of the inconsistencies should be removed now.
  
 
-### Testing: (Line Coverage) **
+### Testing: (Line Coverage) 
 - Controllers(81%)
 - Usecases(78%)
 - Entities(100%)
@@ -104,15 +104,26 @@ all, except possibly for a few violations. We plan to deal with any outstanding 
 Some violations include:
 - Smelly code UCheckQuestions: This code has hard coded questionnaire for UCheckQuestionnaireActivity (Jesse)
 
-### SOLID **
-The user class adheres to the single responsibility principle well. User class and its subclasses: Student and Faculty 
-are only responsible for storing and displaying the information of the user.
+### SOLID:
+- Single responsibility principle: The majority of our code adhere to SRP. The user class adheres to the single responsibility principle well. User class and its subclasses: Student and Faculty 
+are only responsible for storing and displaying the information of the user. The ucheck class are only responsible for Ucheck questionnaire.
 
-We only have one use case class for User, which takes all responsibilities like changing password, showing profiles and 
-creating user objects. And this problem exists in our other higher layers classes too. This is because we don’t follow 
-the dependency inversion principle. We designed the low level classes first and therefore all our higher level classes 
-had to depend on the low level class. It was not hurting much since the program isn’t big. But we will try to solve this
-in the future.
+  There are also parts we didn't do well enough to adhere this principle.We tried to remove responsibility from the activity class. However, we didn't have time to finish all of them.
+
+
+- Open/closed principle: We declared attributes as List instead of ArrayList. This allows future modification that may change the type of these attributes.
+We also changed the way the usr profile is stored. Right now it is stored in HashMap instead of a list. 
+
+  By using HashMap, people can find the information they need easily without the need to know the order of the profile. It
+also allows people to add more attributes to the profile easily.
+
+
+- Liskov substitution principle: Subclasses of User only extend the behaviours of  user class by adding more attributes to the user's profile and did not modify or remove behaviours from the User class.
+
+
+- Dependency inversion principle: Example: RegisterUseCase depends on UserDBHelper. In order to remove the code dependency
+between RegisterUseCase and the UserDBHelper, we set up the UserReadWriter interface and let the UserDBHelper implement it.
+So now RegisterUseCase depends on the interface instead of the UserDBHelper.
 
 ### Design Patterns:
 - Adapter: We used the adapter design pattern for the recycler view for facilities and merchants. These adapter classes 

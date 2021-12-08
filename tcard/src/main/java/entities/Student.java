@@ -24,6 +24,8 @@ public class Student extends User implements Serializable {
         this.profiles.put(STUDENT_YEAR, userInfo.get(7)); //year
         this.profiles.put(STUDENT_PROGRAM, userInfo.get(8)); //department
     }
+
+    @Override
     public List<String> getUserInfo(){
         List<String> info = super.getUserInfo();
         String pic = info.get(7);
@@ -32,9 +34,19 @@ public class Student extends User implements Serializable {
         info.add(pic);
         return info;
     }
+
+    /**
+     * get the year of the student
+     * @return a string of the student's year
+     */
     public String getSTUDENT_YEAR(){
         return this.profiles.get(STUDENT_YEAR);
     }
+
+    /**
+     * get the program of the student
+     * @return a string of the student's program
+     */
     public String getSTUDENT_PROGRAM(){
         return this.profiles.get(STUDENT_PROGRAM);
     }

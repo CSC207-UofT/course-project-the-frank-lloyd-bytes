@@ -43,6 +43,10 @@ public class Facility {
                 this.facilityInfo.get(FACILITY_CRITERIA);
     }
 
+    /**
+     * get the facility's info in the form of an array list, this is for one facility only
+     * @return an arraylist of strings that has the facility info.
+     */
     public ArrayList<String> getFacilityInfo(){
         ArrayList<String> facilityInfo = new ArrayList<>();
         facilityInfo.add(this.facilityInfo.get(FACILITY_NAME));

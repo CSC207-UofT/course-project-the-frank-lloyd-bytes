@@ -31,7 +31,7 @@ public class FacilityAdapter extends RecyclerView.Adapter<FacilityAdapter.ViewHo
 
     /** declares the variables for the layouts that that is used in each card in the recycler view, assigning these
      * to a variable so that we can use it later and set them to each facility's information
-     *
+     * the button is also initiated and set up in this method.
      */
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView facilityName, facilityHours, facilityAddress;

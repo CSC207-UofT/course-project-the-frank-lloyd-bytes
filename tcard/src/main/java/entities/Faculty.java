@@ -35,9 +35,19 @@ public class Faculty extends User implements Serializable {
         info.add(pic);
         return info;
     }
+
+    /**
+     * get the year of the faculty
+     * @return a string of the faculty year
+     */
     public String getFACULTY_YEAR(){
         return this.profiles.get(FACULTY_YEAR);
     }
+
+    /**
+     * get the department of the faculty
+     * @return a string of the faculty department
+     */
     public String getFACULTY_DEPARTMENT(){
         return this.profiles.get(FACULTY_DEPARTMENT);
     }

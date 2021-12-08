@@ -68,6 +68,5 @@ the merchant are applicable to you, then displays a message describing the resul
 The UCheck menu allows quick and easy access for users to complete the UCheck quiz as well as show their UCheck results.
 Students and faculty at U of T are required to complete this quiz frequently and have a green UCheck result before
 coming to campus. If you have not completed your quiz, you can complete it in this menu. After you complete the quiz,
-your UCheck result will be displayed on the screen in this menu for the next 24hrs. Once this 24hrs is up, your UCheck
-result is no longer valid, and you are required to complete the quiz again to get a result.
+your UCheck result will be displayed on the screen in this menu.
 

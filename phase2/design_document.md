@@ -249,14 +249,15 @@ feedback. The Merchants feature is something we had hoped to do since phase0. I 
 demonstrated that we were able to extend our program well.
 
 Jesse:
-- Refactored User, UserManger and UserCommands (so interface controller does not call directly from entity).
+- Refactored User, UserManger and UserCommands (display Users name and and so the interface controller does not call directly from entity).
 - Finished UCheckScrollingActivity, UCheckQuestionnaireActivity and created entities, use cases, an adapter, and an 
 interface for functionality and behaviour. Also did UI design for UCheck (beside DashboardActivity), created a 
 SharedPreference to store UCheck data with USER, reated a Non Listview for UCheckScrollingQuestionnaire since 
 Scrollingview looked and performed awful, created XML files, string values, and additional resources, fixed bugs, tested
 functionality in emulator with questionnaire.
 - Helped Kristal with UCheck in DashboardActivity.
-- UCheck functions (although I did not implement a 24-hour expiry).
+- UCheck functions and is stored so if User logsout, it will still display the time the test was completed at once online again
+ (although I did not implement a 24-hour expiry).
 - Implemented test cases for UCheck entities, use cases. Implemented additional test cases for User and UserCommands.
 - Cleaned up my code, added documentation, and did my best to adhere to clean architecture.
 - Significant pull request: Pull Request 1 (https://github.com/CSC207-UofT/course-project-the-frank-lloyd-bytes/pull/28)

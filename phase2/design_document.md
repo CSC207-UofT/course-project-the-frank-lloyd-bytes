@@ -13,10 +13,10 @@ database.
 Creating a “check access” option in the facilities menu of the app. Selecting this option for a given facility will 
 display a message indicating if you have TCard access to the facility or not. This is determined by checking if your 
 user information satisfies the criteria for access listed by the facility. We did this because we wanted a reasonable 
-way for users of the app to interact with facilities virtually
-.
+way for users of the app to interact with facilities virtually.
+
 Adding merchants into the app, and deciding on their features. Merchants and their features work similarly to 
-facilities. Instead of a “check access” button, each merchant has a “see your discouns” button that you can select to 
+facilities. Instead of a “check access” button, each merchant has a “see your discounts” button that you can select to 
 see which discounts the merchant offers apply to you.
 
 Adding a functional UCheck feature in the app, which has the UCheck questionnaire. The UCheck saves and stores the data 

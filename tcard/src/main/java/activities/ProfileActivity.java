@@ -63,6 +63,8 @@ public class ProfileActivity extends AppCompatActivity{
         year.setText(info.get(7));
         String imageAddress = info.get(9);
 
+        // The profile picture is set to the stored image Uri if there is any image Uri stored at all
+        // Since the image Uri is stored as a string, it first needs to be parsed into Uri
         if (!Objects.equals(imageAddress, " ")) {
             Uri path = Uri.parse(imageAddress);
             profilePic.setImageURI(path);
@@ -83,6 +85,9 @@ public class ProfileActivity extends AppCompatActivity{
             startActivity(intent2);
         });
 
+        // This part of the code gets the Uri of the image picked from the image gallery
+        // It puts the image uri into the imageview (profilePic) for the image to be displayed
+        // The image is converted into a string in order for it to be stored in the User object and database
         activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
@@ -98,6 +103,9 @@ public class ProfileActivity extends AppCompatActivity{
 
         });
 
+        // With this part of the code the user can select a picture from the phone gallery
+        // The permissions in the code allow for the image to be stored and used later on without having to be
+        // directly called from the gallery
         uploadPicture.setOnClickListener(view -> {
             Intent imagePickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             imagePickerIntent.setType("image/*");

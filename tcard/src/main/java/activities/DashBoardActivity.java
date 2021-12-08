@@ -140,7 +140,7 @@ public class DashBoardActivity extends AppCompatActivity{
         criteria.add(info.get(7));
         criteria.add(info.get(8));
         String uCheck ="";
-
+        // This part is for putting in the UCheck result into the QR Code
         if (layoutInt == 1){
             uCheck = "UCheck Passed";}
         else if(layoutInt == 2){
@@ -183,6 +183,7 @@ public class DashBoardActivity extends AppCompatActivity{
         });
 
     }
+    //Clicking on the CardView will take the user to the UCheck test with this intent
     public void onUCheckCardClick(View view) {
         Intent intent4 = new Intent(getApplicationContext(), UCheckScrollingActivity.class);
         intent4.putExtra("manager", myManager);

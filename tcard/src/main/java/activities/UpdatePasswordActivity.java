@@ -53,7 +53,6 @@ public class UpdatePasswordActivity extends AppCompatActivity {
         if (updateMessage.equals("Password successfully changed")){
             DB.updatePassword(myManager.getInfo());
         }
-        // checks if there are any empty input text boxes
     }
 
 }

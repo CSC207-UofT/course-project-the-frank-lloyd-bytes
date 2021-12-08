@@ -28,7 +28,7 @@ public class FacilitiesManager implements Serializable {
     }
 
     public boolean evaluateHelper(User user, Facility facility){
-        if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "Student")){
+        if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "student")){
             return evaluateStudent((Student) user, facility);
         }
         else{

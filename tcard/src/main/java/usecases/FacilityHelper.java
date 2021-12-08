@@ -21,11 +21,11 @@ public class FacilityHelper{
 
     //to decrease size of method
     public String StudentFacultyDifferHelper(User user){
-        if (user.getSTATUS().equals("Student")) {
-            return "Student";
+        if (user.getSTATUS().equals("student")) {
+            return "student";
 
         } else { // if the user is not a student, then the user is a faculty member
-            return "Faculty";
+            return "faculty";
         }
     }
 

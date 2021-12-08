@@ -1,4 +1,4 @@
-Accesibility Report
+Accessibility Report
 
 Equitable Use
 - Our app currently doesn’t have it but we tried to implement a multi language option at some point. This would make the app more equitable to use as not everyone who studies at UofT is comfortable with English (especially the student’s who are in the English Language Learning program).
@@ -28,3 +28,4 @@ Our app would be marketable towards UofT facilities and student + facilities. Th
 
 
 Currently, the program isn’t marketable to IOS users as it’s designed for Android. It’s also not marketable towards visually impaired students as all the outputs in the app are all visuals. Having the option for users to fill in the required text boxes with voice commands and having a voice reader to direct their usage of the app can solve this problem in the future. 
+Also, people who are not from U of T or who are not student or faculty in U of T can not use this app since the registration requires Utorid and U of T emails.

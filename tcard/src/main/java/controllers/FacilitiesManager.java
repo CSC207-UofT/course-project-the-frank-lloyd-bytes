@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * class that connects the use cases and the GUI
+ */
 public class FacilitiesManager implements Serializable {
     private final FacilityHelper MY_FACILITY_HELPER;
     private final FacilitiesCommands FACILITIES_COMMANDS;
@@ -23,10 +26,23 @@ public class FacilitiesManager implements Serializable {
         this.MY_FACILITY_HELPER = new FacilityHelper();
     }
 
+    /**
+     * method for getting the facility instance with the name
+     * @param name of the facility that we are trying to find
+     * @return a facility type variable where the name matches the parameter.
+     */
     public Facility getFacility(String name){
         return this.FACILITIES_COMMANDS.getFacility(name);
     }
 
+    /**
+     * an evaluate helper function that checks whether the user passed in is a student or a faculty member
+     * it then calls the evaluate function with the corresponding user. THis is to reduce the size of one large
+     * method with both evaluates which is a code smell.
+     * @param user the user to check if it has access
+     * @param facility the facility to check if the user has access to
+     * @return boolean whether the user can enter the facility
+     */
     public boolean evaluateHelper(User user, Facility facility){
         if (Objects.equals(MY_FACILITY_HELPER.StudentFacultyDifferHelper(user), "student")){
             return evaluateStudent((Student) user, facility);
@@ -36,6 +52,13 @@ public class FacilitiesManager implements Serializable {
         }
     }
 
+    /**
+     * called with the evaluate helper if the user is a student and checks if the student matches the criteria of the
+     * facility
+     * @param student to check if they have the right credentials
+     * @param facility to check if the user can enter this facility with its criteria
+     * @return boolean whether the student can answer
+     */
     public boolean evaluateStudent(Student student, Facility facility){
         ArrayList<String[]> conditions = MY_FACILITY_HELPER.
                 getFacilityCriteriaStudent(MY_FACILITY_HELPER.getCriteria(facility));
@@ -59,6 +82,13 @@ public class FacilitiesManager implements Serializable {
         return (programConditionSatisfied & yearConditionSatisfied);
     }
 
+    /**
+     * called with the evaluate helper if the user is a faculty and checks if the faculty matches the criteria of the
+     * facility
+     * @param faculty to check if they have the right credentials
+     * @param facility to check if the user can enter this facility with its criteria
+     * @return boolean whether the faculty can enter
+     */
     public boolean evaluateFaculty(Faculty faculty, Facility facility){
         ArrayList<String[]> conditions = MY_FACILITY_HELPER.
                 getFacilityCriteriaFaculty(MY_FACILITY_HELPER.getCriteria(facility));

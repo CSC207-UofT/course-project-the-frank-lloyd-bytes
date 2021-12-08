@@ -56,6 +56,10 @@ public class FacilityActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * helper method to help set up facility info. Should be replaced with the file reader initialization but it didnt work.
+     * @throws IOException when an input or output cant be interpreted.
+     */
     private void setFacilityInfo() throws IOException {
 
         //facilitiesInfo = fileReader.reader();
